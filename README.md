@@ -24,14 +24,10 @@ El repo trae un `Dockerfile` — Railway lo detecta solo al conectar el repo, si
 más:
 
 1. En Railway: **New Project → Deploy from GitHub repo** → elige `elionaz/EGAL-COMPU-2026`.
-2. (Opcional) En **Variables**, agrega `ANTHROPIC_API_KEY` para activar el tutor con IA en
-   producción — sin ella, el tutor cae automáticamente al modo local (sigue funcionando).
-3. **Si activas `ANTHROPIC_API_KEY`, agrega también `TUTOR_ACCESS_CODE`** con un código que
-   solo tú conozcas. El resto del sitio (simulacros, práctica, estudio) es estático y gratis
-   de servir, así que queda abierto — pero sin este código, cualquiera que encuentre la URL
-   pública podría drenar tu API key usando el chat con IA. Con el código puesto, el navegador
-   lo pide una sola vez (al pedir la primera pista con IA) y el servidor lo exige en cada
-   llamada a `/api/tutor`, más un límite de peticiones por IP como respaldo.
+2. **Agrega `APP_PASSWORD`** en **Variables** con un password que solo tú conozcas — sin esto,
+   el sitio queda público para quien tenga la URL. Ver la sección **Login** más abajo.
+3. (Opcional) Agrega `ANTHROPIC_API_KEY` para activar el tutor con IA en producción — sin
+   ella, el tutor cae automáticamente al modo local (sigue funcionando).
 4. Railway asigna un dominio público (`Settings → Networking → Generate Domain`) y listo: la
    app y el proxy `/api/tutor` quedan en la misma URL.
 
@@ -45,6 +41,31 @@ Para reproducir el build localmente:
 docker build -t ceneval .
 docker run -p 8000:8000 -e PORT=8000 -e ANTHROPIC_API_KEY=sk-ant-... ceneval
 ```
+
+## Login
+
+Sin `APP_PASSWORD`, el sitio es público — cualquiera con la URL puede usarlo, igual que antes.
+Con `APP_PASSWORD` configurado, **todo** el sitio (no solo el tutor) pide un password antes de
+mostrar nada:
+
+```bash
+cp .env.example .env      # luego edita APP_PASSWORD
+./serve.sh
+```
+
+- **No hay usuario, solo password** — es para uso personal, no multiusuario.
+- El navegador guarda la sesión en una cookie (`HttpOnly`, firmada, 30 días); no hay que volver
+  a escribir el password cada vez que abres el sitio.
+- Botón 🔒 en la barra superior para cerrar sesión manualmente.
+- `/api/health` (el healthcheck de Railway) y `css/styles.css` (para que la propia pantalla de
+  login se vea bien) quedan siempre públicos — todo lo demás exige la sesión.
+- Límite de 10 intentos de password fallidos por hora por IP, para que no se pueda adivinar
+  a fuerza bruta.
+
+Si ya tenías `TUTOR_ACCESS_CODE` configurado (protegía solo el tutor con IA) y ahora activas
+`APP_PASSWORD`, puedes quitar `TUTOR_ACCESS_CODE` — pedir dos passwords distintos para la misma
+persona es fricción sin beneficio. Solo tiene sentido mantener `TUTOR_ACCESS_CODE` si quieres
+el sitio abierto para otros pero el tutor con IA restringido.
 
 ## Tutor con pistas (widget flotante)
 

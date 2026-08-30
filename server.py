@@ -10,9 +10,11 @@ y, si no, cae a urllib de la biblioteca estándar.
 
 Uso:  python3 server.py [puerto]     (por defecto 8000)
 """
+import hashlib
 import hmac
 import json
 import os
+import secrets
 import sys
 import threading
 import time
@@ -36,8 +38,10 @@ TIMEOUT = 60
 VENTANA_SEG = 3600  # 1 hora
 LIMITE_PETICIONES_IP = 30  # peticiones a /api/tutor por IP por hora (con o sin código válido)
 LIMITE_FALLOS_IP = 8       # códigos inválidos por IP por hora antes de bloquear esa IP
+LIMITE_LOGIN_FALLOS_IP = 10  # passwords incorrectos por IP por hora antes de bloquear esa IP
 _peticiones_por_ip = defaultdict(deque)
 _fallos_por_ip = defaultdict(deque)
+_login_fallos_por_ip = defaultdict(deque)
 _limite_lock = threading.Lock()
 
 
@@ -53,6 +57,99 @@ def _excede_limite(mapa, ip, limite, ventana=VENTANA_SEG):
             return True
         dq.append(ahora)
         return False
+
+
+# ---- Login de un solo password para todo el sitio (opcional) ---------------
+# Sin APP_PASSWORD, el sitio queda abierto igual que antes (retrocompatible).
+# Con APP_PASSWORD, todo excepto /api/health, /api/login y css/styles.css
+# exige una cookie de sesión firmada — sin usuario, un solo password.
+COOKIE_NOMBRE = "sesion"
+SESION_DIAS = 30
+# Firma las cookies con un secreto aleatorio por proceso: reiniciar el server
+# cierra las sesiones activas (aceptable para una app de uso personal) y evita
+# depender de otra variable de entorno más.
+SESSION_SECRET = secrets.token_hex(32)
+
+
+def app_password():
+    return os.environ.get("APP_PASSWORD", "").strip()
+
+
+def _firmar(exp):
+    return hmac.new(SESSION_SECRET.encode(), str(exp).encode(), hashlib.sha256).hexdigest()
+
+
+def crear_cookie_valor():
+    exp = int(time.time()) + SESION_DIAS * 86400
+    return f"{exp}:{_firmar(exp)}"
+
+
+def cookie_valida(valor):
+    try:
+        exp_str, firma = valor.split(":", 1)
+        exp = int(exp_str)
+    except (ValueError, AttributeError):
+        return False
+    if exp < time.time():
+        return False
+    return hmac.compare_digest(firma, _firmar(exp))
+
+
+PAGINA_LOGIN = """<!doctype html>
+<html lang="es-MX" data-tema="oscuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EGAL COMPU · Acceso</title>
+<link rel="stylesheet" href="/css/styles.css">
+<style>
+  body { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  .caja { width: 100%; max-width: 340px; margin: 0 20px; text-align: center; }
+  .caja h1 { font-size: 22px; margin-bottom: 6px; }
+  .caja p.sub { margin-bottom: 20px; }
+  .caja input[type='password'] {
+    width: 100%; background: var(--bg-2); color: var(--texto); border: 1px solid var(--borde);
+    border-radius: var(--radio-s); padding: 11px 12px; font: inherit; font-size: 15px;
+    margin-bottom: 12px; box-sizing: border-box;
+  }
+  .caja .btn.primario { width: 100%; padding: 11px; }
+  .caja .error { color: var(--mal); margin-top: 12px; }
+</style>
+</head>
+<body>
+  <div class="caja panel">
+    <h1>🔒 EGAL COMPU</h1>
+    <p class="sub mini">Acceso privado — ingresa el password.</p>
+    <form id="f">
+      <input type="password" name="password" placeholder="Password" autofocus required autocomplete="current-password">
+      <button type="submit" class="btn primario">Entrar</button>
+    </form>
+    <p class="error mini" id="err" hidden>Password incorrecto.</p>
+  </div>
+  <script>
+    document.getElementById('f').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const err = document.getElementById('err');
+      err.hidden = true;
+      const password = e.target.password.value;
+      try {
+        const r = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password }),
+        });
+        if (r.ok) return location.reload();
+        const datos = await r.json().catch(() => ({}));
+        err.textContent = datos.mensaje || 'Password incorrecto.';
+        err.hidden = false;
+      } catch {
+        err.textContent = 'No se pudo conectar con el servidor.';
+        err.hidden = false;
+      }
+    });
+  </script>
+</body>
+</html>"""
 
 TIPOS_MIME = {
     ".html": "text/html; charset=utf-8",
@@ -204,23 +301,86 @@ class Handler(BaseHTTPRequestHandler):
             super().log_message(fmt, *args)
 
     # ---- utilidades ----
-    def _json(self, codigo, obj):
+    def _json(self, codigo, obj, extra_headers=None):
         cuerpo = json.dumps(obj).encode("utf-8")
         self.send_response(codigo)
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Content-Length", str(len(cuerpo)))
+        for k, v in (extra_headers or {}).items():
+            self.send_header(k, v)
         self.end_headers()
         self.wfile.write(cuerpo)
+
+    def _sesion_activa(self):
+        cookies = self.headers.get("Cookie", "")
+        for parte in cookies.split(";"):
+            clave, _, valor = parte.strip().partition("=")
+            if clave == COOKIE_NOMBRE:
+                return cookie_valida(valor)
+        return False
+
+    def _cookie_header(self, valor, max_age):
+        seguro = "; Secure" if os.environ.get("RAILWAY_ENVIRONMENT") else ""
+        return f"{COOKIE_NOMBRE}={valor}; HttpOnly; Path=/; Max-Age={max_age}; SameSite=Lax{seguro}"
+
+    def _leer_json(self):
+        try:
+            largo = int(self.headers.get("Content-Length", 0))
+        except ValueError:
+            largo = 0
+        crudo = self.rfile.read(largo) if largo else b"{}"
+        return crudo, json.loads(crudo or b"{}")
+
+    def _pagina_login(self):
+        cuerpo = PAGINA_LOGIN.encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(cuerpo)))
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        self.wfile.write(cuerpo)
+
+    def _login(self):
+        try:
+            _, datos = self._leer_json()
+        except json.JSONDecodeError:
+            return self._json(400, {"error": "JSON inválido"})
+
+        esperado = app_password()
+        if not esperado:
+            return self._json(400, {"error": "sin_password", "mensaje": "Este servidor no tiene APP_PASSWORD configurado."})
+
+        ip = self.client_address[0]
+        if _excede_limite(_login_fallos_por_ip, ip, LIMITE_LOGIN_FALLOS_IP):
+            return self._json(429, {"error": "bloqueado", "mensaje": "Demasiados intentos. Espera un momento e inténtalo de nuevo."})
+
+        recibido = str(datos.get("password", ""))
+        if not recibido or not hmac.compare_digest(recibido, esperado):
+            return self._json(401, {"error": "password_incorrecto", "mensaje": "Password incorrecto."})
+
+        return self._json(200, {"ok": True}, {"Set-Cookie": self._cookie_header(crear_cookie_valor(), SESION_DIAS * 86400)})
+
+    def _logout(self):
+        return self._json(200, {"ok": True}, {"Set-Cookie": self._cookie_header("", 0)})
 
     # ---- rutas ----
     def do_GET(self):
         ruta = self.path.split("?", 1)[0]
         if ruta == "/api/health":
-            return self._json(200, {"ai": bool(api_key()), "codigo_requerido": bool(codigo_esperado())})
+            return self._json(200, {"ai": bool(api_key()), "codigo_requerido": bool(codigo_esperado()), "login_requerido": bool(app_password())})
+        if ruta == "/css/styles.css":
+            return self._servir_estatico(ruta)  # sin datos sensibles: siempre público, lo usa la pantalla de login
+        if app_password() and not self._sesion_activa():
+            return self._pagina_login()
         return self._servir_estatico(ruta)
 
     def do_POST(self):
-        if self.path.split("?", 1)[0] != "/api/tutor":
+        ruta = self.path.split("?", 1)[0]
+        if ruta == "/api/login":
+            return self._login()
+        if ruta == "/api/logout":
+            return self._logout()
+        if ruta != "/api/tutor":
             return self._json(404, {"error": "Ruta no encontrada"})
 
         # Siempre se drena el body antes de responder lo que sea: si se corta antes,
@@ -231,6 +391,9 @@ class Handler(BaseHTTPRequestHandler):
         except ValueError:
             largo = 0
         cuerpo_crudo = self.rfile.read(largo) if largo else b"{}"
+
+        if app_password() and not self._sesion_activa():
+            return self._json(401, {"error": "no_autenticado", "mensaje": "Inicia sesión para usar el tutor."})
 
         if not api_key():
             return self._json(503, {"error": "sin_api_key", "mensaje": "No hay ANTHROPIC_API_KEY configurada."})
@@ -289,7 +452,8 @@ def main():
         ia = "con tutor IA (Claude), con código de acceso" if codigo_esperado() else "con tutor IA (Claude), SIN código de acceso — cualquiera con la URL puede usarlo"
     else:
         ia = "sin tutor IA (agrega ANTHROPIC_API_KEY a .env o a las variables de entorno para activarlo)"
-    print(f"Simulador EGAL COMPU → http://{host}:{puerto}  [{ia}]")
+    login = "con login (APP_PASSWORD)" if app_password() else "SIN login — el sitio es público para quien tenga la URL"
+    print(f"Simulador EGAL COMPU → http://{host}:{puerto}  [{login}] [{ia}]")
     print("Ctrl+C para detener.")
     try:
         servidor.serve_forever()

@@ -60,6 +60,19 @@ for _ in range(server.LIMITE_PETICIONES_IP):
     assert server._excede_limite(server._peticiones_por_ip, ip, server.LIMITE_PETICIONES_IP) is False
 assert server._excede_limite(server._peticiones_por_ip, ip, server.LIMITE_PETICIONES_IP) is True
 print('  OK  código de acceso (TUTOR_ACCESS_CODE) y límite de tasa por IP')
+
+# Login de un solo password (APP_PASSWORD): sin configurar, no se exige nada.
+assert server.app_password() == ''
+os.environ['APP_PASSWORD'] = 'abc123'
+assert server.app_password() == 'abc123'
+
+# Cookie de sesión firmada: válida recién creada, inválida si se manipula o expiró.
+valor = server.crear_cookie_valor()
+assert server.cookie_valida(valor) is True
+assert server.cookie_valida(valor[:-1] + ('0' if valor[-1] != '0' else '1')) is False  # firma alterada
+assert server.cookie_valida('1:firma-invalida') is False  # expirada (exp=1) y con firma mala
+assert server.cookie_valida('no-tiene-dos-puntos-invalido') is False  # formato inválido
+print('  OK  login (APP_PASSWORD) y cookie de sesión firmada')
 PY
 
 echo; echo "── Interfaz (Chrome headless) ──"

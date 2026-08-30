@@ -18,6 +18,7 @@ let ultimo = null;      // último resultado calificado
 let modal = null;       // { titulo, texto, acciones: [{etiqueta, accion, clase}] }
 let cronoId = null;
 let tsPregunta = 0;
+let loginRequerido = false; // el servidor exige APP_PASSWORD (ver /api/health)
 
 // ---------------------------------------------------------------- arranque
 
@@ -30,6 +31,7 @@ async function init() {
     await cargarBanco();
     await gam.cargarPlan();
     await cargarLecciones();
+    await comprobarLogin();
   } catch (err) {
     $app.innerHTML = `<div class="panel"><h2>No se pudo cargar el banco</h2>
       <p class="mini">${escapeHtml(err.message)}</p>
@@ -47,6 +49,15 @@ async function init() {
     guardarAhora();
   });
   ir('inicio');
+}
+
+async function comprobarLogin() {
+  try {
+    const r = await fetch('/api/health');
+    if (r.ok) loginRequerido = (await r.json()).login_requerido === true;
+  } catch {
+    loginRequerido = false;
+  }
 }
 
 function ir(nombre, datos = {}) {
@@ -103,7 +114,8 @@ function barraExtra() {
     ${hud}
     <button class="btn chico fantasma" data-accion="progreso">Progreso</button>
     <button class="btn chico fantasma" data-accion="estadisticas">Estadísticas</button>
-    <button class="btn chico icono fantasma" data-accion="tema" title="Cambiar tema">${tema}</button>`;
+    <button class="btn chico icono fantasma" data-accion="tema" title="Cambiar tema">${tema}</button>
+    ${loginRequerido ? '<button class="btn chico icono fantasma" data-accion="cerrar-sesion" title="Cerrar sesión">🔒</button>' : ''}`;
 }
 
 function anillo(pct, r = 26, grosor = 6) {
@@ -956,6 +968,10 @@ function ejecutar(accion, el) {
       aplicarTema(nuevo);
       return render();
     }
+
+    case 'cerrar-sesion':
+      fetch('/api/logout', { method: 'POST' }).finally(() => location.reload());
+      return;
 
     case 'simulacro': {
       const escala = Number(el.dataset.escala);
