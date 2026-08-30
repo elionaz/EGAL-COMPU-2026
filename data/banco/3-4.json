@@ -1,0 +1,287 @@
+{
+  "area": "3",
+  "areaNombre": "Desarrollo de software de aplicación",
+  "subarea": "3.4",
+  "subareaNombre": "Seguridad informática",
+  "seccion": "disciplinar",
+  "lecturas": [],
+  "preguntas": [
+    {
+      "id": "3.4-001",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Principios CIA",
+      "lecturaId": null,
+      "contexto": "El servidor de nóminas de una empresa queda inaccesible durante ocho horas a causa de un ataque de denegación de servicio. Al restablecerse el servicio se comprueba que ningún registro fue modificado y que ninguna información salió de la organización.",
+      "enunciado": "¿Qué principio de la tríada CIA resultó comprometido en el incidente?",
+      "opciones": [
+        "Confidencialidad, porque el atacante accedió a los datos de nómina",
+        "Integridad, porque los registros dejaron de ser confiables",
+        "Disponibilidad, porque los usuarios legítimos no pudieron usar el servicio"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "La disponibilidad exige que la información y los servicios estén accesibles para los usuarios autorizados cuando los requieren, y un ataque de denegación de servicio la ataca directamente. La confidencialidad no se vio afectada porque no hubo divulgación, y la integridad tampoco porque los registros permanecieron intactos; identificar cuál de los tres principios se rompe es el primer paso para elegir el control adecuado."
+    },
+    {
+      "id": "3.4-002",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Criptografía simétrica",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es la característica que distingue al AES frente al RSA?",
+      "opciones": [
+        "AES emplea una clave pública para cifrar y una clave privada para descifrar",
+        "AES emplea la misma clave secreta para cifrar y para descifrar el mensaje",
+        "AES no requiere clave alguna porque opera como una función de resumen"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "AES, igual que DES, 3DES y RC4, es un algoritmo simétrico: emisor y receptor comparten una sola clave secreta, lo que lo hace muy rápido pero exige un canal seguro para distribuirla. RSA es asimétrico y usa un par de claves complementarias, y ninguna función de cifrado opera sin clave, pues eso describiría a un algoritmo hash como SHA-256."
+    },
+    {
+      "id": "3.4-003",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Criptografía asimétrica",
+      "lecturaId": null,
+      "contexto": "Ana necesita enviar a Beto un contrato que debe viajar confidencial y que además permita a Beto comprobar que fue Ana quien lo redactó. Cada uno posee su propio par de claves RSA y conoce la clave pública del otro.",
+      "enunciado": "¿Qué claves debe utilizar Ana para cumplir simultáneamente ambos requisitos?",
+      "opciones": [
+        "Cifrar el contrato con la clave privada de Ana y firmarlo con la clave pública de Beto",
+        "Cifrar el contrato con la clave pública de Ana y firmarlo con la clave privada de Beto",
+        "Cifrar el contrato con la clave pública de Beto y firmarlo con la clave privada de Ana"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "La confidencialidad se obtiene cifrando con la clave pública del destinatario, ya que solo su clave privada puede deshacer esa operación. La autenticidad se obtiene con la operación inversa: el emisor firma con su clave privada y cualquiera verifica con su clave pública. Las otras combinaciones dejarían el contrato legible para cualquiera o harían imposible que Beto lo descifrara."
+    },
+    {
+      "id": "3.4-004",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Funciones hash",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Un sitio de descargas publica junto a cada instalador su valor SHA-256. ¿Cuál es el propósito de ese dato?",
+      "opciones": [
+        "Permitir al usuario verificar que el archivo descargado no fue alterado",
+        "Cifrar el archivo para que solo el usuario registrado pueda abrirlo",
+        "Comprimir el archivo y reducir el tiempo total de descarga"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "Una función hash produce un resumen de longitud fija y es unidireccional: si un solo bit del archivo cambia, el resumen cambia por completo, así que comparar el SHA-256 calculado localmente contra el publicado comprueba la integridad. El hash no oculta el contenido, por lo que no cifra, ni reduce el tamaño del archivo, ya que el original se transmite completo."
+    },
+    {
+      "id": "3.4-005",
+      "tipo": "completamiento",
+      "dificultad": "sobresaliente",
+      "tema": "Firmas digitales",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "En una firma digital el emisor calcula el ______ del mensaje y lo cifra con su ______; el receptor lo descifra con la ______ del emisor y lo compara con el resumen que él mismo calcula.",
+      "opciones": [
+        "resumen hash / clave pública / clave privada",
+        "resumen hash / clave privada / clave pública",
+        "texto cifrado / clave de sesión / clave simétrica"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "Se firma el resumen y no el mensaje completo porque el cifrado asimétrico es costoso y el hash tiene longitud fija. El cifrado se hace con la clave privada del emisor, la única que él posee, de modo que la verificación con su clave pública prueba el origen y da no repudio. Invertir las claves haría que cualquiera pudiera firmar, y una clave de sesión simétrica no identifica a un firmante individual."
+    },
+    {
+      "id": "3.4-006",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Certificados y PKI",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es la función de una autoridad certificadora dentro de una infraestructura de clave pública (PKI)?",
+      "opciones": [
+        "Generar y custodiar las claves privadas de todos los usuarios de la red",
+        "Cifrar el tráfico HTTPS que circula entre el navegador y el servidor",
+        "Vincular una identidad con una clave pública mediante un certificado que ella firma"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "La autoridad certificadora es el tercero de confianza que verifica la identidad del solicitante y emite un certificado X.509 firmado con su propia clave privada, lo que permite a cualquiera confiar en la clave pública contenida. Las claves privadas nunca salen de su titular, y el cifrado del tráfico lo realizan el navegador y el servidor durante la sesión TLS, no la autoridad."
+    },
+    {
+      "id": "3.4-007",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Certificados SSL/TLS",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Durante el establecimiento de una sesión TLS, ¿para qué se emplea principalmente la criptografía asimétrica?",
+      "opciones": [
+        "Para autenticar al servidor y acordar de forma segura la clave simétrica de sesión",
+        "Para cifrar todo el tráfico de la sesión, por ser más rápida que la simétrica",
+        "Para calcular el resumen de integridad de cada segmento transmitido"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "TLS es un esquema híbrido: la parte asimétrica sirve para validar el certificado del servidor y para negociar una clave simétrica efímera, y a partir de ahí todo el tráfico viaja cifrado con un algoritmo simétrico como AES, mucho más rápido. La integridad de cada registro se protege con un código de autenticación de mensaje basado en hash, no con RSA."
+    },
+    {
+      "id": "3.4-008",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Autenticación y control de acceso",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál de las siguientes combinaciones constituye una autenticación de dos factores genuina?",
+      "opciones": [
+        "Una contraseña y la respuesta a una pregunta secreta definida al registrarse",
+        "Una contraseña y un código temporal generado por un token físico del usuario",
+        "Un NIP numérico y una contraseña alfanumérica de ocho caracteres"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "La autenticación multifactor exige credenciales de categorías distintas: algo que se sabe, algo que se tiene y algo que se es. La contraseña pertenece a la primera categoría y el token físico a la segunda, por lo que sí hay dos factores. La pregunta secreta, el NIP y la contraseña son todos conocimiento, de modo que las otras opciones solo repiten el mismo factor."
+    },
+    {
+      "id": "3.4-009",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "OAuth y JWT",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Una API emite tokens JWT firmados con HMAC-SHA256. ¿Qué garantiza esa firma sobre el token recibido?",
+      "opciones": [
+        "Que el contenido viaja cifrado y resulta ilegible para cualquier intermediario",
+        "Que el token caduca solo, aunque no incluya la declaración de expiración",
+        "Que el contenido no fue alterado y fue emitido por quien posee la clave secreta"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "La firma de un JWT aporta integridad y autenticidad del emisor, pero el encabezado y la carga útil solo están codificados en Base64URL, de modo que cualquiera puede leerlos: por eso no deben incluirse datos sensibles sin usar JWE. La caducidad depende exclusivamente de la declaración exp y de que el servidor la valide."
+    },
+    {
+      "id": "3.4-010",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Vulnerabilidades comunes",
+      "lecturaId": null,
+      "contexto": "```java\nString usuario = request.getParameter(\"user\");\nString clave = request.getParameter(\"pass\");\nString q = \"SELECT * FROM usuarios WHERE user='\" + usuario + \"' AND pass='\" + clave + \"'\";\nResultSet rs = stmt.executeQuery(q);\n```",
+      "enunciado": "El fragmento permite iniciar sesión escribiendo `' OR '1'='1` en el campo de usuario. ¿Cuál es la corrección más efectiva?",
+      "opciones": [
+        "Reemplazar las comillas simples de la entrada mediante una función de escape propia",
+        "Sustituir la concatenación por una sentencia preparada con parámetros enlazados",
+        "Limitar a veinte caracteres la longitud de los campos usuario y clave"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "El defecto es una inyección de SQL: al concatenar la entrada, los datos se interpretan como parte de la sentencia. Una sentencia preparada envía la consulta y los valores por canales separados, así que la entrada nunca se compila como código. El escape manual es frágil ante codificaciones alternativas y la restricción de longitud solo acorta la carga, sin impedir el ataque."
+    },
+    {
+      "id": "3.4-011",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Vulnerabilidades comunes",
+      "lecturaId": null,
+      "contexto": "```php\n<?php\n  $q = $_GET['q'];\n  echo \"<p>Resultados para: \" . $q . \"</p>\";\n?>\n```",
+      "enunciado": "¿Qué vulnerabilidad presenta el fragmento anterior?",
+      "opciones": [
+        "Cross-site scripting reflejado, porque devuelve la entrada sin codificarla",
+        "Cross-site request forgery, porque no valida el origen de la petición",
+        "Desbordamiento de búfer, porque no delimita el tamaño de la variable"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "El valor del parámetro se escribe tal cual dentro del HTML, así que una entrada como una etiqueta de script se ejecutaría en el navegador de la víctima: es XSS reflejado y se corrige codificando la salida con htmlspecialchars. El CSRF exige una acción con efecto que aproveche la sesión activa, y el desbordamiento de búfer solo aparece en lenguajes con gestión manual de memoria."
+    },
+    {
+      "id": "3.4-012",
+      "tipo": "relacion",
+      "dificultad": "sobresaliente",
+      "tema": "Vulnerabilidades comunes",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Relacione cada vulnerabilidad con el mecanismo que la hace posible.\n\n1. CSRF\n2. Buffer overflow\n3. SQL injection\n\na. Escribe más datos de los que admite una región de memoria y sobrescribe la dirección de retorno\nb. Inserta cláusulas en una consulta construida por concatenación y altera su lógica\nc. Aprovecha la sesión ya autenticada de la víctima para provocar una petición no deseada",
+      "opciones": [
+        "1a, 2b, 3c",
+        "1b, 2c, 3a",
+        "1c, 2a, 3b"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "El CSRF no roba credenciales: engaña al navegador para que envíe una petición legítima usando la cookie de sesión vigente, y por eso se mitiga con tokens antifalsificación. El desbordamiento de búfer es un defecto de memoria propio de C y C++, mientras que la inyección de SQL nace de mezclar datos con código en la consulta."
+    },
+    {
+      "id": "3.4-013",
+      "tipo": "choice",
+      "dificultad": "sobresaliente",
+      "tema": "Seguridad en redes",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Seleccione las **dos** afirmaciones correctas sobre los mecanismos de seguridad perimetral.",
+      "opciones": [
+        "Un firewall de filtrado de paquetes inspecciona el contenido de las cargas cifradas",
+        "Una DMZ aloja los servidores de acceso público en un segmento aislado de la red interna",
+        "Una VPN sustituye al control de acceso porque autoriza por sí sola cada aplicación",
+        "Un IPS puede bloquear o descartar el tráfico malicioso, además de detectarlo",
+        "Un IDS interrumpe la conexión sospechosa antes de que alcance su destino"
+      ],
+      "respuesta": [
+        1,
+        3
+      ],
+      "explicacion": "La zona desmilitarizada separa los servicios expuestos a Internet de la red corporativa, de modo que comprometer un servidor público no da acceso directo al interior. El IPS se coloca en línea y actúa sobre el tráfico, a diferencia del IDS, que solo observa y alerta. El firewall de filtrado de paquetes decide con base en direcciones y puertos y no ve dentro del tráfico cifrado, y la VPN aporta un túnel cifrado pero no reemplaza la autorización por aplicación."
+    },
+    {
+      "id": "3.4-014",
+      "tipo": "orden",
+      "dificultad": "satisfactorio",
+      "tema": "Certificados SSL/TLS",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Ordene los pasos del establecimiento de una sesión HTTPS entre un navegador y un servidor web.",
+      "opciones": [
+        "El servidor responde con su certificado digital, que contiene su clave pública",
+        "El cliente envía el saludo inicial con las suites de cifrado que soporta",
+        "El cliente valida el certificado contra la autoridad certificadora que lo firmó",
+        "Ambos extremos derivan la clave de sesión y continúan con cifrado simétrico"
+      ],
+      "respuesta": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "explicacion": "El protocolo de saludo TLS comienza siempre con el cliente proponiendo versiones y suites de cifrado; el servidor elige una y presenta su certificado. Solo después de validar la cadena de confianza tiene sentido negociar el material criptográfico, y una vez derivada la clave de sesión el resto de la comunicación usa cifrado simétrico por eficiencia."
+    },
+    {
+      "id": "3.4-015",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Normativas",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Qué distingue a la norma ISO/IEC 27001 del documento OWASP Top 10?",
+      "opciones": [
+        "La ISO 27001 enumera los diez ataques web más frecuentes y el OWASP Top 10 certifica a las organizaciones que los mitigan",
+        "La ISO 27001 certifica un sistema de gestión de la seguridad de la información y el OWASP Top 10 enumera los riesgos más críticos de las aplicaciones web",
+        "Ambos son estándares criptográficos que definen los algoritmos de cifrado permitidos en cada país"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "La ISO/IEC 27001 es una norma certificable de alcance organizacional que exige establecer, operar y mejorar un SGSI con base en el análisis de riesgos. El OWASP Top 10 es un documento de concienciación, sin carácter certificable, que jerarquiza las debilidades más frecuentes del software web. Ninguno de los dos define algoritmos de cifrado, tarea que corresponde a estándares como FIPS o a las publicaciones del NIST."
+    }
+  ]
+}

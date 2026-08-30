@@ -1,0 +1,225 @@
+{
+  "area": "5",
+  "areaNombre": "Comprensión lectora",
+  "subarea": "5.2",
+  "subareaNombre": "Ámbito literario",
+  "seccion": "lenguaje",
+  "lecturas": [
+    {
+      "id": "L5.2-01",
+      "titulo": "El reloj de la estación",
+      "genero": "cuento",
+      "texto": "Durante treinta y un años, Tomás Berrocal abrió la estación de Belén de las Flores a las cinco y media de la mañana, barrió el andén de oriente a poniente y subió a darle cuerda al reloj. Era un reloj de pared, con caja de cedro y números romanos, colgado en la fachada de modo que se leyera desde la plaza. La gente del pueblo lo consultaba sin darse cuenta: al pasar, al abrir un negocio, al despedir a un hijo.\n\nUn martes de marzo bajó del tren un inspector de la compañía con un maletín y un aparato pequeño que traía la hora exacta desde la capital. Comparó, anotó, volvió a comparar. Después buscó a Tomás en la oficina de boletos y le dijo, sin ninguna intención de ofenderlo, que el reloj de la estación adelantaba cuatro minutos. Cuatro minutos justos. Llevaba así, calculaba, por lo menos veinte años.\n\nTomás no discutió. Esa noche, cuando la plaza quedó vacía, subió la escalera, abrió la caja de cedro y movió las manecillas hacia atrás. Bajó con una satisfacción que no había sentido en mucho tiempo: por primera vez en dos décadas, su estación marcaba la hora verdadera. Durmió poco, como duerme quien espera que algo salga bien.\n\nA las siete de la mañana siguiente, don Aurelio Pantoja llegó al andén con su maleta y vio los vagones alejándose. La maestra Robles entró al aula cuando sus alumnos llevaban ya un rato solos. El panadero sacó el pan cuatro minutos tarde y lo vendió tibio, no caliente, y sus clientes lo notaron. A media mañana había en la puerta de la estación un grupo de vecinos que hablaba en voz alta y señalaba hacia la fachada.\n\nLa maestra Robles fue la única que entró. Se quedó frente al mostrador, se acomodó el rebozo y le habló con calma. Nosotros no vivimos con la hora, señor Tomás, le dijo. Vivimos con su reloj. Usted nos lo puso ahí hace treinta y un años y todos aprendimos a salir de casa cuando lo veíamos marcar. Y se fue sin esperar respuesta.\n\nEsa noche Tomás volvió a subir la escalera. Adelantó las manecillas cuatro minutos y cerró la caja de cedro. Después sacó de un cajón una libreta vieja de tapas verdes y escribió, en la primera página en blanco, la hora exacta que le había dictado el inspector. Guardó la libreta bajo el mostrador. Al día siguiente el pueblo llegó puntual a todas partes y nadie volvió a mencionar el asunto."
+    },
+    {
+      "id": "L5.2-02",
+      "titulo": "El mar de Herminia",
+      "genero": "cuento",
+      "texto": "Herminia Cázares cumplió setenta y ocho años sin haber visto el mar. Había nacido en un pueblo de Zacatecas donde el agua se medía en cubetas y allí se había quedado, primero por su madre, después por sus hijos y al final por costumbre. En una caja de galletas guardaba treinta y dos postales: acantilados, palmeras, una playa de arena negra, un muelle con gaviotas. Las acomodaba por color. Nunca pidió que la llevaran, aunque en más de una época el dinero habría alcanzado.\n\nEse año sus hijos decidieron que ya estuvo bueno. Juntaron el gasto entre los cuatro, compraron boletos de autobús a Tecolutla y reservaron tres noches en un hotel frente a la playa. Se lo dijeron en la comida de su cumpleaños, todos a la vez, y Herminia se rió, dijo que estaban locos y aceptó.\n\nDurante tres semanas se preparó como para un examen. Compró un sombrero de palma y un vestido de manta. Sacó del librero el diccionario de su difunto esposo y aprendió palabras que hasta entonces solo había leído al reverso de las postales: marea, resaca, sargazo, bajamar. Las repetía mientras lavaba los trastes. No le preguntó nada a su hija Lucía, que vivía en Veracruz desde hacía veinte años y podría haberle contado cualquier cosa.\n\nLa mañana del viaje llegaron a la central camionera con dos horas de anticipación. Herminia se sentó en la sala de espera con el sombrero sobre las rodillas. Cuando anunciaron el andén, se levantó, caminó hasta la ventanilla y devolvió su boleto. Lo hizo con una serenidad que desarmó a todos.\n\nSu nieto Fabián fue el único que se atrevió a preguntarle por qué. Ella le explicó que llevaba cuarenta años puliendo ese mar, quitándole las piedras, poniéndole el color exacto a cada hora del día. El de allá, dijo, ha de hacer mucho ruido. Y ha de estar lleno de gente con hielera.\n\nVolvió en taxi con Fabián. En la casa sacó la caja de galletas, buscó un espacio entre la postal del muelle y la del acantilado y colocó ahí una nueva, que había comprado esa misma mañana en un puesto de la central: una playa cualquiera, al atardecer, sin una sola persona."
+    },
+    {
+      "id": "L5.2-03",
+      "titulo": "Elogio de la relectura",
+      "genero": "ensayo literario",
+      "texto": "Hay una superstición amable según la cual releer es perder el tiempo. El argumento parece sólido: los libros son muchos, la vida es corta y volver sobre una novela ya conocida equivale a comer dos veces el mismo pan. Quiero defender lo contrario. Releer no es repetir una lectura: es medir la distancia que hemos recorrido desde la primera.\n\nUn libro no cambia; nosotros sí. A los quince años leí una novela cuyo protagonista abandonaba a su familia para irse a otra ciudad, y me pareció un héroe. La releí a los treinta y dos, con dos hijos dormidos en el cuarto de al lado, y el mismo personaje me pareció un cobarde. No había una sola coma distinta. Lo que había cambiado era el lector, y el libro me lo hizo saber sin decírmelo. Ningún espejo es tan preciso.\n\nDe ahí que la relectura sea, entre otras cosas, un instrumento de medición. Guardamos fotografías para saber cómo éramos de cara; deberíamos guardar libros releídos para saber cómo éramos por dentro. Los subrayados viejos son el mejor testimonio: uno abre el volumen y encuentra marcada una frase que hoy le resulta indiferente, y otra, la que hoy le parece esencial, limpia y sin señal alguna.\n\nExiste además un placer técnico. En la primera lectura estamos ocupados en averiguar qué pasa; el suspenso nos empuja hacia adelante y nos impide mirar el andamiaje. Solo cuando ya sabemos el final podemos ver cómo el autor lo preparó: la frase aparentemente casual del segundo capítulo, el objeto mencionado una sola vez que reaparecerá doscientas páginas después. La primera lectura es del lector; la segunda es del escritor que hay en él.\n\nSe me objetará que hay libros que no resisten la segunda visita. Es cierto, y me parece una buena noticia: la relectura funciona también como criba. Un libro que en el primer encuentro nos deslumbró con su ingenio y en el segundo se nos deshace en la mano era, probablemente, un truco bien ejecutado. Los que resisten, y sobre todo los que crecen, son pocos, y conviene saber cuáles son antes de recomendarlos.\n\nNo propongo dejar de leer novedades. Propongo apartar, digamos, uno de cada cinco libros del año para regresar a algo ya leído. No para confirmar lo que sabemos, sino para descubrir con alguna incomodidad que ya no somos quienes subrayaron aquello. Esa incomodidad tiene un nombre viejo y en desuso: se llama aprender."
+    }
+  ],
+  "preguntas": [
+    {
+      "id": "5.2-001",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Identificación de información",
+      "lecturaId": "L5.2-01",
+      "contexto": null,
+      "enunciado": "¿Cómo se entera Tomás de que el reloj de la estación está desfasado?",
+      "opciones": [
+        "Un inspector de la compañía lo compara con un aparato que trae la hora exacta desde la capital",
+        "La maestra Robles se lo hace notar cuando llega tarde a su aula",
+        "Él mismo lo descubre una mañana de marzo, al darle cuerda"
+      ],
+      "respuesta": [0],
+      "explicacion": "El segundo párrafo narra la escena: “bajó del tren un inspector de la compañía con un maletín y un aparato pequeño que traía la hora exacta desde la capital”, y es él quien le informa que “el reloj de la estación adelantaba cuatro minutos”. La maestra aparece después, ya corregido el reloj, y Tomás no descubre nada por su cuenta: el texto dice que “no discutió”."
+    },
+    {
+      "id": "5.2-002",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Interpretación",
+      "lecturaId": "L5.2-01",
+      "contexto": null,
+      "enunciado": "¿Qué quiere decir la maestra Robles con la frase “Nosotros no vivimos con la hora, señor Tomás. Vivimos con su reloj”?",
+      "opciones": [
+        "Que la vida del pueblo se organizaba en torno a una referencia compartida, con independencia de que fuera exacta",
+        "Que los habitantes del pueblo desconfían de los instrumentos que llegan de la capital",
+        "Que el pueblo responsabiliza a Tomás de la mala puntualidad de los trenes"
+      ],
+      "respuesta": [0],
+      "explicacion": "La propia maestra explica su frase enseguida: “Usted nos lo puso ahí hace treinta y un años y todos aprendimos a salir de casa cuando lo veíamos marcar”, es decir, la referencia era el reloj, no la hora oficial. El texto no atribuye al pueblo ninguna desconfianza hacia la capital, y el problema del día no fueron los trenes en sí, sino que la gente ajustó su rutina a un reloj que de pronto cambió."
+    },
+    {
+      "id": "5.2-003",
+      "tipo": "orden",
+      "dificultad": "satisfactorio",
+      "tema": "Identificación de información",
+      "lecturaId": "L5.2-01",
+      "contexto": null,
+      "enunciado": "Ordena los sucesos del cuento según el orden en que ocurren.",
+      "opciones": [
+        "Los vecinos se reúnen frente a la estación y señalan hacia la fachada",
+        "Un inspector informa a Tomás que el reloj adelanta cuatro minutos",
+        "Tomás anota la hora exacta en una libreta y la guarda bajo el mostrador",
+        "Tomás atrasa las manecillas para que el reloj marque la hora verdadera",
+        "La maestra Robles le explica a Tomás cómo se orienta el pueblo"
+      ],
+      "respuesta": [1, 3, 0, 4, 2],
+      "explicacion": "El relato avanza en ese orden: el inspector informa el desfase un “martes de marzo”; “esa noche” Tomás mueve “las manecillas hacia atrás”; “a media mañana” del día siguiente hay “un grupo de vecinos” en la puerta; después “la maestra Robles fue la única que entró”; y por último, “esa noche”, Tomás escribe la hora exacta en la libreta y la guarda “bajo el mostrador”. La libreta es el gesto final del cuento."
+    },
+    {
+      "id": "5.2-004",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Evaluación de la forma y el contenido",
+      "lecturaId": "L5.2-01",
+      "contexto": null,
+      "enunciado": "¿Qué sugiere el desenlace, en el que Tomás adelanta de nuevo el reloj y anota la hora exacta en una libreta que guarda bajo el mostrador?",
+      "opciones": [
+        "Que conserva para sí el dato verdadero mientras devuelve al pueblo la referencia con la que sabe vivir",
+        "Que reúne pruebas para reclamar más adelante ante la compañía por el trato del inspector",
+        "Que ha decidido corregir el reloj poco a poco, sin que los vecinos lleguen a advertirlo"
+      ],
+      "respuesta": [0],
+      "explicacion": "Las dos acciones del final se oponen deliberadamente: Tomás “adelantó las manecillas cuatro minutos” —restituye el reloj del pueblo— y a la vez escribe “la hora exacta que le había dictado el inspector” en una libreta que “guardó bajo el mostrador”, es decir, para él solo. Nada indica un reclamo a la compañía, y la corrección gradual queda descartada porque el reloj vuelve de golpe a su desfase original y “nadie volvió a mencionar el asunto”."
+    },
+    {
+      "id": "5.2-005",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Identificación de información",
+      "lecturaId": "L5.2-02",
+      "contexto": null,
+      "enunciado": "¿Qué hace Herminia la mañana del viaje, cuando anuncian el andén?",
+      "opciones": [
+        "Se levanta, camina hasta la ventanilla y devuelve su boleto",
+        "Pide a sus hijos que pospongan el viaje para el año siguiente",
+        "Sube al autobús y baja de él antes de que salga de la central"
+      ],
+      "respuesta": [0],
+      "explicacion": "El cuarto párrafo lo narra sin ambigüedad: “Cuando anunciaron el andén, se levantó, caminó hasta la ventanilla y devolvió su boleto”. Herminia no pide aplazar nada ni llega a subir al autobús; el narrador subraya que lo hizo “con una serenidad que desarmó a todos”."
+    },
+    {
+      "id": "5.2-006",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Interpretación",
+      "lecturaId": "L5.2-02",
+      "contexto": null,
+      "enunciado": "Según lo que Herminia le explica a su nieto, ¿por qué renuncia al viaje?",
+      "opciones": [
+        "Porque prefiere el mar que ha imaginado durante cuarenta años al que encontraría en la playa real",
+        "Porque teme que un viaje tan largo resulte excesivo para su edad",
+        "Porque no quiere que sus hijos gasten en ella el dinero que juntaron"
+      ],
+      "respuesta": [0],
+      "explicacion": "La explicación está en boca de la propia Herminia: “llevaba cuarenta años puliendo ese mar, quitándole las piedras, poniéndole el color exacto a cada hora del día. El de allá, dijo, ha de hacer mucho ruido”. El cuento no menciona temores de salud ni reparos por el gasto: de hecho, Herminia había aceptado el regalo en la comida de su cumpleaños y se preparó tres semanas para el viaje."
+    },
+    {
+      "id": "5.2-007",
+      "tipo": "completamiento",
+      "dificultad": "satisfactorio",
+      "tema": "Interpretación",
+      "lecturaId": "L5.2-02",
+      "contexto": null,
+      "enunciado": "El conflicto del cuento se sostiene en la tensión entre ______ y ______.",
+      "opciones": [
+        "el mar que Herminia ha construido en su imaginación / la experiencia concreta que sus hijos le ofrecen",
+        "el deseo de viajar que Herminia guarda en secreto / la oposición de su familia a que lo cumpla",
+        "la pobreza del pueblo donde Herminia creció / la prosperidad del puerto al que la llevarían"
+      ],
+      "respuesta": [0],
+      "explicacion": "Todo el relato opone esos dos términos: por un lado el mar de las treinta y dos postales que Herminia lleva “cuarenta años puliendo”, y por otro los “boletos de autobús a Tecolutla” y las “tres noches en un hotel frente a la playa” que le regalan sus hijos. La familia no se opone al viaje, sino que lo organiza, y el cuento no compara la situación económica del pueblo con la del puerto."
+    },
+    {
+      "id": "5.2-008",
+      "tipo": "choice",
+      "dificultad": "sobresaliente",
+      "tema": "Evaluación de la forma y el contenido",
+      "lecturaId": "L5.2-02",
+      "contexto": null,
+      "enunciado": "¿Cuáles dos detalles del cuento anticipan la decisión final de Herminia? Selecciona dos opciones.",
+      "opciones": [
+        "Que nunca hubiera pedido que la llevaran, aun cuando el dinero habría alcanzado",
+        "Que aprendiera las palabras del mar en un diccionario y no se las preguntara a su hija, que vive en un puerto",
+        "Que llegara a la central camionera con dos horas de anticipación",
+        "Que su difunto esposo se hubiera negado siempre a llevarla al mar",
+        "Que comprara un sombrero de palma y un vestido de manta para el viaje"
+      ],
+      "respuesta": [0, 1],
+      "explicacion": "Ambos detalles muestran que Herminia prefería sostener su mar imaginado antes que acercarse al real: “Nunca pidió que la llevaran, aunque en más de una época el dinero habría alcanzado” y “No le preguntó nada a su hija Lucía, que vivía en Veracruz desde hacía veinte años y podría haberle contado cualquier cosa”. En cambio, llegar temprano a la central y comprar sombrero y vestido son señales de entusiasmo, no de renuncia, y del esposo el texto solo dice que estaba muerto y que le dejó un diccionario."
+    },
+    {
+      "id": "5.2-009",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Interpretación",
+      "lecturaId": "L5.2-03",
+      "contexto": null,
+      "enunciado": "¿Cuál es la tesis del ensayo?",
+      "opciones": [
+        "Releer no repite la primera lectura, sino que revela los cambios ocurridos en quien lee",
+        "Releer permite comprender por fin los libros difíciles que no se entendieron la primera vez",
+        "Releer resulta preferible a leer novedades porque los libros valiosos son muy escasos"
+      ],
+      "respuesta": [0],
+      "explicacion": "El primer párrafo enuncia la tesis: “Releer no es repetir una lectura: es medir la distancia que hemos recorrido desde la primera”, idea que el segundo confirma con “Un libro no cambia; nosotros sí”. La dificultad de comprensión nunca es el tema del ensayo, y la tercera opción contradice el cierre: “No propongo dejar de leer novedades”."
+    },
+    {
+      "id": "5.2-010",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Identificación de información",
+      "lecturaId": "L5.2-03",
+      "contexto": null,
+      "enunciado": "¿Qué experiencia personal emplea el autor para ilustrar su idea?",
+      "opciones": [
+        "La de una novela cuyo protagonista le pareció un héroe a los quince años y un cobarde a los treinta y dos",
+        "La de un libro que lo deslumbró en el primer encuentro y se le deshizo en la mano al releerlo",
+        "La de una fotografía antigua que le mostró cuánto había cambiado su rostro con los años"
+      ],
+      "respuesta": [0],
+      "explicacion": "El segundo párrafo relata la anécdota en primera persona: “A los quince años leí una novela cuyo protagonista abandonaba a su familia […] y me pareció un héroe. La releí a los treinta y dos […] y el mismo personaje me pareció un cobarde”. El libro que “se nos deshace en la mano” aparece en el quinto párrafo como un caso hipotético y general, y las fotografías se mencionan solo como comparación, no como experiencia vivida."
+    },
+    {
+      "id": "5.2-011",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Evaluación de la forma y el contenido",
+      "lecturaId": "L5.2-03",
+      "contexto": null,
+      "enunciado": "¿Con qué propósito el autor menciona los subrayados viejos?",
+      "opciones": [
+        "Para mostrar de manera concreta cómo un libro releído registra los cambios del lector",
+        "Para recomendar que se subraye con lápiz y así poder corregir las marcas más adelante",
+        "Para probar que en la primera lectura se subraya mucho más de lo necesario"
+      ],
+      "respuesta": [0],
+      "explicacion": "Los subrayados aparecen como prueba tangible de la tesis: son “el mejor testimonio”, porque al abrir el libro uno encuentra “marcada una frase que hoy le resulta indiferente, y otra, la que hoy le parece esencial, limpia y sin señal alguna”. El ensayo no da consejos sobre con qué instrumento marcar los libros ni afirma que en la primera lectura se subraye en exceso."
+    },
+    {
+      "id": "5.2-012",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Evaluación de la forma y el contenido",
+      "lecturaId": "L5.2-03",
+      "contexto": null,
+      "enunciado": "¿Cuál de las siguientes valoraciones es coherente con el ensayo?",
+      "opciones": [
+        "Que un libro incapaz de resistir una segunda lectura le resulta útil al lector, porque así revela su valor real",
+        "Que conviene suspender la lectura de novedades hasta haber releído todos los libros importantes",
+        "Que la calidad de un libro se mide por la cantidad de pasajes que el lector llega a subrayar"
+      ],
+      "respuesta": [0],
+      "explicacion": "El quinto párrafo trata ese caso como algo favorable: “Es cierto, y me parece una buena noticia: la relectura funciona también como criba”, ya que un libro que “se nos deshace en la mano era, probablemente, un truco bien ejecutado”. La segunda opción contradice el cierre —“No propongo dejar de leer novedades”, sino apartar “uno de cada cinco libros del año”— y la tercera convierte los subrayados en una medida de calidad que el texto nunca propone."
+    }
+  ]
+}

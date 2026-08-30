@@ -1,0 +1,122 @@
+{
+  "area": "5",
+  "areaNombre": "Comprensión lectora",
+  "subarea": "5.3",
+  "subareaNombre": "Ámbito de participación social",
+  "seccion": "lenguaje",
+  "lecturas": [
+    {
+      "id": "L5.3-01",
+      "titulo": "Convocatoria al Premio Municipal de Fotografía Documental 2026",
+      "genero": "convocatoria",
+      "texto": "El Ayuntamiento de San Andrés Tuxpango, a través de la Dirección de Cultura, convoca a las y los fotógrafos residentes en el municipio a participar en la séptima edición del Premio Municipal de Fotografía Documental, bajo el tema El oficio de todos los días, conforme a las siguientes bases.\n\nPRIMERA. De los participantes. Podrán participar personas mayores de dieciocho años que acrediten al menos un año de residencia en el municipio mediante comprobante de domicilio. Queda excluido el personal de la Dirección de Cultura, así como sus familiares en primer grado. No se exige formación profesional en fotografía.\n\nSEGUNDA. De las obras. Cada participante podrá inscribir una sola serie, integrada por entre cinco y ocho fotografías tomadas después del 1 de enero de 2024, en blanco y negro o en color. Las imágenes deberán entregarse en archivo digital JPG de al menos 3000 píxeles en su lado mayor. Se admiten ajustes de contraste, encuadre y luminosidad; no se admiten montajes ni elementos generados por medios ajenos a la toma fotográfica.\n\nTERCERA. De la inscripción. El registro se realizará únicamente en el portal cultura.sanandrestuxpango.gob.mx, del 9 de febrero al 27 de marzo de 2026, hasta las 18:00 horas. Cada participante deberá adjuntar la serie completa, el comprobante de domicilio y un texto de máximo 150 palabras que explique el proyecto. No se recibirán trabajos en ventanilla ni por correo electrónico.\n\nCUARTA. Del jurado y el dictamen. El jurado estará integrado por tres especialistas de reconocida trayectoria, cuya identidad se dará a conocer al cierre de la inscripción. Su fallo será inapelable. La deliberación se llevará a cabo del 30 de marzo al 17 de abril de 2026 y los resultados se publicarán el 24 de abril en el mismo portal.\n\nQUINTA. De los premios. Se otorgarán un primer lugar de sesenta mil pesos, un segundo lugar de treinta mil pesos y dos menciones honoríficas de diez mil pesos cada una. La ceremonia de premiación se realizará el 15 de mayo de 2026 en la Casa de la Cultura. Las series premiadas integrarán una exposición itinerante durante el segundo semestre del año; sus autores conservarán los derechos patrimoniales y otorgarán al Ayuntamiento una licencia no exclusiva para exhibirlas y reproducirlas con fines de difusión, siempre con el crédito correspondiente.\n\nSEXTA. De lo no previsto. Cualquier situación no contemplada en la presente convocatoria será resuelta por la Dirección de Cultura."
+    },
+    {
+      "id": "L5.3-02",
+      "titulo": "Retiran doce toneladas de residuos del río Cuatlán en una jornada ciudadana",
+      "genero": "nota informativa",
+      "texto": "Unos ochocientos voluntarios retiraron doce toneladas de residuos sólidos del cauce del río Cuatlán el domingo pasado, durante la cuarta Jornada Ciudadana de Limpieza organizada por la asociación civil Cauce Vivo y el gobierno municipal, informaron los convocantes al término de la actividad.\n\nLa jornada se desarrolló de las siete de la mañana a la una de la tarde en un tramo de cuatro kilómetros comprendido entre el puente de la avenida Hidalgo y la comunidad de El Zapote. Los participantes se organizaron en veintidós brigadas, cada una con un responsable capacitado en el manejo de residuos.\n\nDel total recolectado, siete toneladas correspondieron a plásticos de un solo uso, tres a residuos de construcción y las dos restantes a llantas, electrodomésticos y muebles. El material fue trasladado a un centro de acopio municipal, donde se separó lo que puede reciclarse.\n\nEntre los objetos recuperados, las brigadas reportaron un refrigerador, once neumáticos de camión y una motocicleta sin placas, hallada a la altura del vado de El Zapote. Los responsables de brigada llevaron un registro por categoría que la asociación publicará en su sitio en las próximas semanas.\n\nSacar la basura del agua es apenas la parte visible del problema, declaró Ruth Palomares, coordinadora de Cauce Vivo. Mientras no se resuelvan las descargas de aguas residuales sin tratar, el río seguirá enfermo aunque se vea limpio.\n\nEl río Cuatlán atraviesa siete localidades y abastece de riego a poco más de mil doscientas hectáreas. Un muestreo realizado en marzo por la universidad estatal detectó niveles de materia orgánica superiores a los permitidos en cuatro de los seis puntos analizados.\n\nEn la jornada del año pasado se retiraron nueve toneladas en un tramo de tres kilómetros. La asociación atribuye el aumento tanto a la mayor extensión limpiada como al crecimiento del número de voluntarios, que pasó de quinientos a ochocientos.\n\nEl Ayuntamiento anunció que en agosto entrará en operación una planta de tratamiento en la zona norte y que instalará dos rejillas de retención de sólidos antes del puente de la avenida Hidalgo. Cauce Vivo convocó a la siguiente jornada para el 11 de octubre."
+    }
+  ],
+  "preguntas": [
+    {
+      "id": "5.3-001",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Identificación de información",
+      "lecturaId": "L5.3-01",
+      "contexto": null,
+      "enunciado": "¿Hasta qué fecha y por qué vía puede inscribirse una serie fotográfica?",
+      "opciones": [
+        "Hasta el 27 de marzo de 2026 a las 18:00 horas, únicamente en el portal de la Dirección de Cultura",
+        "Hasta el 30 de marzo de 2026, en el portal o en la ventanilla de la Casa de la Cultura",
+        "Hasta el 24 de abril de 2026, por correo electrónico o en el portal de la Dirección de Cultura"
+      ],
+      "respuesta": [0],
+      "explicacion": "La base tercera fija la única vía y el plazo: “El registro se realizará únicamente en el portal cultura.sanandrestuxpango.gob.mx, del 9 de febrero al 27 de marzo de 2026, hasta las 18:00 horas”, y añade que “no se recibirán trabajos en ventanilla ni por correo electrónico”. El 30 de marzo es el inicio de la deliberación del jurado y el 24 de abril, la publicación de resultados."
+    },
+    {
+      "id": "5.3-002",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Interpretación",
+      "lecturaId": "L5.3-01",
+      "contexto": null,
+      "enunciado": "Un fotógrafo profesional que se mudó al municipio hace ocho meses desea participar. ¿Qué establece la convocatoria en su caso?",
+      "opciones": [
+        "No puede participar, porque se exige acreditar al menos un año de residencia en el municipio",
+        "Puede participar, porque la convocatoria no impone ninguna antigüedad mínima de residencia",
+        "No puede participar, porque el premio está reservado a quienes carezcan de formación profesional en fotografía"
+      ],
+      "respuesta": [0],
+      "explicacion": "La base primera admite a quienes “acrediten al menos un año de residencia en el municipio mediante comprobante de domicilio”, requisito que ocho meses no cumplen. La misma base aclara que “no se exige formación profesional en fotografía”, de modo que ser profesional no es un impedimento; las únicas exclusiones expresas son el personal de la Dirección de Cultura y sus familiares en primer grado."
+    },
+    {
+      "id": "5.3-003",
+      "tipo": "orden",
+      "dificultad": "satisfactorio",
+      "tema": "Identificación de información",
+      "lecturaId": "L5.3-01",
+      "contexto": null,
+      "enunciado": "Ordena las etapas del proceso según las fechas que fija la convocatoria.",
+      "opciones": [
+        "Publicación de resultados en el portal",
+        "Ceremonia de premiación en la Casa de la Cultura",
+        "Registro de las series en el portal",
+        "Deliberación del jurado"
+      ],
+      "respuesta": [2, 3, 0, 1],
+      "explicacion": "Las fechas ordenan el proceso: el registro corre “del 9 de febrero al 27 de marzo de 2026”, la deliberación “del 30 de marzo al 17 de abril”, la publicación de resultados ocurre “el 24 de abril” y la premiación “el 15 de mayo de 2026”. Nótese que el jurado solo se da a conocer “al cierre de la inscripción”, lo que confirma que la deliberación es posterior al registro."
+    },
+    {
+      "id": "5.3-004",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Identificación de información",
+      "lecturaId": "L5.3-02",
+      "contexto": null,
+      "enunciado": "¿Qué parte del material recolectado correspondió a plásticos de un solo uso?",
+      "opciones": [
+        "Siete de las doce toneladas",
+        "Tres de las doce toneladas",
+        "Dos de las doce toneladas"
+      ],
+      "respuesta": [0],
+      "explicacion": "El tercer párrafo desglosa el total: “siete toneladas correspondieron a plásticos de un solo uso, tres a residuos de construcción y las dos restantes a llantas, electrodomésticos y muebles”. Las tres toneladas son de residuos de construcción y las dos, de objetos voluminosos."
+    },
+    {
+      "id": "5.3-005",
+      "tipo": "choice",
+      "dificultad": "sobresaliente",
+      "tema": "Evaluación de la forma y el contenido",
+      "lecturaId": "L5.3-02",
+      "contexto": null,
+      "enunciado": "¿Cuáles dos afirmaciones son sostenibles a partir de la nota? Selecciona dos opciones.",
+      "opciones": [
+        "El aumento de residuos retirados respecto del año pasado se explica por un tramo más largo y por más voluntarios",
+        "Para la coordinadora de Cauce Vivo, limpiar el cauce no basta para sanear el río",
+        "El muestreo de la universidad estatal halló niveles excesivos en todos los puntos analizados",
+        "La planta de tratamiento de la zona norte ya se encuentra en operación",
+        "La Jornada Ciudadana de Limpieza se realiza cada año desde hace doce años"
+      ],
+      "respuesta": [0, 1],
+      "explicacion": "La nota atribuye el incremento a dos causas: “La asociación atribuye el aumento tanto a la mayor extensión limpiada como al crecimiento del número de voluntarios”, y cita a Ruth Palomares diciendo que “sacar la basura del agua es apenas la parte visible del problema”. Las otras tres opciones contradicen el texto: el muestreo detectó excesos “en cuatro de los seis puntos analizados”, la planta “en agosto entrará en operación” y la jornada iba en su “cuarta” edición, no en la duodécima."
+    },
+    {
+      "id": "5.3-006",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Evaluación de la forma y el contenido",
+      "lecturaId": "L5.3-02",
+      "contexto": null,
+      "enunciado": "¿Por qué la nota incluye la declaración de Ruth Palomares?",
+      "opciones": [
+        "Para matizar el logro de la jornada señalando una causa del deterioro que la limpieza no resuelve",
+        "Para atribuir al gobierno municipal la responsabilidad directa de la contaminación del río",
+        "Para explicar el procedimiento con que las brigadas separaron los residuos recolectados"
+      ],
+      "respuesta": [0],
+      "explicacion": "La cita relativiza la cifra celebrada en el primer párrafo: “Mientras no se resuelvan las descargas de aguas residuales sin tratar, el río seguirá enfermo aunque se vea limpio”. La coordinadora señala una causa estructural sin culpar a ninguna autoridad, y la separación de los residuos se describe en otro párrafo, no en su declaración."
+    }
+  ]
+}

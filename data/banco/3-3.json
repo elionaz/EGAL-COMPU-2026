@@ -1,0 +1,236 @@
+{
+  "area": "3",
+  "areaNombre": "Desarrollo de software de aplicación",
+  "subarea": "3.3",
+  "subareaNombre": "Bases de datos",
+  "seccion": "disciplinar",
+  "lecturas": [],
+  "preguntas": [
+    {
+      "id": "3.3-001",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Modelo relacional: llaves e integridad",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "En el modelo relacional, ¿qué garantiza la restricción de integridad referencial asociada a una llave foránea?",
+      "opciones": [
+        "Que todo valor no nulo de la llave foránea exista como valor de la llave primaria en la relación referenciada",
+        "Que la llave foránea no admita valores repetidos dentro de la tabla que la contiene",
+        "Que los atributos que forman la llave foránea tengan el mismo nombre en ambas tablas"
+      ],
+      "respuesta": [0],
+      "explicacion": "La integridad referencial impide que existan referencias huérfanas: una llave foránea o es nula o apunta a una tupla realmente existente en la relación referenciada. La unicidad de valores corresponde a las llaves candidatas o primarias, y la coincidencia de nombres es una convención de diseño que el SGBD no exige, pues lo que debe coincidir es el dominio."
+    },
+    {
+      "id": "3.3-002",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Modelo entidad-relación y cardinalidad",
+      "lecturaId": null,
+      "contexto": "Un hospital registra que **un paciente puede tener muchas citas** y que **cada cita corresponde a un solo paciente**. Además, **una cita involucra a un solo médico** y **un médico atiende muchas citas**.",
+      "enunciado": "¿Cómo se traduce al modelo relacional la relación entre PACIENTE y CITA descrita?",
+      "opciones": [
+        "La tabla CITA incluye como llave foránea la llave primaria de PACIENTE",
+        "Se crea una tabla intermedia con las llaves primarias de PACIENTE y de CITA",
+        "La tabla PACIENTE incluye como llave foránea la llave primaria de CITA"
+      ],
+      "respuesta": [0],
+      "explicacion": "En una relación uno a muchos, la llave primaria del lado \"uno\" (PACIENTE) se propaga como llave foránea al lado \"muchos\" (CITA), pues cada cita pertenece a un solo paciente. La tabla intermedia solo es necesaria en relaciones muchos a muchos, y colocar la llave en PACIENTE obligaría a repetir la fila del paciente por cada cita, violando la cardinalidad."
+    },
+    {
+      "id": "3.3-003",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "SQL: JOIN, GROUP BY y HAVING",
+      "lecturaId": null,
+      "contexto": "**DEPARTAMENTO**\n\n| id_depto | nombre |\n|---|---|\n| 10 | Ventas |\n| 20 | Sistemas |\n| 30 | Compras |\n\n**EMPLEADO**\n\n| id_emp | nombre | id_depto | salario |\n|---|---|---|---|\n| 1 | Ana | 10 | 18000 |\n| 2 | Luis | 10 | 22000 |\n| 3 | Mara | 20 | 30000 |\n| 4 | Beto | 20 | 26000 |\n| 5 | Sofía | 20 | 24000 |\n| 6 | Iván | 30 | 15000 |\n\n```sql\nSELECT d.nombre, COUNT(e.id_emp) AS total\nFROM DEPARTAMENTO d\nJOIN EMPLEADO e ON d.id_depto = e.id_depto\nGROUP BY d.nombre\nHAVING AVG(e.salario) > 20000;\n```",
+      "enunciado": "¿Qué devuelve la consulta anterior?",
+      "opciones": [
+        "Un solo renglón: Sistemas con total 3",
+        "Dos renglones: Ventas con total 2 y Sistemas con total 3",
+        "Tres renglones: Ventas con 2, Sistemas con 3 y Compras con 1"
+      ],
+      "respuesta": [0],
+      "explicacion": "El promedio salarial es 20 000 en Ventas, 26 666.67 en Sistemas y 15 000 en Compras; `HAVING` filtra los grupos ya formados y solo conserva los que superan estrictamente 20 000, por lo que Ventas queda fuera al ser igual al límite y Compras por estar por debajo. Únicamente Sistemas satisface la condición y su `COUNT` es 3."
+    },
+    {
+      "id": "3.3-004",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "SQL: LEFT JOIN y funciones de agregación",
+      "lecturaId": null,
+      "contexto": "**CLIENTE**\n\n| id_cliente | nombre | ciudad |\n|---|---|---|\n| 1 | Ana | Puebla |\n| 2 | Luis | Mérida |\n| 3 | Rosa | Puebla |\n| 4 | Omar | León |\n\n**PEDIDO**\n\n| id_pedido | id_cliente | monto |\n|---|---|---|\n| 100 | 1 | 500 |\n| 101 | 1 | 300 |\n| 102 | 2 | 900 |\n| 103 | 3 | 250 |\n\n```sql\nSELECT c.nombre, COUNT(p.id_pedido) AS pedidos\nFROM CLIENTE c\nLEFT JOIN PEDIDO p ON c.id_cliente = p.id_cliente\nGROUP BY c.nombre\nORDER BY c.nombre;\n```",
+      "enunciado": "¿Cuál es el resultado de la consulta anterior?",
+      "opciones": [
+        "Ana 2, Luis 1, Omar 0, Rosa 1",
+        "Ana 2, Luis 1, Rosa 1",
+        "Ana 2, Luis 1, Omar 1, Rosa 1"
+      ],
+      "respuesta": [0],
+      "explicacion": "El `LEFT JOIN` conserva a todos los clientes aunque no tengan pedidos, por lo que Omar aparece en el resultado. Como `COUNT` sobre una columna ignora los valores nulos, el conteo de Omar es 0; si se hubiera escrito `COUNT(*)` habría dado 1 al contar el renglón generado por el join externo, y un `INNER JOIN` habría eliminado a Omar del resultado."
+    },
+    {
+      "id": "3.3-005",
+      "tipo": "completamiento",
+      "dificultad": "satisfactorio",
+      "tema": "Sublenguajes de SQL",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "La instrucción `ALTER TABLE` pertenece al sublenguaje ______, `UPDATE` pertenece al sublenguaje ______, `GRANT` pertenece al sublenguaje ______ y `ROLLBACK` pertenece al sublenguaje ______.",
+      "opciones": ["DDL / DML / DCL / TCL", "DML / DDL / TCL / DCL", "DDL / DML / TCL / DCL"],
+      "respuesta": [0],
+      "explicacion": "El DDL define y modifica la estructura de los objetos (`CREATE`, `ALTER`, `DROP`); el DML manipula los datos almacenados (`SELECT`, `INSERT`, `UPDATE`, `DELETE`); el DCL administra privilegios (`GRANT`, `REVOKE`) y el TCL delimita transacciones (`COMMIT`, `ROLLBACK`, `SAVEPOINT`). Las otras combinaciones intercambian el control de acceso con el control de transacciones o la definición con la manipulación."
+    },
+    {
+      "id": "3.3-006",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Normalización: 2FN y anomalías",
+      "lecturaId": null,
+      "contexto": "```\nDETALLE_PEDIDO(num_pedido, clave_producto, descripcion_producto, cantidad)\nLlave primaria: (num_pedido, clave_producto)\nDependencia: clave_producto → descripcion_producto\n```",
+      "enunciado": "¿En qué forma normal se encuentra la relación y qué anomalía presenta?",
+      "opciones": [
+        "Está en 1FN pero no en 2FN, por una dependencia parcial que obliga a repetir y actualizar la descripción en cada renglón del producto",
+        "Está en 2FN pero no en 3FN, por una dependencia transitiva entre `num_pedido` y `descripcion_producto`",
+        "Está en 3FN y no presenta anomalías, pues la llave primaria compuesta determina a todos los demás atributos"
+      ],
+      "respuesta": [0],
+      "explicacion": "`descripcion_producto` depende solo de `clave_producto`, que es parte de la llave primaria compuesta: es una dependencia parcial, la cual viola la 2FN aunque todos los atributos sean atómicos y por tanto se cumpla la 1FN. La consecuencia es una anomalía de actualización, pues cambiar la descripción de un producto exige modificar todos los renglones donde aparece; la solución es separar PRODUCTO(clave_producto, descripcion_producto)."
+    },
+    {
+      "id": "3.3-007",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Normalización: BCNF",
+      "lecturaId": null,
+      "contexto": "```\nASIGNACION(alumno, materia, profesor)\nReglas del negocio:\n  - Cada alumno cursa una materia con un solo profesor:  (alumno, materia) → profesor\n  - Cada profesor imparte una sola materia:              profesor → materia\n```",
+      "enunciado": "¿Cuál es el estado de normalización de la relación ASIGNACION?",
+      "opciones": [
+        "Está en 3FN pero no en BCNF, porque `profesor` determina a `materia` sin ser superllave",
+        "Está en BCNF, porque no existen atributos no primos que dependan de una parte de la llave",
+        "No está en 2FN, porque `materia` depende parcialmente de la llave candidata `(alumno, materia)`"
+      ],
+      "respuesta": [0],
+      "explicacion": "La relación cumple 3FN porque todo atributo no primo depende de una llave candidata y no hay dependencias transitivas entre atributos no primos; sin embargo, la dependencia `profesor → materia` tiene como determinante un atributo que no es superllave, lo cual viola la BCNF. Todos los atributos son primos al pertenecer a alguna llave candidata, así que no puede haber violación de 2FN ni de 3FN por dependencia parcial."
+    },
+    {
+      "id": "3.3-008",
+      "tipo": "relacion",
+      "dificultad": "satisfactorio",
+      "tema": "Álgebra relacional",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Relacione cada operador del álgebra relacional con la operación que realiza.\n\n1. σ (sigma)\n2. π (pi)\n3. ⋈ (moño)\n\na) Conserva únicamente las columnas indicadas y elimina las tuplas duplicadas\nb) Combina tuplas de dos relaciones que satisfacen una condición sobre atributos comunes\nc) Conserva únicamente las tuplas que cumplen un predicado dado",
+      "opciones": ["1c, 2a, 3b", "1a, 2c, 3b", "1c, 2b, 3a"],
+      "respuesta": [0],
+      "explicacion": "La selección (σ) es un filtro horizontal que devuelve las tuplas que satisfacen el predicado; la proyección (π) es un filtro vertical que devuelve un subconjunto de atributos eliminando duplicados por tratarse de conjuntos; la reunión (⋈) combina tuplas de dos relaciones según una condición de emparejamiento. Confundir σ con π invierte el corte horizontal con el vertical."
+    },
+    {
+      "id": "3.3-009",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "SGBD y bases de datos NoSQL",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Una aplicación debe almacenar documentos JSON con estructura variable entre un registro y otro, sin un esquema fijo declarado por adelantado. ¿Qué tipo de base de datos NoSQL es el más adecuado?",
+      "opciones": [
+        "Orientada a documentos, como MongoDB",
+        "Orientada a grafos, como Neo4j",
+        "De familias de columnas, como Cassandra"
+      ],
+      "respuesta": [0],
+      "explicacion": "Las bases orientadas a documentos almacenan unidades autocontenidas en JSON o BSON y admiten esquema flexible, por lo que cada documento puede tener atributos distintos. Las de grafos están optimizadas para representar y recorrer relaciones entre entidades, y las de familias de columnas privilegian la escritura masiva y las consultas por rangos de clave, no la variabilidad estructural del documento."
+    },
+    {
+      "id": "3.3-010",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "OLTP vs. OLAP",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es la diferencia fundamental entre un sistema OLTP y uno OLAP?",
+      "opciones": [
+        "OLTP procesa muchas transacciones cortas de lectura y escritura sobre datos actuales y normalizados; OLAP ejecuta consultas analíticas complejas sobre datos históricos y consolidados",
+        "OLTP trabaja únicamente con bases de datos relacionales; OLAP trabaja únicamente con bases de datos NoSQL distribuidas",
+        "OLTP almacena la información en esquemas estrella para acelerar la escritura; OLAP la almacena normalizada hasta la tercera forma normal"
+      ],
+      "respuesta": [0],
+      "explicacion": "OLTP da soporte a la operación diaria con transacciones breves sobre un esquema normalizado que minimiza la redundancia, mientras que OLAP sirve al análisis y la toma de decisiones con consultas de agregación sobre grandes volúmenes históricos. La tecnología subyacente no define la distinción, y la asociación de esquemas está invertida: el esquema estrella pertenece al ámbito OLAP y la normalización al OLTP."
+    },
+    {
+      "id": "3.3-011",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Data warehouse: esquema estrella y copo de nieve",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿En qué se distingue el esquema copo de nieve del esquema estrella en un almacén de datos?",
+      "opciones": [
+        "En el copo de nieve las tablas de dimensión están normalizadas en subdimensiones, lo que ahorra espacio pero exige más reuniones al consultar",
+        "En el copo de nieve existen varias tablas de hechos conectadas entre sí, mientras que el estrella admite una sola",
+        "En el copo de nieve las medidas numéricas se guardan en las dimensiones, mientras que en el estrella se guardan en la tabla de hechos"
+      ],
+      "respuesta": [0],
+      "explicacion": "Ambos esquemas tienen una tabla de hechos central rodeada de dimensiones; la diferencia es que el copo de nieve normaliza las dimensiones en jerarquías de tablas (por ejemplo, Producto → Categoría → Departamento), lo que reduce redundancia a costa de más `JOIN` en cada consulta. Varias tablas de hechos configuran una constelación de hechos, y en los dos esquemas las medidas numéricas residen siempre en la tabla de hechos."
+    },
+    {
+      "id": "3.3-012",
+      "tipo": "choice",
+      "dificultad": "sobresaliente",
+      "tema": "Bases de datos distribuidas",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Seleccione las **dos** afirmaciones correctas sobre las bases de datos distribuidas.",
+      "opciones": [
+        "La fragmentación horizontal reparte las tuplas de una relación entre distintos nodos aplicando un criterio de selección",
+        "La transparencia de ubicación permite al usuario consultar los datos sin conocer en qué nodo residen físicamente",
+        "La replicación de datos reduce la disponibilidad del sistema porque un nodo caído invalida todas las copias",
+        "La fragmentación vertical duplica la relación completa en cada nodo para acelerar las lecturas",
+        "En una base distribuida las transacciones no pueden abarcar más de un nodo, por lo que no requieren protocolos de confirmación"
+      ],
+      "respuesta": [0, 1],
+      "explicacion": "La fragmentación horizontal divide la relación por tuplas mediante un predicado de selección y la transparencia de ubicación oculta al usuario la distribución física de los fragmentos. La replicación en realidad aumenta la disponibilidad y la tolerancia a fallas; la fragmentación vertical divide por atributos conservando la llave primaria, no duplica la relación, y las transacciones distribuidas sí abarcan varios nodos, por lo que se coordinan con protocolos como el compromiso en dos fases."
+    },
+    {
+      "id": "3.3-013",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Transacciones y propiedades ACID",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Una transferencia bancaria descuenta el monto de una cuenta y lo abona a otra. Si el sistema falla después del descuento pero antes del abono, el SGBD deshace por completo la operación. ¿Qué propiedad ACID se está aplicando?",
+      "opciones": ["Atomicidad", "Durabilidad", "Aislamiento"],
+      "respuesta": [0],
+      "explicacion": "La atomicidad establece que la transacción se ejecuta por completo o no se ejecuta en absoluto, de modo que un fallo intermedio provoca el `ROLLBACK` de los cambios ya realizados. La durabilidad garantiza que los efectos de una transacción confirmada sobrevivan a fallas posteriores, y el aislamiento evita que las transacciones concurrentes observen los estados intermedios de las demás."
+    },
+    {
+      "id": "3.3-014",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Disparadores y procedimientos almacenados",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es la diferencia esencial entre un disparador (trigger) y un procedimiento almacenado?",
+      "opciones": [
+        "El disparador se ejecuta automáticamente cuando ocurre un evento sobre una tabla; el procedimiento almacenado se ejecuta cuando una aplicación o un usuario lo invoca explícitamente",
+        "El disparador se escribe en SQL estándar; el procedimiento almacenado solo puede escribirse en lenguajes externos al SGBD",
+        "El disparador puede devolver conjuntos de resultados al cliente; el procedimiento almacenado solo puede modificar datos"
+      ],
+      "respuesta": [0],
+      "explicacion": "El disparador es código asociado a un evento (`INSERT`, `UPDATE` o `DELETE`) que el SGBD dispara solo, sin que nadie lo llame, lo que lo hace útil para bitácoras y reglas de negocio; el procedimiento almacenado se invoca de manera explícita con `CALL` o `EXECUTE` y acepta parámetros. Ambos se escriben en extensiones procedurales de SQL, y es el procedimiento, no el disparador, el que suele devolver resultados al cliente."
+    },
+    {
+      "id": "3.3-015",
+      "tipo": "orden",
+      "dificultad": "sobresaliente",
+      "tema": "Concurrencia: niveles de aislamiento",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Ordene los niveles de aislamiento definidos por el estándar SQL, del **menos** restrictivo al **más** restrictivo.",
+      "opciones": ["REPEATABLE READ", "READ UNCOMMITTED", "SERIALIZABLE", "READ COMMITTED"],
+      "respuesta": [1, 3, 0, 2],
+      "explicacion": "READ UNCOMMITTED admite lecturas sucias; READ COMMITTED las elimina pero permite lecturas no repetibles; REPEATABLE READ evita además las lecturas no repetibles y solo deja abierta la posibilidad de lecturas fantasma; SERIALIZABLE impide los tres fenómenos y equivale a una ejecución secuencial de las transacciones. A mayor nivel de aislamiento aumenta la consistencia y disminuye la concurrencia efectiva."
+    }
+  ]
+}

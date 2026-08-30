@@ -1,0 +1,291 @@
+{
+  "area": "2",
+  "areaNombre": "Desarrollo de software de base",
+  "subarea": "2.2",
+  "subareaNombre": "Compiladores",
+  "seccion": "disciplinar",
+  "lecturas": [],
+  "preguntas": [
+    {
+      "id": "2.2-001",
+      "tipo": "orden",
+      "dificultad": "satisfactorio",
+      "tema": "Fases del compilador",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Ordene las fases de un compilador según la secuencia en que procesan el programa fuente.",
+      "opciones": [
+        "Análisis sintáctico",
+        "Generación de código objeto",
+        "Análisis léxico",
+        "Optimización de código",
+        "Análisis semántico",
+        "Generación de código intermedio"
+      ],
+      "respuesta": [
+        2,
+        0,
+        4,
+        5,
+        3,
+        1
+      ],
+      "explicacion": "El análisis léxico convierte los caracteres en tokens; el sintáctico los agrupa en un árbol conforme a la gramática; el semántico verifica tipos y declaraciones; luego se produce código intermedio, se optimiza y finalmente se emite el código objeto de la máquina destino. Las tres primeras fases forman el front-end o etapa de análisis y las tres últimas el back-end o etapa de síntesis."
+    },
+    {
+      "id": "2.2-002",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Tokens, lexemas y patrones",
+      "lecturaId": null,
+      "contexto": "En el fragmento de código siguiente, el analizador léxico procesa la línea:\n\n```c\ntotal = precio + 15;\n```",
+      "enunciado": "Respecto de la cadena `total`, ¿cuál es la clasificación correcta?",
+      "opciones": [
+        "`total` es el token y `identificador` es el lexema",
+        "`total` es el patrón y `identificador` es el lexema",
+        "`total` es el lexema y `identificador` es el token"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "El lexema es la secuencia concreta de caracteres que aparece en el programa; el token es la categoría gramatical que el analizador le asigna, y el patrón es la regla, normalmente una expresión regular, que describe todos los lexemas de ese token. Así, letra(letra|dígito)* es el patrón, `total` el lexema e `identificador` el token."
+    },
+    {
+      "id": "2.2-003",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Tabla de símbolos",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es la función de la tabla de símbolos dentro de un compilador?",
+      "opciones": [
+        "Registrar cada identificador con sus atributos para consultarlos en varias fases",
+        "Guardar el código objeto generado hasta que concluye el enlazado",
+        "Almacenar las producciones de la gramática que usa el analizador sintáctico"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "La tabla de símbolos asocia a cada identificador su tipo, ámbito, dirección y demás atributos; se llena durante el análisis léxico y sintáctico y se consulta en el análisis semántico y en la generación de código. No almacena el código objeto, que corresponde al archivo de salida, ni las producciones de la gramática, que forman parte del propio analizador."
+    },
+    {
+      "id": "2.2-004",
+      "tipo": "relacion",
+      "dificultad": "satisfactorio",
+      "tema": "Jerarquía de Chomsky",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Relacione cada tipo de gramática de la jerarquía de Chomsky con el modelo de máquina que reconoce su lenguaje.\n\n1. Tipo 0 (irrestricta)\n2. Tipo 2 (libre de contexto)\n3. Tipo 3 (regular)\n\na) Autómata finito\nb) Máquina de Turing\nc) Autómata de pila",
+      "opciones": [
+        "1a, 2b, 3c",
+        "1c, 2a, 3b",
+        "1b, 2c, 3a"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "La jerarquía va de mayor a menor poder expresivo: las gramáticas irrestrictas equivalen a la máquina de Turing, las sensibles al contexto (tipo 1) al autómata linealmente acotado, las libres de contexto al autómata de pila y las regulares al autómata finito. Las otras combinaciones asignan a los lenguajes regulares un modelo más poderoso del que necesitan."
+    },
+    {
+      "id": "2.2-005",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Expresiones regulares",
+      "lecturaId": null,
+      "contexto": "Sobre el alfabeto Σ = {a, b} se define la expresión regular:\n\n```\n(a|b)* a b b\n```",
+      "enunciado": "¿Cuál de las siguientes cadenas pertenece al lenguaje descrito por la expresión?",
+      "opciones": [
+        "abba",
+        "aabb",
+        "babba"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "La expresión describe todas las cadenas que terminan en el sufijo `abb`, precedido por cualquier combinación de a y b, incluida la cadena vacía. En `aabb` el prefijo es `a` y el sufijo `abb`, por lo que se acepta. Las otras dos terminan en `a`, de modo que no pueden coincidir con el sufijo obligatorio."
+    },
+    {
+      "id": "2.2-006",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Autómatas finitos AFD y AFND",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Qué condición debe cumplir un autómata finito para ser **determinista**?",
+      "opciones": [
+        "Para cada estado y símbolo existe exactamente una transición y no hay movimientos vacíos",
+        "Para cada estado y símbolo existe al menos una transición y se permiten movimientos vacíos",
+        "Debe tener un único estado de aceptación alcanzable desde el estado inicial"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "En un AFD la función de transición es total y unívoca: δ(q, a) devuelve un solo estado y no existen transiciones épsilon, de modo que cada cadena determina un único camino de cómputo. Permitir varias transiciones o movimientos vacíos es justamente lo que define al AFND. El número de estados de aceptación es irrelevante para el determinismo."
+    },
+    {
+      "id": "2.2-007",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Equivalencia AFD y AFND",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Al convertir un AFND de **n** estados en un AFD equivalente mediante la construcción de subconjuntos, ¿cuántos estados puede llegar a tener el AFD resultante?",
+      "opciones": [
+        "Hasta 2^n estados, uno por cada subconjunto de estados del AFND",
+        "Hasta n² estados, uno por cada par ordenado de estados del AFND",
+        "Exactamente n estados, porque la conversión preserva la cantidad original"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "Cada estado del AFD representa el conjunto de estados en que el AFND podría encontrarse tras leer un prefijo, y hay 2^n subconjuntos posibles; ese es el peor caso y existen lenguajes que lo alcanzan. En la práctica solo se construyen los subconjuntos alcanzables, que suelen ser muchos menos. Lo importante es que ambos modelos reconocen exactamente la misma clase de lenguajes: los regulares."
+    },
+    {
+      "id": "2.2-008",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Autómatas de pila y lenguajes libres de contexto",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Por qué el lenguaje L = { aⁿbⁿ | n ≥ 1 } requiere un autómata de pila y no puede reconocerse con un autómata finito?",
+      "opciones": [
+        "Porque hay que contar una cantidad no acotada de símbolos y la memoria finita no basta",
+        "Porque las cadenas del lenguaje pueden ser de longitud impar y eso exige no determinismo",
+        "Porque el alfabeto tiene dos símbolos distintos y el autómata finito solo maneja uno"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "El autómata finito solo recuerda en cuál de sus estados está, y como los estados son finitos no puede distinguir un número arbitrario de aes; el lema del bombeo formaliza esa imposibilidad. La pila aporta memoria ilimitada: apila una marca por cada a y la desapila por cada b. El tamaño del alfabeto no es la restricción, y toda cadena de este lenguaje tiene longitud par."
+    },
+    {
+      "id": "2.2-009",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Derivación en gramáticas libres de contexto",
+      "lecturaId": null,
+      "contexto": "Se tiene la gramática libre de contexto G con símbolo inicial S:\n\n```\nS → a S b\nS → a b\n```",
+      "enunciado": "¿Cuál de las siguientes cadenas es derivable en **G**?",
+      "opciones": [
+        "aaabbb",
+        "ababab",
+        "aabbb"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "La producción recursiva agrega una a por la izquierda y una b por la derecha en cada paso, y la producción base aporta el par central, de modo que L(G) = { aⁿbⁿ | n ≥ 1 }. La derivación S ⇒ aSb ⇒ aaSbb ⇒ aaabbb genera `aaabbb` con n = 3. En cambio `aabbb` desequilibra el número de símbolos y `ababab` intercala las letras, cosa que la gramática nunca permite."
+    },
+    {
+      "id": "2.2-010",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Diseño de gramáticas libres de contexto",
+      "lecturaId": null,
+      "contexto": "La gramática de expresiones aritméticas siguiente es ambigua:\n\n```\nE → E + E | E * E | ( E ) | id\n```",
+      "enunciado": "¿Cuál es la técnica adecuada para eliminar la ambigüedad de esta gramática?",
+      "opciones": [
+        "Factorizar por la izquierda los prefijos comunes de las producciones de E",
+        "Estratificarla en niveles E, T y F que fijen precedencia y asociatividad",
+        "Eliminar la recursividad por la izquierda sustituyéndola por recursividad derecha"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "La ambigüedad aparece porque una misma cadena como id + id * id admite dos árboles sintácticos; escribir E → E + T | T, T → T * F | F y F → ( E ) | id impone que la multiplicación se agrupe primero y que ambos operadores asocien a la izquierda, dejando un único árbol. Eliminar la recursividad izquierda y factorizar por la izquierda son transformaciones necesarias para el análisis LL(1), pero por sí solas no quitan la ambigüedad."
+    },
+    {
+      "id": "2.2-011",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Máquinas de Turing y decidibilidad",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Qué afirma el resultado sobre el **problema de la parada** demostrado por Turing?",
+      "opciones": [
+        "No existe algoritmo que decida, para todo programa y entrada, si el cómputo termina",
+        "El problema es decidible pero su solución requiere tiempo exponencial en el peor caso",
+        "Todo programa termina si se le asigna una cinta de longitud suficientemente grande"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "El problema de la parada es indecidible: la demostración por diagonalización construye una contradicción a partir de suponer que existe tal decisor universal. Es un límite lógico, no de recursos, por lo que ampliar la cinta o el tiempo no lo resuelve. Confundirlo con un problema de complejidad exponencial mezcla indecidibilidad con intratabilidad, que son categorías distintas."
+    },
+    {
+      "id": "2.2-012",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Análisis sintáctico LL y LR",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cómo construye el árbol sintáctico un analizador **LL(1)** frente a uno **LR(1)**?",
+      "opciones": [
+        "LL parte del símbolo inicial hacia las hojas y LR parte de las hojas hacia la raíz",
+        "LL parte de las hojas hacia la raíz y LR parte del símbolo inicial hacia las hojas",
+        "Ambos parten del símbolo inicial, pero LR recorre la entrada de derecha a izquierda"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "LL es descendente: expande el símbolo inicial aplicando la derivación por la izquierda hasta llegar a los tokens. LR es ascendente: desplaza tokens a una pila y los reduce hasta alcanzar el símbolo inicial, produciendo una derivación por la derecha en orden inverso. Ambos leen la entrada de izquierda a derecha, que es lo que indica la primera L de sus nombres."
+    },
+    {
+      "id": "2.2-013",
+      "tipo": "choice",
+      "dificultad": "sobresaliente",
+      "tema": "Analizadores SLR, LALR y LR canónico",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Seleccione las **dos** afirmaciones correctas sobre las familias de analizadores ascendentes.",
+      "opciones": [
+        "Toda gramática libre de contexto admite un analizador LL(1) equivalente",
+        "LALR fusiona los estados LR(1) que comparten el mismo núcleo de elementos",
+        "El método LR(0) emplea un símbolo de anticipación para elegir la reducción",
+        "LALR reconoce estrictamente más gramáticas que el método LR(1) canónico",
+        "SLR decide las reducciones consultando el conjunto FOLLOW del no terminal"
+      ],
+      "respuesta": [
+        1,
+        4
+      ],
+      "explicacion": "SLR es el método más simple porque reduce cuando el símbolo siguiente está en FOLLOW, criterio que a veces provoca conflictos; LALR obtiene tablas del tamaño de las SLR fusionando estados LR(1) con igual núcleo, y es el método que usan yacc y bison. Las otras son falsas: hay gramáticas libres de contexto sin equivalente LL(1), LR(0) no usa anticipación alguna y LALR reconoce un subconjunto de las gramáticas LR(1) canónicas, no más."
+    },
+    {
+      "id": "2.2-014",
+      "tipo": "completamiento",
+      "dificultad": "satisfactorio",
+      "tema": "Análisis semántico y código intermedio",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "La fase de ______ comprueba la compatibilidad de tipos entre operandos, mientras que la fase de ______ produce una representación independiente de la máquina como el código de tres direcciones.",
+      "opciones": [
+        "análisis semántico / generación de código intermedio",
+        "análisis léxico / generación de código objeto",
+        "análisis sintáctico / optimización de código"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "La verificación de tipos exige conocer el significado de los identificadores, información que vive en la tabla de símbolos y que solo el análisis semántico consulta. El código de tres direcciones es la representación intermedia clásica que desacopla el front-end del back-end. El análisis sintáctico solo valida la estructura, y el léxico apenas reconoce tokens, sin noción de tipos."
+    },
+    {
+      "id": "2.2-015",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Detección de errores por fase",
+      "lecturaId": null,
+      "contexto": "Un compilador de C procesa el siguiente fragmento, en el que `contador` nunca fue declarado:\n\n```c\nint suma = 0;\nsuma = suma + contador;\n```",
+      "enunciado": "¿En qué fase se detecta el error y por qué?",
+      "opciones": [
+        "En el análisis sintáctico, porque la producción de la asignación no puede completarse",
+        "En el análisis semántico, porque el identificador no aparece en la tabla de símbolos",
+        "En el análisis léxico, porque `contador` no corresponde a ningún patrón de token"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "Léxicamente `contador` es un identificador válido y sintácticamente la asignación está bien formada, así que ambas fases lo aceptan sin objeción. Es el análisis semántico el que busca el identificador en la tabla de símbolos, no lo encuentra en ningún ámbito activo y reporta el uso de una variable no declarada, junto con los errores de tipos y de aridad."
+    }
+  ]
+}

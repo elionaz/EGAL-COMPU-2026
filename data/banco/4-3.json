@@ -1,0 +1,254 @@
+{
+  "area": "4",
+  "areaNombre": "Soluciones de cómputo inteligente",
+  "subarea": "4.3",
+  "subareaNombre": "Cómputo distribuido",
+  "seccion": "disciplinar",
+  "lecturas": [],
+  "preguntas": [
+    {
+      "id": "4.3-001",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Características de los sistemas distribuidos",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "De acuerdo con Tanenbaum y Van Steen, ¿qué característica define a un sistema distribuido frente a un sistema centralizado?",
+      "opciones": [
+        "Una colección de computadoras independientes que se presenta al usuario como un sistema único y coherente",
+        "Un conjunto de procesadores que comparten físicamente la misma memoria principal y el mismo reloj",
+        "Un equipo con varios núcleos que ejecuta procesos concurrentes bajo un único sistema operativo"
+      ],
+      "respuesta": [0],
+      "explicacion": "La definición clásica exige dos condiciones: nodos autónomos, con memoria y reloj propios, y una capa de middleware que oculta esa distribución para ofrecer la imagen de un sistema único. Compartir memoria y reloj describe a un multiprocesador de memoria compartida, no a un sistema distribuido. Un equipo multinúcleo con un solo sistema operativo es concurrencia local: no hay nodos independientes ni comunicación por red."
+    },
+    {
+      "id": "4.3-002",
+      "tipo": "relacion",
+      "dificultad": "satisfactorio",
+      "tema": "Transparencias",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Relacione cada tipo de transparencia de un sistema distribuido con la situación que la ejemplifica.\n\n1. Transparencia de ubicación\n2. Transparencia de replicación\n3. Transparencia de fallas\n\na) El usuario ignora que existen varias copias del mismo archivo en distintos nodos\nb) El sistema oculta la caída de un servidor y la petición se atiende de todos modos\nc) El recurso se nombra sin que el nombre revele en qué máquina reside",
+      "opciones": [
+        "1a, 2b, 3c",
+        "1b, 2a, 3c",
+        "1c, 2a, 3b"
+      ],
+      "respuesta": [2],
+      "explicacion": "La transparencia de ubicación significa que el nombre del recurso no delata su localización física, por lo que corresponde al inciso c. La de replicación oculta que existen múltiples copias sincronizadas del mismo recurso, es decir, el inciso a. La de fallas permite que el usuario no perciba la caída y la posterior recuperación de un componente, que es lo descrito en el inciso b."
+    },
+    {
+      "id": "4.3-003",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Arquitecturas distribuidas",
+      "lecturaId": null,
+      "contexto": "Una aplicación empresarial separa la interfaz gráfica en las estaciones de trabajo, la lógica de negocio en un servidor de aplicaciones y el almacenamiento en un servidor de base de datos independiente.",
+      "enunciado": "¿Qué arquitectura distribuida corresponde a esta organización?",
+      "opciones": [
+        "Arquitectura multinivel de tres capas",
+        "Arquitectura peer-to-peer estructurada",
+        "Arquitectura cliente-servidor de dos capas"
+      ],
+      "respuesta": [0],
+      "explicacion": "La separación en presentación, lógica de negocio y gestión de datos, cada una alojada en máquinas distintas, es la definición de una arquitectura multinivel de tres capas, que facilita escalar y sustituir cada nivel por separado. En el modelo de dos capas la lógica de negocio residiría en el cliente o dentro del propio servidor de base de datos. En peer-to-peer no habría esta jerarquía: todos los nodos tendrían el mismo rol y actuarían a la vez como clientes y como servidores."
+    },
+    {
+      "id": "4.3-004",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Arquitecturas distribuidas",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es la principal ventaja de una arquitectura peer-to-peer frente a una cliente-servidor centralizada?",
+      "opciones": [
+        "Garantiza consistencia fuerte de los datos sin necesidad de protocolos de replicación",
+        "La capacidad total del sistema crece conforme se incorporan nodos y no existe un punto único de falla",
+        "Simplifica la administración porque la autenticación y el control de acceso se concentran en un nodo"
+      ],
+      "respuesta": [1],
+      "explicacion": "En P2P cada nodo aporta recursos al tiempo que los consume, de modo que la capacidad agregada crece con el número de participantes y la ausencia de un servidor central elimina el punto único de falla. La consistencia fuerte es, al contrario, mucho más difícil de lograr sin coordinador y exige protocolos de replicación explícitos. La administración centralizada es una ventaja del modelo cliente-servidor, no de P2P."
+    },
+    {
+      "id": "4.3-005",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Microservicios",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Qué rasgo distingue a una arquitectura de microservicios de una aplicación monolítica distribuida?",
+      "opciones": [
+        "Cada servicio se despliega y escala de forma independiente y se comunica por interfaces bien definidas",
+        "Todos los servicios comparten un mismo esquema de base de datos para asegurar la integridad referencial",
+        "Los servicios se compilan en un artefacto único que se replica de manera idéntica en cada nodo"
+      ],
+      "respuesta": [0],
+      "explicacion": "El microservicio es una unidad de despliegue autónoma, con su propio ciclo de vida y frecuentemente su propio almacén de datos, que expone contratos estables (REST, gRPC o mensajería) al resto del sistema. Compartir un esquema de base de datos crea un acoplamiento que anula esa independencia y es precisamente lo que la arquitectura evita. Compilar todo en un artefacto único describe al monolito, aunque se replique en varios nodos."
+    },
+    {
+      "id": "4.3-006",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Modelos de comunicación",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es la diferencia esencial entre el paso de mensajes explícito y una llamada a procedimiento remoto (RPC)?",
+      "opciones": [
+        "El paso de mensajes solo funciona dentro de una red local, mientras que RPC opera sobre redes de área amplia",
+        "RPC oculta la comunicación tras la sintaxis de una llamada a procedimiento local, mientras que el paso de mensajes obliga a enviar y recibir de forma explícita",
+        "El paso de mensajes es siempre síncrono, mientras que RPC es siempre asíncrono y no bloquea al invocador"
+      ],
+      "respuesta": [1],
+      "explicacion": "RPC persigue la transparencia de acceso: el programador escribe una invocación aparentemente local y los stubs se encargan del empaquetado, el envío y la espera de la respuesta. En el paso de mensajes el programador maneja primitivas send y receive y controla él mismo el protocolo. Ambos modelos pueden usarse sobre redes locales o amplias, y el paso de mensajes admite tanto variantes bloqueantes como no bloqueantes, mientras que la RPC clásica es justamente síncrona."
+    },
+    {
+      "id": "4.3-007",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "RMI",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Qué distingue a la invocación de métodos remotos (RMI) de la RPC tradicional?",
+      "opciones": [
+        "RMI opera sobre referencias a objetos remotos e invoca métodos, con soporte para polimorfismo y paso de objetos serializados",
+        "RMI evita por completo el uso de stubs porque el cliente se conecta directamente al objeto remoto",
+        "RMI transporta únicamente tipos primitivos, mientras que RPC puede transportar estructuras compuestas"
+      ],
+      "respuesta": [0],
+      "explicacion": "RMI extiende el modelo de RPC al paradigma orientado a objetos: en lugar de invocar procedimientos sueltos, el cliente mantiene una referencia a un objeto remoto y llama a sus métodos, con herencia, polimorfismo y serialización de objetos como parámetros. Sigue apoyándose en stubs (proxy y esqueleto) para el empaquetado y la comunicación. La restricción a tipos primitivos es falsa: RMI serializa grafos completos de objetos."
+    },
+    {
+      "id": "4.3-008",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Relojes lógicos de Lamport",
+      "lecturaId": null,
+      "contexto": "Tres procesos usan relojes lógicos de Lamport, todos inicializados en 0. El reloj se incrementa en 1 antes de cada evento y, al recibir un mensaje con marca t, el receptor toma máx(reloj local, t) + 1.\n\n- **P1:** evento e11; evento e12, que **envía m1** a P2; evento e13.\n- **P2:** evento e21; evento e22, que **recibe m1**; evento e23, que **envía m2** a P3.\n- **P3:** evento e31; evento e32; evento e33, que **recibe m2**.",
+      "enunciado": "¿Qué marca de tiempo lógica corresponde al evento e33?",
+      "opciones": [
+        "3",
+        "5",
+        "7"
+      ],
+      "respuesta": [1],
+      "explicacion": "En P1, e12 lleva marca 2 y el mensaje m1 viaja con esa marca. En P2, e21 vale 1 y e22 aplica la regla de recepción: máx(1, 2) + 1 = 3; luego e23 vale 4 y m2 se envía con esa marca. En P3, e31 y e32 valen 1 y 2, de modo que e33 resulta máx(2, 4) + 1 = 5. Contar solo los eventos locales daría 3 e ignoraría el efecto de sincronización de los mensajes."
+    },
+    {
+      "id": "4.3-009",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Exclusión mutua distribuida",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "En el algoritmo de exclusión mutua distribuida basado en token en anillo, ¿qué problema debe resolver el sistema para conservar la corrección?",
+      "opciones": [
+        "La pérdida del token, que exige un mecanismo de detección y regeneración",
+        "La inanición de los procesos, ya que el anillo no garantiza turno a todos",
+        "El interbloqueo entre dos procesos que solicitan la sección crítica al mismo tiempo"
+      ],
+      "respuesta": [0],
+      "explicacion": "El token circula por el anillo y solo su poseedor entra a la sección crítica, por lo que la exclusión mutua es inmediata; el riesgo real es que el token se pierda al caer un nodo o al corromperse un mensaje, y el sistema necesita detectarlo y regenerar uno solo. La inanición no ocurre: el recorrido circular garantiza que cada proceso reciba el token en un número acotado de saltos. Tampoco hay interbloqueo, porque nadie espera recursos de otro: simplemente se espera la llegada del token."
+    },
+    {
+      "id": "4.3-010",
+      "tipo": "completamiento",
+      "dificultad": "satisfactorio",
+      "tema": "Tolerancia a fallas",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "La técnica que guarda periódicamente el estado de un proceso para reanudarlo desde el último punto seguro tras una caída se llama ______, mientras que mantener varias copias activas del mismo servicio en nodos distintos se denomina ______.",
+      "opciones": [
+        "checkpointing y replicación",
+        "replicación y checkpointing",
+        "checkpointing y fragmentación"
+      ],
+      "respuesta": [0],
+      "explicacion": "El checkpointing (o establecimiento de puntos de verificación) persiste el estado del proceso en almacenamiento estable para que la recuperación hacia atrás lo restaure sin reejecutar todo el cómputo. La replicación es una estrategia de redundancia espacial: varias copias del servicio atienden en paralelo y el sistema sobrevive a la caída de alguna. La fragmentación es un concepto de bases de datos distribuidas, no un mecanismo de tolerancia a fallas."
+    },
+    {
+      "id": "4.3-011",
+      "tipo": "choice",
+      "dificultad": "satisfactorio",
+      "tema": "Cómputo en la nube",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Seleccione las **DOS** afirmaciones correctas sobre los modelos de servicio y de despliegue en la nube.",
+      "opciones": [
+        "Contratar máquinas virtuales y almacenamiento en bruto, administrando uno mismo el sistema operativo, corresponde a IaaS",
+        "Usar una suite de correo y ofimática en línea, sin instalar ni administrar nada, corresponde a SaaS",
+        "En PaaS el cliente es responsable de aplicar los parches al hipervisor del proveedor",
+        "Una nube comunitaria es aquella cuya infraestructura pertenece a un solo cliente y reside en su centro de datos",
+        "En SaaS el cliente administra el sistema operativo y el motor de base de datos de la aplicación"
+      ],
+      "respuesta": [0, 1],
+      "explicacion": "En IaaS el proveedor entrega cómputo, almacenamiento y red virtualizados, y el cliente conserva la administración del sistema operativo y de todo lo que instale encima. En SaaS el proveedor opera la aplicación completa y el cliente solo la consume y configura, sin tocar sistema operativo ni base de datos. El hipervisor siempre queda del lado del proveedor, incluso en IaaS; y la nube de un solo cliente en su propio centro de datos es privada, no comunitaria: la comunitaria la comparten varias organizaciones con intereses afines."
+    },
+    {
+      "id": "4.3-012",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Consistencia y replicación",
+      "lecturaId": null,
+      "contexto": "Un almacén de datos replicado en varios centros de datos responde a las lecturas de inmediato con la copia local; los cambios se propagan en segundo plano y, si no hay escrituras nuevas, todas las réplicas terminan por coincidir.",
+      "enunciado": "¿Qué modelo de consistencia implementa este almacén?",
+      "opciones": [
+        "Consistencia eventual",
+        "Consistencia secuencial",
+        "Consistencia estricta"
+      ],
+      "respuesta": [0],
+      "explicacion": "La consistencia eventual admite que las réplicas difieran temporalmente y solo garantiza convergencia si cesan las actualizaciones; a cambio ofrece disponibilidad y latencia bajas, compromiso descrito por el teorema CAP. La consistencia secuencial exigiría que todas las réplicas observaran las operaciones en el mismo orden total, lo que impide devolver una copia local desactualizada. La estricta es aún más fuerte: cada lectura debe devolver la última escritura en tiempo real absoluto, algo irrealizable entre centros de datos distantes."
+    },
+    {
+      "id": "4.3-013",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Grid computing",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Qué caracteriza a la arquitectura de Grid computing frente a un clúster tradicional?",
+      "opciones": [
+        "Integra recursos heterogéneos y geográficamente dispersos que pertenecen a distintas organizaciones administrativas",
+        "Emplea nodos homogéneos dedicados, conectados por una red de baja latencia bajo una sola administración",
+        "Ejecuta todas las tareas sobre un único supercomputador con memoria compartida y planificador central"
+      ],
+      "respuesta": [0],
+      "explicacion": "El grid federa recursos de dominios administrativos distintos, heterogéneos en hardware y sistema operativo y repartidos geográficamente, lo que obliga a resolver autenticación entre dominios, planificación de tareas y políticas de uso compartido (las «organizaciones virtuales»). El clúster, en cambio, es homogéneo, dedicado, de baja latencia y administrado por una sola entidad. La tercera opción describe un supercomputador de memoria compartida, que no es un sistema distribuido federado."
+    },
+    {
+      "id": "4.3-014",
+      "tipo": "orden",
+      "dificultad": "satisfactorio",
+      "tema": "Modelos de comunicación",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Ordene los pasos de una llamada a procedimiento remoto (RPC), desde que el cliente la invoca hasta que el servidor entrega el resultado.",
+      "opciones": [
+        "El stub del servidor desempaqueta los parámetros e invoca al procedimiento remoto",
+        "El cliente invoca al stub del cliente como si fuera un procedimiento local",
+        "El servidor ejecuta el procedimiento y entrega el resultado a su stub, que lo empaqueta de regreso",
+        "El stub del cliente empaqueta (marshalling) los parámetros en un mensaje",
+        "El sistema operativo del cliente transmite el mensaje al sistema operativo del servidor"
+      ],
+      "respuesta": [1, 3, 4, 0, 2],
+      "explicacion": "La RPC comienza con una llamada aparentemente local al stub del cliente, que existe justamente para dar esa transparencia. El stub empaqueta los parámetros en un mensaje (marshalling), el núcleo lo transmite por la red y el stub del servidor lo desempaqueta (unmarshalling) para invocar al procedimiento real. Al terminar, el resultado recorre el camino inverso; confundir el orden de empaquetado y transmisión implica desconocer el papel de los stubs como intermediarios."
+    },
+    {
+      "id": "4.3-015",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Procesamiento paralelo",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "En cómputo paralelo, ¿qué implica elegir una granularidad fina en la descomposición de un problema?",
+      "opciones": [
+        "Muchas tareas pequeñas, con alto potencial de paralelismo pero mayor sobrecarga de comunicación y sincronización",
+        "Pocas tareas grandes, que reducen la comunicación pero limitan el balanceo de carga entre procesadores",
+        "Tareas de tamaño uniforme, que eliminan la necesidad de sincronizar los resultados parciales"
+      ],
+      "respuesta": [0],
+      "explicacion": "La granularidad es la razón entre el tiempo de cómputo y el tiempo de comunicación de cada tarea; la granularidad fina divide el trabajo en muchas unidades pequeñas, lo que expone más paralelismo y mejora el balanceo, pero eleva el costo relativo de comunicar y sincronizar. La descripción de pocas tareas grandes corresponde a la granularidad gruesa. Ninguna granularidad elimina la sincronización cuando existen dependencias de datos entre las tareas."
+    }
+  ]
+}

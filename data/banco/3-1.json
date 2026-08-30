@@ -1,0 +1,289 @@
+{
+  "area": "3",
+  "areaNombre": "Desarrollo de software de aplicación",
+  "subarea": "3.1",
+  "subareaNombre": "Ingeniería de software",
+  "seccion": "disciplinar",
+  "lecturas": [],
+  "preguntas": [
+    {
+      "id": "3.1-001",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Modelos de proceso",
+      "lecturaId": null,
+      "contexto": "Una dependencia gubernamental contrata un sistema cuyos requisitos están fijados por ley, no cambiarán durante el proyecto y deben documentarse por completo antes de programar cualquier módulo.",
+      "enunciado": "¿Qué modelo de proceso resulta más apropiado y por qué?",
+      "opciones": [
+        "El modelo de prototipos, porque descubre los requisitos ocultos mediante versiones desechables del sistema",
+        "El modelo en cascada, porque avanza en fases secuenciales sobre requisitos estables y bien documentados",
+        "El modelo incremental, porque libera funcionalidad parcial para que el cliente redefina los requisitos"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "La cascada exige congelar los requisitos al inicio y ordena las fases de forma lineal, condición que aquí sí se cumple porque el marco legal los fija de antemano. Los prototipos y el modelo incremental están pensados para requisitos volátiles o poco comprendidos, y su valor —retroalimentar y renegociar el alcance— se desperdicia cuando el alcance no puede cambiar."
+    },
+    {
+      "id": "3.1-002",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Modelo espiral",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Qué actividad distingue al modelo en espiral de Boehm de los demás modelos evolutivos?",
+      "opciones": [
+        "La construcción de la totalidad del diseño arquitectónico antes de iniciar cualquier iteración",
+        "La entrega de un incremento operativo al usuario final al término de cada iteración breve",
+        "El análisis y la mitigación de riesgos al inicio de cada ciclo, que decide si el proyecto continúa"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "Cada vuelta de la espiral incluye un cuadrante dedicado a identificar, evaluar y reducir riesgos, y su resultado determina si se avanza al siguiente ciclo o se cancela el proyecto. Entregar incrementos operativos es propio del modelo incremental y de los métodos ágiles, y definir toda la arquitectura de antemano contradice el carácter evolutivo de la espiral."
+    },
+    {
+      "id": "3.1-003",
+      "tipo": "relacion",
+      "dificultad": "satisfactorio",
+      "tema": "Modelado UML",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Relacione cada diagrama UML con lo que representa.\n\n1. Diagrama de casos de uso\n2. Diagrama de secuencia\n3. Diagrama de despliegue\n\na) El intercambio de mensajes entre objetos ordenado en el tiempo\nb) La asignación de artefactos de software a los nodos de ejecución\nc) La funcionalidad del sistema vista desde los actores externos",
+      "opciones": [
+        "1c, 2b, 3a",
+        "1a, 2c, 3b",
+        "1c, 2a, 3b"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "El diagrama de casos de uso describe qué hace el sistema para cada actor, sin detallar cómo; el de secuencia es un diagrama de interacción que ordena los mensajes entre objetos en una línea de tiempo, y el de despliegue es estructural: muestra nodos físicos y los artefactos que se instalan en ellos. Confundirlos mezcla las tres vistas —funcional, dinámica y de implantación— que UML mantiene separadas."
+    },
+    {
+      "id": "3.1-004",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Fases del desarrollo",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Durante la ingeniería de requisitos, ¿en qué consiste la actividad de validación?",
+      "opciones": [
+        "Verificar que el código fuente producido cumple con los estándares de codificación acordados",
+        "Comprobar con los interesados que los requisitos documentados corresponden al sistema que en verdad necesitan",
+        "Estimar el esfuerzo y el costo que implicará construir cada uno de los requisitos documentados"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "Validar requisitos es confrontar la especificación con las necesidades reales del usuario para detectar omisiones, ambigüedades y conflictos antes de diseñar. Revisar el apego del código a estándares pertenece a la fase de implementación y sus revisiones técnicas, y estimar esfuerzo forma parte de la planificación del proyecto, no de la validación."
+    },
+    {
+      "id": "3.1-005",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Estimación de proyectos",
+      "lecturaId": null,
+      "contexto": "Se estima un sistema de 32 KLDC (miles de líneas de código) que se clasifica como proyecto **orgánico**. El modelo COCOMO básico calcula el esfuerzo con E = a × (KLDC)^b, donde para el modo orgánico a = 2.4 y b = 1.05.",
+      "enunciado": "¿Cuál es el esfuerzo estimado en persona-mes?",
+      "opciones": [
+        "Aproximadamente 77 persona-mes",
+        "Aproximadamente 146 persona-mes",
+        "Aproximadamente 91 persona-mes"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "Al sustituir se obtiene E = 2.4 × 32^1.05 ≈ 2.4 × 38.0 ≈ 91 persona-mes. El valor 77 resulta de tratar el exponente como 1 (2.4 × 32), lo que ignora la deseconomía de escala que COCOMO modela, y 146 corresponde al modo semiacoplado con a = 3.0 y b = 1.12, que aplica a proyectos de mayor complejidad."
+    },
+    {
+      "id": "3.1-006",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Patrones creacionales",
+      "lecturaId": null,
+      "contexto": "En una aplicación, varios módulos escriben en la bitácora. Se detecta que cada módulo crea su propio objeto de bitácora y abre un descriptor distinto sobre el mismo archivo, con lo que las líneas se entremezclan. Se requiere garantizar que exista una única instancia del componente y un punto de acceso global a ella.",
+      "enunciado": "¿Qué patrón de diseño resuelve la situación?",
+      "opciones": [
+        "Prototype",
+        "Composite",
+        "Singleton"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "Singleton restringe la creación a una sola instancia mediante un constructor privado y un método de acceso estático, que es justo lo que exige el escritor de bitácora compartido. Prototype crea objetos clonando un ejemplar existente, es decir, multiplica instancias en lugar de limitarlas, y Composite es estructural: sirve para tratar de manera uniforme objetos individuales y jerarquías de objetos."
+    },
+    {
+      "id": "3.1-007",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Patrones de comportamiento",
+      "lecturaId": null,
+      "contexto": "Un tablero financiero muestra la misma cotización en una gráfica, una tabla y un indicador de alertas. Cuando llega un nuevo precio, las tres vistas deben actualizarse solas, y se prevé agregar más vistas sin modificar la clase que recibe la cotización.",
+      "enunciado": "¿Qué patrón de diseño conviene aplicar?",
+      "opciones": [
+        "Strategy, que encapsula algoritmos intercambiables y los selecciona en tiempo de ejecución",
+        "Observer, que notifica a los suscriptores registrados cada vez que cambia el estado del sujeto",
+        "Command, que encapsula una solicitud como objeto para encolarla o deshacerla después"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "Observer define una dependencia uno a muchos: el sujeto mantiene una lista de observadores y les avisa al cambiar, de modo que agregar vistas no obliga a tocar la fuente de datos. Strategy resuelve la variación de algoritmos, no la propagación de cambios, y Command sirve para parametrizar y revertir operaciones, escenarios ajenos a la actualización automática de vistas."
+    },
+    {
+      "id": "3.1-008",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Patrones estructurales",
+      "lecturaId": null,
+      "contexto": "Un sistema nuevo debe consumir una biblioteca heredada cuyo código no puede modificarse y cuyos métodos tienen firmas incompatibles con la interfaz que ya usan los módulos existentes.",
+      "enunciado": "¿Qué patrón de diseño permite integrarla sin alterar ni la biblioteca ni los módulos que la consumirán?",
+      "opciones": [
+        "Factory Method, que delega en las subclases la decisión sobre qué objeto instanciar",
+        "Decorator, que agrega responsabilidades a un objeto conservando su interfaz original",
+        "Adapter, que envuelve la clase existente y traduce las llamadas a la interfaz esperada"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "Adapter existe precisamente para reconciliar interfaces incompatibles: implementa la interfaz que el cliente espera y delega en el objeto adaptado traduciendo parámetros y resultados. Decorator supone que la interfaz ya coincide, pues su propósito es añadir comportamiento, y Factory Method atiende la creación de objetos, no la incompatibilidad de firmas."
+    },
+    {
+      "id": "3.1-009",
+      "tipo": "completamiento",
+      "dificultad": "satisfactorio",
+      "tema": "Calidad de software",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "En el modelo de calidad ISO/IEC 25010, la capacidad del producto de ser modificado con eficacia y sin introducir defectos corresponde a la característica de ______, mientras que la capacidad de ser transferido de un entorno a otro corresponde a ______.",
+      "opciones": [
+        "fiabilidad; usabilidad",
+        "mantenibilidad; portabilidad",
+        "portabilidad; mantenibilidad"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "ISO/IEC 25010 define mantenibilidad como el grado de eficacia y eficiencia con que el producto puede modificarse, e incluye subcaracterísticas como modularidad, capacidad de ser analizado y de ser probado; la portabilidad se refiere a adaptar, instalar o reemplazar el producto en distintos entornos. La fiabilidad atañe a mantener el desempeño ante fallas y la usabilidad al esfuerzo del usuario, ninguna de las cuales describe la modificación del producto."
+    },
+    {
+      "id": "3.1-010",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Tipos de pruebas",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es el objetivo específico de las pruebas de integración?",
+      "opciones": [
+        "Comprobar que cada función o método produce la salida esperada de forma aislada del resto del sistema",
+        "Confirmar con el cliente que el sistema completo satisface los criterios pactados en el contrato",
+        "Detectar defectos en las interfaces y en la interacción entre módulos que ya fueron probados por separado"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "La integración ensambla componentes ya verificados unitariamente para exponer errores de interfaz: parámetros mal interpretados, datos perdidos entre módulos o efectos colaterales entre subsistemas. Probar funciones de manera aislada corresponde a las pruebas unitarias, y validar el cumplimiento contractual con el cliente define las pruebas de aceptación."
+    },
+    {
+      "id": "3.1-011",
+      "tipo": "choice",
+      "dificultad": "sobresaliente",
+      "tema": "Marcos de trabajo ágiles",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Seleccione las **dos** afirmaciones correctas sobre los marcos de trabajo ágiles.",
+      "opciones": [
+        "En XP, la programación en pares sustituye a las pruebas automatizadas como mecanismo de verificación",
+        "En Scrum, el dueño del producto es responsable de ordenar la lista del producto según el valor de negocio",
+        "En Scrum, el maestro Scrum asigna las tareas del sprint a cada integrante y aprueba el incremento",
+        "En Kanban, limitar el trabajo en curso reduce el tiempo de ciclo al evitar tareas iniciadas y sin terminar",
+        "En Kanban, cada iteración tiene duración fija y el tablero se reinicia al terminar cada ciclo"
+      ],
+      "respuesta": [
+        1,
+        3
+      ],
+      "explicacion": "La Guía de Scrum asigna al dueño del producto la gestión y el ordenamiento de la lista del producto para maximizar valor, mientras que el equipo de desarrollo se autoorganiza y el maestro Scrum facilita el proceso sin repartir tareas ni aprobar el incremento. Kanban es un flujo continuo sin iteraciones de duración fija, y sus límites de trabajo en curso reducen el tiempo de ciclo según la ley de Little; en XP la programación en pares complementa —nunca reemplaza— el desarrollo guiado por pruebas."
+    },
+    {
+      "id": "3.1-012",
+      "tipo": "orden",
+      "dificultad": "satisfactorio",
+      "tema": "Ciclo de vida del software",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Ordene las fases del ciclo de vida clásico del software según la secuencia en que se ejecutan.",
+      "opciones": [
+        "Diseño del sistema y de los componentes",
+        "Especificación de requisitos",
+        "Mantenimiento y evolución",
+        "Codificación y pruebas unitarias",
+        "Pruebas de integración y del sistema"
+      ],
+      "respuesta": [
+        1,
+        0,
+        3,
+        4,
+        2
+      ],
+      "explicacion": "El ciclo de vida clásico parte de especificar qué debe hacer el sistema, traduce esa especificación a una solución técnica en el diseño, la materializa en código con sus pruebas unitarias y después integra y prueba el sistema completo. El mantenimiento es la última fase y la más prolongada, pues abarca las correcciones y adaptaciones posteriores a la entrega."
+    },
+    {
+      "id": "3.1-013",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Usabilidad y diseño centrado en el usuario",
+      "lecturaId": null,
+      "contexto": "Un formulario en línea rechaza el registro con el mensaje \"Error 0x2F: operación no válida\" y no indica qué campo debe corregirse.",
+      "enunciado": "¿Qué heurística de usabilidad de Nielsen se está incumpliendo?",
+      "opciones": [
+        "Mantener la consistencia y apegarse a los estándares de la plataforma",
+        "Ayudar a los usuarios a reconocer, diagnosticar y recuperarse de los errores",
+        "Dar libertad y control al usuario mediante salidas de emergencia claras"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "Esa heurística exige que los mensajes de error se expresen en lenguaje llano, señalen con precisión el problema y sugieran una solución, algo que un código hexadecimal no hace. La libertad y control se refiere a poder deshacer o abandonar una acción no deseada, y la consistencia a que elementos equivalentes se comporten igual: ninguna de las dos describe la falla del mensaje."
+    },
+    {
+      "id": "3.1-014",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Arquitecturas de software",
+      "lecturaId": null,
+      "contexto": "Una plataforma de comercio electrónico necesita escalar de forma independiente el módulo de búsqueda de catálogo, que recibe cien veces más peticiones que el módulo de facturación, y desplegar cambios en uno sin volver a liberar el otro.",
+      "enunciado": "¿Qué estilo arquitectónico atiende mejor ese requerimiento y a qué costo principal?",
+      "opciones": [
+        "Monolito en capas, a costa de mayor latencia en cada llamada entre las capas del sistema",
+        "Cliente-servidor de dos niveles, a costa de duplicar la lógica de negocio en cada cliente instalado",
+        "Microservicios, a costa de mayor complejidad operativa y de consistencia distribuida entre servicios"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "Los microservicios despliegan y escalan cada capacidad de negocio por separado, que es exactamente lo que exige el desbalance de carga descrito; el precio son la orquestación, la observabilidad y la consistencia eventual entre servicios. Un monolito en capas se despliega como una sola unidad, de modo que escalar la búsqueda obliga a replicar todo, y el modelo de dos niveles agrava el problema al llevar la lógica al cliente."
+    },
+    {
+      "id": "3.1-015",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Patrón arquitectónico MVC",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "En el patrón arquitectónico Modelo-Vista-Controlador, ¿cuál es la responsabilidad del controlador?",
+      "opciones": [
+        "Administrar los datos y las reglas de negocio, además de notificar los cambios de estado",
+        "Presentar la información al usuario y capturar sus datos mediante los elementos de la interfaz",
+        "Interpretar las acciones del usuario, invocar la lógica del modelo y seleccionar la vista de respuesta"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "El controlador es el intermediario: traduce los eventos de entrada en operaciones sobre el modelo y decide qué vista se muestra después. Administrar datos y reglas de negocio corresponde al modelo y presentar la información corresponde a la vista; separar estas tres responsabilidades es lo que permite cambiar la interfaz sin tocar la lógica del dominio."
+    }
+  ]
+}

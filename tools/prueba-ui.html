@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="es-MX" data-tema="oscuro">
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+  <title>Prueba de UI</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Arnés de prueba: carga la app real y la maneja con clics sintéticos.
+       Se ejecuta con:  "Google Chrome" --headless --dump-dom http://localhost:PUERTO/tools/prueba-ui.html -->
+  <header class="barra"><div class="barra-in">
+    <button class="marca" data-accion="inicio">EGAL COMPU</button>
+    <span id="barra-extra"></span>
+  </div></header>
+  <main id="app"></main>
+  <pre id="bitacora" style="padding:20px;font:13px monospace"></pre>
+
+  <script type="module">
+    const log = [];
+    let fallos = 0;
+    const bitacora = document.getElementById('bitacora');
+    const escribir = (t) => { log.push(t); bitacora.textContent = log.join('\n'); };
+    const afirmar = (cond, msg) => { escribir(`${cond ? '  OK ' : '  FALLA '} ${msg}`); if (!cond) fallos++; };
+
+    window.addEventListener('error', (e) => afirmar(false, `error de JS: ${e.message}`));
+    window.addEventListener('unhandledrejection', (e) => afirmar(false, `promesa rechazada: ${e.reason}`));
+
+    localStorage.clear();
+    await import('../js/app.js');
+
+    const espera = (ms = 60) => new Promise((r) => setTimeout(r, ms));
+    const $ = (sel) => document.querySelector(sel);
+    const clic = async (sel) => {
+      const el = $(sel);
+      if (!el) { afirmar(false, `no se encontró ${sel}`); return false; }
+      el.click();
+      await espera();
+      return true;
+    };
+    const texto = () => document.getElementById('app').textContent;
+
+    await espera(700);
+
+    escribir('> Inicio');
+    afirmar(texto().includes('Simulador EGAL COMPU'), 'muestra la portada');
+    afirmar(document.querySelectorAll('.modo').length === 5, 'los 5 modos están presentes');
+    afirmar(!texto().includes('No se pudo cargar'), 'el banco cargó por HTTP');
+
+    escribir('> Práctica dirigida');
+    await clic('[data-accion="practica"]');
+    afirmar(texto().includes('Práctica dirigida'), 'abre el formulario');
+    $('[data-campo="subarea"]').value = '1.1';
+    $('[data-campo="cantidad"]').value = '10';
+    await clic('[data-accion="iniciar-practica"]');
+    afirmar(document.querySelector('.tarjeta-pregunta') !== null, 'inicia el intento');
+    afirmar(document.querySelectorAll('.celda').length === 10, 'la paleta tiene 10 reactivos');
+    afirmar(texto().includes('1.1'), 'los reactivos son de la subárea pedida');
+
+    escribir('> Responder un reactivo');
+    afirmar($('[data-accion="comprobar"]').disabled, 'Comprobar está bloqueado sin respuesta');
+    await clic('.opcion');
+    afirmar(document.querySelector('.opcion.elegida') !== null, 'la opción queda marcada');
+    afirmar(!$('[data-accion="comprobar"]').disabled, 'Comprobar se habilita');
+    await clic('[data-accion="comprobar"]');
+    afirmar(document.querySelector('.retro') !== null, 'muestra la retroalimentación');
+    afirmar(document.querySelector('.opcion.correcta') !== null, 'señala la opción correcta');
+    afirmar(document.querySelectorAll('.celda.ok, .celda.mal').length === 1, 'la paleta refleja el resultado');
+    await espera(250); // el guardado en localStorage está diferido
+    afirmar(Object.keys(JSON.parse(localStorage.getItem('ceneval.egal.v1')).srs).length === 1, 'el SRS se actualizó');
+
+    escribir('> Marcar y navegar');
+    await clic('[data-accion="marcar"]');
+    afirmar(texto().includes('Marcada'), 'el reactivo queda marcado');
+    await clic('[data-accion="siguiente"]');
+    afirmar(texto().includes('2 de 10'), 'avanza al siguiente');
+    await clic('[data-accion="anterior"]');
+    afirmar(texto().includes('1 de 10'), 'regresa al anterior');
+    await clic('.celda:nth-child(5)');
+    afirmar(texto().includes('5 de 10'), 'la paleta navega');
+
+    escribir('> Terminar el intento');
+    for (let i = 0; i < 10; i++) {
+      const op = document.querySelector('.opcion:not(:disabled)');
+      if (op) { op.click(); await espera(30); }
+      const comp = $('[data-accion="comprobar"]');
+      if (comp && !comp.disabled) { comp.click(); await espera(30); }
+      const sig = $('[data-accion="siguiente"]');
+      if (sig && !sig.disabled) { sig.click(); await espera(30); }
+    }
+    await clic('[data-accion="terminar"]');
+    afirmar(document.querySelector('.modal') !== null, 'pide confirmación');
+    await clic('[data-accion="confirmar-terminar"]');
+    afirmar(texto().includes('Resultados'), 'llega a resultados');
+    afirmar(document.querySelector('.icne') !== null, 'muestra el ICNE');
+    const icneTexto = Number(document.querySelector('.icne').textContent);
+    afirmar(icneTexto >= 700 && icneTexto <= 1300, `ICNE en rango: ${icneTexto}`);
+    afirmar(localStorage.getItem('ceneval.egal.v1').includes('historial'), 'el intento quedó archivado');
+
+    escribir('> Revisión');
+    await clic('[data-accion="revision"]');
+    afirmar(texto().includes('Revisión'), 'abre la revisión');
+    await clic('[data-accion="filtro-revision"][data-v="todos"]');
+    afirmar(document.querySelectorAll('.rev-item').length === 10, 'lista los 10 reactivos');
+
+    escribir('> Estadísticas');
+    await clic('[data-accion="estadisticas"]');
+    afirmar(texto().includes('Estadísticas'), 'abre estadísticas');
+    afirmar(texto().includes('Historial'), 'muestra el historial');
+    afirmar(document.querySelectorAll('.metrica').length >= 6, 'muestra las métricas');
+
+    escribir('> Estudio');
+    await clic('.marca');
+    await clic('[data-accion="estudio"]');
+    afirmar(texto().includes('Estudio'), 'abre la vista Estudio');
+    afirmar(document.querySelectorAll('.estudio-tarjeta').length === 19, 'muestra las 19 subáreas');
+    await clic('[data-accion="estudio-subarea"][data-subarea="1.1"]');
+    afirmar(texto().includes('Análisis y diseño de algoritmos'), 'abre la lección de la subárea');
+    afirmar(document.querySelectorAll('.temas-nav-item').length >= 3, 'muestra la navegación de temas');
+    afirmar(document.querySelectorAll('.leccion').length === 1, 'muestra un solo tema a la vez (no todo en una página)');
+    const primerTema = texto();
+    await clic('[data-accion="estudio-tema"]:not(.actual)');
+    afirmar(texto() !== primerTema, 'cambia de tema al navegar');
+    await clic('[data-accion="estudio-practicar"]');
+    afirmar(document.querySelector('.tarjeta-pregunta') !== null, 'lanza una práctica desde la lección');
+    afirmar(texto().includes('1.1'), 'la práctica es de la subárea de la lección');
+    await clic('[data-accion="salir"]');
+    await clic('[data-accion="confirmar-salir"]');
+    await clic('[data-accion="descartar"]');
+
+    escribir('> Simulacro y reanudación');
+    await clic('.marca');
+    await clic('[data-accion="simulacro"][data-escala="1"]');
+    afirmar(document.querySelector('.modal') !== null, 'confirma antes de iniciar');
+    await clic('[data-accion="nuevo-simulacro:1:1"]');
+    afirmar(document.querySelectorAll('.celda').length === 200, 'el simulacro completo trae 200 reactivos');
+    afirmar($('#crono') !== null, 'el cronómetro está activo');
+    await clic('.opcion');
+    await clic('[data-accion="salir"]');
+    await clic('[data-accion="confirmar-salir"]');
+    afirmar(texto().includes('intento sin terminar'), 'ofrece reanudar');
+    await clic('[data-accion="reanudar"]');
+    {
+      const q = await import('../js/quiz.js');
+      const s = q.sesionActual();
+      afirmar(!!s && s.items.length === 200, 'reanuda el mismo simulacro de 200');
+      afirmar(s.items[0].seleccion.length === 1, 'conserva la respuesta al reanudar');
+    }
+
+    escribir('> Repaso espaciado');
+    await clic('[data-accion="salir"]');
+    await clic('[data-accion="confirmar-salir"]');
+    await clic('[data-accion="descartar"]');
+    await clic('[data-accion="repaso"]');
+    afirmar(document.querySelector('.tarjeta-pregunta') !== null, 'arma la cola de repaso');
+
+    escribir('> Tema claro/oscuro');
+    await clic('[data-accion="tema"]');
+    afirmar(document.documentElement.dataset.tema === 'claro', 'cambia a tema claro');
+    await clic('[data-accion="tema"]');
+    afirmar(document.documentElement.dataset.tema === 'oscuro', 'vuelve a tema oscuro');
+
+    escribir('> Intento perfecto de punta a punta');
+    // Los módulos ES son únicos por URL: esta es la misma instancia que usa la app.
+    const quiz = await import('../js/quiz.js');
+    await clic('[data-accion="salir"]');
+    await clic('[data-accion="confirmar-salir"]');
+    await clic('[data-accion="descartar"]');
+    await clic('[data-accion="practica"]');
+    $('[data-campo="cantidad"]').value = '10';
+    await clic('[data-accion="iniciar-practica"]');
+    for (let i = 0; i < 10; i++) {
+      const s = quiz.sesionActual();
+      const item = s.items[s.idx];
+      const p = quiz.preguntaDe(item);
+      if (p.tipo === 'orden') {
+        // Coloca cada elemento en su posición correcta usando las flechas.
+        for (let destino = 0; destino < p.respuesta.length; destino++) {
+          const objetivo = item.orden.indexOf(p.respuesta[destino]);
+          let actual = item.seleccion.indexOf(objetivo);
+          while (actual > destino) {
+            document.querySelectorAll('.orden-item')[actual].querySelector('[data-dir="-1"]').click();
+            await espera(20);
+            actual--;
+          }
+        }
+      } else {
+        for (const orig of p.respuesta) {
+          document.querySelectorAll('.opcion')[item.orden.indexOf(orig)].click();
+          await espera(20);
+        }
+      }
+      afirmar(quiz.esCorrecta(item), `respondido bien vía UI: ${p.id} (${p.tipo})`);
+      await clic('[data-accion="comprobar"]');
+      const sig = $('[data-accion="siguiente"]');
+      if (sig && !sig.disabled) { sig.click(); await espera(40); }
+    }
+    await clic('[data-accion="terminar"]');
+    await clic('[data-accion="confirmar-terminar"]');
+    const perfecto = Number(document.querySelector('.icne').textContent);
+    afirmar(perfecto === 1300, `10/10 desde la interfaz → ICNE ${perfecto} (esperado 1300)`);
+    afirmar(texto().includes('Sobresaliente'), 'dictamen Sobresaliente');
+    await clic('[data-accion="revision"]');
+    afirmar(texto().includes('Sin errores'), 'la revisión no encuentra errores');
+
+    escribir(fallos === 0 ? '\nRESULTADO: TODO OK' : `\nRESULTADO: ${fallos} FALLA(S)`);
+    document.title = fallos === 0 ? 'UI OK' : `UI ${fallos} FALLAS`;
+  </script>
+</body>
+</html>

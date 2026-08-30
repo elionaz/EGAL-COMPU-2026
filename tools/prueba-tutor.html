@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es-MX" data-tema="oscuro">
+<head><meta charset="utf-8"><base href="/"><title>Prueba tutor</title>
+<link rel="stylesheet" href="css/styles.css"></head>
+<body>
+  <header class="barra"><div class="barra-in"><button class="marca" data-accion="inicio">EGAL</button><span id="barra-extra"></span></div></header>
+  <main id="app"></main>
+  <pre id="bitacora" style="padding:20px;font:13px monospace"></pre>
+  <script type="module">
+    const log = []; let fallos = 0;
+    const out = document.getElementById('bitacora');
+    const w = (t) => { log.push(t); out.textContent = log.join('\n'); };
+    const ok = (c, m) => { w(`${c ? '  OK ' : '  FALLA '} ${m}`); if (!c) fallos++; };
+    window.addEventListener('error', (e) => ok(false, 'JS: ' + e.message));
+    localStorage.clear();
+    await import('../js/app.js');
+    const wait = (ms=80) => new Promise(r => setTimeout(r, ms));
+    const $ = (s) => document.querySelector(s);
+    const click = async (s) => { const el = $(s); if (el) el.click(); await wait(); return !!el; };
+    const txt = () => $('#tutor')?.textContent || '';
+    await wait(700);
+
+    w('> Widget presente');
+    ok($('.tutor-fab'), 'el botón flotante existe');
+
+    w('> Abrir sin reactivo');
+    await click('[data-t="abrir"]');
+    ok($('.tutor-panel'), 'abre el panel');
+    ok(txt().includes('Modo local'), 'muestra "Modo local" (sin API key)');
+    ok(txt().toLowerCase().includes('abre un reactivo'), 'invita a abrir un reactivo');
+    ok($('[data-t="pista"]').disabled, 'la pista está deshabilitada sin reactivo');
+
+    w('> Iniciar práctica de bases numéricas');
+    await click('[data-accion="practica"]');
+    $('[data-campo="subarea"]').value = '1.3';
+    $('[data-campo="cantidad"]').value = '10';
+    await click('[data-accion="iniciar-practica"]');
+    ok($('.tarjeta-pregunta'), 'inicia el intento');
+    ok($('.tutor-fab') || $('.tutor-panel'), 'el tutor sigue en pantalla durante el examen');
+
+    w('> Pedir pista local');
+    if (!$('.tutor-panel')) await click('[data-t="abrir"]');
+    ok(!$('[data-t="pista"]').disabled, 'la pista se habilita con un reactivo activo');
+    await click('[data-t="pista"]');
+    await wait(120);
+    const msgs = document.querySelectorAll('.tutor-msg');
+    ok(msgs.length >= 2, `hay conversación (${msgs.length} mensajes)`);
+    ok(txt().includes('Pista de método'), 'devuelve una pista de método');
+
+    w('> Ver solución (local usa la explicación)');
+    await click('[data-t="revelar"]');
+    await wait(120);
+    ok(txt().includes('Solución'), 'muestra la solución al pedirla');
+
+    w('> El contexto cambia al saltar de reactivo');
+    // Salta a otro reactivo con la paleta: la conversación anterior no debe mezclarse.
+    const antes = document.querySelectorAll('.tutor-msg').length;
+    ok(antes >= 3, `el reactivo actual tiene conversación (${antes} mensajes)`);
+    await click('.celda:nth-child(4)');
+    await wait();
+    if (!$('.tutor-panel')) await click('[data-t="abrir"]');
+    ok(document.querySelectorAll('.tutor-msg').length === 0, 'el reactivo nuevo arranca sin conversación previa');
+    // Y al regresar, la conversación del primero se conserva.
+    await click('.celda:nth-child(1)');
+    await wait();
+    if (!$('.tutor-panel')) await click('[data-t="abrir"]');
+    ok(document.querySelectorAll('.tutor-msg').length === antes, 'al regresar conserva la conversación de ese reactivo');
+
+    w('> Sin chat de IA en modo local');
+    ok(!$('.tutor-form'), 'no muestra el campo de chat cuando no hay IA');
+
+    w(fallos === 0 ? '\nRESULTADO: TODO OK' : `\nRESULTADO: ${fallos} FALLA(S)`);
+    document.title = fallos === 0 ? 'TUTOR OK' : `TUTOR ${fallos}`;
+  </script>
+</body>
+</html>

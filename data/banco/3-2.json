@@ -1,0 +1,224 @@
+{
+  "area": "3",
+  "areaNombre": "Desarrollo de software de aplicación",
+  "subarea": "3.2",
+  "subareaNombre": "Lenguajes de programación",
+  "seccion": "disciplinar",
+  "lecturas": [],
+  "preguntas": [
+    {
+      "id": "3.2-001",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Paradigmas de programación",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Un programa se construye declarando hechos y reglas, y la ejecución consiste en que un motor de inferencia responda consultas mediante unificación y retroceso (backtracking). ¿A qué paradigma de programación corresponde esta descripción?",
+      "opciones": ["Paradigma lógico", "Paradigma imperativo", "Paradigma funcional"],
+      "respuesta": [0],
+      "explicacion": "El paradigma lógico, representado por Prolog, describe el problema como hechos y reglas y delega la estrategia de solución al motor de inferencia mediante unificación y backtracking. El imperativo describe una secuencia explícita de instrucciones que modifican el estado; el funcional se basa en la evaluación de funciones matemáticas sin efectos secundarios, no en un motor de inferencia."
+    },
+    {
+      "id": "3.2-002",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "OOP: encapsulamiento",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "En programación orientada a objetos, declarar los atributos de una clase como `private` y exponer únicamente métodos `public` para consultarlos o modificarlos es la aplicación directa del principio de:",
+      "opciones": ["Encapsulamiento", "Polimorfismo", "Herencia"],
+      "respuesta": [0],
+      "explicacion": "El encapsulamiento oculta la representación interna del objeto y obliga a que toda interacción pase por su interfaz pública, lo que protege los invariantes de la clase. El polimorfismo se refiere a que una misma referencia opere sobre objetos de distintos tipos; la herencia es la reutilización de la definición de una clase en otra, y ninguno de los dos regula la visibilidad de los atributos."
+    },
+    {
+      "id": "3.2-003",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "OOP: polimorfismo y ocultamiento de atributos",
+      "lecturaId": null,
+      "contexto": "```java\nclass A {\n    String nombre = \"A\";\n    String quienSoy() { return \"A\"; }\n}\n\nclass B extends A {\n    String nombre = \"B\";\n    @Override String quienSoy() { return \"B\"; }\n}\n\npublic class Principal {\n    public static void main(String[] args) {\n        A r = new B();\n        System.out.println(r.nombre + r.quienSoy());\n    }\n}\n```",
+      "enunciado": "¿Qué imprime el programa anterior?",
+      "opciones": ["AB", "BB", "AA"],
+      "respuesta": [0],
+      "explicacion": "En Java los atributos se resuelven en tiempo de compilación según el tipo declarado de la referencia, por lo que `r.nombre` toma el campo de `A`; los métodos, en cambio, se resuelven en tiempo de ejecución según el tipo real del objeto, por lo que `quienSoy()` ejecuta la versión de `B`. Por eso la salida combina \"A\" del campo y \"B\" del método, y no \"BB\" ni \"AA\": los atributos no participan del enlace dinámico."
+    },
+    {
+      "id": "3.2-004",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Herencia múltiple",
+      "lecturaId": null,
+      "contexto": "```cpp\nclass A { public: int x; };\nclass B : public A { };\nclass C : public A { };\nclass D : public B, public C { };\n\nint main() {\n    D d;\n    d.x = 5;   // línea en cuestión\n    return 0;\n}\n```",
+      "enunciado": "¿Qué sucede con la línea señalada y cómo se corrige el diseño?",
+      "opciones": [
+        "El compilador reporta acceso ambiguo a `x` porque `D` contiene dos subobjetos `A`; se corrige declarando `B` y `C` con herencia virtual de `A`",
+        "El programa compila y `x` se comparte, pues C++ fusiona automáticamente las copias heredadas de la clase base común",
+        "El compilador reporta que `x` no existe en `D`, ya que la herencia múltiple no propaga los atributos de las clases abuelas"
+      ],
+      "respuesta": [0],
+      "explicacion": "Es el problema del diamante: `D` hereda dos subobjetos independientes de `A`, uno por `B` y otro por `C`, así que `d.x` es ambiguo y el compilador lo rechaza. La solución estándar es la herencia virtual (`class B : virtual public A`), que hace que exista un único subobjeto `A` compartido; C++ no fusiona las copias por su cuenta ni deja de heredar los atributos de la clase abuela."
+    },
+    {
+      "id": "3.2-005",
+      "tipo": "completamiento",
+      "dificultad": "satisfactorio",
+      "tema": "Sobrecarga vs. sobreescritura",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "La ______ ocurre cuando varios métodos de una misma clase comparten el nombre pero difieren en su lista de parámetros y se resuelve en tiempo de ______; la ______ redefine en la subclase un método heredado con la misma firma y se resuelve en tiempo de ejecución.",
+      "opciones": [
+        "sobrecarga / compilación / sobreescritura",
+        "sobreescritura / compilación / sobrecarga",
+        "sobrecarga / ejecución / sobreescritura"
+      ],
+      "respuesta": [0],
+      "explicacion": "La sobrecarga es polimorfismo estático: el compilador elige la versión según los tipos de los argumentos, por lo que se resuelve en tiempo de compilación. La sobreescritura es polimorfismo dinámico: la máquina virtual elige la implementación según el tipo real del objeto en tiempo de ejecución, de modo que invertir los términos o el momento de resolución produce una descripción incorrecta."
+    },
+    {
+      "id": "3.2-006",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Programación funcional: orden superior",
+      "lecturaId": null,
+      "contexto": "```python\nfrom functools import reduce\n\nnums = [1, 2, 3, 4, 5]\nr = reduce(lambda a, b: a + b,\n           filter(lambda x: x % 2 == 1,\n                  map(lambda x: x * x, nums)))\nprint(r)\n```",
+      "enunciado": "¿Qué valor imprime el programa anterior?",
+      "opciones": ["35", "9", "55"],
+      "respuesta": [0],
+      "explicacion": "`map` eleva al cuadrado y produce 1, 4, 9, 16, 25; `filter` conserva solo los impares, es decir 1, 9 y 25; `reduce` los suma y da 35. El valor 55 sería la suma de todos los cuadrados sin filtrar y 9 correspondería a sumar únicamente los cuadrados de los pares, por lo que ambos ignoran alguna de las tres funciones de orden superior."
+    },
+    {
+      "id": "3.2-007",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Funciones puras e inmutabilidad",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es la característica que define a una función pura en el paradigma funcional?",
+      "opciones": [
+        "Para los mismos argumentos devuelve siempre el mismo resultado y no produce efectos secundarios observables",
+        "Recibe otras funciones como argumento o devuelve una función como resultado",
+        "Se invoca a sí misma sobre un subproblema hasta alcanzar un caso base"
+      ],
+      "respuesta": [0],
+      "explicacion": "La pureza combina transparencia referencial (mismo resultado ante los mismos argumentos) con ausencia de efectos secundarios, lo que permite razonar sobre el código y memorizar resultados con seguridad. Recibir o devolver funciones define a una función de orden superior, y llamarse a sí misma define a una función recursiva; ambas propiedades son independientes de la pureza."
+    },
+    {
+      "id": "3.2-008",
+      "tipo": "relacion",
+      "dificultad": "satisfactorio",
+      "tema": "Lenguajes representativos",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Relacione cada lenguaje con la característica que lo distingue.\n\n1. C\n2. Java\n3. Python\n\na) Tipado dinámico y bloques delimitados por indentación significativa\nb) Compilación a bytecode ejecutado sobre una máquina virtual con recolector de basura\nc) Gestión manual de memoria dinámica mediante `malloc` y `free`",
+      "opciones": ["1c, 2b, 3a", "1b, 2c, 3a", "1c, 2a, 3b"],
+      "respuesta": [0],
+      "explicacion": "C es un lenguaje compilado a código nativo donde el programador reserva y libera memoria explícitamente con `malloc`/`free`; Java compila a bytecode que la JVM ejecuta y libera memoria mediante recolección de basura; Python es de tipado dinámico y usa la indentación para delimitar bloques. Las demás combinaciones asignan a C o a Java rasgos que pertenecen a otro de los tres lenguajes."
+    },
+    {
+      "id": "3.2-009",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Tipos de datos abstractos (ADT)",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Qué distingue a un tipo de dato abstracto (ADT) de una estructura de datos concreta?",
+      "opciones": [
+        "El ADT define el conjunto de valores y las operaciones permitidas sin fijar la representación interna ni la implementación",
+        "El ADT solo admite valores de tipos primitivos, mientras que la estructura de datos admite valores compuestos",
+        "El ADT se define en tiempo de ejecución, mientras que la estructura de datos se define en tiempo de compilación"
+      ],
+      "respuesta": [0],
+      "explicacion": "Un ADT es una especificación: describe qué valores almacena y qué operaciones ofrece (por ejemplo, la Pila con `push`, `pop` y `cima`), dejando libre la implementación, que puede ser un arreglo o una lista enlazada. Los ADT admiten valores compuestos sin restricción y su definición es de diseño, no un asunto del momento en que se crea el tipo."
+    },
+    {
+      "id": "3.2-010",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Gestión de memoria: pila vs. heap",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es la diferencia esencial entre la memoria de pila (stack) y la memoria dinámica (heap) durante la ejecución de un programa?",
+      "opciones": [
+        "En la pila el espacio de las variables locales se reserva y libera automáticamente al entrar y salir del ámbito; en el heap el espacio persiste hasta que se libera explícita o automáticamente",
+        "En la pila se almacenan únicamente los datos constantes del programa; en el heap se almacenan las variables que cambian de valor",
+        "En la pila se guarda el código ejecutable de las funciones; en el heap se guardan sus parámetros y direcciones de retorno"
+      ],
+      "respuesta": [0],
+      "explicacion": "La pila crece y decrece con los marcos de activación de las llamadas, de modo que las variables locales viven exactamente lo que dura su ámbito; el heap almacena objetos cuyo tiempo de vida no está ligado a una llamada y se recupera con `free`/`delete` o mediante recolección de basura. Las constantes residen en segmentos de solo lectura y el código ejecutable en el segmento de texto, no en la pila."
+    },
+    {
+      "id": "3.2-011",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Recolección de basura",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es la función del recolector de basura (garbage collector) en lenguajes como Java o Python?",
+      "opciones": [
+        "Identificar los objetos del heap que ya no son alcanzables desde el programa y recuperar la memoria que ocupan",
+        "Compactar el código objeto eliminando las funciones que nunca son invocadas durante la compilación",
+        "Detener la ejecución cuando una variable se usa antes de haber sido inicializada por el programador"
+      ],
+      "respuesta": [0],
+      "explicacion": "El recolector determina la alcanzabilidad de los objetos a partir de las raíces (variables locales, estáticas y registros) y libera los inalcanzables, lo que evita fugas de memoria y referencias colgantes. Eliminar código muerto es una optimización del compilador y detectar variables sin inicializar corresponde al análisis semántico o a herramientas de verificación, no al recolector."
+    },
+    {
+      "id": "3.2-012",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Punteros y paso de parámetros",
+      "lecturaId": null,
+      "contexto": "```c\n#include <stdio.h>\n\nvoid f(int *p, int q) {\n    *p = *p + 5;\n    q  = q + 5;\n}\n\nint main(void) {\n    int a = 10, b = 10;\n    f(&a, b);\n    printf(\"%d %d\\n\", a, b);\n    return 0;\n}\n```",
+      "enunciado": "¿Qué imprime el programa anterior?",
+      "opciones": ["15 10", "15 15", "10 10"],
+      "respuesta": [0],
+      "explicacion": "C pasa siempre los argumentos por valor: `p` recibe una copia de la dirección de `a`, así que `*p = *p + 5` modifica la variable original y `a` queda en 15. En cambio `q` es una copia del valor de `b`, y sumarle 5 solo altera esa copia local, por lo que `b` conserva 10; para modificar `b` habría que pasar también `&b`."
+    },
+    {
+      "id": "3.2-013",
+      "tipo": "choice",
+      "dificultad": "sobresaliente",
+      "tema": "Manejo de excepciones",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Seleccione las **dos** afirmaciones correctas sobre el manejo de excepciones en Java.",
+      "opciones": [
+        "El bloque `finally` se ejecuta aun cuando el bloque `try` termine con una instrucción `return`",
+        "Las excepciones que heredan de `RuntimeException` son verificadas (checked) y el compilador exige capturarlas",
+        "Un método puede declarar con la cláusula `throws` que propaga una excepción hacia quien lo invoca",
+        "Un bloque `try` admite a lo sumo un bloque `catch` asociado",
+        "Si una excepción no se captura en ningún nivel, la ejecución continúa en la instrucción siguiente al punto donde se lanzó"
+      ],
+      "respuesta": [0, 2],
+      "explicacion": "`finally` está diseñado para liberar recursos y se ejecuta en la salida del bloque, incluso ante un `return` o una excepción; `throws` es el mecanismo con el que un método delega el manejo al invocador. Las subclases de `RuntimeException` son no verificadas (unchecked), un `try` admite varios `catch` ordenados de la excepción más específica a la más general, y una excepción no capturada termina el hilo en lugar de reanudar la ejecución."
+    },
+    {
+      "id": "3.2-014",
+      "tipo": "orden",
+      "dificultad": "satisfactorio",
+      "tema": "Constructores, excepciones y flujo de ejecución",
+      "lecturaId": null,
+      "contexto": "```java\nclass Base {\n    Base() { System.out.println(\"ctor Base\"); }\n}\n\nclass Derivada extends Base {\n    Derivada() { System.out.println(\"ctor Derivada\"); }\n}\n\npublic class Principal {\n    public static void main(String[] args) {\n        try {\n            new Derivada();\n            throw new RuntimeException(\"fallo\");\n        } catch (RuntimeException e) {\n            System.out.println(\"catch\");\n        } finally {\n            System.out.println(\"finally\");\n        }\n        System.out.println(\"fin\");\n    }\n}\n```",
+      "enunciado": "Ordene las líneas según la secuencia en que el programa las imprime.",
+      "opciones": ["catch", "ctor Derivada", "fin", "ctor Base", "finally"],
+      "respuesta": [3, 1, 0, 4, 2],
+      "explicacion": "Al construir `Derivada` se invoca implícitamente primero el constructor de la superclase, por lo que \"ctor Base\" precede a \"ctor Derivada\". Luego la excepción lanzada se atiende en el `catch`, el bloque `finally` se ejecuta siempre al salir del `try` y, como la excepción quedó capturada, el método continúa e imprime \"fin\"."
+    },
+    {
+      "id": "3.2-015",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Programación concurrente: hilos y sincronización",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Dos hilos incrementan sin sincronización la misma variable compartida `contador` y el resultado final es menor al esperado. ¿Cuál es la causa y el mecanismo adecuado para corregirla?",
+      "opciones": [
+        "Una condición de carrera sobre la sección crítica; se corrige con exclusión mutua, por ejemplo un candado o un bloque `synchronized`",
+        "Un interbloqueo entre los dos hilos; se corrige asignando mayor prioridad de planificación a uno de ellos",
+        "Una inanición del hilo más lento; se corrige aumentando el tamaño de la pila asignada a cada hilo"
+      ],
+      "respuesta": [0],
+      "explicacion": "El incremento no es atómico (lee, suma y escribe), de modo que dos hilos pueden leer el mismo valor y perder una actualización: es una condición de carrera que se resuelve garantizando exclusión mutua en la sección crítica con un mutex, un candado o `synchronized`. El interbloqueo requiere hilos esperando recursos mutuamente y la inanición implica un hilo que nunca avanza; ninguno de los dos explica un conteo final menor."
+    }
+  ]
+}

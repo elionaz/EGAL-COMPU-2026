@@ -1,0 +1,287 @@
+{
+  "area": "6",
+  "areaNombre": "Redacción indirecta",
+  "subarea": "6.2",
+  "subareaNombre": "Ámbito de participación social",
+  "seccion": "lenguaje",
+  "lecturas": [],
+  "preguntas": [
+    {
+      "id": "6.2-001",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Acentuación diacrítica",
+      "lecturaId": null,
+      "contexto": "Fragmento de una carta dirigida a la instancia que emite una convocatoria.",
+      "enunciado": "¿Cuál versión de la oración está correctamente acentuada?",
+      "opciones": [
+        "Sé que la convocatoria cierra el viernes, mas no conozco los requisitos.",
+        "Se que la convocatoria cierra el viernes, mas no conozco los requisitos.",
+        "Sé que la convocatoria cierra el viernes, más no conozco los requisitos."
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "*Sé* con tilde diacrítica es la forma del verbo *saber*, frente al pronombre átono *se*, que no la lleva. *Mas* sin tilde equivale a la conjunción adversativa *pero*, mientras que *más* con tilde es el cuantificador de cantidad. La segunda opción escribe el verbo sin tilde y la tercera confunde la conjunción con el cuantificador."
+    },
+    {
+      "id": "6.2-002",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Estructura de la convocatoria",
+      "lecturaId": null,
+      "contexto": "Una universidad publica una convocatoria de becas que incluye objetivo, requisitos, documentación solicitada y fecha límite.",
+      "enunciado": "¿Qué apartado hace falta para que el destinatario pueda concluir el trámite?",
+      "opciones": [
+        "El procedimiento de registro y la instancia ante la cual se entrega la documentación.",
+        "Un resumen de los antecedentes históricos de la institución que convoca.",
+        "Una valoración crítica de las convocatorias emitidas en años anteriores."
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "La convocatoria es un texto directivo: su propósito es que el destinatario pueda actuar, por lo que debe indicar dónde, cómo y ante quién se realiza el trámite. Sin el procedimiento de registro, los demás apartados resultan inaplicables. Los antecedentes históricos son información prescindible y la valoración crítica corresponde a un texto argumentativo, no a una convocatoria."
+    },
+    {
+      "id": "6.2-003",
+      "tipo": "completamiento",
+      "dificultad": "satisfactorio",
+      "tema": "Conectores discursivos",
+      "lecturaId": null,
+      "contexto": "La reforma amplió la cobertura del programa a 300 municipios; ______, el presupuesto asignado se redujo por tercer año consecutivo.",
+      "enunciado": "Selecciona el conector que completa el enunciado de manera coherente.",
+      "opciones": [
+        "por consiguiente",
+        "no obstante",
+        "en efecto"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "La segunda oración contradice la expectativa que genera la primera: si la cobertura crece, se esperaría más presupuesto, no menos. Ese contraste lo introduce el conector adversativo *no obstante*. *Por consiguiente* presentaría la reducción como consecuencia lógica de la ampliación y *en efecto* la presentaría como confirmación de lo dicho, cuando en realidad lo desmiente."
+    },
+    {
+      "id": "6.2-004",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Uso de pronombres átonos",
+      "lecturaId": null,
+      "contexto": "Fragmento de una nota sobre la entrega de documentos de una convocatoria.",
+      "enunciado": "¿Cuál oración emplea correctamente el pronombre átono?",
+      "opciones": [
+        "A la directora la entregaron el oficio la semana pasada.",
+        "A la directora les entregaron el oficio la semana pasada.",
+        "A la directora le entregaron el oficio la semana pasada."
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "*A la directora* es complemento indirecto, y el pronombre átono de complemento indirecto en singular es *le*, sin distinción de género. La primera opción usa *la*, forma de complemento directo, error conocido como laísmo. La segunda usa el plural *les* para un referente singular y rompe la concordancia de número."
+    },
+    {
+      "id": "6.2-005",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Coma en incisos explicativos",
+      "lecturaId": null,
+      "contexto": "Fragmento de un editorial de periódico.",
+      "enunciado": "¿Cuál versión de la oración está correctamente puntuada?",
+      "opciones": [
+        "El municipio, que carece de drenaje pluvial, se inunda cada temporada de lluvias.",
+        "El municipio que carece de drenaje pluvial, se inunda cada temporada de lluvias.",
+        "El municipio, que carece de drenaje pluvial se inunda cada temporada de lluvias."
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "Los incisos explicativos se delimitan con una coma de apertura y otra de cierre; aquí la oración de relativo *que carece de drenaje pluvial* añade información no restrictiva sobre *el municipio*. La segunda opción omite la coma de apertura y deja una coma indebida entre el sujeto y el verbo. La tercera abre el inciso pero no lo cierra."
+    },
+    {
+      "id": "6.2-006",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Registro lingüístico",
+      "lecturaId": null,
+      "contexto": "Cierre de una carta de exposición de motivos dirigida a un comité de admisión.",
+      "enunciado": "¿Cuál fórmula de despedida corresponde al registro formal del género?",
+      "opciones": [
+        "Agradezco de antemano la atención prestada y quedo a sus órdenes para cualquier aclaración.",
+        "Espero su respuesta pronto; ya saben dónde encontrarme si necesitan algo más.",
+        "Sin más por el momento, ahí me avisan qué procede con mi solicitud."
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "La carta de exposición de motivos exige un registro formal y cortés hacia un destinatario institucional, con fórmulas fijas de agradecimiento y disponibilidad. La segunda opción emplea un trato coloquial y presupone confianza con el comité; la tercera usa expresiones propias del habla informal mexicana (*ahí me avisan*), impropias de un documento dirigido a una instancia oficial."
+    },
+    {
+      "id": "6.2-007",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Concordancia nominal",
+      "lecturaId": null,
+      "contexto": "Fragmento de los requisitos de una convocatoria pública.",
+      "enunciado": "¿Cuál versión de la oración presenta concordancia correcta?",
+      "opciones": [
+        "Se recibirán las solicitudes y los documentos probatorios completas.",
+        "Se recibirán las solicitudes y los documentos probatorios completos.",
+        "Se recibirá las solicitudes y los documentos probatorios completos."
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "Cuando un adjetivo modifica a dos sustantivos coordinados de distinto género, concuerda en masculino plural: *las solicitudes y los documentos* exigen *completos*. La primera opción concuerda el adjetivo solo con el sustantivo más cercano en femenino y deja fuera a *los documentos*. La tercera falla en la concordancia verbal: el sujeto de la pasiva refleja es plural, así que corresponde *se recibirán*."
+    },
+    {
+      "id": "6.2-008",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Grafemas c/s/z",
+      "lecturaId": null,
+      "contexto": "Fragmento del apartado de resultados de una convocatoria.",
+      "enunciado": "¿Cuál versión de la oración está escrita correctamente?",
+      "opciones": [
+        "La comizión revisará la extensión del plazo y emitirá una resolución.",
+        "La comisión revisará la extención del plazo y emitirá una resolución.",
+        "La comisión revisará la extensión del plazo y emitirá una resolución."
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "Se escriben con *-sión* los sustantivos derivados de palabras terminadas en *-so*, *-sor* o *-sivo*: *extensión* proviene de *extenso*, así que lleva *s* y no *c*. Además, en español la letra *z* no se escribe ante *i* salvo en unos pocos préstamos, de modo que *comizión* es imposible: lo correcto es *comisión*."
+    },
+    {
+      "id": "6.2-009",
+      "tipo": "orden",
+      "dificultad": "sobresaliente",
+      "tema": "Progresión temática",
+      "lecturaId": null,
+      "contexto": "Las siguientes oraciones forman el cuerpo de una carta de exposición de motivos, pero están desordenadas.",
+      "enunciado": "Ordena las oraciones para formar un párrafo coherente.",
+      "opciones": [
+        "Por lo anterior, solicito respetuosamente ser considerado en el proceso de selección.",
+        "Me dirijo a ustedes con el fin de expresar mi interés en el programa de posgrado que convocan.",
+        "Durante los últimos tres años he coordinado proyectos comunitarios en zonas rurales.",
+        "Esa experiencia me permitió desarrollar las competencias que el programa exige."
+      ],
+      "respuesta": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "explicacion": "La carta de exposición de motivos avanza del propósito a la petición: primero se declara el motivo de la comunicación, luego se expone la trayectoria, después se interpreta esa trayectoria en relación con lo solicitado y al final se formula la petición. Los marcadores lo confirman: *esa experiencia* remite a los proyectos comunitarios ya mencionados y *por lo anterior* cierra recapitulando todo lo expuesto."
+    },
+    {
+      "id": "6.2-010",
+      "tipo": "completamiento",
+      "dificultad": "sobresaliente",
+      "tema": "Marcadores discursivos",
+      "lecturaId": null,
+      "contexto": "El editorial señala varias omisiones del informe oficial; ______, la ausencia de datos desagregados por sexo.",
+      "enunciado": "Selecciona el marcador que completa el enunciado de manera coherente.",
+      "opciones": [
+        "entre ellas",
+        "en consecuencia",
+        "en cambio"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "Lo que sigue al marcador es un caso particular del conjunto anunciado (*varias omisiones*), por lo que corresponde un marcador de ejemplificación como *entre ellas*, cuyo pronombre concuerda además en femenino plural con *omisiones*. *En consecuencia* presentaría la ausencia de datos como efecto de las omisiones, no como una de ellas; *en cambio* anunciaría un contraste inexistente."
+    },
+    {
+      "id": "6.2-011",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Acentuación diacrítica",
+      "lecturaId": null,
+      "contexto": "Fragmento de un editorial de periódico.",
+      "enunciado": "¿Cuál versión de la oración está correctamente acentuada?",
+      "opciones": [
+        "La ciudadanía se pregunta que hará la autoridad y cómo financiará la obra.",
+        "La ciudadanía se pregunta qué hará la autoridad y cómo financiará la obra.",
+        "La ciudadanía se pregunta qué hará la autoridad y como financiará la obra."
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "Los interrogativos *qué* y *cómo* llevan tilde diacrítica también en las interrogativas indirectas, es decir, cuando dependen de un verbo como *preguntarse*, *ignorar* o *saber*. La primera opción deja sin tilde *qué* y la tercera deja sin tilde *cómo*, con lo que ambos pasarían a leerse como relativo y como conjunción comparativa."
+    },
+    {
+      "id": "6.2-012",
+      "tipo": "choice",
+      "dificultad": "sobresaliente",
+      "tema": "Punto y coma",
+      "lecturaId": null,
+      "contexto": "Oraciones tomadas del borrador de una convocatoria.",
+      "enunciado": "Selecciona las DOS oraciones que están correctamente puntuadas.",
+      "opciones": [
+        "El dictamen se publicará el 3 de mayo; los resultados serán inapelables.",
+        "El dictamen se publicará el 3 de mayo, los resultados serán inapelables.",
+        "Podrán participar egresados de licenciatura; asimismo, se aceptarán pasantes con carta de terminación.",
+        "Podrán participar egresados de licenciatura, asimismo se aceptarán pasantes con carta de terminación.",
+        "El registro cierra el 30 de abril, sin embargo no habrá prórroga alguna."
+      ],
+      "respuesta": [
+        0,
+        2
+      ],
+      "explicacion": "El punto y coma separa dos oraciones independientes que se presentan como una sola unidad de sentido, y es obligatorio delante de los marcadores *asimismo*, *sin embargo* o *por tanto* cuando encabezan la segunda oración, marcador que además va seguido de coma. La segunda y la cuarta opciones unen dos oraciones independientes solo con coma; la quinta comete el mismo error y omite además la coma que debe seguir a *sin embargo*."
+    },
+    {
+      "id": "6.2-013",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Verbo impersonal haber",
+      "lecturaId": null,
+      "contexto": "Fragmento de un editorial sobre una asamblea vecinal.",
+      "enunciado": "¿Cuál versión de la oración es gramaticalmente correcta?",
+      "opciones": [
+        "Hubieron muchas inconformidades durante la asamblea.",
+        "Hubo muchas inconformidades durante la asamblea.",
+        "Habían muchas inconformidades durante la asamblea."
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "El verbo *haber* usado para indicar existencia es impersonal: carece de sujeto y se conjuga siempre en tercera persona del singular, por lo que *muchas inconformidades* es su complemento directo, no su sujeto. Por eso corresponde *hubo*. La primera y la tercera opciones concuerdan el verbo en plural con ese complemento, error frecuente pero ajeno a la norma."
+    },
+    {
+      "id": "6.2-014",
+      "tipo": "completamiento",
+      "dificultad": "satisfactorio",
+      "tema": "Registro lingüístico",
+      "lecturaId": null,
+      "contexto": "Apartado de requisitos de una convocatoria institucional: «______ presentar constancia de estudios vigente».",
+      "enunciado": "Selecciona la expresión que mantiene el registro formal e impersonal propio del género.",
+      "opciones": [
+        "Los aspirantes deberán",
+        "Ustedes tienen que",
+        "Hay que"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "La convocatoria se dirige a un destinatario colectivo e indeterminado, por lo que enuncia las obligaciones en tercera persona y con verbos de obligación formal: *los aspirantes deberán*. La segunda opción apela directamente al lector con un trato personal ajeno al documento; la tercera emplea una construcción impersonal coloquial que además no precisa a quién obliga."
+    },
+    {
+      "id": "6.2-015",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Propósito comunicativo del género",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál rasgo distingue al editorial de una nota informativa?",
+      "opciones": [
+        "Expresa la postura institucional del periódico y argumenta a favor de ella.",
+        "Relata los hechos recientes sin emitir juicios de valor sobre ellos.",
+        "Invita a los lectores a participar en un proceso con requisitos y plazos."
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "El editorial es un texto argumentativo, sin firma individual, en el que el periódico fija su posición sobre un asunto de interés público y la sostiene con razones. La segunda opción describe justamente la nota informativa, cuyo propósito es referir hechos con la mayor objetividad posible. La tercera describe la convocatoria, texto directivo orientado a la acción del destinatario."
+    }
+  ]
+}

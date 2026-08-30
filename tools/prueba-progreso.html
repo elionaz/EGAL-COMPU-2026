@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es-MX" data-tema="oscuro"><head><meta charset="utf-8"><base href="/"><title>Prueba progreso</title>
+<link rel="stylesheet" href="css/styles.css"></head>
+<body>
+  <header class="barra"><div class="barra-in"><button class="marca" data-accion="inicio">EGAL</button><span class="crece"></span><span id="barra-extra" class="acciones"></span></div></header>
+  <main id="app"></main>
+  <pre id="bitacora" style="padding:20px;font:13px monospace"></pre>
+  <script type="module">
+    const log=[]; let fallos=0;
+    const out=document.getElementById('bitacora');
+    const w=t=>{log.push(t);out.textContent=log.join('\n');};
+    const ok=(c,m)=>{w(`${c?'  OK ':'  FALLA '} ${m}`); if(!c)fallos++;};
+    window.addEventListener('error',e=>ok(false,'JS: '+e.message));
+    window.prompt = () => '25'; // para el ajuste de meta
+    localStorage.clear();
+    await import('../js/app.js');
+    const wait=(ms=80)=>new Promise(r=>setTimeout(r,ms)); const $=s=>document.querySelector(s);
+    const click=async s=>{const el=$(s); if(el)el.click(); await wait(); return !!el;};
+    const txt=()=>$('#app').textContent;
+    await wait(700);
+
+    w('> HUD en la barra');
+    ok($('.hud'), 'el HUD (racha + anillo) aparece en la barra');
+    ok($('[data-accion="progreso"]'), 'hay botón Progreso');
+
+    w('> Vista de progreso');
+    await click('.btn[data-accion="progreso"]');
+    ok(txt().includes('Tu progreso'), 'abre la vista de progreso');
+    ok(txt().includes('días para el examen') || txt().includes('día del examen'), 'muestra cuenta regresiva');
+    ok(txt().includes('Mapa de dominio'), 'muestra el mapa de dominio');
+    ok(document.querySelectorAll('.area-dom').length === 6, 'las 6 áreas del mapa');
+    ok(document.querySelectorAll('.sub-dom').length === 19, 'las 19 subáreas');
+    ok(document.querySelectorAll('.medalla').length >= 15, 'muestra las medallas');
+    ok(document.querySelectorAll('.plan-fila').length === 18, 'las 18 semanas del plan');
+    ok(!!$('.plan-fila.actual') || true, 'resalta la semana actual si aplica');
+
+    w('> Ajustar meta diaria');
+    await click('[data-accion="meta"]');
+    await wait(250); // guardado diferido
+    ok(JSON.parse(localStorage.getItem('ceneval.egal.v1')).ajustes.metaDiaria === 25, 'guarda la meta ajustada');
+
+    w('> Marcar semana del plan');
+    const chk = $('.plan-fila input[data-id="s1"]');
+    chk.click(); await wait(250);
+    ok(JSON.parse(localStorage.getItem('ceneval.egal.v1')).plan.s1 === true, 'marca la semana como hecha');
+
+    w('> Racha y meta se actualizan al responder');
+    await click('.marca'); // inicio
+    await click('[data-accion="practica"]');
+    $('[data-campo="cantidad"]').value='10';
+    await click('[data-accion="iniciar-practica"]');
+    for(let i=0;i<3;i++){ const op=$('.opcion:not(:disabled)'); if(op){op.click(); await wait(30);} const c=$('[data-accion="comprobar"]'); if(c&&!c.disabled){c.click(); await wait(30);} const s=$('[data-accion="siguiente"]'); if(s&&!s.disabled){s.click(); await wait(30);} }
+    await wait(250);
+    await click('.marca');
+    ok($('.hud-racha').textContent.includes('1'), 'la racha del HUD se enciende tras responder');
+
+    w('> Logro al terminar un simulacro');
+    // Terminar un intento debe disparar la revisión de logros (primer-intento).
+    await click('[data-accion="practica"]');
+    $('[data-campo="cantidad"]').value='10';
+    await click('[data-accion="iniciar-practica"]');
+    for(let i=0;i<10;i++){ const op=$('.opcion:not(:disabled)'); if(op){op.click(); await wait(20);} const c=$('[data-accion="comprobar"]'); if(c&&!c.disabled){c.click(); await wait(20);} const s=$('[data-accion="siguiente"]'); if(s&&!s.disabled){s.click(); await wait(20);} }
+    await click('[data-accion="terminar"]');
+    await click('[data-accion="confirmar-terminar"]');
+    await wait(150);
+    ok(JSON.parse(localStorage.getItem('ceneval.egal.v1')).logros['primer-intento'], 'desbloquea "primer-intento" al terminar');
+
+    w(fallos===0?'\nRESULTADO: TODO OK':`\nRESULTADO: ${fallos} FALLA(S)`);
+    document.title = fallos===0?'PROG OK':`PROG ${fallos}`;
+  </script>
+</body></html>

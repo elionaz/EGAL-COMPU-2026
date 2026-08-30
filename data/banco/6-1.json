@@ -1,0 +1,253 @@
+{
+  "area": "6",
+  "areaNombre": "Redacción indirecta",
+  "subarea": "6.1",
+  "subareaNombre": "Ámbito de estudio",
+  "seccion": "lenguaje",
+  "lecturas": [],
+  "preguntas": [
+    {
+      "id": "6.1-001",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Acentuación diacrítica",
+      "lecturaId": null,
+      "contexto": "Fragmento de una reseña académica sobre un libro de metodología.",
+      "enunciado": "¿Cuál de las siguientes versiones de la oración está correctamente acentuada?",
+      "opciones": [
+        "El autor sostiene que el método resulta insuficiente; él mismo lo reconoce en el prólogo.",
+        "Él autor sostiene que el método resulta insuficiente; el mismo lo reconoce en el prólogo.",
+        "El autor sostiene que él método resulta insuficiente; el mismo lo reconoce en el prólogo."
+      ],
+      "respuesta": [0],
+      "explicacion": "El acento diacrítico distingue el pronombre personal *él* (que funciona como núcleo, sin sustantivo al lado) del artículo *el* (que siempre precede a un sustantivo). En la primera opción *el autor* y *el método* llevan artículo sin tilde, mientras que *él mismo* es pronombre y sí la lleva. La segunda tilda el artículo de *el autor* y deja sin tilde el pronombre; la tercera tilda el artículo de *el método*."
+    },
+    {
+      "id": "6.1-002",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Concordancia verbal",
+      "lecturaId": null,
+      "contexto": "Fragmento del apartado de resultados de un artículo de divulgación científica.",
+      "enunciado": "¿Cuál versión de la oración presenta concordancia correcta?",
+      "opciones": [
+        "Los resultados de la última prueba confirma la hipótesis inicial.",
+        "Los resultados de la última prueba confirman la hipótesis inicial.",
+        "Los resultado de la última prueba confirman la hipótesis inicial."
+      ],
+      "respuesta": [1],
+      "explicacion": "El verbo concuerda en número con el núcleo del sujeto, que es *resultados* (plural), no con el sustantivo del complemento *de la última prueba*. Por eso corresponde *confirman*. La primera opción incurre en concordancia por atracción con *prueba*; la tercera rompe la concordancia nominal entre el artículo plural *los* y el sustantivo en singular *resultado*."
+    },
+    {
+      "id": "6.1-003",
+      "tipo": "completamiento",
+      "dificultad": "satisfactorio",
+      "tema": "Conectores discursivos",
+      "lecturaId": null,
+      "contexto": "La campaña de vacunación redujo en 80 % la mortalidad asociada al virus; ______, no logró interrumpir la transmisión comunitaria.",
+      "enunciado": "Selecciona el conector que completa el enunciado de manera coherente.",
+      "opciones": [
+        "por lo tanto",
+        "sin embargo",
+        "es decir"
+      ],
+      "respuesta": [1],
+      "explicacion": "Entre las dos oraciones hay un contraste: un logro frente a una limitación. Ese contraste lo marca el conector adversativo *sin embargo*. *Por lo tanto* es consecutivo y anunciaría un efecto derivado de la reducción de la mortalidad; *es decir* es explicativo y anunciaría una reformulación de lo ya dicho, no una restricción."
+    },
+    {
+      "id": "6.1-004",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Uso de la coma",
+      "lecturaId": null,
+      "contexto": "Fragmento de un artículo de divulgación científica.",
+      "enunciado": "¿Cuál versión de la oración está correctamente puntuada?",
+      "opciones": [
+        "El equipo que dirigió el estudio durante seis años, publicó sus conclusiones en marzo.",
+        "El equipo que dirigió el estudio durante seis años publicó sus conclusiones en marzo.",
+        "El equipo, que dirigió el estudio durante seis años publicó sus conclusiones en marzo."
+      ],
+      "respuesta": [1],
+      "explicacion": "No se escribe coma entre el sujeto y el verbo, aunque el sujeto sea largo: *el equipo que dirigió el estudio durante seis años* es todo el sujeto de *publicó*. La primera opción comete esa llamada coma criminal. La tercera abre un inciso explicativo con coma pero no lo cierra, y los incisos deben ir delimitados por comas a ambos lados."
+    },
+    {
+      "id": "6.1-005",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Registro lingüístico",
+      "lecturaId": null,
+      "contexto": "Apartado de justificación de un protocolo de investigación dirigido a un comité académico.",
+      "enunciado": "¿Cuál enunciado corresponde al registro formal y académico propio de ese apartado?",
+      "opciones": [
+        "El estudio se justifica por la escasez de evidencia empírica sobre el fenómeno en población mexicana.",
+        "La neta casi nadie ha estudiado esto en México, por eso decidimos meterle mano al asunto.",
+        "Se me hizo bien interesante el tema porque nadie lo ha visto acá en México, la verdad."
+      ],
+      "respuesta": [0],
+      "explicacion": "El protocolo de investigación exige un registro formal, impersonal y despersonalizado: se argumenta con criterios verificables (la escasez de evidencia empírica) y no con impresiones del autor. La segunda y la tercera opciones emplean léxico coloquial (*la neta*, *meterle mano*, *se me hizo bien interesante*, *acá*) y justifican el estudio por el gusto personal, ajeno a la función de la justificación."
+    },
+    {
+      "id": "6.1-006",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Queísmo y dequeísmo",
+      "lecturaId": null,
+      "contexto": "Fragmento de una reseña de un artículo de investigación.",
+      "enunciado": "¿En cuál oración se usa correctamente la preposición *de* ante la conjunción *que*?",
+      "opciones": [
+        "El investigador está convencido que la muestra es representativa.",
+        "El investigador está convencido de que la muestra es representativa.",
+        "El investigador considera de que la muestra es representativa."
+      ],
+      "respuesta": [1],
+      "explicacion": "La preposición se conserva o se suprime según el régimen del verbo o del adjetivo: se está *convencido de algo*, así que corresponde *convencido de que*. La primera opción suprime indebidamente la preposición exigida (queísmo). La tercera añade una preposición que el verbo no exige, pues se *considera algo*, no *de algo* (dequeísmo). Una prueba práctica es sustituir la subordinada por *eso*: *convencido de eso*, pero *considera eso*."
+    },
+    {
+      "id": "6.1-007",
+      "tipo": "orden",
+      "dificultad": "sobresaliente",
+      "tema": "Progresión temática",
+      "lecturaId": null,
+      "contexto": "Las siguientes oraciones forman el planteamiento del problema de un protocolo de investigación, pero están desordenadas.",
+      "enunciado": "Ordena las oraciones para formar un párrafo coherente.",
+      "opciones": [
+        "Sin embargo, ninguno de esos trabajos consideró la variable socioeconómica.",
+        "En los últimos diez años se han publicado numerosos estudios sobre el rezago lector.",
+        "El presente protocolo propone incorporarla mediante un muestreo estratificado.",
+        "Por esa razón, sus conclusiones resultan difíciles de extrapolar."
+      ],
+      "respuesta": [1, 0, 3, 2],
+      "explicacion": "La progresión temática va de lo general al aporte propio: primero el estado de la cuestión, luego el vacío que se detecta, después la consecuencia de ese vacío y, al final, la propuesta del estudio. Los marcadores lo confirman: *sin embargo* introduce el contraste con los antecedentes, *por esa razón* señala la consecuencia y el pronombre *la* de *incorporarla* remite a *la variable socioeconómica*, por lo que esa oración debe ir después de la que la menciona."
+    },
+    {
+      "id": "6.1-008",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Grafemas b/v",
+      "lecturaId": null,
+      "contexto": "Fragmento de un protocolo de investigación.",
+      "enunciado": "¿Cuál versión de la oración está escrita correctamente?",
+      "opciones": [
+        "El comité recivió el manuscrito y prohibió divulgar sus resultados.",
+        "El comité recibió el manuscrito y prohivió divulgar sus resultados.",
+        "El comité recibió el manuscrito y prohibió divulgar sus resultados."
+      ],
+      "respuesta": [2],
+      "explicacion": "Los verbos terminados en *-bir* se escriben con *b*, salvo *hervir*, *servir* y *vivir*; por eso *recibir* y *prohibir* mantienen la *b* en todas sus formas: *recibió*, *prohibió*. La primera opción escribe *recivió* y la segunda *prohivió*, ambas contra esa regla."
+    },
+    {
+      "id": "6.1-009",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Estructura del protocolo de investigación",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "En un protocolo de investigación, ¿qué apartado delimita el fenómeno por estudiar y formula la pregunta que orienta el trabajo?",
+      "opciones": [
+        "El planteamiento del problema",
+        "El marco teórico",
+        "El cronograma de actividades"
+      ],
+      "respuesta": [0],
+      "explicacion": "El planteamiento del problema acota el fenómeno, describe el vacío de conocimiento y enuncia la pregunta de investigación. El marco teórico organiza los conceptos y antecedentes con los que se interpretará ese problema, pero no lo formula; el cronograma solo distribuye las actividades en el tiempo."
+    },
+    {
+      "id": "6.1-010",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Uso del gerundio",
+      "lecturaId": null,
+      "contexto": "Fragmento de una reseña de un artículo de investigación.",
+      "enunciado": "¿Cuál oración emplea correctamente el gerundio?",
+      "opciones": [
+        "Los autores aplicaron el cuestionario en 2023, publicando los resultados en 2025.",
+        "Los autores aplicaron el cuestionario en 2023, siguiendo el protocolo aprobado por el comité.",
+        "Los autores difundieron un artículo conteniendo los resultados del cuestionario."
+      ],
+      "respuesta": [1],
+      "explicacion": "El gerundio expresa una acción simultánea o inmediatamente anterior a la del verbo principal: *siguiendo el protocolo* ocurre al mismo tiempo que *aplicaron*. La primera opción usa el gerundio de posterioridad, incorrecto porque la publicación sucede dos años después. La tercera usa el gerundio como modificador especificativo de un sustantivo (*un artículo conteniendo*), función reservada a una oración de relativo: *un artículo que contiene*."
+    },
+    {
+      "id": "6.1-011",
+      "tipo": "completamiento",
+      "dificultad": "sobresaliente",
+      "tema": "Cohesión léxica",
+      "lecturaId": null,
+      "contexto": "El equipo describió el hallazgo de un cráneo fósil en una cueva sudafricana. ______ fue datado en 250 000 años mediante series de uranio.",
+      "enunciado": "Selecciona la expresión que da cohesión al párrafo sin repetir información.",
+      "opciones": [
+        "Dicho fósil",
+        "El cráneo fósil hallado en la cueva sudafricana",
+        "El mismo"
+      ],
+      "respuesta": [0],
+      "explicacion": "La cohesión léxica se logra retomando el referente con un hiperónimo o un sinónimo acompañado de un determinante anafórico: *dicho fósil* remite a *un cráneo fósil* sin repetirlo. La segunda opción repite literalmente el sintagma completo, lo que produce una redundancia innecesaria. La tercera emplea *el mismo* como sustituto pronominal, uso que la RAE desaconseja por innecesario y ajeno a la norma culta."
+    },
+    {
+      "id": "6.1-012",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Dos puntos y punto y coma",
+      "lecturaId": null,
+      "contexto": "Fragmento del apartado metodológico de un protocolo de investigación.",
+      "enunciado": "¿Cuál versión de la oración usa correctamente los signos de puntuación?",
+      "opciones": [
+        "La investigación abarcó tres fases; revisión documental, trabajo de campo y análisis estadístico.",
+        "La investigación abarcó tres fases: revisión documental, trabajo de campo y análisis estadístico.",
+        "La investigación abarcó tres fases, revisión documental, trabajo de campo y análisis estadístico."
+      ],
+      "respuesta": [1],
+      "explicacion": "Los dos puntos anuncian una enumeración anticipada por un elemento que la engloba (*tres fases*). El punto y coma de la primera opción separa unidades sintácticamente independientes, no un anuncio de su desglose. La coma de la tercera confunde el elemento anunciador con un miembro más de la serie, de modo que parecería que las fases son cuatro."
+    },
+    {
+      "id": "6.1-013",
+      "tipo": "choice",
+      "dificultad": "sobresaliente",
+      "tema": "Acentuación general",
+      "lecturaId": null,
+      "contexto": "Oraciones tomadas del borrador de una reseña académica.",
+      "enunciado": "Selecciona las DOS oraciones que están correctamente acentuadas.",
+      "opciones": [
+        "El análisis estadístico mostró una correlación débil entre ambas variables.",
+        "El analisis estadístico mostró una correlación débil entre ambas variables.",
+        "La revisión bibliográfica se realizó con criterios explícitos y verificables.",
+        "La revisión bibliográfica se realizó con criterios explicitos y verificables.",
+        "El comité aprobo el protocolo en su última sesión ordinaria."
+      ],
+      "respuesta": [0, 2],
+      "explicacion": "Las esdrújulas siempre llevan tilde: *análisis*, *bibliográfica*, *explícitos*; y las agudas terminadas en vocal también: *aprobó*, *mostró*, *realizó*. La segunda opción deja sin tilde la esdrújula *análisis*, la cuarta deja sin tilde la esdrújula *explícitos* y la quinta deja sin tilde la aguda *aprobó*, terminada en vocal."
+    },
+    {
+      "id": "6.1-014",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Régimen preposicional",
+      "lecturaId": null,
+      "contexto": "Fragmento de una reseña académica.",
+      "enunciado": "¿Cuál oración emplea las preposiciones que exigen los verbos?",
+      "opciones": [
+        "El estudio consta de cinco capítulos y difiere de los trabajos previos.",
+        "El estudio consta en cinco capítulos y difiere de los trabajos previos.",
+        "El estudio consta de cinco capítulos y difiere con los trabajos previos."
+      ],
+      "respuesta": [0],
+      "explicacion": "El régimen preposicional es la preposición que cada verbo exige y no puede sustituirse libremente: se *consta de* algo (estar formado por sus partes) y se *difiere de* algo (ser distinto de ello). La segunda opción usa *constar en*, que significa figurar o estar registrado en un documento y no corresponde al sentido de la oración. La tercera usa *diferir con*, cruce indebido con el régimen de *discrepar con*."
+    },
+    {
+      "id": "6.1-015",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Propósito comunicativo del género",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál enunciado describe el propósito comunicativo de una reseña académica?",
+      "opciones": [
+        "Describir y valorar críticamente una obra para orientar al lector sobre su pertinencia.",
+        "Explicar un hallazgo científico a un público amplio sin formación especializada.",
+        "Enunciar los objetivos y el método de una investigación que aún no se realiza."
+      ],
+      "respuesta": [0],
+      "explicacion": "La reseña combina descripción y valoración: resume el contenido de una obra y emite un juicio fundamentado sobre su aportación. La segunda opción define el artículo de divulgación científica, cuyo rasgo distintivo es adaptar el conocimiento a un público lego. La tercera define el protocolo de investigación, texto prospectivo que anuncia lo que se hará."
+    }
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "area": "2",
+  "areaNombre": "Desarrollo de software de base",
+  "subarea": "2.3",
+  "subareaNombre": "Redes de computadoras",
+  "seccion": "disciplinar",
+  "lecturas": [],
+  "preguntas": [
+    {
+      "id": "2.3-001",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Modelo OSI",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "En el modelo OSI, ¿cuál es la capa responsable de segmentar los datos recibidos de la capa superior y de ejercer el control de flujo extremo a extremo entre los procesos que se comunican?",
+      "opciones": [
+        "La capa de enlace de datos",
+        "La capa de transporte",
+        "La capa de red"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "La capa de transporte divide el flujo de la sesión en segmentos, los numera y regula el ritmo de envío entre los extremos con mecanismos de control de flujo como la ventana deslizante. La capa de red se ocupa del direccionamiento lógico y del encaminamiento salto a salto, no de la conversación extremo a extremo; la capa de enlace de datos solo controla el flujo dentro de un mismo enlace físico entre nodos adyacentes."
+    },
+    {
+      "id": "2.3-002",
+      "tipo": "relacion",
+      "dificultad": "satisfactorio",
+      "tema": "Modelo OSI: PDU y dispositivos",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Relacione cada capa del modelo OSI con la unidad de datos de protocolo (PDU) que maneja.\n\n1. Enlace de datos\n2. Red\n3. Transporte\n\na) Segmento\nb) Trama\nc) Paquete",
+      "opciones": [
+        "1c, 2b, 3a",
+        "1b, 2c, 3a",
+        "1a, 2b, 3c"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "La capa de enlace encapsula en tramas, que incluyen direcciones MAC y una secuencia de verificación; la capa de red produce paquetes o datagramas con direcciones IP, y la de transporte genera segmentos (TCP) o datagramas de usuario (UDP). Invertir el orden confunde el ámbito de cada capa: las tramas viven en un solo enlace, los paquetes atraviesan routers y los segmentos existen únicamente entre los extremos."
+    },
+    {
+      "id": "2.3-003",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "TCP y UDP",
+      "lecturaId": null,
+      "contexto": "Una empresa implanta telefonía IP. El códec tolera la pérdida ocasional de algunos paquetes de voz, pero la conversación se vuelve ininteligible si los datos llegan con retardos elevados o desordenados por retransmisiones.",
+      "enunciado": "¿Qué protocolo de la capa de transporte conviene usar y por qué?",
+      "opciones": [
+        "UDP, porque numera los segmentos y los reordena antes de entregarlos al códec",
+        "TCP, porque su control de congestión garantiza que la voz llegue sin retardo",
+        "UDP, porque no establece conexión ni retransmite, lo que reduce el retardo de entrega"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "UDP entrega datagramas sin saludo previo, sin acuse de recibo ni retransmisión, por lo que la latencia y la variación del retardo se mantienen bajas: es lo que exige la voz en tiempo real. TCP retransmitiría los paquetes perdidos y añadiría retardo justo cuando ya no sirven; y UDP no reordena nada, esa función queda a cargo de RTP o de la propia aplicación."
+    },
+    {
+      "id": "2.3-004",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Protocolos de aplicación y puertos",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál conjunto asocia correctamente cada protocolo con su puerto bien conocido por omisión?",
+      "opciones": [
+        "DNS 53, SMTP 110, HTTPS 8080",
+        "DNS 67, SMTP 25, HTTPS 143",
+        "DNS 53, SMTP 25, HTTPS 443"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "La IANA reserva el 53 para DNS, el 25 para el envío de correo con SMTP y el 443 para HTTP sobre TLS. El 110 corresponde a POP3 y el 8080 es un puerto alterno no oficial de HTTP; el 67 pertenece al servidor DHCP y el 143 a IMAP."
+    },
+    {
+      "id": "2.3-005",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Subnetting y CIDR",
+      "lecturaId": null,
+      "contexto": "A un departamento se le asigna la subred 192.168.10.0/26.",
+      "enunciado": "¿Cuántas direcciones asignables a hosts ofrece esa subred y cuál es su dirección de difusión (broadcast)?",
+      "opciones": [
+        "64 hosts y difusión 192.168.10.64",
+        "62 hosts y difusión 192.168.10.63",
+        "30 hosts y difusión 192.168.10.31"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "Un prefijo /26 deja 32 − 26 = 6 bits de host, es decir 2⁶ = 64 direcciones; se restan la de red (192.168.10.0) y la de difusión (192.168.10.63), quedando 62 asignables. Contar 64 hosts ignora esas dos direcciones reservadas, y 30 hosts correspondería a un /27, cuyo primer bloque terminaría en .31."
+    },
+    {
+      "id": "2.3-006",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Máscaras de subred",
+      "lecturaId": null,
+      "contexto": "Un equipo está configurado con la dirección 172.16.35.180 y la máscara 255.255.248.0.",
+      "enunciado": "¿Cuáles son la dirección de red y la dirección de difusión del segmento al que pertenece ese equipo?",
+      "opciones": [
+        "Red 172.16.32.0 y difusión 172.16.35.255",
+        "Red 172.16.35.0 y difusión 172.16.35.255",
+        "Red 172.16.32.0 y difusión 172.16.39.255"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "La máscara 255.255.248.0 equivale a /21, así que el tercer octeto se agrupa en bloques de 256 − 248 = 8; como 35 cae en el bloque que inicia en 32, la red es 172.16.32.0 y abarca hasta 172.16.39.255. Suponer red .35.0 aplicaría una máscara /24, y terminar la difusión en .35.255 dejaría fuera los host de 172.16.36.0 a 172.16.39.254 que sí pertenecen al mismo segmento."
+    },
+    {
+      "id": "2.3-007",
+      "tipo": "completamiento",
+      "dificultad": "satisfactorio",
+      "tema": "División en subredes",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Al aplicar la máscara 255.255.255.224 sobre la red 192.168.1.0/24 se obtienen ______ subredes con ______ direcciones asignables a hosts cada una.",
+      "opciones": [
+        "16; 14",
+        "6; 32",
+        "8; 30"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "La máscara 255.255.255.224 es /27: se toman 3 bits prestados al último octeto (2³ = 8 subredes) y quedan 5 bits de host (2⁵ − 2 = 30 asignables). La opción de 32 hosts olvida descontar la dirección de red y la de difusión, y 16 subredes de 14 hosts corresponde a un /28."
+    },
+    {
+      "id": "2.3-008",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Dispositivos de red",
+      "lecturaId": null,
+      "contexto": "Se requiere un dispositivo que reenvíe tramas consultando una tabla de direcciones MAC y que además aísle el dominio de colisión de cada puerto conectado.",
+      "enunciado": "¿Qué dispositivo cumple esa descripción y en qué capa del modelo OSI opera?",
+      "opciones": [
+        "Un concentrador (hub), que opera en la capa de enlace de datos",
+        "Un switch, que opera en la capa de enlace de datos",
+        "Un router, que opera en la capa de enlace de datos"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "El switch aprende las direcciones MAC de origen, construye su tabla de conmutación y envía cada trama solo al puerto destino, por lo que cada puerto es un dominio de colisión independiente; esto es propio de la capa 2. El hub repite la señal en todos los puertos y opera en la capa física manteniendo un único dominio de colisión, mientras que el router trabaja en la capa de red decidiendo con direcciones IP."
+    },
+    {
+      "id": "2.3-009",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Topologías de red",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "En una topología de malla completa que interconecta 6 nodos, ¿cuántos enlaces punto a punto se necesitan?",
+      "opciones": [
+        "30 enlaces",
+        "12 enlaces",
+        "15 enlaces"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "En una malla completa cada par de nodos comparte un enlace, de modo que el total es n(n − 1)/2 = 6 × 5 / 2 = 15. El valor 30 corresponde a n(n − 1), que contaría dos veces cada enlace (una por cada extremo), y 12 sería 2n, propio de un esquema de doble anillo, no de una malla."
+    },
+    {
+      "id": "2.3-010",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Medios de transmisión",
+      "lecturaId": null,
+      "contexto": "Se debe tender un enlace troncal de 3 km entre dos edificios de una planta industrial con motores eléctricos de gran potencia.",
+      "enunciado": "¿Qué medio de transmisión es el más adecuado y cuál es la razón técnica principal?",
+      "opciones": [
+        "Cable coaxial, porque su malla conductora suprime por completo el ruido industrial",
+        "Par trenzado categoría 6, porque su blindaje elimina la atenuación en tramos largos",
+        "Fibra óptica, porque es inmune a la interferencia electromagnética y admite grandes distancias"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "La fibra transmite pulsos de luz por un núcleo dieléctrico, así que ningún campo electromagnético la afecta, y su baja atenuación permite enlaces de kilómetros sin repetidores. El par trenzado, aun blindado, está limitado a 100 m por norma y sigue siendo sensible al ruido; el coaxial reduce la interferencia pero no la elimina y su ancho de banda a esa distancia es muy inferior."
+    },
+    {
+      "id": "2.3-011",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Protocolos de enrutamiento",
+      "lecturaId": null,
+      "contexto": "Un proveedor de servicios de internet necesita intercambiar información de alcanzabilidad de prefijos con otro proveedor, aplicando políticas comerciales sobre qué rutas anuncia y cuáles acepta.",
+      "enunciado": "¿Qué protocolo de enrutamiento corresponde a ese escenario?",
+      "opciones": [
+        "OSPF, protocolo de estado de enlace para el enrutamiento entre sistemas autónomos",
+        "BGP, protocolo de vector de rutas para el enrutamiento entre sistemas autónomos",
+        "RIP, protocolo de vector de distancia para el enrutamiento entre sistemas autónomos"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "BGP es el protocolo de pasarela exterior que anuncia prefijos junto con la lista de sistemas autónomos que atraviesan, lo que permite aplicar políticas de importación y exportación de rutas. OSPF y RIP son protocolos interiores: operan dentro de un mismo sistema autónomo, eligen rutas por costo o por número de saltos y carecen de mecanismos de política entre operadores."
+    },
+    {
+      "id": "2.3-012",
+      "tipo": "choice",
+      "dificultad": "sobresaliente",
+      "tema": "Seguridad en redes",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Seleccione las **dos** afirmaciones correctas sobre los mecanismos de seguridad en redes.",
+      "opciones": [
+        "Una VPN de sitio a sitio sustituye al firewall perimetral porque filtra el tráfico por número de puerto",
+        "TLS opera en la capa física del modelo OSI y cifra la señal eléctrica que viaja por el medio",
+        "Un IDS interrumpe por sí mismo las conexiones sospechosas antes de que alcancen al equipo destino",
+        "Un IPS se instala en línea con el tráfico, por lo que puede descartar los paquetes que identifica como maliciosos",
+        "TLS aporta confidencialidad e integridad al tráfico de aplicación mediante cifrado y códigos de autenticación de mensaje"
+      ],
+      "respuesta": [
+        3,
+        4
+      ],
+      "explicacion": "El IPS se coloca en la ruta del tráfico y por eso puede bloquear, mientras que el IDS solo copia el tráfico, lo analiza y genera alertas sin cortar la conexión. TLS se sitúa entre transporte y aplicación, y combina cifrado simétrico con MAC o cifrado autenticado para dar confidencialidad e integridad; una VPN cifra el túnel pero no realiza el filtrado por políticas que corresponde al firewall."
+    },
+    {
+      "id": "2.3-013",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Calidad de servicio (QoS)",
+      "lecturaId": null,
+      "contexto": "En una red corporativa, las videoconferencias se congelan de forma intermitente aunque las mediciones muestran ancho de banda disponible suficiente y una tasa de pérdida menor al 0.5%.",
+      "enunciado": "¿Qué parámetro de calidad de servicio conviene atender primero y con qué mecanismo?",
+      "opciones": [
+        "La tasa de errores de bit del medio, sustituyendo el cableado horizontal de los usuarios",
+        "El caudal agregado de descarga, aumentando la capacidad del enlace de acceso a internet",
+        "La variación del retardo (jitter), aplicando encolamiento con prioridad al tráfico marcado con DSCP"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "Con ancho de banda sobrante y pérdida baja, los congelamientos intermitentes provienen de la variación del retardo, que vacía el búfer de reproducción; marcar el tráfico con DSCP y darle una cola de prioridad estabiliza los tiempos de entrega. Ampliar el enlace no corrige el encolamiento de tráfico ya priorizado de forma incorrecta, y una tasa de errores relevante se manifestaría como pérdida elevada, no como jitter."
+    },
+    {
+      "id": "2.3-014",
+      "tipo": "orden",
+      "dificultad": "satisfactorio",
+      "tema": "Interconexión de redes y servicios",
+      "lecturaId": null,
+      "contexto": "Una computadora recién conectada a una red cableada abre por primera vez la dirección http://www.ejemplo.mx en su navegador.",
+      "enunciado": "Ordene los eventos según la secuencia en que ocurren.",
+      "opciones": [
+        "El cliente resuelve el nombre www.ejemplo.mx mediante una consulta DNS",
+        "El cliente obtiene dirección IP, máscara y puerta de enlace mediante DHCP",
+        "El navegador envía la petición HTTP GET del recurso solicitado",
+        "Se establece la conexión TCP con el servidor en el puerto 80 mediante el saludo de tres vías"
+      ],
+      "respuesta": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "explicacion": "Sin configuración IP el equipo no puede enviar nada, por lo que DHCP va primero; enseguida necesita la dirección del servidor, que obtiene por DNS. Solo entonces puede abrir la conexión TCP con el saludo de tres vías y, una vez establecida, enviar la petición HTTP GET sobre ella."
+    },
+    {
+      "id": "2.3-015",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Direccionamiento IPv6",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál enunciado describe correctamente una diferencia estructural entre IPv6 e IPv4?",
+      "opciones": [
+        "IPv6 usa direcciones de 64 bits y conserva el campo de suma de verificación del encabezado",
+        "IPv6 usa direcciones de 128 bits y su encabezado base tiene un tamaño fijo de 40 bytes",
+        "IPv6 usa direcciones de 128 bits y depende de la difusión para descubrir a sus vecinos"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "IPv6 cuadruplica la longitud de dirección de IPv4 hasta 128 bits y simplifica el encabezado a 40 bytes fijos, trasladando las opciones a encabezados de extensión. Sus direcciones no son de 64 bits (ese es el tamaño típico del identificador de interfaz) y IPv6 eliminó tanto la suma de verificación del encabezado como la difusión, que sustituye por multidifusión en el protocolo de descubrimiento de vecinos."
+    }
+  ]
+}

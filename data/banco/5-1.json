@@ -1,0 +1,224 @@
+{
+  "area": "5",
+  "areaNombre": "Comprensión lectora",
+  "subarea": "5.1",
+  "subareaNombre": "Ámbito de estudio",
+  "seccion": "lenguaje",
+  "lecturas": [
+    {
+      "id": "L5.1-01",
+      "titulo": "Reseña de Ciudades sedientas: gobernanza del agua en América Latina",
+      "genero": "reseña académica",
+      "texto": "Estrada Villalobos, M. (2023). Ciudades sedientas: gobernanza del agua en América Latina. Guadalajara: Editorial Litoral, 288 pp.\n\nEl volumen que aquí se comenta recoge ocho años de trabajo de campo de su autora, hidróloga de formación y, desde hace una década, investigadora en políticas públicas. Su tesis es rotunda: la escasez de agua que padecen las grandes urbes latinoamericanas no se explica principalmente por la disponibilidad física del recurso, sino por las reglas, formales e informales, que deciden quién recibe agua primero, con qué regularidad y a qué precio. Todo el libro está construido para sostener esa afirmación.\n\nLa obra se organiza en tres partes. La primera reconstruye la historia de las redes de distribución en seis ciudades y muestra que los trazados heredados del siglo XX siguen determinando qué colonias reciben servicio continuo. La segunda es, a juicio de quien reseña, la más original del conjunto: compara los sistemas tarifarios de Lima, Monterrey y São Paulo con una metodología comparativa que hasta ahora solo se había aplicado a ciudades europeas. La tercera propone un modelo al que la autora llama gobernanza escalonada, en el que las decisiones sobre el reparto se toman en tres niveles articulados.\n\nEl principal mérito del libro es empírico. Estrada Villalobos trabaja con entrevistas a trescientos cuarenta hogares y con series tarifarias de tres décadas, un material que hasta ahora estaba disperso en archivos municipales. El capítulo quinto, dedicado al reparto mediante camiones cisterna, es el mejor logrado: documenta cómo un servicio pensado para la emergencia se volvió permanente en barrios enteros y cómo alrededor de él se formaron intermediarios que fijan precios sin regulación alguna. Conviene añadir que el libro dialoga con la bibliografía internacional más reciente y está escrito en una prosa clara, sin la jerga que suele lastrar este tipo de estudios.\n\nCaben, sin embargo, dos reparos. El primero es de alcance: al concentrarse en las capitales y en las grandes áreas metropolitanas, la autora deja fuera a las localidades rurales, donde los mismos mecanismos de exclusión operan con formas distintas. El segundo es de método: el modelo de gobernanza escalonada se enuncia en las últimas cuarenta páginas sin indicadores que permitan evaluarlo, de modo que el lector no sabe cómo distinguiría un caso exitoso de uno fallido.\n\nCon todo, Ciudades sedientas cumple lo que promete. No es un manual de ingeniería hidráulica ni pretende serlo; es un libro de política pública, y como tal debería leerse en los programas de esa disciplina. Quien busque soluciones técnicas al problema del abasto encontrará aquí, más bien, las preguntas que suelen precederlas."
+    },
+    {
+      "id": "L5.1-02",
+      "titulo": "Las abejas de Mérida dibujan un mapa invisible de la ciudad",
+      "genero": "artículo de investigación divulgativo",
+      "texto": "Durante dieciocho meses, un equipo de biólogos de una universidad del sureste mexicano mantuvo veinticuatro colmenas repartidas entre el centro de Mérida, sus colonias periféricas y una zona agrícola situada a treinta kilómetros. El objetivo era responder a una pregunta sencilla de formular y difícil de contestar: ¿de qué flores vive una abeja urbana?\n\nEl procedimiento tuvo cuatro etapas. Primero se instalaron las colmenas y se dejó a las colonias adaptarse durante dos meses. Después, cada quince días, los investigadores recogieron el polen adherido al cuerpo de las obreras mediante trampas colocadas en la entrada de cada caja. Enseguida, en el laboratorio, identificaron al microscopio la especie vegetal de origen de cada grano, una técnica llamada palinología. Por último, compararon los resultados de las colmenas urbanas con los de las colmenas agrícolas.\n\nEl contraste fue mayor de lo esperado. Las colmenas urbanas registraron polen de ciento treinta y siete especies vegetales distintas; las agrícolas, de cuarenta y nueve. La explicación que ofrecen los autores es que el campo circundante está dominado por un cultivo único que florece unas pocas semanas al año, mientras que los jardines, camellones y solares de la ciudad reúnen plantas de origen muy diverso que florecen en momentos distintos.\n\nUn segundo hallazgo llamó la atención del equipo: no fueron los grandes parques los que más aportaron al muestreo urbano, sino los camellones arbolados de las avenidas y los patios traseros de las casas. Las abejas de la ciudad, además, volaron menos: la distancia media estimada de forrajeo fue de 1.1 kilómetros, frente a 2.7 kilómetros en la zona agrícola.\n\nLos autores advierten que sus conclusiones tienen un alcance limitado. El trabajo se realizó en una sola ciudad y en un solo clima, y no midió la salud ni la productividad de las colonias, de manera que una dieta más variada no equivale automáticamente a una dieta mejor. Señalan también que las trampas de polen capturan apenas una fracción de lo que la abeja transporta, por lo que el conteo de especies debe leerse como un mínimo y no como un inventario completo.\n\nAun con esas reservas, el estudio deja una recomendación concreta para quienes planean el arbolado urbano: conviene elegir especies cuyas floraciones se escalonen a lo largo del año, de modo que la ciudad ofrezca alimento también en los meses en que el campo no florece."
+    },
+    {
+      "id": "L5.1-03",
+      "titulo": "La siesta que ordena lo aprendido",
+      "genero": "artículo de investigación divulgativo",
+      "texto": "¿Sirve de algo dormir después de estudiar? Un grupo de investigadores en psicología educativa puso a prueba esa creencia con ciento ochenta estudiantes de bachillerato de una ciudad del centro del país. Los resultados, presentados el año pasado, matizan tanto a los entusiastas de la siesta como a sus detractores.\n\nEl diseño fue simple. Los participantes estudiaron durante cuarenta minutos dos materiales distintos: una lista de sesenta palabras en una lengua que ninguno conocía y una serie de problemas de razonamiento lógico. Enseguida se les repartió al azar en tres grupos. El primero durmió cuarenta y cinco minutos en un aula acondicionada; el segundo permaneció despierto y en reposo el mismo tiempo, escuchando música instrumental; el tercero continuó estudiando el material. Todos fueron evaluados dos veces: veinticuatro horas después y una semana después.\n\nA las veinticuatro horas, las diferencias entre los tres grupos fueron pequeñas: apenas cinco puntos porcentuales a favor del grupo que durmió, una distancia que los autores consideran no significativa. A la semana, en cambio, ese mismo grupo recordó veintidós por ciento más vocabulario que el grupo que siguió estudiando.\n\nLos investigadores explican el resultado por la consolidación de la memoria durante el sueño de ondas lentas, la fase profunda que ocupa buena parte de una siesta de esa duración. Durante esa fase, sostienen, el cerebro reactiva y estabiliza lo aprendido poco antes. Por eso, argumentan, el beneficio no se aprecia de inmediato, sino cuando ha pasado tiempo suficiente para que el olvido actúe sobre quienes no durmieron.\n\nHay un matiz importante. La ventaja se concentró en la lista de vocabulario; en los problemas de razonamiento lógico los tres grupos obtuvieron puntajes equivalentes en las dos evaluaciones. Dormir, sugiere el estudio, ayuda a retener información nueva, pero no necesariamente a mejorar el desempeño en tareas que exigen aplicar reglas.\n\nUna investigadora ajena al proyecto formuló una objeción que los propios autores reconocen: no se registró cuántas horas había dormido cada participante la noche anterior. Si el grupo de la siesta incluía a más estudiantes con déficit de sueño, parte del efecto podría deberse a que recuperaron descanso perdido y no a la consolidación ocurrida durante la siesta misma."
+    }
+  ],
+  "preguntas": [
+    {
+      "id": "5.1-001",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Identificación de información",
+      "lecturaId": "L5.1-01",
+      "contexto": null,
+      "enunciado": "De acuerdo con la reseña, ¿en qué materiales se apoya la evidencia empírica del libro?",
+      "opciones": [
+        "Entrevistas a trescientos cuarenta hogares y series tarifarias de tres décadas",
+        "Encuestas nacionales de vivienda y mediciones de calidad del agua en seis ciudades",
+        "Modelos de simulación hidrológica y registros de precipitación de tres décadas"
+      ],
+      "respuesta": [0],
+      "explicacion": "El cuarto párrafo lo dice de manera literal: la autora “trabaja con entrevistas a trescientos cuarenta hogares y con series tarifarias de tres décadas”. La reseña nunca menciona encuestas nacionales, mediciones de calidad del agua ni modelos de simulación; el material que destaca es documental y de entrevista, “disperso en archivos municipales”."
+    },
+    {
+      "id": "5.1-002",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Interpretación",
+      "lecturaId": "L5.1-01",
+      "contexto": null,
+      "enunciado": "¿Cuál es la tesis del libro según la reseña?",
+      "opciones": [
+        "La escasez urbana de agua depende sobre todo de las reglas que definen el reparto y no de la disponibilidad física del recurso",
+        "La escasez urbana de agua es consecuencia del crecimiento acelerado de las áreas metropolitanas latinoamericanas",
+        "La escasez urbana de agua se resolvería renovando las redes de distribución heredadas del siglo XX"
+      ],
+      "respuesta": [0],
+      "explicacion": "La reseña enuncia la tesis en el segundo párrafo: la escasez “no se explica principalmente por la disponibilidad física del recurso, sino por las reglas, formales e informales, que deciden quién recibe agua primero”. El crecimiento metropolitano no aparece como causa en el texto, y aunque las redes heredadas se mencionan, la reseña las presenta como parte del problema histórico, no como la solución que el libro propone."
+    },
+    {
+      "id": "5.1-003",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Evaluación de la forma y el contenido",
+      "lecturaId": "L5.1-01",
+      "contexto": null,
+      "enunciado": "¿Por qué quien reseña considera que la segunda parte es la más original del libro?",
+      "opciones": [
+        "Porque aplica a tres ciudades latinoamericanas una metodología comparativa que antes solo se había usado en ciudades europeas",
+        "Porque es la única parte del libro que se apoya en archivos municipales hasta ahora inéditos",
+        "Porque propone un modelo de decisión organizado en tres niveles articulados"
+      ],
+      "respuesta": [0],
+      "explicacion": "El texto justifica el juicio en el mismo enunciado: la segunda parte “compara los sistemas tarifarios de Lima, Monterrey y São Paulo con una metodología comparativa que hasta ahora solo se había aplicado a ciudades europeas”. El modelo en tres niveles corresponde a la tercera parte, y el material de archivos municipales se atribuye al conjunto de la evidencia empírica, no exclusivamente a la segunda parte."
+    },
+    {
+      "id": "5.1-004",
+      "tipo": "choice",
+      "dificultad": "sobresaliente",
+      "tema": "Evaluación de la forma y el contenido",
+      "lecturaId": "L5.1-01",
+      "contexto": null,
+      "enunciado": "¿Cuáles son los dos reparos que formula quien reseña? Selecciona dos opciones.",
+      "opciones": [
+        "Que el estudio deje fuera a las localidades rurales, donde operan mecanismos de exclusión distintos",
+        "Que el modelo final se enuncie sin indicadores que permitan evaluarlo",
+        "Que la muestra de hogares resulte demasiado reducida para sostener las conclusiones",
+        "Que el libro no dialogue con la bibliografía internacional publicada en los últimos años",
+        "Que la exposición abuse de tecnicismos propios de la ingeniería hidráulica"
+      ],
+      "respuesta": [0, 1],
+      "explicacion": "El quinto párrafo enumera exactamente dos objeciones: una “de alcance”, porque la autora “deja fuera a las localidades rurales”, y otra “de método”, porque el modelo “se enuncia en las últimas cuarenta páginas sin indicadores que permitan evaluarlo”. Las otras tres opciones invierten elogios del texto: la muestra se presenta como “el principal mérito”, y la reseña afirma que el libro “dialoga con la bibliografía internacional más reciente” y está escrito “en una prosa clara, sin la jerga que suele lastrar este tipo de estudios”."
+    },
+    {
+      "id": "5.1-005",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Identificación de información",
+      "lecturaId": "L5.1-02",
+      "contexto": null,
+      "enunciado": "¿Cuántas especies vegetales distintas se identificaron en el polen recogido en las colmenas urbanas?",
+      "opciones": [
+        "Ciento treinta y siete",
+        "Cuarenta y nueve",
+        "Veinticuatro"
+      ],
+      "respuesta": [0],
+      "explicacion": "El tercer párrafo lo consigna: “Las colmenas urbanas registraron polen de ciento treinta y siete especies vegetales distintas; las agrícolas, de cuarenta y nueve”. Cuarenta y nueve corresponde a las colmenas agrícolas y veinticuatro es el número de colmenas instaladas en todo el estudio, no de especies."
+    },
+    {
+      "id": "5.1-006",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Interpretación",
+      "lecturaId": "L5.1-02",
+      "contexto": null,
+      "enunciado": "¿A qué atribuyen los autores la menor variedad de polen registrada en las colmenas agrícolas?",
+      "opciones": [
+        "A que el campo circundante está dominado por un cultivo único con una floración breve",
+        "A que las abejas de la zona agrícola visitan menos plantas en cada viaje de forrajeo",
+        "A que las trampas de polen capturan solo una fracción de lo que transporta cada abeja"
+      ],
+      "respuesta": [0],
+      "explicacion": "El texto atribuye el contraste a un solo factor: “el campo circundante está dominado por un cultivo único que florece unas pocas semanas al año”, frente a jardines y camellones con plantas diversas. El texto dice que las abejas agrícolas volaron distancias mayores, pero nunca que visitaran menos plantas por viaje; y la limitación de las trampas se plantea como una restricción general del método, aplicable por igual a las colmenas urbanas."
+    },
+    {
+      "id": "5.1-007",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Evaluación de la forma y el contenido",
+      "lecturaId": "L5.1-02",
+      "contexto": null,
+      "enunciado": "¿Con qué propósito el artículo dedica un párrafo completo a las reservas del estudio?",
+      "opciones": [
+        "Para delimitar hasta dónde pueden extenderse las conclusiones y evitar que se lean como generales",
+        "Para justificar que el experimento se repita con un número mayor de colmenas urbanas",
+        "Para señalar que los resultados contradicen investigaciones anteriores sobre abejas urbanas"
+      ],
+      "respuesta": [0],
+      "explicacion": "El párrafo se abre precisamente así: “Los autores advierten que sus conclusiones tienen un alcance limitado”, y a continuación precisa que el trabajo se hizo “en una sola ciudad y en un solo clima” y que “una dieta más variada no equivale automáticamente a una dieta mejor”. En ningún momento se anuncia una repetición del estudio ni se aluden investigaciones previas con las que este entre en conflicto."
+    },
+    {
+      "id": "5.1-008",
+      "tipo": "orden",
+      "dificultad": "satisfactorio",
+      "tema": "Identificación de información",
+      "lecturaId": "L5.1-02",
+      "contexto": null,
+      "enunciado": "Ordena las cuatro etapas del procedimiento tal como el texto las describe.",
+      "opciones": [
+        "Comparación de los resultados urbanos con los de la zona agrícola",
+        "Instalación de las colmenas y periodo de adaptación de las colonias",
+        "Identificación al microscopio de la especie vegetal de origen de cada grano",
+        "Recolección quincenal del polen adherido al cuerpo de las obreras"
+      ],
+      "respuesta": [1, 3, 2, 0],
+      "explicacion": "El segundo párrafo enumera la secuencia con marcadores explícitos: “Primero se instalaron las colmenas”, “Después, cada quince días, los investigadores recogieron el polen”, “Enseguida, en el laboratorio, identificaron al microscopio la especie vegetal de origen” y “Por último, compararon los resultados de las colmenas urbanas con los de las colmenas agrícolas”. Cualquier otra secuencia contradice esos conectores de orden."
+    },
+    {
+      "id": "5.1-009",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Identificación de información",
+      "lecturaId": "L5.1-03",
+      "contexto": null,
+      "enunciado": "¿Qué hizo el segundo grupo durante los cuarenta y cinco minutos posteriores al estudio?",
+      "opciones": [
+        "Permaneció despierto y en reposo, escuchando música instrumental",
+        "Durmió en un aula acondicionada para ese fin",
+        "Continuó estudiando los dos materiales de la sesión"
+      ],
+      "respuesta": [0],
+      "explicacion": "El segundo párrafo distribuye las tres condiciones: “El primero durmió cuarenta y cinco minutos en un aula acondicionada; el segundo permaneció despierto y en reposo el mismo tiempo, escuchando música instrumental; el tercero continuó estudiando el material”. Dormir corresponde al primer grupo y seguir estudiando al tercero."
+    },
+    {
+      "id": "5.1-010",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Interpretación",
+      "lecturaId": "L5.1-03",
+      "contexto": null,
+      "enunciado": "¿Cuál es la idea central del artículo?",
+      "opciones": [
+        "Dormir después de estudiar favorece la retención de información nueva a largo plazo, aunque el efecto no aparece de inmediato ni en toda clase de tareas",
+        "Dormir después de estudiar mejora el desempeño en cualquier tarea siempre que la evaluación se aplique una semana más tarde",
+        "Estudiar sin interrupciones resulta más eficaz que dormir cuando el material que debe aprenderse es verbal y desconocido"
+      ],
+      "respuesta": [0],
+      "explicacion": "El artículo resume su propia conclusión así: “Dormir, sugiere el estudio, ayuda a retener información nueva, pero no necesariamente a mejorar el desempeño en tareas que exigen aplicar reglas”, y precisa que a las veinticuatro horas la diferencia fue “no significativa”. La segunda opción ignora que en los problemas de razonamiento no hubo ventaja alguna, y la tercera invierte el resultado: a la semana el grupo que durmió superó por veintidós por ciento al que siguió estudiando."
+    },
+    {
+      "id": "5.1-011",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Evaluación de la forma y el contenido",
+      "lecturaId": "L5.1-03",
+      "contexto": null,
+      "enunciado": "¿Por qué el artículo cierra con la objeción de una investigadora ajena al proyecto?",
+      "opciones": [
+        "Para señalar una variable que no se controló y que podría explicar en parte el resultado",
+        "Para desmentir la conclusión principal y mostrar que la siesta no tuvo ningún efecto",
+        "Para anunciar que el experimento se repetirá con estudiantes universitarios"
+      ],
+      "respuesta": [0],
+      "explicacion": "El último párrafo expone la objeción y su consecuencia: “no se registró cuántas horas había dormido cada participante la noche anterior”, por lo que “parte del efecto podría deberse a que recuperaron descanso perdido”. La palabra “parte” muestra que no se desmiente el hallazgo, sino que se acota; y el texto no menciona ninguna repetición del estudio."
+    },
+    {
+      "id": "5.1-012",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Interpretación",
+      "lecturaId": "L5.1-03",
+      "contexto": null,
+      "enunciado": "¿Qué se desprende del texto acerca de los problemas de razonamiento lógico?",
+      "opciones": [
+        "Que los tres grupos obtuvieron puntajes equivalentes en ellos, tanto a las veinticuatro horas como a la semana",
+        "Que el grupo que durmió mejoró en ellos, pero solo en la evaluación aplicada una semana después",
+        "Que ninguno de los grupos logró resolverlos correctamente en las dos evaluaciones"
+      ],
+      "respuesta": [0],
+      "explicacion": "El quinto párrafo es explícito: “en los problemas de razonamiento lógico los tres grupos obtuvieron puntajes equivalentes en las dos evaluaciones”. La ventaja del veintidós por ciento a la semana se refiere únicamente al vocabulario, y el texto no afirma en ningún momento que los problemas quedaran sin resolver."
+    }
+  ]
+}

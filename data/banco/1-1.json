@@ -1,0 +1,206 @@
+{
+  "area": "1",
+  "areaNombre": "Algoritmia",
+  "subarea": "1.1",
+  "subareaNombre": "Análisis y diseño de algoritmos",
+  "seccion": "disciplinar",
+  "lecturas": [],
+  "preguntas": [
+    {
+      "id": "1.1-001",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Notación asintótica",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Un algoritmo A ejecuta aproximadamente 3n² + 200n + 5000 operaciones para una entrada de tamaño n. ¿Cuál es su complejidad temporal expresada en notación O grande?",
+      "opciones": ["O(n)", "O(n²)", "O(n log n)"],
+      "respuesta": [1],
+      "explicacion": "La notación O grande describe el crecimiento asintótico, por lo que se conserva únicamente el término dominante y se descartan constantes y términos de menor orden: 3n² domina sobre 200n y sobre 5000 cuando n tiende a infinito, de modo que la cota es O(n²). O(n) subestima el costo porque ignora el término cuadrático, y O(n log n) no corresponde a ningún término de la expresión."
+    },
+    {
+      "id": "1.1-002",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Algoritmos de ordenamiento",
+      "lecturaId": null,
+      "contexto": "Se aplica **ordenamiento burbuja ascendente** al arreglo:\n\n```\n[5, 1, 4, 2, 8]\n```\n\nUna *pasada* consiste en comparar cada par de elementos adyacentes de izquierda a derecha e intercambiarlos cuando están en desorden.",
+      "enunciado": "¿Cómo queda el arreglo al terminar la **primera** pasada completa?",
+      "opciones": ["[1, 4, 2, 5, 8]", "[1, 4, 5, 2, 8]", "[1, 2, 4, 5, 8]"],
+      "respuesta": [0],
+      "explicacion": "La pasada compara (5,1) e intercambia, (5,4) e intercambia, (5,2) e intercambia y (5,8) sin intercambio, con lo que el mayor elemento queda al final: [1, 4, 2, 5, 8]. La segunda opción detiene el arrastre del 5 antes de tiempo y la tercera corresponde al arreglo ya ordenado, resultado que el burbuja alcanza hasta después de varias pasadas."
+    },
+    {
+      "id": "1.1-003",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Algoritmos de ordenamiento",
+      "lecturaId": null,
+      "contexto": "Se ejecuta la **partición de Lomuto** de quicksort sobre el arreglo completo, tomando como pivote el **último elemento**:\n\n```\n[7, 2, 9, 4, 3, 8]\n```\n\nEl procedimiento recorre el arreglo con un índice j; cada vez que a[j] ≤ pivote incrementa i e intercambia a[i] con a[j]. Al final intercambia a[i+1] con el pivote.",
+      "enunciado": "¿Cómo queda el arreglo después de la **primera** partición?",
+      "opciones": ["[7, 2, 4, 3, 8, 9]", "[7, 2, 9, 4, 3, 8]", "[2, 3, 4, 7, 8, 9]"],
+      "respuesta": [0],
+      "explicacion": "Con pivote 8, los elementos 7, 2, 4 y 3 son menores o iguales y se acomodan a la izquierda, mientras que 9 queda a la derecha; el intercambio final coloca el pivote en la posición 4, resultando [7, 2, 4, 3, 8, 9]. La segunda opción es el arreglo original sin cambios y la tercera es el arreglo totalmente ordenado, que solo se obtiene tras completar toda la recursión."
+    },
+    {
+      "id": "1.1-004",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Algoritmos de búsqueda",
+      "lecturaId": null,
+      "contexto": "Se busca el valor **37** mediante **búsqueda binaria** en el arreglo ordenado de 100 enteros donde a[i] = i + 1, es decir [1, 2, 3, …, 100]. Los índices son 0-based y el punto medio se calcula como mid = ⌊(inf + sup) / 2⌋.",
+      "enunciado": "¿Cuántos elementos centrales se examinan antes de encontrar el valor buscado, incluyendo aquel en el que se localiza?",
+      "opciones": ["2 elementos", "3 elementos", "4 elementos"],
+      "respuesta": [1],
+      "explicacion": "El primer medio es el índice 49 (valor 50, mayor que 37, se descarta la mitad superior); el segundo es el índice 24 (valor 25, menor que 37, se descarta la mitad inferior); el tercero es el índice 36, cuyo valor es exactamente 37. Por tanto se examinan 3 elementos, consistente con la cota O(log n) que para n = 100 ronda 7 pasos en el peor caso."
+    },
+    {
+      "id": "1.1-005",
+      "tipo": "completamiento",
+      "dificultad": "satisfactorio",
+      "tema": "Divide y vencerás",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Complete el enunciado: «Mergesort divide el arreglo en ______ subproblemas de tamaño ______ y realiza la mezcla de las mitades en tiempo ______, lo que produce la recurrencia T(n) = 2T(n/2) + Θ(n).»",
+      "opciones": ["dos / n/2 / lineal", "n / uno / constante", "dos / n − 1 / logarítmico"],
+      "respuesta": [0],
+      "explicacion": "Mergesort es el ejemplo canónico de divide y vencerás: parte el arreglo en dos mitades de tamaño n/2, ordena cada una recursivamente y las mezcla recorriendo los n elementos una sola vez, es decir en tiempo lineal, lo que resuelve por el teorema maestro a Θ(n log n). Dividir en n subproblemas de tamaño uno describiría más bien un ordenamiento por distribución, y una división en n − 1 corresponde a una recursión lineal como la del ordenamiento por inserción."
+    },
+    {
+      "id": "1.1-006",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Programación dinámica",
+      "lecturaId": null,
+      "contexto": "Se resuelve el problema del **cambio de monedas** con programación dinámica. Las denominaciones disponibles son {1, 3, 4} y hay existencias ilimitadas de cada una. Se define M[k] como el número mínimo de monedas necesarias para formar la cantidad k.",
+      "enunciado": "¿Cuál es el valor de M[6]?",
+      "opciones": ["2 monedas", "3 monedas", "4 monedas"],
+      "respuesta": [0],
+      "explicacion": "La tabla se llena como M[0]=0, M[1]=1, M[2]=2, M[3]=1, M[4]=1, M[5]=2 y M[6]=1+min(M[5], M[3], M[2])=1+1=2, correspondiente a las monedas 3+3. Una estrategia voraz que tomara primero la moneda de 4 daría 4+1+1 = 3 monedas, lo que ilustra por qué este problema requiere programación dinámica y no un enfoque voraz."
+    },
+    {
+      "id": "1.1-007",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Algoritmos voraces",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es la característica que define a un algoritmo voraz (greedy)?",
+      "opciones": [
+        "Elige en cada paso la opción localmente óptima y nunca reconsidera las decisiones ya tomadas",
+        "Explora soluciones parciales y retrocede cuando alguna de ellas viola las restricciones del problema",
+        "Almacena en una tabla los resultados de subproblemas superpuestos para reutilizarlos después"
+      ],
+      "respuesta": [0],
+      "explicacion": "La estrategia voraz construye la solución mediante decisiones locales irrevocables y solo garantiza el óptimo global cuando el problema tiene subestructura óptima y la propiedad de elección voraz, como en Huffman o en Kruskal. La segunda descripción corresponde a backtracking y la tercera a programación dinámica, técnicas que sí revisan o combinan decisiones previas."
+    },
+    {
+      "id": "1.1-008",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Backtracking",
+      "lecturaId": null,
+      "contexto": "Se resuelve el problema de las **ocho reinas** mediante backtracking, colocando una reina por columna y verificando después de cada colocación que ninguna reina amenace a otra.",
+      "enunciado": "¿Qué acción realiza el algoritmo cuando detecta que la configuración parcial actual viola una restricción?",
+      "opciones": [
+        "Deshace la última colocación y prueba la siguiente casilla disponible de esa columna",
+        "Reinicia el tablero por completo y comienza desde una configuración aleatoria distinta",
+        "Continúa colocando las reinas restantes y descarta la solución solo al llegar al final"
+      ],
+      "respuesta": [0],
+      "explicacion": "El backtracking poda el árbol de búsqueda: al detectar una violación deshace únicamente la última decisión y continúa con la siguiente alternativa del mismo nivel, evitando explorar todo el subárbol inviable. Reiniciar aleatoriamente describe una búsqueda local con reinicios, y posponer la verificación hasta el final equivale a fuerza bruta exhaustiva, mucho más costosa."
+    },
+    {
+      "id": "1.1-009",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Complejidad espacial",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es la complejidad **espacial adicional** de la implementación clásica de mergesort sobre arreglos?",
+      "opciones": ["O(1)", "O(log n)", "O(n)"],
+      "respuesta": [2],
+      "explicacion": "La mezcla de dos mitades ordenadas requiere un arreglo auxiliar del tamaño del segmento que se combina, por lo que en el nivel superior se necesita espacio proporcional a n; por eso mergesort no se considera un algoritmo in situ. O(1) corresponde a heapsort y O(log n) al espacio de pila de la recursión de quicksort con buen balanceo."
+    },
+    {
+      "id": "1.1-010",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Recursividad",
+      "lecturaId": null,
+      "contexto": "Considere la siguiente función recursiva:\n\n```c\nint f(int n) {\n    if (n <= 1) return 1;\n    return f(n - 1) + f(n - 2);\n}\n```",
+      "enunciado": "¿Cuántas invocaciones de `f` se ejecutan en total al evaluar `f(4)`, contando la llamada inicial?",
+      "opciones": ["7 invocaciones", "9 invocaciones", "15 invocaciones"],
+      "respuesta": [1],
+      "explicacion": "Si C(n) es el número total de llamadas, entonces C(0) = C(1) = 1 y C(n) = 1 + C(n−1) + C(n−2); así C(2) = 3, C(3) = 5 y C(4) = 1 + 5 + 3 = 9. El crecimiento exponencial de estas llamadas repetidas es justamente lo que elimina la memoización, reduciendo el costo a O(n)."
+    },
+    {
+      "id": "1.1-011",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Inducción matemática",
+      "lecturaId": null,
+      "contexto": "Se demuestra por inducción matemática que, para todo entero n ≥ 1, se cumple\n\n```\n1 + 2 + 3 + … + n = n(n + 1) / 2\n```",
+      "enunciado": "¿Qué se supone verdadero en la **hipótesis de inducción**?",
+      "opciones": [
+        "Que la igualdad se cumple para un entero arbitrario n = k",
+        "Que la igualdad se cumple simultáneamente para todos los enteros n ≥ 1",
+        "Que la igualdad se cumple para n = k + 1 y de ahí se deduce el caso n = k"
+      ],
+      "respuesta": [0],
+      "explicacion": "La hipótesis de inducción supone la validez del enunciado para un k arbitrario y a partir de ella se demuestra el caso k + 1; junto con el caso base n = 1 esto establece la validez para todo n. Suponer la igualdad para todos los enteros sería asumir la conclusión, y razonar de k + 1 hacia k invierte el sentido del paso inductivo."
+    },
+    {
+      "id": "1.1-012",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Clases P, NP y NP-completo",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Bajo qué condición un problema de decisión pertenece a la clase **NP**?",
+      "opciones": [
+        "Cuando una solución candidata puede verificarse en tiempo polinomial por una máquina determinista",
+        "Cuando existe un algoritmo determinista que lo resuelve en tiempo polinomial",
+        "Cuando se ha demostrado que ningún algoritmo puede resolverlo en tiempo finito"
+      ],
+      "respuesta": [0],
+      "explicacion": "NP es la clase de problemas cuyas soluciones propuestas (certificados) admiten verificación en tiempo polinomial, equivalente a ser resueltos en tiempo polinomial por una máquina no determinista. La segunda opción define la clase P, que está contenida en NP, y la tercera describe problemas indecidibles como el de la parada, que ni siquiera son verificables."
+    },
+    {
+      "id": "1.1-013",
+      "tipo": "relacion",
+      "dificultad": "sobresaliente",
+      "tema": "Técnicas de diseño de algoritmos",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Relacione cada técnica de diseño con el algoritmo que la ejemplifica.\n\n1. Divide y vencerás\n2. Programación dinámica\n3. Algoritmo voraz\n\na) Códigos de Huffman\nb) Mergesort\nc) Mochila 0/1 resuelta con tabla de subproblemas",
+      "opciones": ["1b, 2c, 3a", "1a, 2b, 3c", "1c, 2a, 3b"],
+      "respuesta": [0],
+      "explicacion": "Mergesort parte el problema en mitades independientes y combina resultados (divide y vencerás); la mochila 0/1 llena una tabla de subproblemas superpuestos (programación dinámica); Huffman construye el código óptimo fusionando siempre los dos símbolos de menor frecuencia (voraz). Las otras combinaciones desplazan cada algoritmo a una técnica cuyas propiedades no cumple, pues la mochila 0/1 no admite solución voraz correcta."
+    },
+    {
+      "id": "1.1-014",
+      "tipo": "choice",
+      "dificultad": "sobresaliente",
+      "tema": "Análisis de complejidad temporal",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Seleccione los **dos** algoritmos de ordenamiento cuya complejidad temporal en el **peor caso** es O(n log n).",
+      "opciones": ["Quicksort", "Mergesort", "Ordenamiento por inserción", "Heapsort", "Ordenamiento burbuja"],
+      "respuesta": [1, 3],
+      "explicacion": "Mergesort siempre divide en mitades exactas y heapsort realiza n extracciones de costo logarítmico, por lo que ambos garantizan O(n log n) incluso en el peor caso. Quicksort degenera a O(n²) cuando el pivote resulta ser sistemáticamente el mínimo o el máximo, mientras que inserción y burbuja son cuadráticos en el peor caso."
+    },
+    {
+      "id": "1.1-015",
+      "tipo": "orden",
+      "dificultad": "satisfactorio",
+      "tema": "Notación asintótica",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Ordene las siguientes complejidades de **menor a mayor** tasa de crecimiento para valores grandes de n.",
+      "opciones": ["O(n²)", "O(log n)", "O(n log n)", "O(n)"],
+      "respuesta": [1, 3, 2, 0],
+      "explicacion": "La jerarquía asintótica establece log n < n < n log n < n², ya que el logaritmo crece más lentamente que cualquier potencia positiva y el factor log n multiplica pero no alcanza el salto a n². Reconocer este orden permite comparar algoritmos sin ejecutarlos: por ejemplo, una búsqueda binaria O(log n) siempre superará a una lineal O(n) para entradas suficientemente grandes."
+    }
+  ]
+}

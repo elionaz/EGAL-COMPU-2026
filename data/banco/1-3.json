@@ -1,0 +1,208 @@
+{
+  "area": "1",
+  "areaNombre": "Algoritmia",
+  "subarea": "1.3",
+  "subareaNombre": "Matemáticas discretas",
+  "seccion": "disciplinar",
+  "lecturas": [],
+  "preguntas": [
+    {
+      "id": "1.3-001",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Teoría de conjuntos",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "En una encuesta, 18 personas usan Linux, 12 usan macOS y 5 usan ambos sistemas. ¿Cuántas personas usan al menos uno de los dos sistemas?",
+      "opciones": ["25", "30", "20"],
+      "respuesta": [0],
+      "explicacion": "El principio de inclusión-exclusión establece que |A ∪ B| = |A| + |B| − |A ∩ B| = 18 + 12 − 5 = 25. La opción 30 suma ambos conjuntos sin descontar la intersección, por lo que cuenta dos veces a quienes usan los dos sistemas; la opción 20 resta la intersección dos veces."
+    },
+    {
+      "id": "1.3-002",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Conjunto potencia",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Si un conjunto A tiene 5 elementos, ¿cuál es la cardinalidad de su conjunto potencia P(A)?",
+      "opciones": ["32", "25", "10"],
+      "respuesta": [0],
+      "explicacion": "El conjunto potencia contiene todos los subconjuntos de A, y cada elemento puede estar o no estar en un subconjunto dado, de modo que |P(A)| = 2^|A| = 2^5 = 32. La opción 25 corresponde a |A|² y la opción 10 a 2·|A|; ninguna de las dos describe el número de subconjuntos."
+    },
+    {
+      "id": "1.3-003",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Funciones",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Sea f: ℤ → ℤ definida por f(x) = 2x. ¿Cómo se clasifica esta función?",
+      "opciones": [
+        "Inyectiva pero no sobreyectiva",
+        "Sobreyectiva pero no inyectiva",
+        "Biyectiva porque es lineal"
+      ],
+      "respuesta": [0],
+      "explicacion": "Si 2a = 2b entonces a = b, por lo que f es inyectiva; sin embargo, ningún entero impar (por ejemplo 3) es imagen de un entero, así que f no cubre todo el codominio y no es sobreyectiva. Al fallar la sobreyectividad tampoco puede ser biyectiva, y la linealidad por sí sola no garantiza biyectividad sobre ℤ."
+    },
+    {
+      "id": "1.3-004",
+      "tipo": "completamiento",
+      "dificultad": "satisfactorio",
+      "tema": "Composición de funciones",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Sean f(x) = x + 3 y g(x) = x². Entonces (g ∘ f)(2) = ______ y (f ∘ g)(2) = ______.",
+      "opciones": ["25 y 7", "7 y 25", "25 y 49"],
+      "respuesta": [0],
+      "explicacion": "En (g ∘ f)(2) primero se aplica f: f(2) = 5, y después g: g(5) = 25. En (f ∘ g)(2) primero se aplica g: g(2) = 4, y después f: f(4) = 7. Los distractores invierten el orden de aplicación o vuelven a elevar al cuadrado el resultado, errores típicos al leer la notación de composición de derecha a izquierda."
+    },
+    {
+      "id": "1.3-005",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Relaciones y sus propiedades",
+      "lecturaId": null,
+      "contexto": "Sobre el conjunto A = {1, 2, 3} se define la relación\n\nR = {(1,1), (2,2), (3,3), (1,2), (2,3)}",
+      "enunciado": "¿Qué propiedades cumple la relación R?",
+      "opciones": [
+        "Solo es reflexiva",
+        "Es reflexiva y transitiva",
+        "Es reflexiva y simétrica"
+      ],
+      "respuesta": [0],
+      "explicacion": "R contiene (1,1), (2,2) y (3,3), por lo que es reflexiva. No es simétrica porque está (1,2) pero no (2,1), y no es transitiva porque están (1,2) y (2,3) pero falta (1,3). Basta un solo contraejemplo para descartar una propiedad, de modo que únicamente se conserva la reflexividad."
+    },
+    {
+      "id": "1.3-006",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Combinaciones",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿De cuántas maneras distintas se puede formar un comité de 3 integrantes a partir de un grupo de 8 personas?",
+      "opciones": ["56", "336", "24"],
+      "respuesta": [0],
+      "explicacion": "Como el comité no distingue cargos, el orden no importa y se aplica la combinación C(8,3) = 8!/(3!·5!) = 56. La opción 336 es la permutación P(8,3), que sí distingue el orden de selección, y 24 corresponde a 8·3, un producto sin sustento combinatorio."
+    },
+    {
+      "id": "1.3-007",
+      "tipo": "relacion",
+      "dificultad": "satisfactorio",
+      "tema": "Clasificación de funciones",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Relacione cada tipo de función con su definición.\n\n1. Inyectiva\n2. Sobreyectiva\n3. Biyectiva\n\na) Todo elemento del codominio tiene al menos una preimagen\nb) Elementos distintos del dominio tienen imágenes distintas\nc) Cumple simultáneamente las dos condiciones anteriores",
+      "opciones": ["1b, 2a, 3c", "1a, 2b, 3c", "1c, 2a, 3b"],
+      "respuesta": [0],
+      "explicacion": "La inyectividad (uno a uno) exige que imágenes iguales provengan del mismo elemento, es decir, elementos distintos tienen imágenes distintas (b). La sobreyectividad exige que la imagen cubra todo el codominio (a). La biyectividad es la conjunción de ambas (c), condición necesaria para que exista función inversa."
+    },
+    {
+      "id": "1.3-008",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Principios de conteo",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Un menú ofrece 4 entradas, 5 platos fuertes y 3 postres. ¿Cuántas comidas distintas de tres tiempos se pueden armar eligiendo una opción de cada categoría?",
+      "opciones": ["60", "12", "20"],
+      "respuesta": [0],
+      "explicacion": "Cuando se elige un elemento de cada categoría en etapas independientes se aplica el principio de multiplicación: 4 · 5 · 3 = 60. La opción 12 aplica el principio de adición (4 + 5 + 3), que corresponde a elegir un solo platillo entre todos, y la opción 20 omite la categoría de postres."
+    },
+    {
+      "id": "1.3-009",
+      "tipo": "choice",
+      "dificultad": "sobresaliente",
+      "tema": "Árboles de expansión",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Seleccione las **dos** afirmaciones correctas sobre los árboles de expansión de un grafo conexo.",
+      "opciones": [
+        "Un árbol de expansión de un grafo con n vértices tiene exactamente n − 1 aristas",
+        "Un árbol de expansión es acíclico y contiene todos los vértices del grafo",
+        "Todo grafo conexo posee un único árbol de expansión posible",
+        "El árbol de expansión mínimo solo existe si el grafo es dirigido",
+        "Un árbol de expansión debe incluir todas las aristas del grafo original"
+      ],
+      "respuesta": [0, 1],
+      "explicacion": "Por definición un árbol de expansión es un subgrafo acíclico y conexo que abarca los n vértices, lo que obliga a tener exactamente n − 1 aristas. La unicidad es falsa: un grafo con ciclos admite varios árboles de expansión; el árbol de expansión mínimo se define sobre grafos no dirigidos ponderados, e incluir todas las aristas reintroduciría ciclos."
+    },
+    {
+      "id": "1.3-010",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Redes de Petri",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "En una red de Petri, ¿cómo se denominan los nodos que contienen las marcas (tokens) y representan las condiciones del sistema?",
+      "opciones": ["Lugares o plazas", "Transiciones", "Arcos dirigidos"],
+      "respuesta": [0],
+      "explicacion": "Una red de Petri es un grafo bipartito cuyos nodos son lugares (plazas) y transiciones; las marcas residen en los lugares y su distribución define el marcado o estado del sistema. Las transiciones modelan los eventos que consumen y producen marcas, y los arcos solo conectan lugares con transiciones."
+    },
+    {
+      "id": "1.3-011",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Conversión entre bases",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es la representación hexadecimal del número binario 10110110₂?",
+      "opciones": ["B6₁₆", "A6₁₆", "D6₁₆"],
+      "respuesta": [0],
+      "explicacion": "Se agrupa el binario en nibbles de cuatro bits desde la derecha: 1011 y 0110. El grupo 1011 vale 11, que en hexadecimal es B, y 0110 vale 6, de modo que el resultado es B6₁₆ (182 en decimal). Los distractores corresponden a 1010 0110 y 1101 0110, agrupaciones distintas del bloque más significativo."
+    },
+    {
+      "id": "1.3-012",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Bases numéricas",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es el valor decimal del número hexadecimal 2AF₁₆?",
+      "opciones": ["687", "671", "703"],
+      "respuesta": [0],
+      "explicacion": "Se expande en potencias de 16: 2·16² + A·16¹ + F·16⁰ = 2·256 + 10·16 + 15·1 = 512 + 160 + 15 = 687. Los distractores resultan de confundir el valor de A con 9 (671) o el de F con 16 más un acarreo indebido (703)."
+    },
+    {
+      "id": "1.3-013",
+      "tipo": "orden",
+      "dificultad": "sobresaliente",
+      "tema": "Comparación entre bases numéricas",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Ordene los siguientes números de **menor a mayor** según su valor decimal.",
+      "opciones": ["52₈", "27₁₆", "101101₂", "40₁₀"],
+      "respuesta": [1, 3, 0, 2],
+      "explicacion": "Al llevar todo a base 10: 52₈ = 5·8 + 2 = 42; 27₁₆ = 2·16 + 7 = 39; 101101₂ = 32 + 8 + 4 + 1 = 45; y 40₁₀ = 40. El orden creciente es entonces 27₁₆ (39), 40₁₀ (40), 52₈ (42) y 101101₂ (45); comparar los dígitos sin convertir a una base común lleva a conclusiones erróneas."
+    },
+    {
+      "id": "1.3-014",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Operaciones matriciales",
+      "lecturaId": null,
+      "contexto": "Se tienen las matrices\n\n**A** =\n\n| 2 | 1 |\n|---|---|\n| 0 | 3 |\n\n**B** =\n\n| 1 | 4 |\n|---|---|\n| 2 | 5 |",
+      "enunciado": "¿Cuál es el resultado del producto matricial A · B?",
+      "opciones": [
+        "[[4, 13], [6, 15]]",
+        "[[2, 4], [0, 15]]",
+        "[[4, 6], [13, 15]]"
+      ],
+      "respuesta": [0],
+      "explicacion": "Cada entrada del producto es el producto punto de una fila de A con una columna de B: c₁₁ = 2·1 + 1·2 = 4, c₁₂ = 2·4 + 1·5 = 13, c₂₁ = 0·1 + 3·2 = 6 y c₂₂ = 0·4 + 3·5 = 15. La segunda opción multiplica entrada por entrada (producto de Hadamard) y la tercera transpone el resultado correcto."
+    },
+    {
+      "id": "1.3-015",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Relaciones de recurrencia",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Una sucesión se define por la recurrencia aₙ = 2aₙ₋₁ + 1 con a₁ = 1. ¿Cuál es el valor de a₅?",
+      "opciones": ["31", "33", "63"],
+      "respuesta": [0],
+      "explicacion": "Desarrollando la recurrencia: a₂ = 2(1) + 1 = 3, a₃ = 2(3) + 1 = 7, a₄ = 2(7) + 1 = 15 y a₅ = 2(15) + 1 = 31, que coincide con la solución cerrada aₙ = 2ⁿ − 1. La opción 63 aplica un término de más (a₆) y la opción 33 suma el 1 una sola vez al final en lugar de en cada paso."
+    }
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "area": "2",
+  "areaNombre": "Desarrollo de software de base",
+  "subarea": "2.1",
+  "subareaNombre": "Arquitectura de computadoras y sistemas operativos",
+  "seccion": "disciplinar",
+  "lecturas": [],
+  "preguntas": [
+    {
+      "id": "2.1-001",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Arquitectura Von Neumann",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es el rasgo que define a la arquitectura Von Neumann frente a la arquitectura Harvard?",
+      "opciones": [
+        "Las instrucciones se ejecutan sin pasar por la unidad de control ni por la ALU",
+        "Las instrucciones y los datos residen en un mismo espacio de memoria y comparten el bus",
+        "Las instrucciones y los datos residen en memorias separadas con buses independientes"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "En Von Neumann el programa almacenado comparte memoria y bus con los datos, lo que produce el llamado cuello de botella de Von Neumann. La opción de memorias y buses separados describe a la arquitectura Harvard, usada sobre todo en microcontroladores y procesadores de señal. Que las instrucciones esquiven la unidad de control es falso en cualquier arquitectura: ella las decodifica y coordina a la ALU."
+    },
+    {
+      "id": "2.1-002",
+      "tipo": "orden",
+      "dificultad": "satisfactorio",
+      "tema": "Ciclo de instrucción",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Ordene las etapas del ciclo de instrucción tal como las ejecuta el procesador para una instrucción aritmética.",
+      "opciones": [
+        "Decodificar la instrucción en la unidad de control",
+        "Escribir el resultado en el registro destino",
+        "Traer la instrucción desde memoria usando el contador de programa",
+        "Ejecutar la operación en la ALU"
+      ],
+      "respuesta": [
+        2,
+        0,
+        3,
+        1
+      ],
+      "explicacion": "El ciclo es fetch, decode, execute y escritura del resultado. El contador de programa apunta a la instrucción que se trae de memoria al registro de instrucción; la unidad de control la decodifica y genera las señales; la ALU opera y finalmente el resultado se deposita en el registro destino antes de incrementar el contador de programa."
+    },
+    {
+      "id": "2.1-003",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Jerarquía de memoria y caché",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "En la jerarquía de memoria, ¿qué relación existe entre la caché L1 y la memoria principal RAM?",
+      "opciones": [
+        "La L1 tiene mayor capacidad y menor tiempo de acceso que la RAM",
+        "La L1 tiene menor capacidad y menor tiempo de acceso que la RAM",
+        "La L1 tiene mayor capacidad y mayor tiempo de acceso que la RAM"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "La jerarquía de memoria intercambia capacidad por velocidad y costo: conforme se sube hacia el procesador, la memoria es más rápida, más cara y más pequeña. Por eso la L1 mide decenas de kilobytes y responde en pocos ciclos, mientras la RAM mide gigabytes y tarda cientos de ciclos. Ninguna caché supera en capacidad a la memoria principal."
+    },
+    {
+      "id": "2.1-004",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Estados de un proceso",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Un proceso que se encuentra en estado **bloqueado** termina su operación de entrada/salida. ¿A qué estado transita?",
+      "opciones": [
+        "Pasa a terminado porque su operación pendiente ya concluyó",
+        "Pasa a ejecutando de inmediato, expulsando al proceso en turno",
+        "Pasa a listo y espera a que el planificador le asigne el procesador"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "La transición bloqueado a listo ocurre cuando desaparece el evento que suspendió al proceso, pero el procesador no se le entrega automáticamente: debe competir en la cola de listos hasta que el planificador lo despache. Ir directo a ejecutando sería una decisión del planificador, no de la transición. Terminado corresponde a la conclusión del programa, no a la de una operación de E/S."
+    },
+    {
+      "id": "2.1-005",
+      "tipo": "completamiento",
+      "dificultad": "satisfactorio",
+      "tema": "Bloque de control de proceso (PCB)",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Durante un cambio de contexto, el sistema operativo guarda el contador de programa y los registros del proceso saliente en su ______ y después carga los del proceso entrante desde el ______ correspondiente.",
+      "opciones": [
+        "PCB / PCB",
+        "tabla de páginas / vector de interrupciones",
+        "segmento de código / segmento de datos"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "El bloque de control de proceso (PCB) es la estructura donde el núcleo almacena el identificador, el estado, el contador de programa, los registros y la información de planificación y memoria de cada proceso; el cambio de contexto consiste precisamente en salvar y restaurar PCBs. Los segmentos de código y datos guardan el programa, no el estado del procesador. La tabla de páginas traduce direcciones y el vector de interrupciones apunta a rutinas de atención."
+    },
+    {
+      "id": "2.1-006",
+      "tipo": "relacion",
+      "dificultad": "satisfactorio",
+      "tema": "Algoritmos de planificación",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Relacione cada algoritmo de planificación con el criterio que utiliza para elegir al siguiente proceso.\n\n1. FIFO\n2. SJF\n3. Round Robin\n\na) Quantum de tiempo con expulsión cíclica\nb) Orden de llegada a la cola de listos\nc) Menor ráfaga estimada de CPU",
+      "opciones": [
+        "1c, 2a, 3b",
+        "1a, 2b, 3c",
+        "1b, 2c, 3a"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "FIFO atiende por orden de llegada y no es expulsivo; SJF elige la ráfaga más corta y minimiza el tiempo de espera promedio; Round Robin reparte el procesador en rebanadas de tiempo fijas y expulsa al proceso al agotarse el quantum. Las otras combinaciones intercambian el criterio de llegada con el de duración, que son justamente lo que distingue a FIFO de SJF."
+    },
+    {
+      "id": "2.1-007",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Planificación SJF",
+      "lecturaId": null,
+      "contexto": "Cuatro procesos llegan simultáneamente en el instante 0 con las siguientes ráfagas de CPU:\n\n| Proceso | Ráfaga (ms) |\n|---|---|\n| P1 | 6 |\n| P2 | 8 |\n| P3 | 7 |\n| P4 | 3 |",
+      "enunciado": "Con planificación **SJF no expulsiva**, ¿cuál es el tiempo de espera promedio?",
+      "opciones": [
+        "7.00 ms",
+        "10.25 ms",
+        "12.50 ms"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "SJF ordena las ráfagas de menor a mayor: P4, P1, P3, P2. Los tiempos de espera son 0, 3, 9 y 16 ms, cuya suma es 28 y el promedio 28/4 = 7 ms. El valor 10.25 ms corresponde a atender los procesos en el orden FIFO P1, P2, P3, P4, que siempre es igual o peor que SJF."
+    },
+    {
+      "id": "2.1-008",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Planificación Round Robin",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Qué ocurre con Round Robin cuando el quantum se hace mucho mayor que la ráfaga más larga de CPU?",
+      "opciones": [
+        "El comportamiento degenera en una planificación SJF",
+        "El comportamiento degenera en una planificación FIFO",
+        "El número de cambios de contexto por segundo aumenta"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "Si ningún proceso agota su quantum, nunca hay expulsión por tiempo y cada proceso corre hasta bloquearse o terminar, es decir, se atiende por orden de llegada como en FIFO. No puede degenerar en SJF porque Round Robin nunca consulta la duración de la ráfaga. Los cambios de contexto disminuyen, no aumentan: son los quantums muy pequeños los que disparan esa sobrecarga."
+    },
+    {
+      "id": "2.1-009",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Paginación y segmentación",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Qué tipo de fragmentación produce cada esquema de gestión de memoria?",
+      "opciones": [
+        "La paginación genera fragmentación interna y la segmentación, externa",
+        "Ambos esquemas generan únicamente fragmentación externa",
+        "La paginación genera fragmentación externa y la segmentación, interna"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "Como los marcos son de tamaño fijo, la última página de un proceso queda parcialmente ocupada y ese desperdicio dentro del marco es fragmentación interna. Los segmentos, en cambio, son de tamaño variable y al cargarse y liberarse dejan huecos entre ellos en la memoria física, que es fragmentación externa. Invertir la asignación confunde justamente el rasgo que define a cada esquema."
+    },
+    {
+      "id": "2.1-010",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Algoritmos de reemplazo de página",
+      "lecturaId": null,
+      "contexto": "Un proceso dispone de **3 marcos** de página, inicialmente vacíos, y genera la siguiente cadena de referencias:\n\n```\n1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5\n```",
+      "enunciado": "Con el algoritmo de reemplazo **LRU**, ¿cuántos fallos de página ocurren en total?",
+      "opciones": [
+        "9",
+        "10",
+        "12"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "Las tres primeras referencias son fallos obligatorios; luego 4 expulsa a 1, 1 expulsa a 2, 2 expulsa a 3 y 5 expulsa a 4. Las referencias a 1 y 2 aciertan, y después 3 expulsa a 5, 4 expulsa a 1 y 5 expulsa a 2: son 10 fallos y 2 aciertos. Con FIFO sobre la misma cadena resultarían 9 fallos, lo que muestra que LRU no siempre es mejor que FIFO."
+    },
+    {
+      "id": "2.1-011",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Sistemas de archivos",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Qué característica distingue a NTFS de FAT32?",
+      "opciones": [
+        "NTFS almacena los archivos en una tabla de asignación encadenada simple",
+        "NTFS limita el tamaño máximo de un archivo a 4 GB",
+        "NTFS incorpora bitácora de transacciones y listas de control de acceso"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "NTFS usa una tabla maestra de archivos (MFT) con registro por diario y permisos por descriptor de seguridad, lo que le da recuperación ante fallas y control de acceso. La tabla de asignación encadenada es precisamente el mecanismo de FAT, y el límite de 4 GB por archivo es la restricción de FAT32 que NTFS eliminó."
+    },
+    {
+      "id": "2.1-012",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Tipos de sistemas operativos",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Qué requisito define a un sistema operativo de **tiempo real duro**?",
+      "opciones": [
+        "Repartir el procesador entre usuarios interactivos con rebanadas iguales",
+        "Maximizar el número de trabajos procesados por unidad de tiempo",
+        "Garantizar que cada tarea crítica concluya antes de su plazo límite"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "En tiempo real duro el valor del resultado depende de entregarlo dentro del plazo: rebasarlo equivale a una falla del sistema, como en el control de un airbag. Maximizar el rendimiento agregado es el objetivo de los sistemas por lotes multiprogramados, y repartir rebanadas entre usuarios interactivos describe a los sistemas de tiempo compartido."
+    },
+    {
+      "id": "2.1-013",
+      "tipo": "choice",
+      "dificultad": "sobresaliente",
+      "tema": "Concurrencia e interbloqueo",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Seleccione las **dos** afirmaciones correctas sobre concurrencia e interbloqueo.",
+      "opciones": [
+        "Un semáforo binario inicializado en 1 sirve para proteger una sección crítica",
+        "Un mutex permite que varios hilos permanezcan a la vez dentro de la sección crítica",
+        "La operación wait sobre un semáforo incrementa su contador y despierta a un proceso",
+        "La exclusión mutua y la espera circular son dos de las cuatro condiciones necesarias de Coffman",
+        "Los monitores obligan al programador a codificar manualmente las operaciones atómicas"
+      ],
+      "respuesta": [
+        0,
+        3
+      ],
+      "explicacion": "Las cuatro condiciones de Coffman son exclusión mutua, retención y espera, no expropiación y espera circular; basta romper una para evitar el interbloqueo. Un semáforo binario en 1 funciona como cerrojo de sección crítica. Las otras tres son falsas: el mutex admite un solo hilo a la vez, wait decrementa el contador y bloquea si queda negativo, y el monitor es una construcción del lenguaje que garantiza la exclusión mutua automáticamente."
+    },
+    {
+      "id": "2.1-014",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Multiprocesamiento simétrico (SMP)",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Qué caracteriza a una arquitectura de **multiprocesamiento simétrico (SMP)**?",
+      "opciones": [
+        "Cada procesador tiene memoria privada y solo se comunica por paso de mensajes",
+        "Un procesador maestro reparte el trabajo a esclavos que no pueden ejecutar el núcleo",
+        "Todos los procesadores comparten la memoria principal y ejecutan una misma copia del núcleo"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "En SMP los procesadores son equivalentes: comparten memoria y dispositivos, y cualquiera puede ejecutar código del núcleo y atender interrupciones, por lo que el sistema operativo debe sincronizar sus estructuras internas. El esquema maestro-esclavo corresponde al multiprocesamiento asimétrico, y la memoria privada con paso de mensajes describe a los sistemas distribuidos o clústeres."
+    },
+    {
+      "id": "2.1-015",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Interfaces humano-computadora",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Una interfaz muestra una barra de progreso durante una copia de archivos que tarda varios minutos. ¿Qué principio de diseño de interfaces humano-computadora atiende ese elemento?",
+      "opciones": [
+        "Prevención de errores mediante restricción de las acciones disponibles",
+        "Visibilidad del estado del sistema mediante retroalimentación oportuna",
+        "Reconocimiento antes que recuerdo mediante opciones siempre visibles"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "La barra de progreso informa continuamente qué está haciendo el sistema y cuánto falta, que es la heurística de visibilidad del estado formulada por Nielsen. La prevención de errores actúa antes de que el usuario se equivoque, por ejemplo deshabilitando un botón inválido, y el reconocimiento antes que recuerdo busca que la información necesaria esté a la vista en lugar de memorizarse."
+    }
+  ]
+}

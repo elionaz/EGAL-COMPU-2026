@@ -1,0 +1,208 @@
+{
+  "area": "1",
+  "areaNombre": "Algoritmia",
+  "subarea": "1.2",
+  "subareaNombre": "Estructuras de datos",
+  "seccion": "disciplinar",
+  "lecturas": [],
+  "preguntas": [
+    {
+      "id": "1.2-001",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Pilas",
+      "lecturaId": null,
+      "contexto": "Sobre una pila inicialmente vacía se ejecuta la siguiente secuencia de operaciones:\n\n```\npush(3), push(7), pop(), push(5), push(9), pop(), push(2)\n```",
+      "enunciado": "¿Qué elementos contiene la pila al final, listados de la **base al tope**?",
+      "opciones": ["3, 5, 2", "3, 7, 5", "2, 5, 3"],
+      "respuesta": [0],
+      "explicacion": "La pila opera bajo la disciplina LIFO: tras push(3) y push(7) el pop() retira el 7; luego entran 5 y 9, y el segundo pop() retira el 9; finalmente entra el 2, quedando 3, 5, 2 de la base al tope. La segunda opción conserva elementos que ya fueron extraídos y la tercera invierte el sentido del listado."
+    },
+    {
+      "id": "1.2-002",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Colas",
+      "lecturaId": null,
+      "contexto": "Sobre una cola inicialmente vacía se ejecuta:\n\n```\nencolar(A), encolar(B), encolar(C), desencolar(), encolar(D), desencolar()\n```",
+      "enunciado": "¿Qué elemento devuelve el **segundo** `desencolar()`?",
+      "opciones": ["B", "C", "D"],
+      "respuesta": [0],
+      "explicacion": "La cola sigue la disciplina FIFO: el primer desencolar() retira A, que fue el primero en entrar, y el segundo retira B, el siguiente en la fila, sin importar que D haya sido insertado entre ambas operaciones. C y D permanecen en la cola porque llegaron después que B."
+    },
+    {
+      "id": "1.2-003",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Listas enlazadas",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "En una lista simplemente enlazada de n nodos de la que solo se conserva un apuntador a la cabeza, ¿cuál es la complejidad temporal de eliminar el **último** nodo?",
+      "opciones": ["O(1)", "O(log n)", "O(n)"],
+      "respuesta": [2],
+      "explicacion": "Para eliminar el último nodo hay que actualizar el campo `siguiente` del penúltimo, y como el enlace es unidireccional la única forma de alcanzarlo es recorrer la lista desde la cabeza, lo que cuesta O(n). La eliminación en O(1) solo se logra al frente de la lista, o al final si se mantiene además un apuntador a la cola y los enlaces son dobles."
+    },
+    {
+      "id": "1.2-004",
+      "tipo": "completamiento",
+      "dificultad": "satisfactorio",
+      "tema": "Listas circulares y dobles",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Complete el enunciado: «En una lista doblemente enlazada circular no vacía, el campo `siguiente` del último nodo apunta a ______ y el campo `anterior` del primer nodo apunta a ______.»",
+      "opciones": ["el primer nodo / el último nodo", "NULL / NULL", "el último nodo / el primer nodo"],
+      "respuesta": [0],
+      "explicacion": "La circularidad consiste precisamente en cerrar el ciclo: el último nodo enlaza hacia adelante con el primero y el primero enlaza hacia atrás con el último, lo que permite recorrer la estructura indefinidamente en ambos sentidos. Los valores NULL en los extremos corresponden a una lista doble no circular, y la tercera opción describe enlaces que apuntan al propio extremo, lo que no forma un ciclo."
+    },
+    {
+      "id": "1.2-005",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Montículos (heaps)",
+      "lecturaId": null,
+      "contexto": "Un **min-heap** se almacena en un arreglo con índices 0-based, donde el padre del índice i es ⌊(i − 1)/2⌋. El estado actual es:\n\n```\n[2, 5, 7, 9, 6]\n```\n\nSe inserta el valor **3** al final y se aplica el flotado hacia arriba (sift-up).",
+      "enunciado": "¿Cómo queda el arreglo después de la inserción?",
+      "opciones": ["[2, 5, 3, 9, 6, 7]", "[2, 3, 5, 9, 6, 7]", "[2, 5, 7, 9, 6, 3]"],
+      "respuesta": [0],
+      "explicacion": "El 3 se coloca en el índice 5, cuyo padre es el índice 2 con valor 7; como 3 < 7 se intercambian y el 3 pasa al índice 2. Su nuevo padre es el índice 0 con valor 2, y como 2 < 3 el flotado se detiene, quedando [2, 5, 3, 9, 6, 7]. La tercera opción omite el sift-up y la segunda mueve el 3 por una rama que nunca fue su camino de ascenso."
+    },
+    {
+      "id": "1.2-006",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Árboles binarios de búsqueda",
+      "lecturaId": null,
+      "contexto": "En un árbol binario de búsqueda inicialmente vacío se insertan, en este orden, las claves:\n\n```\n50, 30, 70, 20, 40, 60, 80\n```",
+      "enunciado": "¿Cuál es el recorrido en **preorden** del árbol resultante?",
+      "opciones": ["50, 30, 20, 40, 70, 60, 80", "20, 30, 40, 50, 60, 70, 80", "20, 40, 30, 60, 80, 70, 50"],
+      "respuesta": [0],
+      "explicacion": "El preorden visita raíz, subárbol izquierdo y subárbol derecho: 50, luego 30 con sus hijos 20 y 40, y después 70 con sus hijos 60 y 80. La segunda opción es el recorrido inorden, que en un BST siempre entrega las claves en orden ascendente, y la tercera es el postorden."
+    },
+    {
+      "id": "1.2-007",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Árboles binarios de búsqueda",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Qué propiedad garantiza el recorrido **inorden** cuando se aplica a un árbol binario de búsqueda?",
+      "opciones": [
+        "Visita las claves en orden ascendente",
+        "Visita primero la raíz y después ambos subárboles",
+        "Visita únicamente las hojas, de izquierda a derecha"
+      ],
+      "respuesta": [0],
+      "explicacion": "Como todo nodo del subárbol izquierdo es menor que la raíz y todo nodo del derecho es mayor, recorrer izquierda–raíz–derecha produce las claves ordenadas de menor a mayor. Visitar primero la raíz corresponde al preorden, y ningún recorrido estándar se limita a las hojas: todos visitan también los nodos internos."
+    },
+    {
+      "id": "1.2-008",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Árboles AVL",
+      "lecturaId": null,
+      "contexto": "En un árbol **AVL** inicialmente vacío se insertan las claves 10, 20 y 30 en ese orden. Después de la tercera inserción el nodo raíz queda con factor de equilibrio −2.",
+      "enunciado": "¿Qué rebalanceo se aplica y cuál es la raíz resultante?",
+      "opciones": [
+        "Rotación simple a la izquierda; la raíz queda 20",
+        "Rotación doble derecha-izquierda; la raíz queda 30",
+        "Rotación simple a la derecha; la raíz queda 10"
+      ],
+      "respuesta": [0],
+      "explicacion": "El desequilibrio es del tipo derecha-derecha, porque la inserción ocurrió en el subárbol derecho del hijo derecho, y ese caso se corrige con una sola rotación a la izquierda que eleva al 20 como raíz, con 10 y 30 como hijos. Una rotación doble se reserva para los casos izquierda-derecha o derecha-izquierda, y la rotación a la derecha agravaría el desequilibrio existente."
+    },
+    {
+      "id": "1.2-009",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Árboles B",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "En un árbol B de orden m, ¿cuál es el número **máximo** de hijos que puede tener un nodo interno?",
+      "opciones": ["m hijos", "m − 1 hijos", "2m hijos"],
+      "respuesta": [0],
+      "explicacion": "Por definición, el orden m de un árbol B fija en m el número máximo de hijos de un nodo, y en consecuencia en m − 1 el número máximo de claves almacenadas en él. Confundir ambos límites es el error frecuente: m − 1 es la cota de claves, no de hijos, y 2m no corresponde a ninguna de las dos cotas."
+    },
+    {
+      "id": "1.2-010",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Tablas hash y colisiones",
+      "lecturaId": null,
+      "contexto": "Una tabla hash de tamaño 7 (índices 0 a 6) usa la función h(k) = k mod 7 y resuelve colisiones por **sondeo lineal** avanzando de uno en uno. La tabla está vacía y se insertan en este orden las claves:\n\n```\n15, 22, 8, 29\n```",
+      "enunciado": "¿En qué índice queda almacenada la clave **29**?",
+      "opciones": ["Índice 3", "Índice 4", "Índice 1"],
+      "respuesta": [1],
+      "explicacion": "Las cuatro claves son congruentes con 1 módulo 7, de modo que todas compiten por el índice 1: el 15 lo ocupa, el 22 se desplaza al 2, el 8 al 3 y el 29 encuentra libre el índice 4. Este apilamiento consecutivo es el agrupamiento primario, el principal inconveniente del sondeo lineal frente al sondeo cuadrático o al hashing doble."
+    },
+    {
+      "id": "1.2-011",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Manejo de colisiones por encadenamiento",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es una ventaja del **encadenamiento** frente al direccionamiento abierto para resolver colisiones?",
+      "opciones": [
+        "Admite un factor de carga mayor que 1 sin necesidad de redimensionar la tabla",
+        "Elimina por completo la posibilidad de que ocurran colisiones",
+        "Garantiza búsquedas en tiempo constante incluso en el peor caso"
+      ],
+      "respuesta": [0],
+      "explicacion": "En el encadenamiento cada cubeta almacena una lista, por lo que el número de elementos puede superar al de posiciones sin que la tabla se sature, mientras que el direccionamiento abierto falla cuando el factor de carga se acerca a 1. Ninguna técnica elimina las colisiones, que dependen de la función de dispersión, y en el peor caso todas las claves caen en la misma cubeta y la búsqueda degenera a O(n)."
+    },
+    {
+      "id": "1.2-012",
+      "tipo": "relacion",
+      "dificultad": "satisfactorio",
+      "tema": "Algoritmos sobre grafos",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Relacione cada algoritmo con el problema que resuelve.\n\n1. Dijkstra\n2. Kruskal\n3. Floyd-Warshall\n\na) Árbol de expansión mínima, examinando las aristas en orden ascendente de peso\nb) Caminos más cortos entre todos los pares de vértices\nc) Caminos más cortos desde un único origen, con pesos no negativos",
+      "opciones": ["1c, 2a, 3b", "1a, 2b, 3c", "1b, 2c, 3a"],
+      "respuesta": [0],
+      "explicacion": "Dijkstra resuelve el problema de origen único mediante una cola de prioridad y exige pesos no negativos; Kruskal ordena las aristas y las agrega si no forman ciclo, construyendo un árbol de expansión mínima; Floyd-Warshall calcula con programación dinámica la matriz de distancias entre todos los pares en O(V³). Las otras combinaciones asignan a cada algoritmo un problema que no aborda."
+    },
+    {
+      "id": "1.2-013",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Algoritmo de Dijkstra",
+      "lecturaId": null,
+      "contexto": "Grafo no dirigido y ponderado:\n\n| Arista | Peso |\n|---|---|\n| A–B | 4 |\n| A–C | 2 |\n| C–B | 1 |\n| B–D | 5 |\n| C–D | 8 |\n| D–E | 2 |\n| C–E | 10 |\n\nSe ejecuta el algoritmo de Dijkstra tomando **A** como vértice origen.",
+      "enunciado": "¿Cuál es la distancia mínima de A a **E**?",
+      "opciones": ["10", "11", "12"],
+      "respuesta": [0],
+      "explicacion": "Dijkstra fija d(C) = 2, luego relaja C–B y obtiene d(B) = 3 (mejor que la arista directa A–B de peso 4), después d(D) = 3 + 5 = 8 por la ruta A–C–B–D (mejor que A–C–D con 10) y finalmente d(E) = 8 + 2 = 10 por A–C–B–D–E. La arista directa C–E daría 12 y ninguna combinación de aristas produce 11."
+    },
+    {
+      "id": "1.2-014",
+      "tipo": "choice",
+      "dificultad": "sobresaliente",
+      "tema": "Representación y recorrido de grafos",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Seleccione las **dos** afirmaciones correctas sobre la representación de grafos y sus recorridos.",
+      "opciones": [
+        "La matriz de adyacencia ocupa espacio O(V²) sin importar cuántas aristas tenga el grafo",
+        "La lista de adyacencia determina en tiempo O(1) si existe la arista (u, v)",
+        "BFS emplea una cola y encuentra el camino con menos aristas en grafos no ponderados",
+        "DFS emplea una cola de prioridad para decidir cuál es el siguiente vértice por visitar",
+        "La matriz de adyacencia enumera los vecinos de un vértice en tiempo O(grado(v))"
+      ],
+      "respuesta": [0, 2],
+      "explicacion": "La matriz reserva una celda por cada par de vértices, de ahí su costo fijo O(V²), y BFS explora por niveles con una cola, lo que garantiza el camino de menor número de aristas cuando estas no tienen peso. La consulta de existencia en O(1) es propiedad de la matriz, no de la lista; DFS usa una pila (explícita o la de recursión), y enumerar vecinos en O(grado(v)) es ventaja de la lista de adyacencia, pues la matriz requiere recorrer O(V) celdas."
+    },
+    {
+      "id": "1.2-015",
+      "tipo": "orden",
+      "dificultad": "satisfactorio",
+      "tema": "Árboles de expansión mínima",
+      "lecturaId": null,
+      "contexto": "Grafo no dirigido con las siguientes aristas ponderadas: (A,B) = 4, (A,C) = 2, (B,C) = 1, (C,D) = 3, (D,E) = 5. Se aplica el algoritmo de **Kruskal**.",
+      "enunciado": "Ordene las aristas según la secuencia en que Kruskal las **examina**, de menor a mayor peso.",
+      "opciones": ["(C,D) peso 3", "(B,C) peso 1", "(D,E) peso 5", "(A,C) peso 2", "(A,B) peso 4"],
+      "respuesta": [1, 3, 0, 4, 2],
+      "explicacion": "Kruskal comienza ordenando todas las aristas por peso ascendente: (B,C) con 1, (A,C) con 2, (C,D) con 3, (A,B) con 4 y (D,E) con 5. Al recorrerlas descarta (A,B) porque cerraría un ciclo con las dos primeras, de modo que el árbol de expansión mínima queda formado por (B,C), (A,C), (C,D) y (D,E), con peso total 11."
+    }
+  ]
+}

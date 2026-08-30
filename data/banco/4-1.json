@@ -1,0 +1,289 @@
+{
+  "area": "4",
+  "areaNombre": "Soluciones de cómputo inteligente",
+  "subarea": "4.1",
+  "subareaNombre": "Inteligencia artificial",
+  "seccion": "disciplinar",
+  "lecturas": [],
+  "preguntas": [
+    {
+      "id": "4.1-001",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Representación del conocimiento",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Qué caracteriza a una red semántica como forma de representación del conocimiento?",
+      "opciones": [
+        "Representa el conocimiento como reglas de producción de la forma si-entonces",
+        "Representa el conocimiento como vectores numéricos ajustados durante un entrenamiento",
+        "Representa los conceptos como nodos y las relaciones entre ellos como arcos etiquetados"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "La red semántica es un grafo etiquetado en el que arcos como es_un o tiene_parte expresan la relación entre conceptos, lo que facilita la herencia de propiedades a lo largo de la jerarquía. Las reglas si-entonces corresponden a los sistemas de producción y los vectores ajustados por entrenamiento describen a las redes neuronales, que son representaciones subsimbólicas."
+    },
+    {
+      "id": "4.1-002",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Representación del conocimiento",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Un marco (frame) organiza el conocimiento de un dominio mediante",
+      "opciones": [
+        "cláusulas de Horn que un demostrador evalúa por resolución y unificación",
+        "funciones de membresía definidas sobre variables lingüísticas del dominio",
+        "ranuras con valores, valores por omisión y procedimientos asociados, heredables entre marcos"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "Los marcos propuestos por Minsky describen un objeto o situación estereotipada mediante ranuras (slots) que guardan atributos, valores por omisión y demonios procedimentales, y se organizan en jerarquías donde un marco hijo hereda las ranuras del padre. Las cláusulas de Horn pertenecen a la programación lógica y las funciones de membresía a la lógica difusa."
+    },
+    {
+      "id": "4.1-003",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Sistemas basados en conocimiento",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "En la arquitectura de un sistema experto, ¿cuál es la función del motor de inferencia?",
+      "opciones": [
+        "Almacenar de manera permanente los hechos y las reglas propias del dominio",
+        "Aplicar las reglas de la base de conocimiento sobre los hechos para derivar conclusiones nuevas",
+        "Traducir a lenguaje natural las consultas que formula el usuario final"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "El sistema experto separa el conocimiento del razonamiento: la base de conocimiento guarda reglas y hechos del dominio, mientras que el motor de inferencia decide qué reglas se disparan y en qué orden, resolviendo los conflictos cuando varias son aplicables. La traducción de consultas corresponde a la interfaz de usuario, y el módulo de explicación justifica las conclusiones alcanzadas."
+    },
+    {
+      "id": "4.1-004",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Encadenamiento de inferencias",
+      "lecturaId": null,
+      "contexto": "Base de conocimiento de un sistema experto médico:\n\n```\nR1: SI tiene_fiebre Y tiene_tos      ENTONCES sospecha_infeccion\nR2: SI sospecha_infeccion Y prueba_positiva ENTONCES diagnostico_gripe\nR3: SI diagnostico_gripe            ENTONCES indicar_reposo\n\nHechos iniciales: tiene_fiebre, tiene_tos, prueba_positiva\n```",
+      "enunciado": "El sistema arranca únicamente con los hechos capturados y sin ninguna hipótesis que verificar. ¿Qué estrategia de razonamiento aplica y a qué conclusiones llega?",
+      "opciones": [
+        "Encadenamiento hacia atrás; parte de indicar_reposo y solo comprueba prueba_positiva",
+        "Encadenamiento hacia adelante; infiere sospecha_infeccion, pues R2 no llega a dispararse",
+        "Encadenamiento hacia adelante; infiere sospecha_infeccion, diagnostico_gripe e indicar_reposo"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "Al partir de datos y no de una meta, el motor razona hacia adelante (dirigido por los datos): R1 se dispara con tiene_fiebre y tiene_tos, y su conclusión, junto con prueba_positiva, satisface el antecedente de R2, cuya conclusión dispara a su vez R3. El encadenamiento hacia atrás requeriría una meta propuesta de antemano, y afirmar que R2 no se dispara ignora que las conclusiones derivadas se agregan a la memoria de trabajo."
+    },
+    {
+      "id": "4.1-005",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Encadenamiento de inferencias",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿En qué situación resulta preferible el encadenamiento hacia atrás?",
+      "opciones": [
+        "Cuando existe una hipótesis concreta que se desea confirmar y muchos hechos posibles por preguntar",
+        "Cuando ya se dispone de todos los hechos y se busca derivar cuanta conclusión sea posible",
+        "Cuando la base de conocimiento carece de reglas y solo contiene hechos observados"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "El encadenamiento hacia atrás está dirigido por la meta: toma la hipótesis, busca reglas cuya conclusión la produzca y convierte sus antecedentes en submetas, preguntando al usuario solo lo que hace falta, por eso es típico del diagnóstico. Si ya se tienen todos los hechos y se quiere explotarlos al máximo conviene el encadenamiento hacia adelante, y sin reglas no hay inferencia posible en ninguna dirección."
+    },
+    {
+      "id": "4.1-006",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Búsqueda ciega",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "En un espacio de estados con operadores de costo uniforme, ¿qué garantiza la búsqueda en amplitud (BFS) y no la búsqueda en profundidad (DFS)?",
+      "opciones": [
+        "Consumir una cantidad de memoria lineal respecto de la profundidad explorada",
+        "Encontrar la solución situada a menor profundidad del árbol de búsqueda",
+        "Explorar cada rama hasta su máxima profundidad antes de retroceder"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "BFS expande los nodos por niveles usando una cola FIFO, de modo que la primera solución encontrada es la de menor profundidad y, con costos uniformes, también la óptima. El precio es la memoria, que crece exponencialmente con la profundidad; la memoria lineal y el recorrido a fondo de cada rama son justamente rasgos de DFS."
+    },
+    {
+      "id": "4.1-007",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Búsqueda heurística",
+      "lecturaId": null,
+      "contexto": "Tras expandir el nodo inicial S, la lista de nodos abiertos de una búsqueda A* contiene:\n\n| Nodo | g(n) | h(n) |\n|---|---|---|\n| A | 3 | 5 |\n| B | 1 | 9 |\n| C | 6 | 3 |",
+      "enunciado": "¿Qué nodo expande A* en el siguiente paso y por qué?",
+      "opciones": [
+        "A, porque minimiza f(n) = g(n) + h(n)",
+        "B, porque tiene el menor costo acumulado g(n)",
+        "C, porque tiene la menor estimación heurística h(n)"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "A* ordena la frontera por f(n) = g(n) + h(n): f(A) = 3 + 5 = 8, f(B) = 1 + 9 = 10 y f(C) = 6 + 3 = 9, así que el mínimo es A. Elegir por g(n) sería búsqueda de costo uniforme y elegir por h(n) sería búsqueda voraz primero el mejor; ambas descartan la mitad de la información que A* combina, y por eso pierden la optimalidad que A* conserva con una heurística admisible."
+    },
+    {
+      "id": "4.1-008",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Optimización",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Qué mecanismo permite al recocido simulado escapar de los óptimos locales en los que el ascenso de colina queda atrapado?",
+      "opciones": [
+        "Mantener una población de soluciones que se cruzan y mutan entre generaciones",
+        "Aceptar con cierta probabilidad soluciones peores, probabilidad que decrece al bajar la temperatura",
+        "Expandir en cada paso el nodo con el menor valor de f(n) = g(n) + h(n)"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "El recocido simulado imita el enfriamiento de un metal: al inicio, con temperatura alta, acepta movimientos que empeoran la función objetivo y explora ampliamente; conforme la temperatura desciende, esa probabilidad tiende a cero y el método converge. El ascenso de colina solo acepta mejoras, por lo que se detiene en el primer máximo local; la población de soluciones describe a los algoritmos genéticos y el criterio f(n) corresponde a A*."
+    },
+    {
+      "id": "4.1-009",
+      "tipo": "completamiento",
+      "dificultad": "sobresaliente",
+      "tema": "Búsqueda heurística",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "La búsqueda por haz (beam search) conserva en cada nivel únicamente los ______ mejores nodos de acuerdo con la ______, por lo que su consumo de memoria es ______ y puede descartar la solución óptima.",
+      "opciones": [
+        "k / función heurística / acotado",
+        "k / profundidad ya alcanzada / exponencial",
+        "todos los / función de costo real / acotado"
+      ],
+      "respuesta": [
+        0
+      ],
+      "explicacion": "La anchura del haz, k, fija cuántos candidatos sobreviven en cada nivel, y la selección se hace con la función heurística de evaluación. Al mantener a lo sumo k nodos, la memoria queda acotada por k, pero la poda es irrevocable: si el camino óptimo cae fuera del haz se pierde, de modo que el método no es completo ni óptimo. Conservar todos los nodos describiría a la búsqueda en amplitud."
+    },
+    {
+      "id": "4.1-010",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Agentes inteligentes",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Un agente de software que toma la iniciativa para alcanzar sus objetivos, sin esperar un estímulo del entorno, exhibe principalmente la propiedad de",
+      "opciones": [
+        "reactividad",
+        "movilidad",
+        "proactividad"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "La proactividad es la capacidad de exhibir comportamiento dirigido a metas y de actuar por iniciativa propia, y complementa a la reactividad, que consiste en percibir el entorno y responder oportunamente a sus cambios. La movilidad, en cambio, se refiere a la posibilidad de migrar entre nodos de una red y no todos los agentes la poseen."
+    },
+    {
+      "id": "4.1-011",
+      "tipo": "relacion",
+      "dificultad": "satisfactorio",
+      "tema": "Reconocimiento de patrones",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Relacione cada tarea de reconocimiento de patrones con su descripción.\n\n1. Clasificación\n2. Agrupamiento (clustering)\n3. Regresión\n\na. Agrupa los objetos por semejanza sin disponer de etiquetas previas\nb. Asigna a cada objeto una etiqueta tomada de un conjunto definido de antemano\nc. Estima un valor numérico continuo a partir de los atributos del objeto",
+      "opciones": [
+        "1a, 2b, 3c",
+        "1b, 2a, 3c",
+        "1c, 2a, 3b"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "La clasificación y la regresión son tareas de aprendizaje supervisado y se distinguen por la naturaleza de la salida: discreta en la primera y continua en la segunda. El agrupamiento es no supervisado, pues descubre la estructura de los datos sin etiquetas de referencia, y por ello se evalúa con medidas internas de cohesión y separación en lugar de exactitud."
+    },
+    {
+      "id": "4.1-012",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Lógica difusa",
+      "lecturaId": null,
+      "contexto": "La variable lingüística **temperatura** define el conjunto difuso *templado* con la siguiente función de membresía triangular:\n\n```\nmu(x) = 0                si x <= 15\nmu(x) = (x - 15) / 10    si 15 < x <= 25\nmu(x) = (35 - x) / 10    si 25 < x <= 35\nmu(x) = 0                si x > 35\n```",
+      "enunciado": "¿Cuál es el grado de pertenencia al conjunto *templado* de una lectura de 28 grados?",
+      "opciones": [
+        "0.3",
+        "0.7",
+        "1.0"
+      ],
+      "respuesta": [
+        1
+      ],
+      "explicacion": "Como 28 cae en el intervalo 25 < x <= 35, corresponde el tramo descendente: mu(28) = (35 - 28) / 10 = 0.7. El valor 0.3 resulta de aplicar por error el tramo ascendente o de tomar el complemento 1 - 0.7, y 1.0 solo se alcanza en el vértice x = 25, donde ambos tramos coinciden. A diferencia de la lógica clásica, aquí la pertenencia es un grado en el intervalo cerrado de 0 a 1."
+    },
+    {
+      "id": "4.1-013",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Redes neuronales artificiales",
+      "lecturaId": null,
+      "contexto": "Un perceptrón simple recibe las entradas x1 = 1, x2 = 0 y x3 = 1.\n\n```\nPesos:  w1 = 0.6   w2 = -0.4   w3 = -0.9\nSesgo:  b  = 0.5\nActivacion escalon: y = 1 si la suma ponderada >= 0; y = 0 en caso contrario\n```",
+      "enunciado": "¿Cuál es la suma ponderada de la neurona y cuál su salida?",
+      "opciones": [
+        "-0.3 y salida 0",
+        "1.1 y salida 1",
+        "0.2 y salida 1"
+      ],
+      "respuesta": [
+        2
+      ],
+      "explicacion": "La suma ponderada incluye el sesgo: (0.6)(1) + (-0.4)(0) + (-0.9)(1) + 0.5 = 0.6 - 0.9 + 0.5 = 0.2, y como 0.2 es mayor o igual que cero la función escalón entrega 1. El valor -0.3 se obtiene al omitir el sesgo, error frecuente que además invertiría la salida, y 1.1 resulta de ignorar el signo negativo de w3."
+    },
+    {
+      "id": "4.1-014",
+      "tipo": "choice",
+      "dificultad": "sobresaliente",
+      "tema": "Redes neuronales artificiales",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Seleccione las **dos** afirmaciones correctas sobre el perceptrón multicapa y el algoritmo de retropropagación.",
+      "opciones": [
+        "La retropropagación garantiza alcanzar el mínimo global de la función de error",
+        "Un perceptrón multicapa con una capa oculta solo representa funciones separables linealmente",
+        "Gracias a sus capas ocultas, el perceptrón multicapa resuelve problemas no separables linealmente como el XOR",
+        "La retropropagación funciona con cualquier activación, aunque no sea derivable",
+        "La retropropagación ajusta los pesos propagando el gradiente del error desde la salida hacia las capas previas"
+      ],
+      "respuesta": [
+        2,
+        4
+      ],
+      "explicacion": "El perceptrón simple solo traza fronteras lineales, mientras que una capa oculta con activaciones no lineales permite aproximar fronteras arbitrarias, lo que resuelve el XOR. La retropropagación aplica la regla de la cadena para repartir el error hacia atrás y actualizar los pesos por descenso de gradiente; precisamente por eso exige activaciones derivables y solo converge a un mínimo local, sin garantía de alcanzar el global."
+    },
+    {
+      "id": "4.1-015",
+      "tipo": "orden",
+      "dificultad": "satisfactorio",
+      "tema": "Optimización",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "A partir de una población inicial generada al azar, ordene las etapas que un algoritmo genético canónico repite en cada generación.",
+      "opciones": [
+        "Aplicar la cruza a las parejas de progenitores elegidos",
+        "Evaluar la aptitud de cada individuo de la población",
+        "Seleccionar los individuos que se reproducirán",
+        "Aplicar la mutación sobre la descendencia obtenida",
+        "Reemplazar la población anterior con la nueva generación"
+      ],
+      "respuesta": [
+        1,
+        2,
+        0,
+        3,
+        4
+      ],
+      "explicacion": "El ciclo genético evalúa primero la aptitud, porque la selección depende de ella; enseguida elige a los progenitores con un método como la ruleta o el torneo, los cruza para combinar material genético y aplica mutación con probabilidad baja para conservar diversidad. El reemplazo cierra la generación y el ciclo se repite hasta cumplir el criterio de paro."
+    }
+  ]
+}

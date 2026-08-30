@@ -1,0 +1,221 @@
+{
+  "area": "1",
+  "areaNombre": "Algoritmia",
+  "subarea": "1.4",
+  "subareaNombre": "Lógica computacional",
+  "seccion": "disciplinar",
+  "lecturas": [],
+  "preguntas": [
+    {
+      "id": "1.4-001",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Tablas de verdad",
+      "lecturaId": null,
+      "contexto": "| p | q | p → q |\n|---|---|---|\n| V | V | V |\n| V | F | F |\n| F | V | V |\n| F | F | V |",
+      "enunciado": "De acuerdo con la tabla, ¿en qué caso la implicación p → q es falsa?",
+      "opciones": [
+        "Únicamente cuando p es verdadera y q es falsa",
+        "Siempre que el antecedente p sea falso",
+        "Cuando p y q tienen el mismo valor de verdad"
+      ],
+      "respuesta": [0],
+      "explicacion": "La condicional solo se incumple cuando se afirma el antecedente y se niega el consecuente, es decir, en el renglón V–F. Con antecedente falso la implicación es verdadera por vacuidad, y cuando p y q coinciden la implicación también resulta verdadera en ambos renglones."
+    },
+    {
+      "id": "1.4-002",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Tautologías y contradicciones",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál de las siguientes fórmulas es una tautología?",
+      "opciones": ["p ∨ ¬p", "p ∧ ¬p", "p → ¬p"],
+      "respuesta": [0],
+      "explicacion": "La ley del tercero excluido, p ∨ ¬p, es verdadera para cualquier valor de p, porque uno de los dos disyuntos siempre se cumple. En cambio p ∧ ¬p es una contradicción (siempre falsa) y p → ¬p es una contingencia: es falsa cuando p es verdadera y verdadera cuando p es falsa."
+    },
+    {
+      "id": "1.4-003",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Equivalencias lógicas",
+      "lecturaId": null,
+      "contexto": "| p | q | p ∨ q | ¬(p ∨ q) |\n|---|---|---|---|\n| V | V | V | F |\n| V | F | V | F |\n| F | V | V | F |\n| F | F | F | V |",
+      "enunciado": "¿Qué expresión es lógicamente equivalente a la última columna de la tabla?",
+      "opciones": ["¬p ∧ ¬q", "¬p ∨ ¬q", "¬p → q"],
+      "respuesta": [0],
+      "explicacion": "Por la ley de De Morgan, la negación de una disyunción es la conjunción de las negaciones: ¬(p ∨ q) ≡ ¬p ∧ ¬q, y en efecto solo vale V en el renglón donde p y q son ambas falsas. La opción ¬p ∨ ¬q equivale a ¬(p ∧ q) y es verdadera en tres renglones; ¬p → q equivale a p ∨ q, la columna sin negar."
+    },
+    {
+      "id": "1.4-004",
+      "tipo": "completamiento",
+      "dificultad": "satisfactorio",
+      "tema": "Condicional y contrapositiva",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "La proposición p → q es lógicamente equivalente a la disyunción ______, y su contrapositiva se escribe como ______.",
+      "opciones": [
+        "¬p ∨ q y ¬q → ¬p",
+        "p ∧ ¬q y ¬p → ¬q",
+        "¬p ∧ q y q → p"
+      ],
+      "respuesta": [0],
+      "explicacion": "La implicación material se define como ¬p ∨ q, pues solo falla cuando p es verdadera y q falsa; y la contrapositiva ¬q → ¬p es la única transformación que preserva la equivalencia. La segunda opción es la negación de la implicación, y ¬p → ¬q e q → p son la inversa y la recíproca, que no son equivalentes a la original."
+    },
+    {
+      "id": "1.4-005",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Cuantificadores",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál es la negación de la proposición ∀x P(x)?",
+      "opciones": ["∃x ¬P(x)", "∀x ¬P(x)", "¬∃x P(x)"],
+      "respuesta": [0],
+      "explicacion": "Negar que todos los elementos cumplen P equivale a afirmar que existe al menos un contraejemplo, por lo que ¬∀x P(x) ≡ ∃x ¬P(x). La opción ∀x ¬P(x) afirma que ningún elemento cumple P, algo más fuerte, y ¬∃x P(x) es precisamente esa misma negación universal escrita con el cuantificador existencial."
+    },
+    {
+      "id": "1.4-006",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Lógica de predicados",
+      "lecturaId": null,
+      "contexto": "Se usan los predicados:\n\n- **E(x)**: x es estudiante\n- **A(x)**: x aprueba lógica\n- **D(x)**: x es disciplinado",
+      "enunciado": "¿Cuál fórmula representa correctamente el enunciado «Todo estudiante que aprueba lógica es disciplinado»?",
+      "opciones": [
+        "∀x ((E(x) ∧ A(x)) → D(x))",
+        "∀x (E(x) ∧ A(x) ∧ D(x))",
+        "∃x ((E(x) ∧ A(x)) → D(x))"
+      ],
+      "respuesta": [0],
+      "explicacion": "El cuantificador universal se combina normalmente con una implicación cuyo antecedente delimita el dominio de interés: ser estudiante y aprobar lógica. La segunda opción afirma que absolutamente todo objeto del universo es estudiante, aprueba y es disciplinado; la tercera solo asegura la existencia de un caso, lo cual es mucho más débil que el enunciado original."
+    },
+    {
+      "id": "1.4-007",
+      "tipo": "relacion",
+      "dificultad": "satisfactorio",
+      "tema": "Compuertas lógicas",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Relacione cada compuerta con la condición que produce una salida en 1 (con dos entradas).\n\n1. AND\n2. XOR\n3. NOR\n\na) Las dos entradas tienen valores diferentes\nb) Las dos entradas están en 1\nc) Las dos entradas están en 0",
+      "opciones": ["1b, 2a, 3c", "1b, 2c, 3a", "1a, 2b, 3c"],
+      "respuesta": [0],
+      "explicacion": "La compuerta AND entrega 1 solo cuando todas sus entradas valen 1 (b); la XOR detecta disparidad, por lo que entrega 1 cuando las entradas difieren (a); y la NOR, al ser la negación de OR, entrega 1 únicamente cuando ninguna entrada vale 1 (c). Confundir XOR con NOR es el error que introducen los distractores."
+    },
+    {
+      "id": "1.4-008",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Álgebra de Boole",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "De acuerdo con los teoremas del álgebra de Boole, ¿a qué se reduce la expresión A + (A · B)?",
+      "opciones": ["A", "A · B", "A + B"],
+      "respuesta": [0],
+      "explicacion": "Es la ley de absorción: A + A·B = A·(1 + B) = A·1 = A, porque 1 + B siempre vale 1. La expresión A·B es menor o igual que A, de modo que sumarla no aporta ningún caso nuevo; A + B sería el resultado de la expresión distinta A + A'·B."
+    },
+    {
+      "id": "1.4-009",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Simplificación booleana",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Simplifique la función booleana F = A'·B + A·B + A'·B'.",
+      "opciones": ["A' + B", "A + B'", "A'·B"],
+      "respuesta": [0],
+      "explicacion": "Agrupando los dos primeros términos: A'·B + A·B = B·(A' + A) = B. Agrupando ahora B + A'·B' se aplica la identidad X + X'·Y = X + Y, que da B + A' = A' + B. La tabla de verdad confirma que F solo vale 0 cuando A = 1 y B = 0, comportamiento que A'·B no reproduce y que A + B' invierte."
+    },
+    {
+      "id": "1.4-010",
+      "tipo": "choice",
+      "dificultad": "sobresaliente",
+      "tema": "Circuitos combinacionales y secuenciales",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Seleccione las **dos** afirmaciones correctas sobre los circuitos lógicos digitales.",
+      "opciones": [
+        "La salida de un circuito secuencial depende de las entradas actuales y del estado previo",
+        "El flip-flop es el elemento básico de almacenamiento de un circuito secuencial",
+        "El multiplexor es un circuito secuencial porque recuerda la selección anterior",
+        "Los circuitos combinacionales necesitan una señal de reloj para producir su salida",
+        "Un decodificador conserva internamente el valor de la entrada anterior"
+      ],
+      "respuesta": [0, 1],
+      "explicacion": "Lo que distingue a un circuito secuencial es la memoria del estado, implementada con biestables o flip-flops y normalmente gobernada por un reloj. Multiplexores y decodificadores son circuitos combinacionales: su salida queda determinada exclusivamente por la combinación de entradas presente, sin necesidad de reloj ni de almacenamiento."
+    },
+    {
+      "id": "1.4-011",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Compuertas universales",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál de las siguientes compuertas es funcionalmente completa, es decir, permite construir por sí sola cualquier función booleana?",
+      "opciones": ["NAND", "XOR", "AND"],
+      "respuesta": [0],
+      "explicacion": "Con NAND se obtienen NOT (uniendo ambas entradas), AND (negando la salida de un NAND) y OR (aplicando De Morgan), por lo que se le llama compuerta universal, al igual que NOR. La compuerta AND no puede generar la negación y la XOR tampoco produce NOT sin una entrada fija en 1, de modo que ninguna de las dos es funcionalmente completa por sí sola."
+    },
+    {
+      "id": "1.4-012",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Formas normales FNC y FND",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Cuál de las siguientes fórmulas está escrita en forma normal disyuntiva (FND)?",
+      "opciones": [
+        "(p ∧ q) ∨ (¬p ∧ r)",
+        "(p ∨ q) ∧ (¬p ∨ r)",
+        "¬(p ∧ q) ∨ r"
+      ],
+      "respuesta": [0],
+      "explicacion": "La FND es una disyunción de conjunciones de literales, exactamente la estructura de (p ∧ q) ∨ (¬p ∧ r). La segunda opción es una conjunción de disyunciones, es decir, forma normal conjuntiva (FNC), y la tercera no está en ninguna forma normal porque la negación afecta a una fórmula compuesta y no a un literal."
+    },
+    {
+      "id": "1.4-013",
+      "tipo": "orden",
+      "dificultad": "sobresaliente",
+      "tema": "Conversión a forma normal conjuntiva",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Ordene los pasos del procedimiento estándar para transformar una fórmula proposicional a forma normal conjuntiva (FNC).",
+      "opciones": [
+        "Aplicar las leyes de De Morgan hasta que las negaciones afecten solo a literales",
+        "Distribuir la disyunción sobre la conjunción",
+        "Eliminar los conectivos de implicación y bicondicional",
+        "Simplificar las cláusulas eliminando literales repetidos y cláusulas triviales"
+      ],
+      "respuesta": [2, 0, 1, 3],
+      "explicacion": "Primero se eliminan → y ↔ usando ¬p ∨ q, porque De Morgan no aplica sobre esos conectivos. Después se empujan las negaciones hacia adentro hasta obtener literales, y solo entonces la distributividad de ∨ sobre ∧ produce la conjunción de cláusulas. La simplificación va al final, cuando ya existen cláusulas sobre las cuales operar."
+    },
+    {
+      "id": "1.4-014",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Reglas de inferencia",
+      "lecturaId": null,
+      "contexto": "Se conocen las premisas:\n\n1. Si el servidor está caído, entonces el servicio no responde.\n2. El servicio sí responde.",
+      "enunciado": "¿Qué conclusión válida se obtiene y con qué regla de inferencia?",
+      "opciones": [
+        "El servidor no está caído, por modus tollens",
+        "El servidor está caído, por modus ponens",
+        "El servicio no responde, por silogismo hipotético"
+      ],
+      "respuesta": [0],
+      "explicacion": "Con la forma p → q y la negación del consecuente ¬q se concluye ¬p, que es el modus tollens. El modus ponens requeriría afirmar el antecedente, no negar el consecuente, y el silogismo hipotético encadena dos condicionales, algo que no ocurre aquí; concluir «el servidor está caído» sería además la falacia de negar el antecedente."
+    },
+    {
+      "id": "1.4-015",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Lógica difusa",
+      "lecturaId": null,
+      "contexto": "Para un elemento x se tienen los grados de membresía:\n\n| Conjunto difuso | μ(x) |\n|---|---|\n| A | 0.7 |\n| B | 0.4 |",
+      "enunciado": "Con los operadores estándar de Zadeh, ¿cuáles son los grados de membresía de x en A ∩ B y en el complemento de A?",
+      "opciones": ["0.4 y 0.3", "0.7 y 0.6", "0.28 y 0.3"],
+      "respuesta": [0],
+      "explicacion": "En la formulación de Zadeh la intersección es el mínimo, μ_{A∩B}(x) = mín(0.7, 0.4) = 0.4, y el complemento es μ_{A'}(x) = 1 − 0.7 = 0.3. La opción 0.7 corresponde a la unión (máximo) y 0.28 al producto algebraico, una t-norma alternativa que no es el operador estándar solicitado."
+    }
+  ]
+}

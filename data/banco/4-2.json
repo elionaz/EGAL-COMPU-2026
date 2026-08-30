@@ -1,0 +1,254 @@
+{
+  "area": "4",
+  "areaNombre": "Soluciones de cómputo inteligente",
+  "subarea": "4.2",
+  "subareaNombre": "Minería de datos",
+  "seccion": "disciplinar",
+  "lecturas": [],
+  "preguntas": [
+    {
+      "id": "4.2-001",
+      "tipo": "orden",
+      "dificultad": "satisfactorio",
+      "tema": "Proceso KDD",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Ordene las etapas del proceso KDD (Knowledge Discovery in Databases) tal como se ejecutan, desde la base de datos original hasta el conocimiento entregado al usuario.",
+      "opciones": [
+        "Transformación de los datos",
+        "Selección de los datos objetivo",
+        "Evaluación e interpretación de los patrones",
+        "Preprocesamiento y limpieza de los datos",
+        "Minería de datos (aplicación del algoritmo)"
+      ],
+      "respuesta": [1, 3, 0, 4, 2],
+      "explicacion": "El KDD parte de la selección del subconjunto de datos relevantes; después se limpian e integran (preprocesamiento) y se transforman a la representación que exige el algoritmo (agregación, discretización, normalización). Solo entonces se aplica la minería, que produce patrones, y al final estos se evalúan e interpretan para decidir si constituyen conocimiento útil. Un error frecuente es colocar la transformación antes de la limpieza: no tiene sentido normalizar o discretizar datos que aún contienen ruido y valores faltantes."
+    },
+    {
+      "id": "4.2-002",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Preprocesamiento de datos",
+      "lecturaId": null,
+      "contexto": "En una tabla de 5 000 pacientes, el atributo numérico **presión arterial** carece de valor en 300 registros (6 %). Los registros incompletos están distribuidos al azar y son valiosos por sus demás atributos.",
+      "enunciado": "¿Cuál es la estrategia de manejo de valores faltantes más adecuada para este caso?",
+      "opciones": [
+        "Eliminar los 300 registros incompletos para trabajar solo con datos observados",
+        "Imputar el valor faltante con la media o la mediana del atributo en la muestra",
+        "Sustituir los faltantes por cero para conservar el tipo numérico del atributo"
+      ],
+      "respuesta": [1],
+      "explicacion": "Con solo 6 % de faltantes distribuidos al azar, la imputación por medida de tendencia central conserva los 300 registros y su información en los demás atributos, alterando poco la distribución. Eliminar los registros desperdicia datos útiles y puede sesgar la muestra si la falta no es completamente aleatoria. Sustituir por cero es peor aún: introduce un valor imposible de presión arterial que distorsiona la media, la varianza y cualquier cálculo de distancia posterior."
+    },
+    {
+      "id": "4.2-003",
+      "tipo": "relacion",
+      "dificultad": "satisfactorio",
+      "tema": "Aprendizaje automático",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Relacione cada tipo de aprendizaje automático con el escenario que lo ejemplifica.\n\n1. Aprendizaje supervisado\n2. Aprendizaje no supervisado\n3. Aprendizaje por refuerzo\n\na) Segmentar a los clientes de una tienda en grupos según sus hábitos de compra, sin etiquetas previas\nb) Un agente que ajusta su política de juego a partir de la recompensa que recibe tras cada jugada\nc) Predecir si un correo es spam a partir de un conjunto de mensajes ya clasificados por un experto",
+      "opciones": [
+        "1a, 2b, 3c",
+        "1b, 2a, 3c",
+        "1c, 2a, 3b"
+      ],
+      "respuesta": [2],
+      "explicacion": "El aprendizaje supervisado requiere ejemplos con la etiqueta de salida conocida, como el corpus de correos ya clasificados. El no supervisado descubre estructura sin etiquetas, que es exactamente lo que hace la segmentación de clientes por clustering. El aprendizaje por refuerzo no recibe la respuesta correcta sino una señal de recompensa que el agente maximiza a lo largo del tiempo, como en el ajuste de una política de juego."
+    },
+    {
+      "id": "4.2-004",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Tareas de minería",
+      "lecturaId": null,
+      "contexto": "Un banco desea identificar automáticamente las operaciones con tarjeta que se apartan del comportamiento habitual de cada tarjetahabiente, sin contar con un catálogo previo de fraudes confirmados.",
+      "enunciado": "¿Qué tarea de minería de datos corresponde a este objetivo?",
+      "opciones": [
+        "Detección de anomalías (valores atípicos)",
+        "Reglas de asociación",
+        "Regresión"
+      ],
+      "respuesta": [0],
+      "explicacion": "La detección de anomalías busca los objetos que se desvían significativamente del patrón general, que es precisamente lo que se pide y no exige un catálogo previo de casos etiquetados. Las reglas de asociación descubren coocurrencias frecuentes entre ítems (tipo «quien compra A también compra B»), no desviaciones individuales. La regresión predice un valor numérico continuo a partir de otros atributos, tarea distinta a señalar operaciones inusuales."
+    },
+    {
+      "id": "4.2-005",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Árboles de decisión",
+      "lecturaId": null,
+      "contexto": "Un conjunto de entrenamiento **S** tiene 8 ejemplos: 4 de la clase positiva y 4 de la negativa, por lo que su entropía es H(S) = 1.0 bits.\n\nEl atributo **A** parte S en dos ramas de 4 ejemplos cada una:\n\n| Rama | Positivos | Negativos |\n|---|---|---|\n| A = sí | 3 | 1 |\n| A = no | 1 | 3 |\n\nSe sabe que H(3/4, 1/4) = 0.8113 bits.",
+      "enunciado": "¿Cuál es la ganancia de información del atributo A, según el criterio de ID3?",
+      "opciones": [
+        "0.1887 bits",
+        "0.8113 bits",
+        "0.5000 bits"
+      ],
+      "respuesta": [0],
+      "explicacion": "La ganancia es Ganancia(S, A) = H(S) − Σ (|Sv|/|S|)·H(Sv). Cada rama tiene 4 de 8 ejemplos, así que la entropía residual es (4/8)(0.8113) + (4/8)(0.8113) = 0.8113 bits, y la ganancia es 1.0 − 0.8113 = 0.1887 bits. La opción de 0.8113 confunde la entropía residual con la ganancia; ID3 elige el atributo con ganancia máxima, es decir, el que más reduce la entropía."
+    },
+    {
+      "id": "4.2-006",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Naive Bayes",
+      "lecturaId": null,
+      "contexto": "Un clasificador naive Bayes se entrenó con 10 registros: 6 de la clase **Sí** y 4 de la clase **No**. Las frecuencias condicionales son:\n\n| Atributo | En clase Sí | En clase No |\n|---|---|---|\n| Clima = soleado | 2 de 6 | 3 de 4 |\n| Viento = fuerte | 3 de 6 | 2 de 4 |\n\nSe debe clasificar el caso *(Clima = soleado, Viento = fuerte)*.",
+      "enunciado": "¿Qué clase asigna el clasificador y con qué valores proporcionales?",
+      "opciones": [
+        "Sí, porque su valor proporcional es 0.15 contra 0.10 de No",
+        "No, porque su valor proporcional es 0.15 contra 0.10 de Sí",
+        "Sí, porque su probabilidad a priori de 0.6 ya es la mayor"
+      ],
+      "respuesta": [1],
+      "explicacion": "Naive Bayes multiplica la probabilidad a priori por las verosimilitudes suponiendo independencia condicional: para Sí es 0.6 × (2/6) × (3/6) = 0.10 y para No es 0.4 × (3/4) × (2/4) = 0.15. Gana la clase No pese a tener menor probabilidad a priori, porque sus verosimilitudes son mucho mayores. Decidir solo por el a priori ignora la evidencia observada, que es justamente lo que aporta el teorema de Bayes."
+    },
+    {
+      "id": "4.2-007",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "k-NN",
+      "lecturaId": null,
+      "contexto": "Se clasifica el punto **q = (5, 5)** con k-NN y distancia euclidiana. El conjunto de entrenamiento es:\n\n| Punto | Coordenadas | Clase |\n|---|---|---|\n| P1 | (4, 4) | A |\n| P2 | (6, 7) | B |\n| P3 | (7, 5) | B |\n| P4 | (1, 1) | A |\n| P5 | (8, 8) | B |",
+      "enunciado": "¿Qué clase se asigna a q con k = 3?",
+      "opciones": [
+        "Clase A, porque el vecino más cercano es P1 a distancia 1.41",
+        "Clase B, porque dos de los tres vecinos más cercanos son de esa clase",
+        "Clase A, porque P1 y P4 son los dos únicos ejemplos de esa clase"
+      ],
+      "respuesta": [1],
+      "explicacion": "Las distancias a q son P1 = 1.41, P3 = 2.00, P2 = 2.24, P5 = 4.24 y P4 = 5.66; los tres vecinos más cercanos son P1 (A), P3 (B) y P2 (B), de modo que el voto mayoritario da la clase B. Con k = 1 el resultado sería A, lo que ilustra la sensibilidad de k-NN al valor de k. El número total de ejemplos de cada clase en el conjunto es irrelevante: solo votan los k vecinos más próximos."
+    },
+    {
+      "id": "4.2-008",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "SVM",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "¿Qué criterio utiliza una máquina de vectores de soporte (SVM) lineal para elegir el hiperplano separador?",
+      "opciones": [
+        "Maximizar el margen entre el hiperplano y los ejemplos más cercanos de cada clase",
+        "Minimizar la distancia promedio entre el hiperplano y todos los ejemplos de entrenamiento",
+        "Colocar el hiperplano en el punto medio entre los centroides de las dos clases"
+      ],
+      "respuesta": [0],
+      "explicacion": "La SVM busca el hiperplano de margen máximo, es decir, aquel que deja la mayor separación posible respecto de los ejemplos frontera; esos ejemplos son los vectores de soporte y son los únicos que determinan la solución. Minimizar la distancia promedio a todos los puntos no ofrece garantías de generalización y sería sensible a los ejemplos alejados. Unir centroides ignora la forma de la frontera y corresponde más bien a un clasificador de mínima distancia."
+    },
+    {
+      "id": "4.2-009",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Clustering k-means",
+      "lecturaId": null,
+      "contexto": "Se aplica k-means con k = 2 sobre los puntos (1,1), (1,3), (3,1), (3,3), (7,7), (9,7), (7,9) y (9,9), usando distancia euclidiana. Los centroides iniciales son **c1 = (1,1)** y **c2 = (9,9)**.",
+      "enunciado": "Después de la primera iteración completa (asignación y recálculo), ¿cuáles son los nuevos centroides?",
+      "opciones": [
+        "c1 = (2, 2) y c2 = (8, 8)",
+        "c1 = (1, 1) y c2 = (9, 9)",
+        "c1 = (3, 3) y c2 = (7, 7)"
+      ],
+      "respuesta": [0],
+      "explicacion": "En la asignación, los cuatro puntos con coordenadas de 1 y 3 quedan más cerca de c1 y los cuatro con coordenadas de 7 y 9 quedan más cerca de c2. El recálculo promedia cada grupo: (1+1+3+3)/4 = 2 en ambas coordenadas del primero y (7+9+7+9)/4 = 8 en las del segundo. Los centroides no permanecen fijos porque el promedio del grupo casi nunca coincide con la semilla inicial, y tampoco saltan a puntos del conjunto: k-means usa la media, no un objeto real."
+    },
+    {
+      "id": "4.2-010",
+      "tipo": "multiple",
+      "dificultad": "sobresaliente",
+      "tema": "Clustering jerárquico",
+      "lecturaId": null,
+      "contexto": "Un dendrograma obtenido por clustering jerárquico aglomerativo sobre los objetos A, B, C, D y E muestra las siguientes fusiones y sus alturas:\n\n- A y B se fusionan a la altura 1.0\n- D y E se fusionan a la altura 1.5\n- C se une al grupo {A, B} a la altura 3.0\n- El grupo {A, B, C} se une al grupo {D, E} a la altura 6.0",
+      "enunciado": "Si el dendrograma se corta a la altura 4.0, ¿qué agrupamiento resulta?",
+      "opciones": [
+        "{A, B, C} y {D, E}",
+        "{A, B}, {C} y {D, E}",
+        "{A, B, C, D, E} como grupo único"
+      ],
+      "respuesta": [0],
+      "explicacion": "Cortar el dendrograma a una altura h conserva todas las fusiones ocurridas por debajo de h y descarta las de arriba. A la altura 4.0 ya se realizaron las uniones de 1.0, 1.5 y 3.0, pero no la de 6.0, de modo que quedan dos grupos: {A, B, C} y {D, E}. Un corte por debajo de 3.0 dejaría a C aislado, y solo un corte por encima de 6.0 fundiría todo en un único grupo."
+    },
+    {
+      "id": "4.2-011",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "DBSCAN",
+      "lecturaId": null,
+      "contexto": "Se ejecuta DBSCAN con los parámetros ε = 2 y MinPts = 4 (contando el propio punto). El objeto **p** tiene 3 objetos dentro de su vecindario de radio ε, y además p cae dentro del vecindario ε de un objeto núcleo **q**.",
+      "enunciado": "¿Cómo clasifica DBSCAN al objeto p?",
+      "opciones": [
+        "Como punto núcleo, porque pertenece al vecindario de otro punto núcleo",
+        "Como punto frontera, porque no alcanza MinPts pero es alcanzable desde un núcleo",
+        "Como ruido, porque su vecindario no reúne los 4 objetos exigidos por MinPts"
+      ],
+      "respuesta": [1],
+      "explicacion": "Un punto es núcleo solo si su propio vecindario ε contiene al menos MinPts objetos; p tiene 3 y no cumple el umbral. Sin embargo, al ser directamente alcanzable por densidad desde el núcleo q, se clasifica como punto frontera y se incorpora al mismo grupo que q. Solo sería ruido si además ningún punto núcleo lo alcanzara, condición que aquí no se cumple."
+    },
+    {
+      "id": "4.2-012",
+      "tipo": "completamiento",
+      "dificultad": "sobresaliente",
+      "tema": "Reglas de asociación",
+      "lecturaId": null,
+      "contexto": "En una base de 10 transacciones, el artículo **pan** aparece en 6, el artículo **leche** aparece en 5 y ambos aparecen juntos en 4 transacciones.",
+      "enunciado": "Para la regla {pan} → {leche}, el soporte es ______, la confianza es ______ y el lift es aproximadamente ______.",
+      "opciones": [
+        "0.60, 0.80 y 1.60",
+        "0.40, 0.67 y 1.33",
+        "0.50, 0.40 y 0.80"
+      ],
+      "respuesta": [1],
+      "explicacion": "El soporte de la regla es la proporción de transacciones que contienen ambos artículos: 4/10 = 0.40. La confianza es el soporte conjunto entre el soporte del antecedente: 0.40/0.60 ≈ 0.67. El lift divide la confianza entre el soporte del consecuente: 0.67/0.50 ≈ 1.33; al ser mayor que 1, la presencia de pan eleva la probabilidad de llevar leche, es decir, existe asociación positiva."
+    },
+    {
+      "id": "4.2-013",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Métricas de similitud",
+      "lecturaId": null,
+      "contexto": "Se comparan los objetos **A = (2, 3)** y **B = (5, 7)** en un espacio de dos atributos numéricos.",
+      "enunciado": "¿Cuáles son la distancia euclidiana y la distancia Manhattan entre A y B?",
+      "opciones": [
+        "Euclidiana 5 y Manhattan 7",
+        "Euclidiana 7 y Manhattan 5",
+        "Euclidiana 5 y Manhattan 25"
+      ],
+      "respuesta": [0],
+      "explicacion": "La distancia euclidiana es √((5−2)² + (7−3)²) = √(9 + 16) = √25 = 5, es decir, la longitud del segmento recto entre los puntos. La Manhattan suma los valores absolutos de las diferencias por eje: |5−2| + |7−3| = 3 + 4 = 7, que recorre la trayectoria en escalera. La Manhattan nunca es menor que la euclidiana en el mismo par de puntos, lo que descarta invertir ambos valores."
+    },
+    {
+      "id": "4.2-014",
+      "tipo": "choice",
+      "dificultad": "satisfactorio",
+      "tema": "Reducción de dimensionalidad",
+      "lecturaId": null,
+      "contexto": null,
+      "enunciado": "Seleccione las **DOS** afirmaciones correctas sobre el análisis de componentes principales (PCA).",
+      "opciones": [
+        "Las componentes principales son ortogonales entre sí",
+        "La primera componente principal apunta en la dirección de máxima varianza de los datos",
+        "PCA conserva un subconjunto de las variables originales y descarta las demás",
+        "PCA necesita que los datos estén etiquetados para calcular las componentes",
+        "El número de componentes principales siempre supera al de variables originales"
+      ],
+      "respuesta": [0, 1],
+      "explicacion": "PCA construye ejes nuevos, ortogonales entre sí, ordenados de mayor a menor varianza explicada; el primero captura la mayor dispersión de los datos. No es un método de selección de variables sino de extracción: cada componente es una combinación lineal de todas las variables originales, y por eso no «descarta» atributos. Además es no supervisado —no usa etiquetas— y produce a lo sumo tantas componentes como variables originales."
+    },
+    {
+      "id": "4.2-015",
+      "tipo": "multiple",
+      "dificultad": "satisfactorio",
+      "tema": "Validación de modelos",
+      "lecturaId": null,
+      "contexto": "La validación cruzada de un clasificador binario sobre 200 casos arrojó la siguiente matriz de confusión acumulada:\n\n| | Predicho positivo | Predicho negativo |\n|---|---|---|\n| **Real positivo** | VP = 30 | FN = 20 |\n| **Real negativo** | FP = 10 | VN = 140 |",
+      "enunciado": "¿Cuáles son la precisión, el recall y la medida F1 del clasificador?",
+      "opciones": [
+        "Precisión 0.75, recall 0.60 y F1 ≈ 0.67",
+        "Precisión 0.60, recall 0.75 y F1 ≈ 0.67",
+        "Precisión 0.75, recall 0.85 y F1 ≈ 0.80"
+      ],
+      "respuesta": [0],
+      "explicacion": "La precisión es VP/(VP+FP) = 30/40 = 0.75 y responde qué proporción de las alertas emitidas fue correcta; el recall es VP/(VP+FN) = 30/50 = 0.60 e indica qué proporción de los positivos reales se detectó. La F1 es su media armónica: 2(0.75)(0.60)/(0.75+0.60) = 0.90/1.35 ≈ 0.67. El valor 0.85 corresponde a la exactitud (VP+VN)/200, métrica engañosa aquí porque la clase negativa domina la muestra."
+    }
+  ]
+}
