@@ -1,0 +1,11 @@
+.git
+.gitignore
+.env
+.env.example
+.claude/
+.omc/
+__pycache__/
+*.pyc
+.DS_Store
+tools/
+docs/

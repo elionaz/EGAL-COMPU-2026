@@ -227,10 +227,12 @@ class Handler(BaseHTTPRequestHandler):
 
 def main():
     cargar_env()
-    puerto = int(sys.argv[1]) if len(sys.argv) > 1 else 8000
-    servidor = ThreadingHTTPServer(("127.0.0.1", puerto), Handler)
-    ia = "con tutor IA (Claude)" if api_key() else "sin tutor IA (agrega ANTHROPIC_API_KEY a .env para activarlo)"
-    print(f"Simulador EGAL COMPU → http://localhost:{puerto}  [{ia}]")
+    # Railway (y otros PaaS) inyectan PORT y esperan que el proceso escuche en 0.0.0.0.
+    puerto = int(sys.argv[1]) if len(sys.argv) > 1 else int(os.environ.get("PORT", 8000))
+    host = os.environ.get("HOST", "0.0.0.0")
+    servidor = ThreadingHTTPServer((host, puerto), Handler)
+    ia = "con tutor IA (Claude)" if api_key() else "sin tutor IA (agrega ANTHROPIC_API_KEY a .env o a las variables de entorno para activarlo)"
+    print(f"Simulador EGAL COMPU → http://{host}:{puerto}  [{ia}]")
     print("Ctrl+C para detener.")
     try:
         servidor.serve_forever()

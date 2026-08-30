@@ -18,6 +18,28 @@ bloquea `fetch` y los módulos ES en `file://`.
 Todo el progreso se guarda en `localStorage` del navegador. Se puede exportar e importar
 desde **Estadísticas → Datos**.
 
+## Despliegue en Railway
+
+El repo trae un `Dockerfile` — Railway lo detecta solo al conectar el repo, sin configurar nada
+más:
+
+1. En Railway: **New Project → Deploy from GitHub repo** → elige `elionaz/EGAL-COMPU-2026`.
+2. (Opcional) En **Variables**, agrega `ANTHROPIC_API_KEY` para activar el tutor con IA en
+   producción — sin ella, el tutor cae automáticamente al modo local (sigue funcionando).
+3. Railway asigna un dominio público (`Settings → Networking → Generate Domain`) y listo: la
+   app y el proxy `/api/tutor` quedan en la misma URL.
+
+`server.py` escucha en `0.0.0.0` y toma el puerto de la variable `PORT` que Railway inyecta
+automáticamente — no hay que tocar nada para que coincida. El healthcheck de Railway
+(`railway.json`) usa `/api/health`.
+
+Para reproducir el build localmente:
+
+```bash
+docker build -t ceneval .
+docker run -p 8000:8000 -e PORT=8000 -e ANTHROPIC_API_KEY=sk-ant-... ceneval
+```
+
 ## Tutor con pistas (widget flotante)
 
 El botón 💡 abre un tutor contextual que da **pistas de método** del reactivo que tienes
@@ -128,7 +150,9 @@ tools/validar.py      Validador del banco
 tools/validar_lecciones.py  Validador del banco de lecciones
 server.py             Servidor local + proxy /api/tutor (guarda la API key)
 .env.example          Plantilla para la API key del tutor con IA
-serve.sh              Lanzador (server.py)
+serve.sh              Lanzador local (server.py)
+Dockerfile            Imagen para desplegar en Railway (u otro PaaS con Docker)
+railway.json          Config de build/healthcheck para Railway
 ```
 
 ## Sobre el ICNE que muestra
