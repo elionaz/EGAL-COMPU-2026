@@ -67,38 +67,50 @@ def revisar(nombre, datos):
         if not teoria.startswith("**"):
             avisos.append(f"{tid}: 'teoria' no abre con una definición en negritas")
 
-        ej = t.get("ejercicio")
-        if not isinstance(ej, dict):
-            errores.append(f"{tid}: falta 'ejercicio' (objeto con enunciado/opciones/respuesta/explicaciones)")
-        else:
+        ejercicios = t.get("ejercicios")
+        if not isinstance(ejercicios, list) or len(ejercicios) != 3:
+            errores.append(f"{tid}: 'ejercicios' debe ser una lista de exactamente 3 elementos")
+            ejercicios = ejercicios if isinstance(ejercicios, list) else []
+
+        enunciados_vistos = set()
+        for k, ej in enumerate(ejercicios):
+            etiqueta = f"{tid}.ejercicios[{k}]"
+            if not isinstance(ej, dict):
+                errores.append(f"{etiqueta}: debe ser un objeto con enunciado/opciones/respuesta/explicaciones")
+                continue
+
             enunciado = ej.get("enunciado", "").strip()
             opciones = ej.get("opciones")
             respuesta = ej.get("respuesta")
             explicaciones = ej.get("explicaciones")
 
             if len(enunciado) < 15:
-                errores.append(f"{tid}: 'ejercicio.enunciado' vacío o muy corto")
+                errores.append(f"{etiqueta}: 'enunciado' vacío o muy corto")
+            elif enunciado.strip().lower() in enunciados_vistos:
+                errores.append(f"{etiqueta}: 'enunciado' repite (casi) textualmente otro ejercicio del mismo tema")
+            enunciados_vistos.add(enunciado.strip().lower())
+
             if not isinstance(opciones, list) or len(opciones) != 3:
-                errores.append(f"{tid}: 'ejercicio.opciones' debe tener exactamente 3 elementos")
+                errores.append(f"{etiqueta}: 'opciones' debe tener exactamente 3 elementos")
             else:
                 textos = [str(o).strip().lower() for o in opciones]
                 if len(set(textos)) != len(textos):
-                    errores.append(f"{tid}: 'ejercicio.opciones' tiene opciones con texto idéntico")
+                    errores.append(f"{etiqueta}: 'opciones' tiene opciones con texto idéntico")
                 for texto_op in ("todas las anteriores", "ninguna de las anteriores"):
                     if any(texto_op in t2 for t2 in textos):
-                        avisos.append(f"{tid}: 'ejercicio' usa una opción del tipo «{texto_op}»")
+                        avisos.append(f"{etiqueta}: usa una opción del tipo «{texto_op}»")
 
             if not isinstance(respuesta, int) or isinstance(opciones, list) and not (0 <= respuesta < len(opciones)):
-                errores.append(f"{tid}: 'ejercicio.respuesta' debe ser un índice válido de 'opciones'")
+                errores.append(f"{etiqueta}: 'respuesta' debe ser un índice válido de 'opciones'")
 
             if not isinstance(explicaciones, list) or (isinstance(opciones, list) and len(explicaciones) != len(opciones)):
-                errores.append(f"{tid}: 'ejercicio.explicaciones' debe tener la misma cantidad de elementos que 'opciones'")
+                errores.append(f"{etiqueta}: 'explicaciones' debe tener la misma cantidad de elementos que 'opciones'")
             else:
                 for i, exp in enumerate(explicaciones):
                     if len(str(exp).strip()) < 20:
-                        errores.append(f"{tid}: 'ejercicio.explicaciones[{i}]' vacía o muy corta")
+                        errores.append(f"{etiqueta}: 'explicaciones[{i}]' vacía o muy corta")
 
-        texto = teoria + ejemplo + en_examen + (json.dumps(ej) if isinstance(ej, dict) else "")
+        texto = teoria + ejemplo + en_examen + json.dumps(ejercicios)
         if re.search(r"queda como ejercicio|se deja al lector|placeholder", texto, re.I) or re.search(r"\bTODO\b", texto):
             errores.append(f"{tid}: contiene un placeholder o ejercicio sin resolver")
 

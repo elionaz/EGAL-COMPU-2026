@@ -9,20 +9,50 @@
       "teoria": "**La redacción indirecta no te pide escribir: te pide seleccionar la versión de un texto que sea correcta y adecuada a su género, su propósito y su lector.**\n\nEl **registro** es el nivel de lengua que se elige según la situación:\n\n| Registro | Rasgos | Dónde corresponde |\n|---|---|---|\n| **Formal** | Trato de usted, léxico preciso, oraciones completas | Ámbito de estudio en general |\n| **Informal** | Trato de tú, expresiones cotidianas, frases hechas | Nunca en protocolo ni reseña |\n| **Especializado** | Formal + terminología del campo (*muestra estratificada*) | Entre especialistas; excesivo en divulgación |\n\nRasgos del registro formal académico:\n\n- **Impersonalidad** — *se analizaron las muestras*, *el presente trabajo analiza*, no *yo analicé*.\n- **Objetividad** — sin adjetivos valorativos ni exclamaciones.\n- **Precisión** — nada de *cosa*, *algo*, *muchísimo*; se dice *variable*, *35 % de los casos*.\n- **Cautela** — *los datos sugieren*, *podría explicarse por*.\n\nCriterio de selección: pregúntate **quién escribe a quién y para qué**; después descarta la opción que rompe el registro, la imprecisa y la que sobrecarga de tecnicismos un texto de divulgación.",
       "ejemplo": "Se pide completar un **artículo de divulgación científica** dirigido al público general.\n\n- A) «El estudio arrojó resultados bien padres.» → coloquial e impreciso: se descarta.\n- B) «Se observó un incremento estadísticamente significativo (p < .01) en la variable criterio.» → correcto, pero registro **especializado**: sobra en divulgación.\n- C) «Los investigadores encontraron un aumento claro y poco atribuible al azar.» → **correcta**: formal, precisa y accesible.",
       "enExamen": "El enunciado del reactivo siempre dice el género y el destinatario: léelo antes que las opciones, porque decide cuál registro es adecuado. La opción-trampa favorita es gramaticalmente impecable pero de registro equivocado — un tecnicismo con notación estadística dentro de un texto de divulgación.",
-      "ejercicio": {
-        "enunciado": "Se redacta el planteamiento del problema de un **protocolo de investigación** dirigido a un comité académico. ¿Cuál versión es adecuada?",
-        "opciones": [
-          "El problema es que los alumnos batallan un montón con las matemáticas.",
-          "Me apasiona este tema desde la preparatoria y por eso quiero estudiarlo.",
-          "El bajo rendimiento en matemáticas del bachillerato público está documentado, pero se desconoce su relación con el tiempo de estudio autónomo."
-        ],
-        "respuesta": 2,
-        "explicaciones": [
-          "Incorrecta: rompe el registro. *Batallan* y *un montón* son coloquiales e imprecisos; el ámbito de estudio exige léxico preciso y cuantificación, no expresiones cotidianas.",
-          "Incorrecta: es formalmente aceptable, pero personal y valorativo. El registro académico exige impersonalidad: el planteamiento justifica el problema con evidencia, no con la motivación del autor.",
-          "Correcta: impersonal, precisa y objetiva. Además cumple la función del apartado: ubica lo documentado y nombra el vacío de conocimiento que el estudio va a atender."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Se redacta el planteamiento del problema de un **protocolo de investigación** dirigido a un comité académico. ¿Cuál versión es adecuada?",
+          "opciones": [
+            "El problema es que los alumnos batallan un montón con las matemáticas.",
+            "Me apasiona este tema desde la preparatoria y por eso quiero estudiarlo.",
+            "El bajo rendimiento en matemáticas del bachillerato público está documentado, pero se desconoce su relación con el tiempo de estudio autónomo."
+          ],
+          "respuesta": 2,
+          "explicaciones": [
+            "Incorrecta: rompe el registro. *Batallan* y *un montón* son coloquiales e imprecisos; el ámbito de estudio exige léxico preciso y cuantificación, no expresiones cotidianas.",
+            "Incorrecta: es formalmente aceptable, pero personal y valorativo. El registro académico exige impersonalidad: el planteamiento justifica el problema con evidencia, no con la motivación del autor.",
+            "Correcta: impersonal, precisa y objetiva. Además cumple la función del apartado: ubica lo documentado y nombra el vacío de conocimiento que el estudio va a atender."
+          ]
+        },
+        {
+          "enunciado": "Se redacta la entrada de un **artículo de divulgación** sobre vacunas para un suplemento dominical dirigido al público general. ¿Cuál versión es adecuada?",
+          "opciones": [
+            "La respuesta humoral evidenció seroconversión en el 94 % de la cohorte (IC 95 %: 91-97).",
+            "El organismo de 94 de cada 100 personas vacunadas generó defensas contra el virus.",
+            "La vacuna funcionó rebién en casi toda la gente que se la puso."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: es correcta y precisa, pero de registro **especializado**. *Seroconversión*, *cohorte* y el intervalo de confianza sobran en un texto dirigido a lectores no expertos.",
+            "Correcta: mantiene el dato con precisión (94 de cada 100) y lo traduce a léxico común. Eso es divulgar: conservar el rigor sin exigir vocabulario técnico.",
+            "Incorrecta: rompe el registro. *Rebién* es coloquial y *casi toda la gente* pierde el dato exacto; divulgar no es hablar de manera imprecisa."
+          ]
+        },
+        {
+          "enunciado": "Se redacta la justificación de un trabajo académico. ¿Cuál versión respeta el registro formal?",
+          "opciones": [
+            "Yo escogí este tema porque siempre me ha llamado muchísimo la atención.",
+            "Este tema está muy interesante y además hay bastante información en internet.",
+            "El tema se seleccionó por la escasez de estudios locales sobre el fenómeno."
+          ],
+          "respuesta": 2,
+          "explicaciones": [
+            "Incorrecta: rompe la impersonalidad. El *yo* y la motivación personal no justifican académicamente un tema; se justifica con un vacío de conocimiento, no con un gusto.",
+            "Incorrecta: suma dos fallas — el adjetivo valorativo *interesante* y la imprecisión de *bastante información*—, ambas contrarias a la objetividad del registro académico.",
+            "Correcta: es impersonal (*se seleccionó*), objetiva y precisa, y da una razón verificable: la escasez de estudios locales. Esa es la función de la justificación."
+          ]
+        }
+      ]
     },
     {
       "id": "6.1-t2",
@@ -30,20 +60,50 @@
       "teoria": "**Cada género tiene un propósito y una estructura propios, y muchos reactivos consisten en decidir si un fragmento corresponde al género planteado.**\n\n| Género | Propósito | Tiempo verbal dominante |\n|---|---|---|\n| Artículo de divulgación | Acercar conocimiento especializado a un lector no experto | Presente |\n| Protocolo de investigación | Proponer y justificar un estudio **antes** de realizarlo | **Futuro / prospectivo** |\n| Reseña académica | Presentar y valorar críticamente una obra | Presente |\n\n**Artículo de divulgación científica.** Título atractivo, entrada que despierta interés, analogías y ejemplos cotidianos, definición de los tecnicismos indispensables, sin aparato estadístico detallado. Mantiene el rigor, pero traduce.\n\n**Protocolo de investigación.** Verbos prospectivos: *se aplicará*, *se seleccionará una muestra de*. Apartados: título, planteamiento del problema, justificación, objetivos, marco teórico, hipótesis, diseño (participantes, instrumentos, procedimiento), cronograma y referencias. Los objetivos se redactan con **verbo en infinitivo** (*determinar, comparar, analizar*) y deben ser medibles.\n\n**Reseña académica.** Ficha de la obra, presentación, síntesis, valoración crítica y recomendación. El juicio del reseñista debe estar **fundamentado**, no ser un gusto personal.\n\nDistractores frecuentes:\n\n- Un objetivo redactado como **actividad** (*aplicar 200 encuestas*) en vez de propósito de conocimiento.\n- Un protocolo redactado en **pasado**, como si el estudio ya se hubiera hecho.\n- Una reseña que solo **resume** y nunca valora.",
       "ejemplo": "Objetivo general de un protocolo. ¿Cuál opción es adecuada?\n\n- A) «Se encontró que el aprendizaje activo mejora el rendimiento.» → **conclusión en pasado**: un protocolo aún no tiene hallazgos.\n- B) «Aplicar 300 cuestionarios en tres escuelas.» → **actividad** del cronograma, no un propósito de conocimiento.\n- C) «**Determinar** la relación entre el uso del aprendizaje activo y el rendimiento en matemáticas en alumnos de secundaria.» → **correcta**: infinitivo, prospectiva, medible y delimitada.",
       "enExamen": "En reactivos de protocolo, revisa el tiempo verbal antes que nada: si la opción reporta hallazgos, ya está descartada. Las otras dos trampas son el objetivo escrito como tarea logística (*aplicar cuestionarios*) y la reseña que resume la obra sin emitir juicio.",
-      "ejercicio": {
-        "enunciado": "Se redacta el cierre de una **reseña académica**. ¿Cuál opción cumple el propósito del género?",
-        "opciones": [
-          "El libro se divide en seis capítulos y una conclusión, y cita a más de ochenta autores.",
-          "La obra aporta un archivo inédito sobre el tema, aunque su análisis estadístico resulta insuficiente para sostener la última hipótesis.",
-          "El libro me pareció bastante entretenido y muy fácil de leer."
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: se queda en la síntesis. Describe la estructura de la obra pero no emite ningún juicio, y una reseña que solo resume no cumple su propósito: le falta la valoración crítica.",
-          "Correcta: valora y fundamenta. Señala un aporte concreto (el archivo inédito) y una limitación concreta (el análisis estadístico frente a la hipótesis), que es el corazón de la reseña.",
-          "Incorrecta: sí valora, pero desde el gusto personal. *Entretenido* y *fácil de leer* no se apoyan en nada de la obra; el juicio del reseñista debe estar fundamentado."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Se redacta el cierre de una **reseña académica**. ¿Cuál opción cumple el propósito del género?",
+          "opciones": [
+            "El libro se divide en seis capítulos y una conclusión, y cita a más de ochenta autores.",
+            "La obra aporta un archivo inédito sobre el tema, aunque su análisis estadístico resulta insuficiente para sostener la última hipótesis.",
+            "El libro me pareció bastante entretenido y muy fácil de leer."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: se queda en la síntesis. Describe la estructura de la obra pero no emite ningún juicio, y una reseña que solo resume no cumple su propósito: le falta la valoración crítica.",
+            "Correcta: valora y fundamenta. Señala un aporte concreto (el archivo inédito) y una limitación concreta (el análisis estadístico frente a la hipótesis), que es el corazón de la reseña.",
+            "Incorrecta: sí valora, pero desde el gusto personal. *Entretenido* y *fácil de leer* no se apoyan en nada de la obra; el juicio del reseñista debe estar fundamentado."
+          ]
+        },
+        {
+          "enunciado": "Se redacta la entrada de un **artículo de divulgación científica** sobre el sueño. ¿Cuál versión corresponde al género?",
+          "opciones": [
+            "El presente trabajo analiza la arquitectura del sueño mediante polisomnografía en una muestra estratificada.",
+            "¿Por qué despertamos cansados aunque hayamos dormido ocho horas? La respuesta está en cómo se organiza el sueño por etapas.",
+            "Dormir es bien importante para todos, eso ya lo sabemos de sobra."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: es la entrada de un artículo de investigación, no de divulgación. Anuncia el trabajo con terminología técnica en vez de despertar el interés del lector no experto.",
+            "Correcta: abre con una pregunta cotidiana que engancha y enseguida promete la explicación. Traduce el conocimiento sin renunciar a él, que es el propósito del género.",
+            "Incorrecta: es coloquial (*bien importante*) y además no aporta nada: no plantea una pregunta ni anuncia contenido, solo enuncia un lugar común."
+          ]
+        },
+        {
+          "enunciado": "Se redacta el apartado de método de un **protocolo de investigación**. ¿Cuál versión corresponde al género?",
+          "opciones": [
+            "Se encontró que el cuestionario reveló diferencias entre los dos grupos.",
+            "Se aplicó un cuestionario a 150 estudiantes de tercer semestre.",
+            "Se aplicará un cuestionario a 150 estudiantes de tercer semestre."
+          ],
+          "respuesta": 2,
+          "explicaciones": [
+            "Incorrecta: reporta un hallazgo, y un protocolo se escribe **antes** de realizar el estudio. Si la opción tiene resultados, está descartada de entrada.",
+            "Incorrecta: el pretérito *se aplicó* da por hecho un trabajo que todavía no ocurre. El método del protocolo describe lo que se hará, no lo que se hizo.",
+            "Correcta: el verbo prospectivo *se aplicará* es la marca del protocolo, y el apartado cumple su función: dice a quiénes y con qué instrumento se trabajará."
+          ]
+        }
+      ]
     },
     {
       "id": "6.1-t3",
@@ -51,20 +111,50 @@
       "teoria": "**La concordancia obliga a que ciertas palabras compartan rasgos gramaticales; en oraciones largas se rompe sin que el oído lo note, y por eso es la falla más evaluada del área 6.**\n\n**Concordancia nominal** — artículo y adjetivo concuerdan en **género y número** con el sustantivo.\n\n- *el resultado obtenido* / *los resultados obtenidos* / *la muestra seleccionada* / *las muestras seleccionadas*\n- Un adjetivo que modifica a **dos sustantivos** va en plural; si son de distinto género, en masculino: *el instrumento y la técnica **aplicados***.\n- Los femeninos con *a-* tónica llevan artículo *el* por eufonía, pero siguen siendo femeninos: *el agua **clara***, *el área **delimitada***.\n\n**Concordancia verbal** — el verbo concuerda en **número y persona** con el **núcleo del sujeto**, no con la palabra más cercana.\n\n| Caso | Forma correcta |\n|---|---|\n| Núcleo lejos del verbo | *La **relación** entre las variables y los puntajes **fue** significativa.* |\n| Sujetos coordinados con *y* | *El cuestionario y la entrevista **resultaron** adecuados.* |\n| Colectivo en singular | *La **mayoría** de los estudiantes **respondió**.* |\n| *Haber* impersonal | ***Hubo** varios errores* — nunca *hubieron*. |\n\n**Prueba práctica:** tapa con el dedo todo lo que va entre el núcleo del sujeto y el verbo, y lee solo esas dos palabras juntas. Si suenan mal, hay error.",
       "ejemplo": "Oración con error: «*El conjunto de estrategias didácticas propuestas por los autores **fueron** evaluado en dos grupos.*»\n\n- Núcleo del sujeto: **conjunto** (singular).\n- Complemento: *de estrategias didácticas propuestas por los autores*.\n- Al taparlo queda «el conjunto… fueron» → no concuerda.\n\nCorrección: «El conjunto de estrategias didácticas propuestas por los autores **fue evaluado** en dos grupos.» El participio *evaluado* también concuerda con *conjunto*: masculino singular.",
       "enExamen": "Estos reactivos dan una oración larga con complementos intercalados y piden la versión correcta; aplica la prueba del dedo en vez de fiarte del oído. El distractor típico concuerda el verbo con el sustantivo plural más cercano (*estrategias*) en lugar del núcleo real del sujeto.",
-      "ejercicio": {
-        "enunciado": "¿Cuál oración está correctamente construida?",
-        "opciones": [
-          "La serie de talleres impartidos por la universidad fueron cancelados.",
-          "La serie de talleres impartidos por la universidad fue cancelada.",
-          "La serie de talleres impartidas por la universidad fue cancelada."
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: concuerda el verbo con *talleres*, el sustantivo plural más cercano, en vez de con el núcleo del sujeto. Al tapar el complemento queda «la serie… fueron cancelados», que no concuerda.",
-          "Correcta: el núcleo del sujeto es *serie* (femenino singular), así que le corresponden *fue cancelada*. El participio *impartidos* sí va en masculino plural porque modifica directamente a *talleres*.",
-          "Incorrecta: acierta el verbo, pero *impartidas* no puede concordar con *serie*: modifica a *talleres* (masculino plural), la palabra a la que está pegado, y debe ser *impartidos*."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "¿Cuál oración está correctamente construida?",
+          "opciones": [
+            "La serie de talleres impartidos por la universidad fueron cancelados.",
+            "La serie de talleres impartidos por la universidad fue cancelada.",
+            "La serie de talleres impartidas por la universidad fue cancelada."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: concuerda el verbo con *talleres*, el sustantivo plural más cercano, en vez de con el núcleo del sujeto. Al tapar el complemento queda «la serie… fueron cancelados», que no concuerda.",
+            "Correcta: el núcleo del sujeto es *serie* (femenino singular), así que le corresponden *fue cancelada*. El participio *impartidos* sí va en masculino plural porque modifica directamente a *talleres*.",
+            "Incorrecta: acierta el verbo, pero *impartidas* no puede concordar con *serie*: modifica a *talleres* (masculino plural), la palabra a la que está pegado, y debe ser *impartidos*."
+          ]
+        },
+        {
+          "enunciado": "Un mismo participio modifica a dos sustantivos coordinados de distinto género. ¿Cuál oración está correctamente construida?",
+          "opciones": [
+            "Se revisaron el cuestionario y la rúbrica aplicadas durante el pilotaje.",
+            "Se revisaron el cuestionario y la rúbrica aplicados durante el pilotaje.",
+            "Se revisó el cuestionario y la rúbrica aplicados durante el pilotaje."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: el participio concuerda solo con el sustantivo más cercano (*la rúbrica*). Cuando un adjetivo modifica a dos sustantivos de distinto género, va en masculino plural.",
+            "Correcta: *aplicados* modifica a los dos sustantivos coordinados; al ser de distinto género, la concordancia se resuelve en masculino plural, y el verbo va en plural por ser dos sujetos unidos con *y*.",
+            "Incorrecta: acierta el participio pero falla el verbo. *El cuestionario y la rúbrica* son dos núcleos coordinados, así que exigen *se revisaron*, no el singular."
+          ]
+        },
+        {
+          "enunciado": "¿Cuál oración emplea correctamente el verbo *haber* impersonal?",
+          "opciones": [
+            "Hubieron varias inconsistencias en los registros del primer periodo.",
+            "Habían muchas inconsistencias en los registros del primer periodo.",
+            "Hubo varias inconsistencias en los registros del primer periodo."
+          ],
+          "respuesta": 2,
+          "explicaciones": [
+            "Incorrecta: *haber* impersonal no tiene sujeto con el cual concordar. *Inconsistencias* es complemento directo, no sujeto, así que el verbo permanece en singular: *hubo*.",
+            "Incorrecta: mismo error en copretérito. La forma impersonal correcta es *había*, cualquiera que sea el número de lo que se enumera después.",
+            "Correcta: el verbo impersonal se mantiene invariable en tercera persona del singular, sin importar que lo que sigue esté en plural."
+          ]
+        }
+      ]
     },
     {
       "id": "6.1-t4",
@@ -72,20 +162,50 @@
       "teoria": "**Un texto es coherente cuando sus ideas se ordenan con lógica; es cohesionado cuando esas ideas están enlazadas con recursos gramaticales visibles.**\n\nEl examen evalúa sobre todo lo segundo, porque se verifica palabra por palabra.\n\n**Cohesión por referencia (pronombres).** Un pronombre sustituye a su *antecedente* y debe concordar con él, además de ser **inequívoco**.\n\n- Concordancia: *Revisamos las bases de datos y **lo** depuramos* → debe ser *las depuramos*.\n- Ambigüedad: *El investigador entregó el informe al comité y **este** lo aprobó* — no se sabe si *este* es el informe o el comité.\n- ***Le / les***: *les* para plural. *Se **les** informó a los participantes.*\n- ***Cuyo*** concuerda con lo poseído, no con el poseedor: *el autor **cuyas** obras…*\n\n**Cohesión por conectores.** El conector debe expresar exactamente la relación lógica entre las dos partes.\n\n| Relación | Conectores |\n|---|---|\n| Adición | además, asimismo, también |\n| Causa | porque, ya que, debido a que, puesto que |\n| Consecuencia | por lo tanto, en consecuencia, por ello |\n| Oposición | sin embargo, no obstante, en cambio, pero |\n| Condición | si, siempre que, a menos que |\n| Orden | en primer lugar, posteriormente, finalmente |\n| Ejemplificación | por ejemplo, tal como, en particular |\n| Conclusión | en suma, en conclusión, por último |\n\n**Progresión temática.** Cada oración retoma algo de la anterior (información conocida) y añade algo nuevo. Si un párrafo salta a otro asunto sin puente, se rompe la progresión; si repite lo mismo, no progresa.\n\n**Cómo elegir:** formula tú la relación («esto es la causa de aquello») antes de mirar las opciones, y busca el conector de esa fila.",
       "ejemplo": "Hueco por completar: «La muestra fue reducida; ______, los resultados no pueden generalizarse a toda la población.»\n\nRelación: la primera parte es la **causa**, la segunda la **consecuencia** → conector consecutivo: **por lo tanto** (o *en consecuencia*).\n\n- *sin embargo* → oposición: incorrecto, no hay contraste.\n- *además* → adición: incorrecto, la segunda idea se deriva de la primera, no se suma.",
       "enExamen": "En los reactivos de hueco, di en voz baja qué relación une las dos ideas antes de leer las opciones — el conector correcto se elige por lógica, no por fluidez. El distractor más común pone *sin embargo* donde no hay contraste, y suena bien justamente por eso.",
-      "ejercicio": {
-        "enunciado": "¿Qué conector completa correctamente el enunciado?\n\n«El instrumento se aplicó en línea ______ la mitad de los participantes vivía en otro estado.»",
-        "opciones": [
-          "porque",
-          "por lo tanto",
-          "sin embargo"
-        ],
-        "respuesta": 0,
-        "explicaciones": [
-          "Correcta: la segunda parte da la razón por la que el instrumento se aplicó en línea, y esa relación de causa la expresa *porque* (o *ya que*, *debido a que*).",
-          "Incorrecta: invierte la relación. Con *por lo tanto*, vivir en otro estado quedaría como consecuencia de haber aplicado el instrumento en línea, que es al revés de lo que dice la oración.",
-          "Incorrecta: marca oposición y aquí no hay contraste alguno entre las dos ideas. Suena fluido —por eso es el distractor más frecuente—, pero la lógica no lo sostiene."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "¿Qué conector completa correctamente el enunciado?\n\n«El instrumento se aplicó en línea ______ la mitad de los participantes vivía en otro estado.»",
+          "opciones": [
+            "porque",
+            "por lo tanto",
+            "sin embargo"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: la segunda parte da la razón por la que el instrumento se aplicó en línea, y esa relación de causa la expresa *porque* (o *ya que*, *debido a que*).",
+            "Incorrecta: invierte la relación. Con *por lo tanto*, vivir en otro estado quedaría como consecuencia de haber aplicado el instrumento en línea, que es al revés de lo que dice la oración.",
+            "Incorrecta: marca oposición y aquí no hay contraste alguno entre las dos ideas. Suena fluido —por eso es el distractor más frecuente—, pero la lógica no lo sostiene."
+          ]
+        },
+        {
+          "enunciado": "¿Cuál oración usa correctamente el relativo posesivo?",
+          "opciones": [
+            "Se entrevistó al autor cuyo obras se analizan en el capítulo dos.",
+            "Se entrevistó al autor cuyas obras se analizan en el capítulo dos.",
+            "Se entrevistó al autor que sus obras se analizan en el capítulo dos."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: concuerda *cuyo* con el poseedor (*el autor*), que es justo lo que no se hace. El relativo posesivo concuerda con lo poseído.",
+            "Correcta: lo poseído son *las obras*, femenino plural, así que corresponde *cuyas*. El género del autor no interviene en esa concordancia.",
+            "Incorrecta: es el llamado *quesuismo*, la sustitución de *cuyo* por *que… su*. Se entiende, pero la norma culta no lo admite en el registro académico."
+          ]
+        },
+        {
+          "enunciado": "«El programa de tutorías inició en agosto con 40 estudiantes. ______»\n\n¿Cuál oración continúa el párrafo sin romper la progresión temática?",
+          "opciones": [
+            "Para diciembre el grupo se había duplicado y la deserción bajó cuatro puntos.",
+            "La biblioteca central abrirá un nuevo módulo de préstamo en línea.",
+            "El programa de tutorías comenzó en agosto con cuarenta alumnos inscritos."
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: retoma lo conocido (el grupo del programa) y añade información nueva (creció y bajó la deserción). Ese es exactamente el mecanismo de la progresión temática.",
+            "Incorrecta: salta a otro asunto sin puente alguno. Aunque ambas frases hablen de la escuela, nada en la segunda retoma el programa de tutorías.",
+            "Incorrecta: repite con otras palabras lo que ya se dijo. Hay cohesión, pero no hay avance: el párrafo se queda en el mismo punto."
+          ]
+        }
+      ]
     },
     {
       "id": "6.1-t5",
@@ -93,20 +213,50 @@
       "teoria": "**La tilde es la marca escrita de la sílaba tónica cuando la regla lo exige; sus reglas son las más precisas del área 6 y por eso las más rentables de estudiar.**\n\n| Tipo | Tónica en | Lleva tilde si… | Ejemplos |\n|---|---|---|---|\n| **Aguda** | Última sílaba | Termina en vocal, *-n* o *-s* | *canción, además, café*; sin tilde *reloj, comer* |\n| **Grave** | Penúltima | **No** termina en vocal, *-n* ni *-s* | *árbol, lápiz, fácil, carácter*; sin tilde *examen, joven, crisis* |\n| **Esdrújula** | Antepenúltima | **Siempre** | *análisis, específico, matemáticas* |\n| **Sobresdrújula** | Antes de la antepenúltima | **Siempre** | *entrégamelo* |\n\n**Hiato con vocal cerrada tónica:** la *i* o la *u* tónicas junto a *a, e, o* llevan tilde aunque la regla general no la pida: *día, país, raíz, período, continúa*.\n\n**Tilde diacrítica.** Distingue palabras iguales en forma pero de distinta función. Se resuelve preguntando **qué función cumple** en la oración; el truco es sustituirla.\n\n| Con tilde | Sin tilde |\n|---|---|\n| **él** (pronombre) | **el** (artículo) |\n| **tú** (pronombre) | **tu** (posesivo) |\n| **mí** (pronombre) | **mi** (posesivo) |\n| **sí** (afirmación / pronombre) | **si** (condicional) |\n| **sé** (verbo saber o ser) | **se** (pronombre) |\n| **té** (bebida) | **te** (pronombre) |\n| **más** (cantidad) | **mas** (= pero) |\n| **dé** (verbo dar) | **de** (preposición) |\n| **aún** (= todavía) | **aun** (= incluso) |\n| **qué, quién, cómo, cuándo, dónde, cuánto** (interrogativos y exclamativos) | **que, quien, como, cuando, donde, cuanto** (relativos y conjunciones) |\n\nNorma vigente de la RAE: *solo* y los demostrativos (*este, ese, aquel*) ya **no** se acentúan; las monosílabas sin par diacrítico tampoco (*fue, fui, vio, dio, ti*).",
       "ejemplo": "«No sé si él sabe cuánto le cuesta el té, mas no se lo preguntaré aún.»\n\n- **sé** — verbo saber, sustituible por *conozco* → con tilde.\n- **si** — condicional, introduce la duda → sin tilde.\n- **él** — pronombre, es quien sabe → con tilde.\n- **cuánto** — interrogativo indirecto, depende de *sabe* → con tilde.\n- **el té** — artículo + bebida → *el* sin tilde, *té* con tilde.\n- **mas** — equivale a *pero* → sin tilde.\n- **se** — pronombre → sin tilde.\n- **aún** — equivale a *todavía* → con tilde.",
       "enExamen": "Te dan cuatro versiones de la misma oración que solo difieren en tildes: sustituye cada monosílabo por su equivalente (*sé*→*conozco*, *mas*→*pero*, *aún*→*todavía*) para decidir. La opción-trampa acentúa *solo* o los demostrativos, o pone tilde a un *cuando* que en realidad es relativo y no interrogativo.",
-      "ejercicio": {
-        "enunciado": "¿Cuál versión está correctamente acentuada?",
-        "opciones": [
-          "Dime cuando entregas el análisis, porque aun no sé si él lo revisó solo.",
-          "Dime cuándo entregas el análisis, porque aún no sé si él lo revisó solo.",
-          "Dime cuándo entregas el analisis, porque aún no sé si el lo revisó sólo."
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: *cuando* depende de *dime*, es un interrogativo indirecto y lleva tilde; y *aun* aquí equivale a *todavía*, así que debe escribirse *aún*.",
-          "Correcta: *cuándo* interrogativo indirecto y *aún* (= todavía) con tilde; *él* pronombre con tilde; *análisis* esdrújula, siempre acentuada; y *solo* sin tilde según la norma vigente de la RAE.",
-          "Incorrecta: acumula tres fallas — *analisis* es esdrújula y siempre lleva tilde, *el* aquí es pronombre (quien revisó) y necesita tilde, y *sólo* ya no se acentúa."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "¿Cuál versión está correctamente acentuada?",
+          "opciones": [
+            "Dime cuando entregas el análisis, porque aun no sé si él lo revisó solo.",
+            "Dime cuándo entregas el análisis, porque aún no sé si él lo revisó solo.",
+            "Dime cuándo entregas el analisis, porque aún no sé si el lo revisó sólo."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: *cuando* depende de *dime*, es un interrogativo indirecto y lleva tilde; y *aun* aquí equivale a *todavía*, así que debe escribirse *aún*.",
+            "Correcta: *cuándo* interrogativo indirecto y *aún* (= todavía) con tilde; *él* pronombre con tilde; *análisis* esdrújula, siempre acentuada; y *solo* sin tilde según la norma vigente de la RAE.",
+            "Incorrecta: acumula tres fallas — *analisis* es esdrújula y siempre lleva tilde, *el* aquí es pronombre (quien revisó) y necesita tilde, y *sólo* ya no se acentúa."
+          ]
+        },
+        {
+          "enunciado": "¿Cuál serie está correctamente acentuada?",
+          "opciones": [
+            "exámen, jóven, crísis",
+            "examen, joven, crisis",
+            "examen, jóven, crisis"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: acentúa tres graves que no deben llevar tilde. *Examen* y *joven* terminan en *-n* y *crisis* en *-s*, y las graves solo se acentúan cuando **no** terminan en vocal, *-n* ni *-s*.",
+            "Correcta: las tres son graves terminadas en *-n* o *-s*, así que la regla general les niega la tilde. Es el caso inverso de *árbol* o *lápiz*, que sí la llevan.",
+            "Incorrecta: acierta en dos, pero *joven* es grave terminada en *-n* y por eso se escribe sin tilde. El plural *jóvenes* sí la lleva, porque ahí ya es esdrújula."
+          ]
+        },
+        {
+          "enunciado": "En esta oración se combinan tildes diacríticas e hiatos con vocal cerrada tónica. ¿Cuál versión es la correcta?",
+          "opciones": [
+            "Todavía no sé si el país continua con el programa, mas confío en que si.",
+            "Todavía no se si el país continúa con el programa, mas confío en que sí.",
+            "Todavía no sé si el país continúa con el programa, mas confío en que sí."
+          ],
+          "respuesta": 2,
+          "explicaciones": [
+            "Incorrecta: *continúa* necesita tilde por el hiato con *u* tónica, y el último *sí* es afirmación, no condicional, así que también la lleva.",
+            "Incorrecta: *sé* es el verbo saber (sustituible por *conozco*) y exige tilde diacrítica; escrito *se* queda convertido en pronombre.",
+            "Correcta: *sé* verbo con tilde; *si* condicional sin ella; *país* y *continúa* con tilde por hiato de vocal cerrada tónica; *mas* equivale a *pero* y va sin tilde; y *sí* de afirmación, con tilde."
+          ]
+        }
+      ]
     },
     {
       "id": "6.1-t6",
@@ -114,20 +264,50 @@
       "teoria": "**La puntuación organiza la sintaxis y, mal puesta, cambia el sentido o vuelve ilegible un párrafo.**\n\n**Coma (,)**\n\n- **Enumeraciones:** *se aplicaron encuestas, entrevistas y grupos focales*. Sin coma antes de la *y* final, salvo para evitar ambigüedad.\n- **Incisos:** van entre **dos** comas, abre y cierra — *el autor, quien dirigió el proyecto, presentó los datos*.\n- **Marcador al inicio:** *Sin embargo, los datos no lo confirman.* Si va en medio, entre comas: *Los datos, sin embargo, no lo confirman.*\n- **Complemento antepuesto:** *Durante la segunda fase, se registraron cambios.*\n- **Prohibición clave:** nunca una sola coma entre **sujeto y verbo**. *Los estudiantes de octavo semestre, presentaron el examen* es incorrecto.\n\n**Punto y coma (;)**\n\n- Une oraciones muy relacionadas: *La muestra fue pequeña; los resultados son preliminares.*\n- Separa elementos de una enumeración que ya tienen comas internas.\n- Precede a *sin embargo*, *por lo tanto*, *no obstante* cuando enlazan dos oraciones completas: *Se amplió el plazo; **sin embargo**, la participación no creció.*\n\n**Dos puntos (:)**\n\n- Anuncian una enumeración: *Se emplearon tres instrumentos: cuestionario, bitácora y rúbrica.*\n- Introducen una cita textual, una explicación o una consecuencia.\n- **No** se ponen entre un verbo o una preposición y su complemento: *los instrumentos fueron: A, B y C* es incorrecto.\n\n**Punto (.)** cierra el enunciado: *y seguido* dentro del párrafo, *y aparte* al cambiar de idea.\n\n**Puntos suspensivos (…)** son exactamente tres; en registro académico se usan sobre todo entre corchetes […] para indicar que se recortó una cita.",
       "ejemplo": "Oración con dos errores: «*Los alumnos que participaron en el taller, obtuvieron mejores resultados sin embargo la diferencia fue mínima.*»\n\n1. La coma separa el sujeto (*Los alumnos que participaron en el taller*) de su verbo (*obtuvieron*) → se elimina.\n2. *Sin embargo* enlaza dos oraciones completas → necesita punto y coma antes y coma después.\n\nCorrecta: «Los alumnos que participaron en el taller obtuvieron mejores resultados**;** sin embargo**,** la diferencia fue mínima.»",
       "enExamen": "Ante cuatro versiones que solo cambian signos, revisa primero si alguna coma separa el sujeto del verbo: ese error descarta la opción de inmediato. El distractor más frecuente coloca *sin embargo* entre comas cuando une dos oraciones completas y debería ir precedido de punto y coma.",
-      "ejercicio": {
-        "enunciado": "¿Cuál versión está correctamente puntuada?",
-        "opciones": [
-          "Los instrumentos que se aplicaron fueron: un cuestionario, una bitácora y una rúbrica.",
-          "Se aplicaron tres instrumentos: un cuestionario, una bitácora y una rúbrica.",
-          "Se aplicaron tres instrumentos, un cuestionario, una bitácora y una rúbrica."
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: los dos puntos quedan entre el verbo *fueron* y su complemento, uso que la norma no admite. O se quitan los dos puntos, o se antepone un elemento anunciador.",
-          "Correcta: *tres instrumentos* anuncia la enumeración, y los dos puntos la introducen. La lista se separa con comas, sin coma antes de la *y* final.",
-          "Incorrecta: la coma no anuncia enumeraciones. Al usarla, *tres instrumentos* parece un elemento más de la lista y se pierde la relación entre el anuncio y lo enumerado."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "¿Cuál versión está correctamente puntuada?",
+          "opciones": [
+            "Los instrumentos que se aplicaron fueron: un cuestionario, una bitácora y una rúbrica.",
+            "Se aplicaron tres instrumentos: un cuestionario, una bitácora y una rúbrica.",
+            "Se aplicaron tres instrumentos, un cuestionario, una bitácora y una rúbrica."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: los dos puntos quedan entre el verbo *fueron* y su complemento, uso que la norma no admite. O se quitan los dos puntos, o se antepone un elemento anunciador.",
+            "Correcta: *tres instrumentos* anuncia la enumeración, y los dos puntos la introducen. La lista se separa con comas, sin coma antes de la *y* final.",
+            "Incorrecta: la coma no anuncia enumeraciones. Al usarla, *tres instrumentos* parece un elemento más de la lista y se pierde la relación entre el anuncio y lo enumerado."
+          ]
+        },
+        {
+          "enunciado": "¿Cuál versión respeta la relación entre el sujeto y su verbo?",
+          "opciones": [
+            "Los estudiantes que asistieron al taller de escritura, entregaron su reporte a tiempo.",
+            "Los estudiantes que asistieron al taller de escritura entregaron su reporte a tiempo.",
+            "Los estudiantes, que asistieron al taller de escritura entregaron su reporte a tiempo."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: la coma separa el sujeto completo (*los estudiantes que asistieron al taller de escritura*) de su verbo (*entregaron*), separación que la norma prohíbe.",
+            "Correcta: el sujeto lleva una subordinada especificativa que forma parte de él, y entre sujeto y verbo no va ningún signo.",
+            "Incorrecta: abre un inciso y no lo cierra. Si la subordinada fuera explicativa necesitaría dos comas, una antes y otra después; con una sola queda a medias."
+          ]
+        },
+        {
+          "enunciado": "¿Cuál versión puntúa correctamente el inciso explicativo?",
+          "opciones": [
+            "La doctora Rivas quien coordinó el estudio, presentó los resultados.",
+            "La doctora Rivas, quien coordinó el estudio presentó los resultados.",
+            "La doctora Rivas, quien coordinó el estudio, presentó los resultados."
+          ],
+          "respuesta": 2,
+          "explicaciones": [
+            "Incorrecta: falta la coma de apertura del inciso, y la que queda termina separando el inciso del verbo. Los incisos se abren y se cierran.",
+            "Incorrecta: falta la coma de cierre, así que la explicación se pega al verbo principal y la oración pierde su estructura.",
+            "Correcta: el inciso *quien coordinó el estudio* va entre dos comas, y al retirarlo la oración sigue completa: *La doctora Rivas presentó los resultados*."
+          ]
+        }
+      ]
     }
   ]
 }

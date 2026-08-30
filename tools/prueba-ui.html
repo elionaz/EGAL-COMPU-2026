@@ -121,10 +121,13 @@
     const primerTema = texto();
     await clic('[data-accion="estudio-tema"]:not(.actual)');
     afirmar(texto() !== primerTema, 'cambia de tema al navegar');
-    afirmar(document.querySelectorAll('[data-accion="estudio-responder"]').length === 3, 'el ejercicio de práctica tiene 3 opciones');
+    afirmar(document.querySelectorAll('.ejercicio-item').length === 3, 'la lección trae 3 ejercicios de práctica por tema');
+    afirmar(document.querySelectorAll('[data-accion="estudio-responder"]').length === 9, '3 ejercicios × 3 opciones cada uno');
     await clic('[data-accion="estudio-responder"]');
-    afirmar(document.querySelector('.retro') !== null, 'responder el ejercicio muestra retroalimentación');
-    afirmar(document.querySelector('[data-accion="estudio-responder"]:disabled') !== null, 'las opciones quedan deshabilitadas tras responder');
+    afirmar(document.querySelectorAll('.retro').length === 1, 'responder un ejercicio muestra su retroalimentación');
+    afirmar(document.querySelectorAll('[data-accion="estudio-responder"]:disabled').length === 3, 'solo se deshabilita el ejercicio ya respondido, no los otros 2');
+    await clic('.ejercicio-item:nth-of-type(2) [data-accion="estudio-responder"]');
+    afirmar(document.querySelectorAll('.retro').length === 2, 'los ejercicios se responden de forma independiente');
     await clic('[data-accion="estudio-practicar"]');
     afirmar(document.querySelector('.tarjeta-pregunta') !== null, 'lanza una práctica desde la lección');
     afirmar(texto().includes('1.1'), 'la práctica es de la subárea de la lección');

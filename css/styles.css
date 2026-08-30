@@ -217,6 +217,9 @@ h3 { font-size: 15px; margin: 0 0 8px; }
 .leccion-ejercicio .etiqueta { margin-bottom: 10px; }
 .leccion-ejercicio .enunciado { margin-bottom: 12px; }
 
+.ejercicio-item + .ejercicio-item { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--borde); }
+.ejercicio-num { text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
+
 /* ---------- Botones ---------- */
 
 .btn {

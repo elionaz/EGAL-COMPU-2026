@@ -9,20 +9,50 @@
       "teoria": "**El cuento es una narración breve, de un solo conflicto y pocos personajes, escrita para producir un efecto único en el lector.**\n\nNo busca informar sino construir un mundo. Para responder reactivos hay que identificar sus elementos.\n\n**Narrador** — la voz que cuenta. **Narrador ≠ autor**: es una construcción del texto.\n\n| Tipo | Marca en el texto | Alcance |\n|---|---|---|\n| Primera persona | *yo caminé* | Solo lo que ese personaje vive y sabe |\n| Segunda persona | *caminaste* | Raro; interpela al lector o a un personaje |\n| Tercera omnisciente | *Marta caminó… y sintió miedo* | Sabe lo que los personajes piensan y sienten |\n| Tercera testigo | *el hombre cerró la puerta* | Solo lo observable desde fuera |\n\n**Personajes**\n\n- **Protagonista** — mueve la acción; **antagonista** — se le opone; **secundarios** — acompañan.\n- Caracterización **directa** (el texto los describe) o **indirecta** (los conocemos por lo que hacen y dicen).\n\n**Trama** — el orden en que se cuentan los hechos: planteamiento, desarrollo (conflicto), clímax y desenlace. Admite saltos: **retrospección** (analepsis o *flashback*) y **anticipación** (prolepsis).\n\n**Ambiente y espacio** — dónde y en qué atmósfera ocurre; suele reforzar el estado emocional del relato.\n\n**Tiempo** — la época en que sucede y la duración de la historia frente al espacio que ocupa el relato.",
       "ejemplo": "Fragmento: «Marta cerró la puerta sin despedirse. *No sabía que aquella sería la última vez que lo vería*, pero algo en su pecho se apretó.»\n\n¿Qué narrador es? **Tercera persona omnisciente**:\n\n- Nombra al personaje desde fuera → *Marta cerró*.\n- Accede a lo que ella **no** sabe y a lo que siente por dentro → *algo en su pecho se apretó*.\n\nUn narrador testigo solo habría podido describir que cerró la puerta.",
       "enExamen": "El reactivo típico pide el tipo de narrador, la motivación de un personaje o el momento del clímax, y todas se contestan señalando una línea concreta. La opción-trampa confunde al narrador con el autor, o llama «omnisciente» a un narrador que solo describe lo observable.",
-      "ejercicio": {
-        "enunciado": "Fragmento: «El hombre dejó la maleta junto a la puerta, revisó dos veces la cerradura y salió sin encender la luz. Nadie lo vio bajar por la escalera.»\n\n¿Qué tipo de narrador tiene el fragmento?",
-        "opciones": [
-          "Tercera persona omnisciente",
-          "Tercera persona testigo",
-          "Primera persona"
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: un narrador omnisciente entra en lo que el personaje piensa o siente. Aquí no sabemos por qué revisó la cerradura ni qué sentía: solo se reporta lo que se ve desde fuera.",
-          "Correcta: la voz narra desde fuera (*el hombre*, *lo vio*) y se limita a acciones observables — dejar la maleta, revisar, salir. Eso es exactamente el alcance del narrador testigo.",
-          "Incorrecta: no hay ningún *yo*. El personaje se nombra en tercera persona (*el hombre*, *lo*), que es la marca gramatical que descarta esta opción de inmediato."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Fragmento: «El hombre dejó la maleta junto a la puerta, revisó dos veces la cerradura y salió sin encender la luz. Nadie lo vio bajar por la escalera.»\n\n¿Qué tipo de narrador tiene el fragmento?",
+          "opciones": [
+            "Tercera persona omnisciente",
+            "Tercera persona testigo",
+            "Primera persona"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: un narrador omnisciente entra en lo que el personaje piensa o siente. Aquí no sabemos por qué revisó la cerradura ni qué sentía: solo se reporta lo que se ve desde fuera.",
+            "Correcta: la voz narra desde fuera (*el hombre*, *lo vio*) y se limita a acciones observables — dejar la maleta, revisar, salir. Eso es exactamente el alcance del narrador testigo.",
+            "Incorrecta: no hay ningún *yo*. El personaje se nombra en tercera persona (*el hombre*, *lo*), que es la marca gramatical que descarta esta opción de inmediato."
+          ]
+        },
+        {
+          "enunciado": "Fragmento: «Julia contó tres veces el dinero antes de guardarlo, revisó que la ventana estuviera cerrada y escondió la llave dentro de un zapato.»\n\n¿Qué rasgo del personaje se construye y cómo?",
+          "opciones": [
+            "Su desconfianza, por caracterización indirecta: la conocemos por lo que hace.",
+            "Su desconfianza, por caracterización directa: el narrador la describe con un adjetivo.",
+            "Su generosidad, por caracterización indirecta."
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: el texto nunca dice que Julia sea desconfiada; lo deducimos de tres acciones concretas. Conocer al personaje por lo que hace es la caracterización indirecta.",
+            "Incorrecta: acierta el rasgo pero no el procedimiento. La caracterización directa requiere que el texto describa al personaje (*era una mujer desconfiada*), y aquí no hay ningún adjetivo de ese tipo.",
+            "Incorrecta: las acciones apuntan a lo contrario. Contar el dinero, revisar la ventana y esconder la llave son gestos de recelo, no de generosidad."
+          ]
+        },
+        {
+          "enunciado": "Fragmento: «Antes de firmar el contrato, Ernesto recordó la tarde en que su padre perdió la casa en una apuesta.»\n\n¿Qué recurso de la trama emplea el fragmento?",
+          "opciones": [
+            "Anticipación (prolepsis)",
+            "Retrospección (analepsis)",
+            "Clímax"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: la anticipación adelanta algo que ocurrirá después. Aquí el relato va hacia atrás, no hacia adelante: el verbo *recordó* señala la dirección.",
+            "Correcta: el relato interrumpe la escena presente para volver a un hecho anterior — la tarde de la apuesta—, que es la definición de retrospección o *flashback*.",
+            "Incorrecta: el clímax es el punto de máxima tensión del conflicto, un momento de la estructura, no un salto temporal. Este fragmento es el salto, no el punto culminante."
+          ]
+        }
+      ]
     },
     {
       "id": "5.2-t2",
@@ -30,20 +60,50 @@
       "teoria": "**El ensayo literario es un texto en prosa donde el autor reflexiona sobre un tema desde su punto de vista personal y con voluntad de estilo.**\n\n| | Ensayo literario | Artículo de investigación |\n|---|---|---|\n| Subjetividad | Admitida, el *yo* está presente | Evitada, impersonal |\n| Pruebas | Anécdotas, citas, comparaciones | Datos, método, estadística |\n| Estructura | Abierta, a menudo circular | IMRyD fija |\n\nRasgos que debes reconocer:\n\n- **Tesis** — la postura que el autor defiende. Suele ser una afirmación general al inicio o al cierre; a veces solo se insinúa.\n- **Argumentación flexible** — anécdotas, citas literarias, comparaciones, preguntas retóricas, experiencia propia.\n- **Voz y tono** — reflexivo, nostálgico, irónico, polémico, celebratorio. Se lee en la elección de palabras: *apenas*, *afortunadamente*, *ese pobre remedo de*.\n- **Estructura abierta** — sin apartados fijos; con frecuencia termina retomando la imagen del inicio.\n\nDistinción decisiva: lo que el autor **afirma** frente a lo que solo **menciona para discutirlo**. El ensayista suele exponer la opinión contraria antes de refutarla.\n\nMarcas de opinión ajena: *se dice que*, *suele afirmarse*, *hay quien sostiene*. Marcas de tesis propia: *yo sostengo*, *creo lo contrario*, *nada más falso*.",
       "ejemplo": "Fragmento: «Se dice que leer novelas es una forma de evasión. *Yo sostengo lo contrario*: nada nos devuelve tan bruscamente al mundo como una buena novela.»\n\n- Opinión ajena → «leer novelas es evasión», marcada por el impersonal *se dice*.\n- **Tesis del autor** → la novela **acerca** al mundo, marcada por *yo sostengo lo contrario*.\n\nElegir «leer novelas es evasión» sería tomar el argumento refutado por la tesis.",
       "enExamen": "Cuando pidan la postura o la actitud del autor, localiza primero la marca de voz (*se dice* frente a *yo sostengo*). La trampa más usada ofrece como respuesta la opinión que el ensayista cita justamente para rebatirla.",
-      "ejercicio": {
-        "enunciado": "Fragmento de un ensayo: «Suele afirmarse que las redes sociales acabaron con la conversación. *Creo lo contrario*: nunca se había discutido tanto, aunque casi siempre a gritos.»\n\n¿Cuál es la tesis del autor?",
-        "opciones": [
-          "Las redes sociales acabaron con la conversación.",
-          "Las redes sociales multiplicaron la discusión, aunque de mala calidad.",
-          "Las redes sociales mejoraron la calidad del debate público."
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: es la opinión ajena, marcada por el impersonal *suele afirmarse*. El ensayista la trae al texto justamente para refutarla, no para sostenerla.",
-          "Correcta: *creo lo contrario* introduce la postura propia, y lo que sigue la desarrolla: se discute más (*nunca se había discutido tanto*) pero mal (*a gritos*).",
-          "Incorrecta: exagera la tesis. El autor concede que se discute *a gritos*, es decir, reconoce que la calidad es mala; atribuirle una mejora del debate contradice su propia concesión."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Fragmento de un ensayo: «Suele afirmarse que las redes sociales acabaron con la conversación. *Creo lo contrario*: nunca se había discutido tanto, aunque casi siempre a gritos.»\n\n¿Cuál es la tesis del autor?",
+          "opciones": [
+            "Las redes sociales acabaron con la conversación.",
+            "Las redes sociales multiplicaron la discusión, aunque de mala calidad.",
+            "Las redes sociales mejoraron la calidad del debate público."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: es la opinión ajena, marcada por el impersonal *suele afirmarse*. El ensayista la trae al texto justamente para refutarla, no para sostenerla.",
+            "Correcta: *creo lo contrario* introduce la postura propia, y lo que sigue la desarrolla: se discute más (*nunca se había discutido tanto*) pero mal (*a gritos*).",
+            "Incorrecta: exagera la tesis. El autor concede que se discute *a gritos*, es decir, reconoce que la calidad es mala; atribuirle una mejora del debate contradice su propia concesión."
+          ]
+        },
+        {
+          "enunciado": "Fragmento de un ensayo: «Nos vendieron la productividad como una virtud: ese pobre remedo de vida que consiste en ir tachando pendientes de una lista.»\n\n¿Cuál es el tono del autor?",
+          "opciones": [
+            "Celebratorio",
+            "Neutral y expositivo",
+            "Crítico e irónico"
+          ],
+          "respuesta": 2,
+          "explicaciones": [
+            "Incorrecta: no hay celebración de nada. *Pobre remedo* es una expresión despectiva: el autor rebaja aquello de lo que habla, no lo festeja.",
+            "Incorrecta: la neutralidad exige ausencia de valoración. Aquí *nos vendieron* y *pobre remedo* son elecciones léxicas cargadas que delatan una postura.",
+            "Correcta: el tono se lee en las palabras elegidas. *Nos vendieron* insinúa engaño y *pobre remedo de vida* desvaloriza: hay crítica, y la ironía está en llamar virtud a lo que enseguida degrada."
+          ]
+        },
+        {
+          "enunciado": "¿Cuál fragmento corresponde a un **ensayo literario** y no a un artículo de investigación?",
+          "opciones": [
+            "Se aplicó un cuestionario a 320 lectores seleccionados por muestreo aleatorio.",
+            "Cada vez que abro un libro heredado pienso que leer es, sobre todo, una forma de acompañar a los muertos.",
+            "La media de libros leídos por habitante fue de 3.9 durante el periodo estudiado."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: describe muestra e instrumento con lenguaje impersonal. Es el apartado de método de un artículo de investigación, donde el *yo* se evita.",
+            "Correcta: hay un *yo* presente, una experiencia propia como punto de partida y voluntad de estilo en la imagen final. Esos tres rasgos definen al ensayo literario.",
+            "Incorrecta: es un dato estadístico reportado sin interpretar, propio del apartado de resultados. El ensayo argumenta con anécdotas y comparaciones, no con medias."
+          ]
+        }
+      ]
     },
     {
       "id": "5.2-t3",
@@ -51,20 +111,50 @@
       "teoria": "**El sentido literal es el del diccionario; el sentido figurado es el que el contexto construye, y en literatura casi siempre es el que se pregunta.**\n\n| Figura | Qué hace | Ejemplo |\n|---|---|---|\n| **Metáfora** | Identifica un término con otro, sin nexo | *Sus manos eran dos pájaros muertos.* |\n| **Símil** | Compara con nexo (*como*, *cual*, *igual que*) | *Sus manos caían como pájaros muertos.* |\n| **Personificación** | Da rasgos humanos a lo no humano | *El viento golpeaba la ventana con rencor.* |\n| **Hipérbole** | Exagera deliberadamente | *Llevo mil años esperándote.* |\n| **Ironía** | Dice lo contrario de lo que da a entender | *Qué puntual, solo dos horas tarde.* |\n| **Símbolo** | Un objeto concreto representa algo abstracto | La paloma, el camino, el invierno |\n\nCómo interpretar una frase subrayada:\n\n1. Pregúntate qué dice **literalmente**.\n2. Comprueba que ese sentido literal es imposible o absurdo en el contexto.\n3. Identifica el **rasgo transferido** (color, movimiento, fragilidad, peso) y formula el sentido con palabras propias **antes** de mirar las opciones.\n\nLa respuesta correcta traduce la imagen al sentido que tiene **en ese texto**, no en cualquier texto.",
       "ejemplo": "Frase: «Después del entierro, la casa se volvió un reloj sin manecillas.»\n\n1. Literal: una casa no puede ser un reloj → es **metáfora**.\n2. Rasgo transferido: un reloj sin manecillas sigue existiendo, pero ya no marca el tiempo.\n3. Sentido: en la casa el tiempo perdió sentido; los días transcurren sin orden ni propósito tras la muerte.\n\nSe descarta «en la casa se descompusieron los relojes»: se queda en lo literal.",
       "enExamen": "Formula tú el sentido de la imagen antes de leer las opciones — así no te arrastra un distractor bien escrito. Las dos trampas fijas son la opción que interpreta la frase al pie de la letra y la que le da un sentido figurado bonito pero ajeno al contexto del relato.",
-      "ejercicio": {
-        "enunciado": "Frase de un cuento: «Desde que perdió el empleo, don Aurelio camina por la casa **como un barco anclado**.»\n\n¿Qué sentido tiene la frase en el relato?",
-        "opciones": [
-          "Don Aurelio se mueve sin descanso por toda la casa.",
-          "Don Aurelio permanece en casa sin rumbo, detenido a la fuerza.",
-          "Don Aurelio trabajaba en un barco antes de quedar desempleado."
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: toma solo la mitad de la imagen (el barco, que navega) e ignora *anclado*, que es la palabra que la define. La comparación subraya la inmovilidad, no el movimiento.",
-          "Correcta: un barco está hecho para navegar, y anclado sigue ahí sin poder hacerlo. El rasgo transferido es esa quietud forzada: perdió el empleo y quedó detenido dentro de la casa.",
-          "Incorrecta: es una lectura literal. El nexo *como* señala un símil: se compara su estado con el de un barco, no se informa de su biografía laboral."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Frase de un cuento: «Desde que perdió el empleo, don Aurelio camina por la casa **como un barco anclado**.»\n\n¿Qué sentido tiene la frase en el relato?",
+          "opciones": [
+            "Don Aurelio se mueve sin descanso por toda la casa.",
+            "Don Aurelio permanece en casa sin rumbo, detenido a la fuerza.",
+            "Don Aurelio trabajaba en un barco antes de quedar desempleado."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: toma solo la mitad de la imagen (el barco, que navega) e ignora *anclado*, que es la palabra que la define. La comparación subraya la inmovilidad, no el movimiento.",
+            "Correcta: un barco está hecho para navegar, y anclado sigue ahí sin poder hacerlo. El rasgo transferido es esa quietud forzada: perdió el empleo y quedó detenido dentro de la casa.",
+            "Incorrecta: es una lectura literal. El nexo *como* señala un símil: se compara su estado con el de un barco, no se informa de su biografía laboral."
+          ]
+        },
+        {
+          "enunciado": "Frase de un cuento: «La ciudad amaneció con las calles vacías y los semáforos parpadeando en un idioma que nadie escuchaba.»\n\n¿Qué figura predomina?",
+          "opciones": [
+            "Hipérbole",
+            "Personificación",
+            "Símil"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: no hay exageración de una cantidad ni de una medida. La hipérbole desmesura un dato (*mil años esperándote*), y aquí no se exagera nada.",
+            "Correcta: hablar un idioma es una capacidad humana atribuida a los semáforos. Dar rasgos humanos a lo no humano es exactamente la personificación.",
+            "Incorrecta: el símil compara con un nexo (*como*, *cual*, *igual que*), y en la frase no aparece ninguno: los semáforos no se comparan con nada, actúan como personas."
+          ]
+        },
+        {
+          "enunciado": "En un cuento, un alumno entrega su trabajo tres semanas después del plazo y la maestra le dice: «Qué bueno que te apuraste.»\n\n¿Qué sentido tiene la frase en el relato?",
+          "opciones": [
+            "Reprocha la tardanza diciendo lo contrario de lo que da a entender.",
+            "Agradece con sinceridad la rapidez del alumno.",
+            "Señala que el plazo de entrega era flexible."
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: la frase dice una cosa y comunica la opuesta gracias al contexto de las tres semanas de retraso. Ese desajuste deliberado entre lo dicho y lo entendido es la ironía.",
+            "Incorrecta: es la lectura literal, y el contexto la vuelve imposible: nadie que entrega tres semanas tarde se apuró. La ironía se detecta contrastando la frase con los hechos del relato.",
+            "Incorrecta: agrega información que el texto no da. Que el plazo se haya incumplido no significa que admitiera prórroga; eso habría que suponerlo desde fuera del cuento."
+          ]
+        }
+      ]
     },
     {
       "id": "5.2-t4",
@@ -72,20 +162,50 @@
       "teoria": "**Interpretar un texto literario es reconstruir de qué habla en el fondo, más allá de lo que ocurre en la superficie.**\n\n| Nivel | Qué es | Cómo se enuncia |\n|---|---|---|\n| **Argumento** | Qué pasa | Un hombre pierde el tren y camina de regreso |\n| **Tema** | El asunto abstracto que la anécdota encarna | Con un sustantivo abstracto: la resignación |\n| **Sentido** | Qué propone el texto sobre ese tema | La resignación puede ser una forma de dignidad |\n\n- «¿De qué trata el cuento?» → busca el **tema** o el sentido, no el resumen.\n- «¿Qué ocurre al final?» → respuesta **literal**, está en el texto.\n\nEl texto literario admite **más de una lectura válida**, pero no cualquiera: la interpretación correcta se sostiene con **evidencia textual**. Se descarta la opción que agrega elementos ausentes, la que contradice hechos del relato y la que confunde lo que un personaje cree con lo que el texto afirma.\n\nApoyos para el sentido global:\n\n- El **título**.\n- La **primera** y la **última** oración.\n- Los elementos que se **repiten** (un objeto, una palabra, una imagen): la repetición en literatura casi nunca es casual y suele marcar el tema.",
       "ejemplo": "Cuento breve: un hombre limpia cada día la lápida de su esposa; el último día se queda dormido junto a ella y ya no vuelve.\n\n- **Anécdota:** un viudo visita una tumba y muere ahí.\n- **Tema:** el duelo y la fidelidad más allá de la muerte.\n- **Sentido:** el duelo prolongado va sustituyendo la vida del personaje.\n\nSe descarta «el cuento trata sobre el mal estado de los panteones»: confunde un detalle del escenario con el tema.",
       "enExamen": "Si la pregunta usa «trata sobre» o «el sentido del texto», la respuesta es un sustantivo abstracto, no el resumen de lo que pasa. La opción-trampa clásica toma un elemento del escenario o un detalle secundario y lo presenta como el tema del relato.",
-      "ejercicio": {
-        "enunciado": "Cuento breve: una mujer guarda cada carta que le envía su hijo migrante; cuando las cartas dejan de llegar, ella sigue revisando el buzón todas las mañanas durante años.\n\n¿Cuál opción enuncia el **tema** del cuento?",
-        "opciones": [
-          "Una madre revisa el buzón esperando cartas que ya no llegan.",
-          "La espera sostenida y la esperanza frente a la ausencia.",
-          "Las deficiencias del servicio postal en las comunidades rurales."
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: eso es el argumento — qué pasa en la superficie del relato. El tema se enuncia con un sustantivo abstracto, no con el resumen de la anécdota.",
-          "Correcta: nombra con sustantivos abstractos el asunto que la anécdota encarna. El gesto repetido de revisar el buzón durante años es la forma concreta de esa espera.",
-          "Incorrecta: toma un elemento del escenario (el buzón, el correo) y lo confunde con el tema. El texto no dice nada sobre el servicio postal: es información añadida."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Cuento breve: una mujer guarda cada carta que le envía su hijo migrante; cuando las cartas dejan de llegar, ella sigue revisando el buzón todas las mañanas durante años.\n\n¿Cuál opción enuncia el **tema** del cuento?",
+          "opciones": [
+            "Una madre revisa el buzón esperando cartas que ya no llegan.",
+            "La espera sostenida y la esperanza frente a la ausencia.",
+            "Las deficiencias del servicio postal en las comunidades rurales."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: eso es el argumento — qué pasa en la superficie del relato. El tema se enuncia con un sustantivo abstracto, no con el resumen de la anécdota.",
+            "Correcta: nombra con sustantivos abstractos el asunto que la anécdota encarna. El gesto repetido de revisar el buzón durante años es la forma concreta de esa espera.",
+            "Incorrecta: toma un elemento del escenario (el buzón, el correo) y lo confunde con el tema. El texto no dice nada sobre el servicio postal: es información añadida."
+          ]
+        },
+        {
+          "enunciado": "Un cuento titulado «Inventario» narra cómo un hombre, tras la muerte de su madre, pasa una semana clasificando y etiquetando cada objeto de la casa.\n\n¿Qué lectura del título se sostiene con el relato?",
+          "opciones": [
+            "Anuncia la lista de bienes que se repartirán entre los herederos.",
+            "Indica que la historia transcurre en una bodega.",
+            "Nombra la forma en que el personaje intenta ordenar su duelo."
+          ],
+          "respuesta": 2,
+          "explicaciones": [
+            "Incorrecta: se queda en el sentido literal y administrativo de la palabra. El relato no menciona herencia ni reparto: eso se está agregando desde fuera.",
+            "Incorrecta: toma un elemento del escenario que ni siquiera aparece. La casa no es una bodega, y el título no ubica el espacio sino que nombra una acción.",
+            "Correcta: el título es una de las claves del sentido global. Clasificar y etiquetar los objetos de la madre muerta es la manera concreta en que el personaje procesa la pérdida."
+          ]
+        },
+        {
+          "enunciado": "En un cuento, el protagonista está convencido de que su vecino lo espía, aunque el relato muestra que el vecino nunca sale de su departamento ni se asoma.\n\n¿Cuál interpretación se sostiene con el texto?",
+          "opciones": [
+            "El relato construye la sospecha del protagonista, no un espionaje real.",
+            "El vecino vigila al protagonista desde su ventana.",
+            "El protagonista y el vecino fueron amigos antes del conflicto."
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: distingue lo que un personaje **cree** de lo que el texto **afirma**. La evidencia textual apunta a un vecino que no se asoma, así que el tema es la sospecha, no la vigilancia.",
+            "Incorrecta: toma por hecho lo que solo está en la cabeza del protagonista, y además contradice el dato del relato: el vecino no se asoma.",
+            "Incorrecta: agrega un pasado compartido que el texto nunca menciona. La interpretación literaria admite varias lecturas, pero todas deben apoyarse en evidencia del relato."
+          ]
+        }
+      ]
     },
     {
       "id": "5.2-t5",
@@ -93,20 +213,50 @@
       "teoria": "**Evaluar es explicar por qué el texto está hecho así, no solo entender qué dice.**\n\nTres formas que adoptan estos reactivos:\n\n| Tipo | Pregunta | Cómo se responde |\n|---|---|---|\n| **Función de un elemento** | ¿Con qué propósito el autor incluye la lluvia? | Relacionándolo con un efecto: atmósfera, anticipación, caracterización, contraste |\n| **Ejemplo que ilustra** | ¿Qué pasaje muestra que el protagonista es indeciso? | Buscando la **acción concreta**, no otra afirmación general |\n| **Valoración coherente** | ¿Qué comentario sobre el ensayo es congruente? | Eligiendo el que se respalda con lo escrito |\n\nCriterios para juzgar:\n\n- **Coherencia** — ¿el elemento encaja con el resto del texto?\n- **Pertinencia** — ¿aporta algo al propósito del texto?\n- **Efecto** — ¿qué produce en el lector: tensión, humor, distancia, empatía?\n\nRegla de oro: una evaluación es correcta cuando puedes completar «esto es así **porque el texto dice…**». Si solo puedes decir «porque a mí me parece», es opinión, no evaluación válida.",
       "ejemplo": "En el cuento, antes de que el padre confiese su abandono, el narrador se detiene a describir una silla vacía en la cocina.\n\n¿Con qué propósito? La silla **anticipa la ausencia** que se revelará y crea la atmósfera de vacío: es un objeto que prefigura al padre ausente.\n\nSe descarta «para informar cómo estaba amueblada la casa»: sería pertinente en un inventario, no en un cuento donde el objeto reaparece justo antes de la confesión.",
       "enExamen": "Estos reactivos preguntan «¿con qué propósito…?» o «¿qué valoración es congruente?», y la respuesta correcta siempre conecta el elemento con un efecto narrativo. Las opciones-trampa describen la función del elemento en términos meramente informativos («para describir la casa») o expresan un gusto personal que el texto no respalda.",
-      "ejercicio": {
-        "enunciado": "En un cuento sobre la muerte de la abuela, el narrador menciona tres veces que el reloj de la sala está detenido a las 4:10.\n\n¿Con qué propósito el autor repite ese detalle?",
-        "opciones": [
-          "Para informar que el reloj de la casa está descompuesto.",
-          "Para marcar que en la casa el tiempo se detuvo con la muerte de la abuela.",
-          "Para indicar que la historia transcurre por la tarde."
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: describe la función en términos meramente informativos. Un dato que el narrador repite tres veces cumple un efecto en el relato; si solo informara del estado de un mueble, bastaría mencionarlo una vez.",
-          "Correcta: la repetición liga el objeto detenido con la pérdida y sostiene la atmósfera de duelo. Se puede completar la regla de oro: es así porque el texto insiste en esa hora exacta junto a la muerte.",
-          "Incorrecta: convierte la hora en un dato cronológico. El texto no la usa para ubicar la escena en el día, sino para asociarla con el momento de la muerte."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "En un cuento sobre la muerte de la abuela, el narrador menciona tres veces que el reloj de la sala está detenido a las 4:10.\n\n¿Con qué propósito el autor repite ese detalle?",
+          "opciones": [
+            "Para informar que el reloj de la casa está descompuesto.",
+            "Para marcar que en la casa el tiempo se detuvo con la muerte de la abuela.",
+            "Para indicar que la historia transcurre por la tarde."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: describe la función en términos meramente informativos. Un dato que el narrador repite tres veces cumple un efecto en el relato; si solo informara del estado de un mueble, bastaría mencionarlo una vez.",
+            "Correcta: la repetición liga el objeto detenido con la pérdida y sostiene la atmósfera de duelo. Se puede completar la regla de oro: es así porque el texto insiste en esa hora exacta junto a la muerte.",
+            "Incorrecta: convierte la hora en un dato cronológico. El texto no la usa para ubicar la escena en el día, sino para asociarla con el momento de la muerte."
+          ]
+        },
+        {
+          "enunciado": "Un cuento afirma que su protagonista es indeciso.\n\n¿Qué pasaje lo **muestra** con una acción concreta?",
+          "opciones": [
+            "El narrador dice que Ernesto nunca supo bien qué quería.",
+            "Ernesto escribió la carta de renuncia, la guardó en el cajón, la volvió a sacar, y así durante ocho meses.",
+            "Los compañeros de Ernesto lo consideraban un hombre de carácter difícil."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: es otra afirmación general, no un ejemplo. Cuando el reactivo pide el pasaje que ilustra un rasgo, busca la acción, no un enunciado que repita el rasgo con otras palabras.",
+            "Correcta: el ciclo de guardar y sacar la carta durante ocho meses es una acción concreta y repetida que hace visible la indecisión sin nombrarla.",
+            "Incorrecta: describe otro rasgo — el carácter difícil— y además lo hace por opinión de terceros. Ser difícil no es lo mismo que ser incapaz de decidir."
+          ]
+        },
+        {
+          "enunciado": "Un ensayo defiende la lectura en voz alta apoyándose en tres anécdotas familiares.\n\n¿Qué valoración del texto es congruente?",
+          "opciones": [
+            "Es un ensayo débil porque no incluye tablas estadísticas que respalden su postura.",
+            "Es un mal ensayo porque el tema resulta aburrido para el lector actual.",
+            "Sostiene su postura con experiencia propia, recurso legítimo del género, aunque de alcance limitado."
+          ],
+          "respuesta": 2,
+          "explicaciones": [
+            "Incorrecta: juzga el ensayo con los criterios de otro género. La estadística se le exige a un artículo de investigación; el ensayo argumenta con anécdotas, citas y comparaciones.",
+            "Incorrecta: es gusto personal, no evaluación. No se puede completar la regla de oro *esto es así porque el texto dice…*: solo dice qué le pareció a quien opina.",
+            "Correcta: evalúa con el criterio del género — la anécdota sí es una prueba válida en el ensayo— y a la vez señala su límite real, que es no poder generalizarse."
+          ]
+        }
+      ]
     }
   ]
 }

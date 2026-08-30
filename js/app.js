@@ -361,7 +361,7 @@ function vistaEstudioDetalle(subareaId) {
         <span class="etiqueta examen">🎯 En el examen</span>
         ${md(t.enExamen)}
       </div>` : ''}
-      ${t.ejercicio ? bloqueEjercicio(t.ejercicio, vista.datos.ejercicioResp) : ''}
+      ${t.ejercicios?.length ? bloqueEjercicios(t.ejercicios, vista.datos.ejercicioResp) : ''}
     </div>
 
     <div class="acciones" style="margin-top:18px">
@@ -375,10 +375,17 @@ function vistaEstudioDetalle(subareaId) {
     </div>`;
 }
 
-function bloqueEjercicio(ej, resp) {
-  const contestado = resp !== undefined && resp !== null;
+function bloqueEjercicios(ejercicios, respuestas) {
   return `<div class="leccion-ejercicio">
     <span class="etiqueta ejercicio">✏️ Pon a prueba lo que aprendiste</span>
+    ${ejercicios.map((ej, j) => bloqueEjercicio(ej, respuestas?.[j], j, ejercicios.length)).join('')}
+  </div>`;
+}
+
+function bloqueEjercicio(ej, resp, j, total) {
+  const contestado = resp !== undefined && resp !== null;
+  return `<div class="ejercicio-item">
+    ${total > 1 ? `<p class="mini ejercicio-num">Ejercicio ${j + 1} de ${total}</p>` : ''}
     <div class="enunciado" style="font-size:15px">${md(ej.enunciado)}</div>
     <div class="opciones">
       ${ej.opciones
@@ -388,7 +395,7 @@ function bloqueEjercicio(ej, resp) {
             if (i === ej.respuesta) cls += ' correcta';
             else if (i === resp) cls += ' incorrecta';
           }
-          return `<button class="${cls}" data-accion="estudio-responder" data-i="${i}" ${contestado ? 'disabled' : ''}>
+          return `<button class="${cls}" data-accion="estudio-responder" data-j="${j}" data-i="${i}" ${contestado ? 'disabled' : ''}>
             <span class="letra">${LETRAS[i]}</span><span>${md(o).replace(/^<p>|<\/p>$/g, '')}</span>
           </button>`;
         })
@@ -992,7 +999,8 @@ function ejecutar(accion, el) {
     case 'estudio-tema':
       return ir('estudio', { subarea: el.dataset.subarea, tema: Number(el.dataset.i) });
     case 'estudio-responder':
-      vista.datos.ejercicioResp = Number(el.dataset.i);
+      if (!vista.datos.ejercicioResp) vista.datos.ejercicioResp = {};
+      vista.datos.ejercicioResp[el.dataset.j] = Number(el.dataset.i);
       return render();
     case 'resultados':
       return ir('resultados');

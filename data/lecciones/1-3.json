@@ -9,20 +9,50 @@
       "teoria": "**Un conjunto es una colección bien definida de objetos llamados elementos, sin repeticiones y sin orden: {1, 2, 3} y {3, 1, 2} son el mismo conjunto.**\n\n- `a ∈ A` significa que a **pertenece** a A. El conjunto sin elementos es el **vacío**, ∅.\n- Definición por **extensión** (listando: A = {2, 4, 6}) o por **comprensión** (dando la propiedad: A = {x | x es par y x < 8}).\n- **Subconjunto** (A ⊆ B): todo elemento de A está en B. **Propio** (A ⊂ B) si además B tiene algo que A no.\n- **Igualdad**: A = B si A ⊆ B y B ⊆ A.\n\n**Operaciones**, con U como conjunto universo:\n\n| Operación | Símbolo | Contiene los elementos que… |\n|---|---|---|\n| Unión | A ∪ B | Están en A, en B o en ambos |\n| Intersección | A ∩ B | Están en A **y** en B (si es ∅, son **disjuntos**) |\n| Diferencia | A − B | Están en A pero **no** en B (**no** es conmutativa) |\n| Complemento | Aᶜ | Están en U pero **no** en A |\n| Diferencia simétrica | A △ B | Están en uno u otro **pero no en ambos**: (A ∪ B) − (A ∩ B) |\n| Producto cartesiano | A × B | Todos los **pares ordenados** (a, b); |A × B| = |A| × |B|, y A × B ≠ B × A |\n\n**Leyes fundamentales** — las mismas que rigen el álgebra de Boole y la lógica proposicional:\n\n- Conmutativa: A ∪ B = B ∪ A\n- Asociativa: (A ∪ B) ∪ C = A ∪ (B ∪ C)\n- Distributiva: A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)\n- Idempotencia: A ∪ A = A\n- **De Morgan**: (A ∪ B)ᶜ = Aᶜ ∩ Bᶜ y (A ∩ B)ᶜ = Aᶜ ∪ Bᶜ\n\n**Cardinalidad.** |A| es el número de elementos. El **principio de inclusión-exclusión** cuenta uniones sin duplicar:\n\n- Dos conjuntos: |A ∪ B| = |A| + |B| − |A ∩ B|\n- Tres: |A ∪ B ∪ C| = |A| + |B| + |C| − |A ∩ B| − |A ∩ C| − |B ∩ C| + |A ∩ B ∩ C|\n\n**Conjunto potencia.** P(A) es el conjunto de **todos los subconjuntos** de A, incluidos ∅ y el propio A. Si |A| = n, entonces **|P(A)| = 2ⁿ**, porque cada elemento puede estar o no estar: dos opciones por elemento.\n\nCuando un reactivo mezcla varias operaciones, lo más seguro es dibujar un **diagrama de Venn** y ubicar cada región antes de contar.",
       "ejemplo": "Sean U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, A = {1, 2, 3, 4, 5} y B = {4, 5, 6, 7}.\n\n| Operación | Resultado | Cardinalidad |\n|---|---|---|\n| A ∪ B | {1, 2, 3, 4, 5, 6, 7} | 7 |\n| A ∩ B | {4, 5} | 2 |\n| A − B | {1, 2, 3} | 3 |\n| B − A | {6, 7} | 2 |\n| A △ B | {1, 2, 3, 6, 7} | 5 |\n| Aᶜ | {6, 7, 8, 9, 10} | 5 |\n\nNota que A − B ≠ B − A: la diferencia **no es conmutativa**.\n\n**Verificación con inclusión-exclusión:** |A ∪ B| = |A| + |B| − |A ∩ B| = 5 + 4 − 2 = **7**. Coincide con el conteo directo.\n\n**Comprobación de De Morgan.** Queremos verificar que (A ∪ B)ᶜ = Aᶜ ∩ Bᶜ.\n\n- Lado izquierdo: (A ∪ B)ᶜ = U − {1,2,3,4,5,6,7} = {8, 9, 10}\n- Lado derecho: Aᶜ = {6,7,8,9,10}, Bᶜ = {1,2,3,8,9,10}; su intersección es {8, 9, 10}\n- Ambos lados coinciden. **La ley se cumple.**\n\n**Conjunto potencia.** Con C = {a, b, c}, |C| = 3, los subconjuntos son:\n\n∅, {a}, {b}, {c}, {a,b}, {a,c}, {b,c}, {a,b,c}\n\nSon **8**, que es 2³, como predice |P(C)| = 2ⁿ. Si C tuviera 5 elementos serían 2⁵ = 32 subconjuntos.\n\n**Producto cartesiano.** Con D = {x, y} y E = {1, 2, 3}:\n\nD × E = {(x,1), (x,2), (x,3), (y,1), (y,2), (y,3)}\n\nSon |D| × |E| = 2 × 3 = **6 pares ordenados**.",
       "enExamen": "Te dan dos o tres conjuntos y piden el resultado de una expresión combinada (por ejemplo (A ∪ B)ᶜ ∩ C) o una cardinalidad: resuelve de adentro hacia afuera y apóyate en un Venn. Los distractores más frecuentes olvidan que el conjunto potencia incluye ∅ y el propio conjunto (dan 2ⁿ − 2 en vez de 2ⁿ) o tratan A − B como conmutativa.",
-      "ejercicio": {
-        "enunciado": "En un grupo de 30 estudiantes, 18 llevan Álgebra, 15 llevan Física y 7 llevan **ambas** materias. ¿Cuántos llevan al menos una de las dos?",
-        "opciones": [
-          "26",
-          "33",
-          "19"
-        ],
-        "respuesta": 0,
-        "explicaciones": [
-          "Correcta: por inclusión-exclusión, |A ∪ F| = |A| + |F| − |A ∩ F| = 18 + 15 − 7 = **26**. Se resta la intersección una vez porque los 7 que llevan ambas fueron contados en los dos grupos.",
-          "Incorrecta: 33 = 18 + 15 es sumar sin descontar la intersección, así que los 7 de ambas materias quedan contados **dos veces**. Además, 33 excede a los 30 estudiantes del grupo: es señal de que el conteo se duplicó.",
-          "Incorrecta: 19 = 33 − 14 resta la intersección **dos veces**. Solo hay que restarla una vez: la primera resta ya deja a esos 7 estudiantes contados exactamente una vez."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "En un grupo de 30 estudiantes, 18 llevan Álgebra, 15 llevan Física y 7 llevan **ambas** materias. ¿Cuántos llevan al menos una de las dos?",
+          "opciones": [
+            "26",
+            "33",
+            "19"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: por inclusión-exclusión, |A ∪ F| = |A| + |F| − |A ∩ F| = 18 + 15 − 7 = **26**. Se resta la intersección una vez porque los 7 que llevan ambas fueron contados en los dos grupos.",
+            "Incorrecta: 33 = 18 + 15 es sumar sin descontar la intersección, así que los 7 de ambas materias quedan contados **dos veces**. Además, 33 excede a los 30 estudiantes del grupo: es señal de que el conteo se duplicó.",
+            "Incorrecta: 19 = 33 − 14 resta la intersección **dos veces**. Solo hay que restarla una vez: la primera resta ya deja a esos 7 estudiantes contados exactamente una vez."
+          ]
+        },
+        {
+          "enunciado": "El conjunto A = {a, b, c, d} tiene 4 elementos. ¿Cuántos elementos tiene su conjunto potencia P(A)?",
+          "opciones": [
+            "8",
+            "16",
+            "14"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: 8 = 2³ correspondería a un conjunto de **3** elementos. Aquí n = 4, así que el exponente también debe ser 4.",
+            "Correcta: |P(A)| = 2ⁿ = 2⁴ = **16**, porque cada uno de los 4 elementos puede estar o no estar en un subconjunto: 2 × 2 × 2 × 2.",
+            "Incorrecta: 14 = 2⁴ − 2 excluye el conjunto **vacío** y el **propio A**. Ambos son subconjuntos legítimos y sí forman parte del conjunto potencia."
+          ]
+        },
+        {
+          "enunciado": "¿A qué expresión equivale (A ∩ B)ᶜ?",
+          "opciones": [
+            "Aᶜ ∩ Bᶜ",
+            "Aᶜ ∪ Bᶜ",
+            "A ∪ B"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: Aᶜ ∩ Bᶜ es el complemento de la **unión**, la otra ley de De Morgan. Contiene solo lo que está fuera de ambos conjuntos, bastante menos de lo que abarca (A ∩ B)ᶜ.",
+            "Correcta: por De Morgan, al complementar se **niega cada conjunto y la operación cambia**: (A ∩ B)ᶜ = Aᶜ ∪ Bᶜ. Basta con quedar fuera de uno de los dos para no estar en la intersección.",
+            "Incorrecta: A ∪ B reúne todo lo que está en alguno de los dos e incluye a la propia intersección. El complemento de A ∩ B, por definición, **no** puede contener elementos de A ∩ B."
+          ]
+        }
+      ]
     },
     {
       "id": "1.3-t2",
@@ -30,20 +60,50 @@
       "teoria": "**Una relación de A en B es cualquier subconjunto del producto cartesiano A × B, es decir, un conjunto de pares ordenados; una función es la relación especial en la que a cada elemento del dominio le corresponde exactamente un elemento del codominio.**\n\n**Propiedades de una relación R sobre un conjunto A:**\n\n| Propiedad | Condición | Cómo verificarla rápido |\n|---|---|---|\n| **Reflexiva** | Para todo a: (a, a) ∈ R | Basta que falte **un** par (a,a) para que no lo sea |\n| **Irreflexiva** | Ningún (a, a) ∈ R | Ningún elemento se relaciona consigo mismo |\n| **Simétrica** | Si (a,b) ∈ R entonces (b,a) ∈ R | Todo par tiene su recíproco |\n| **Antisimétrica** | Si (a,b) y (b,a) ∈ R entonces a = b | No hay recíprocos entre elementos distintos |\n| **Transitiva** | Si (a,b) y (b,c) ∈ R entonces (a,c) ∈ R | Toda cadena debe cerrarse |\n\n**Dos combinaciones son las que se preguntan:**\n\n- **Relación de equivalencia** = reflexiva + simétrica + transitiva. Su efecto es **particionar** A en **clases de equivalencia** disjuntas cuya unión es todo A. Ejemplos: la igualdad, la congruencia módulo n, \"tener la misma edad\".\n- **Relación de orden parcial** = reflexiva + **antisimétrica** + transitiva. Ejemplos: ≤ sobre los números, ⊆ sobre conjuntos, la divisibilidad. Si además todo par es comparable, el orden es **total**.\n\n**Funciones.** En f: A → B, A es el **dominio**, B el **codominio**, y el conjunto de valores realmente alcanzados es la **imagen** o **rango** (puede ser un subconjunto propio del codominio).\n\n| Tipo | Condición | Imagen visual |\n|---|---|---|\n| **Inyectiva** (uno a uno) | Si f(x₁) = f(x₂) entonces x₁ = x₂ | Nunca **dos flechas llegan** al mismo punto |\n| **Sobreyectiva** (sobre) | La imagen coincide con el codominio | Ningún elemento de B queda **sin flecha** |\n| **Biyectiva** | Inyectiva **y** sobreyectiva | Correspondencia perfecta uno a uno |\n\nSolo la **biyectiva** tiene función inversa f⁻¹, y en conjuntos finitos implica |A| = |B|.\n\n**Composición.** (f ∘ g)(x) = f(g(x)) significa **aplicar primero g y después f** — se lee de derecha a izquierda. En general **f ∘ g ≠ g ∘ f**. Para que exista, la imagen de g debe estar contenida en el dominio de f. Si f y g son biyectivas, su composición también lo es.",
       "ejemplo": "**Parte 1: analizar una relación.** Sea A = {1, 2, 3} y R = {(1,1), (2,2), (3,3), (1,2), (2,1)}.\n\n| Propiedad | Verificación | ¿Se cumple? |\n|---|---|---|\n| Reflexiva | Están (1,1), (2,2) y (3,3) | **Sí** |\n| Simétrica | Para (1,2) existe (2,1) y viceversa | **Sí** |\n| Transitiva | (1,2)+(2,1) exigen (1,1) ✓; (2,1)+(1,2) exigen (2,2) ✓; (1,2)+(2,2) exigen (1,2) ✓ | **Sí** |\n\nCumple las tres, así que R es una **relación de equivalencia**. Sus clases son {1, 2} y {3}: particionan A, son disjuntas y su unión es todo A.\n\n**Contraejemplo:** S = {(1,1), (2,2), (3,3), (1,2)}. Es reflexiva, transitiva y **antisimétrica** (el único par entre distintos es (1,2) y no está (2,1)), pero **no es simétrica**. Por lo tanto S es un **orden parcial**, no una equivalencia.\n\n**Parte 2: clasificar funciones.** Sea A = {1, 2, 3} y B = {a, b, c, d}.\n\n| Función | Análisis | Clasificación |\n|---|---|---|\n| f = {(1,a), (2,b), (3,c)} | Imágenes distintas, pero *d* no es imagen de nadie | **Inyectiva**, no sobreyectiva |\n| g: A → {a, b} = {(1,a), (2,a), (3,b)} | Se alcanza todo el codominio, pero 1 y 2 comparten *a* | **Sobreyectiva**, no inyectiva |\n| h: A → {a, b, c} = {(1,c), (2,a), (3,b)} | Cada imagen distinta y se cubre todo el codominio | **Biyectiva**, con h⁻¹ = {(c,1), (a,2), (b,3)} |\n\n**Parte 3: composición.** Sean f(x) = 2x + 1 y g(x) = x². Calculemos ambas composiciones en x = 3.\n\n(f ∘ g)(3) = f(g(3)): primero g(3) = 3² = 9, después f(9) = 2(9) + 1 = **19**.\nEn general, (f ∘ g)(x) = f(x²) = 2x² + 1.\n\n(g ∘ f)(3) = g(f(3)): primero f(3) = 2(3) + 1 = 7, después g(7) = 7² = **49**.\nEn general, (g ∘ f)(x) = g(2x + 1) = (2x + 1)² = 4x² + 4x + 1.\n\nComo 19 ≠ 49, queda comprobado que **la composición no es conmutativa**: siempre se aplica primero la función de la derecha.",
       "enExamen": "El reactivo típico da una relación como lista de pares y pide decir cuáles propiedades cumple o si es de equivalencia: revisa una por una y recuerda que basta un contraejemplo para descartarla. En composición, el error inducido es evaluar de izquierda a derecha —en (f ∘ g)(x) se aplica **primero g**— y en funciones, confundir inyectiva con sobreyectiva.",
-      "ejercicio": {
-        "enunciado": "Con f(x) = x − 4 y g(x) = 3x, ¿cuánto vale **(f ∘ g)(2)**?",
-        "opciones": [
-          "2",
-          "−6",
-          "6"
-        ],
-        "respuesta": 0,
-        "explicaciones": [
-          "Correcta: (f ∘ g)(2) = f(g(2)). Se aplica **primero la de la derecha**: g(2) = 3(2) = 6, y después f(6) = 6 − 4 = **2**.",
-          "Incorrecta: −6 es (g ∘ f)(2): f(2) = 2 − 4 = −2 y g(−2) = −6. Sale de leer la composición de izquierda a derecha, pero en f ∘ g se aplica g primero.",
-          "Incorrecta: 6 es el resultado de g(2), o sea el paso intermedio. Falta aplicarle la función exterior f, que le resta 4."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Con f(x) = x − 4 y g(x) = 3x, ¿cuánto vale **(f ∘ g)(2)**?",
+          "opciones": [
+            "2",
+            "−6",
+            "6"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: (f ∘ g)(2) = f(g(2)). Se aplica **primero la de la derecha**: g(2) = 3(2) = 6, y después f(6) = 6 − 4 = **2**.",
+            "Incorrecta: −6 es (g ∘ f)(2): f(2) = 2 − 4 = −2 y g(−2) = −6. Sale de leer la composición de izquierda a derecha, pero en f ∘ g se aplica g primero.",
+            "Incorrecta: 6 es el resultado de g(2), o sea el paso intermedio. Falta aplicarle la función exterior f, que le resta 4."
+          ]
+        },
+        {
+          "enunciado": "Sobre A = {1, 2, 3}, la relación R = {(1,1), (2,2), (3,3), (1,2), (2,3), (1,3)} es reflexiva y transitiva. ¿Cómo se clasifica?",
+          "opciones": [
+            "Relación de equivalencia, porque incluye todos los pares (a, a)",
+            "Orden parcial, porque además es antisimétrica",
+            "No es ninguna de las dos, porque le falta ser simétrica"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: la reflexividad es solo uno de los tres requisitos. Una equivalencia debe ser además **simétrica**, y aquí está (1,2) pero no (2,1).",
+            "Correcta: es reflexiva, transitiva y **antisimétrica** —entre elementos distintos nunca aparecen los dos pares recíprocos—. Esas tres propiedades definen un **orden parcial**, igual que ≤ sobre los números.",
+            "Incorrecta: la falta de simetría descarta la equivalencia, pero no deja a la relación sin clasificar: es precisamente lo que permite la antisimetría y con ella el orden parcial."
+          ]
+        },
+        {
+          "enunciado": "Sea f: {1, 2, 3} → {a, b, c} definida por f = {(1,b), (2,c), (3,b)}. ¿Cómo se clasifica?",
+          "opciones": [
+            "Inyectiva, porque cada elemento del dominio tiene una sola imagen",
+            "Sobreyectiva, porque todas sus imágenes pertenecen al codominio",
+            "Ni inyectiva ni sobreyectiva"
+          ],
+          "respuesta": 2,
+          "explicaciones": [
+            "Incorrecta: que cada elemento del dominio tenga una sola imagen es lo que la hace **función**, no inyectiva. Inyectiva exige que dos elementos distintos no compartan imagen, y aquí 1 y 3 van ambos a *b*.",
+            "Incorrecta: que las imágenes estén en el codominio también forma parte de la definición de función. Sobreyectiva exige que **todo** el codominio se alcance, y aquí nadie llega a *a*.",
+            "Correcta: no es inyectiva porque f(1) = f(3) = b, y no es sobreyectiva porque *a* no es imagen de nadie. Su imagen es {b, c}, un subconjunto propio del codominio."
+          ]
+        }
+      ]
     },
     {
       "id": "1.3-t3",
@@ -51,20 +111,50 @@
       "teoria": "**La combinatoria cuenta de cuántas maneras puede ocurrir algo sin enumerar los casos, y todo se apoya en dos principios: multiplicación y adición.**\n\n| Principio | Cuándo se usa | Palabra clave | Fórmula |\n|---|---|---|---|\n| **Multiplicación (producto)** | La tarea ocurre en **etapas sucesivas** | \"**y**\" (primero esto *y* luego aquello) | m × n × … |\n| **Adición (suma)** | Alternativas **mutuamente excluyentes** | \"**o**\" (esto *o* aquello) | m + n |\n\nSi las alternativas se traslapan, hay que restar la intersección (inclusión-exclusión).\n\n**Factorial.** n! = n × (n−1) × … × 2 × 1, con **0! = 1** por convención. Cuenta las formas de ordenar n objetos distintos.\n\n**Permutaciones** — cuando **el orden sí importa** (podios, contraseñas, cargos, formaciones):\n\n| Caso | Fórmula |\n|---|---|\n| n objetos, todos | n! |\n| r tomados de n | **P(n, r) = n! / (n − r)!** |\n| Con repetición permitida | n^r |\n| Con objetos repetidos (n₁, n₂, … veces) | n! / (n₁! · n₂! · …) |\n| Circulares | (n − 1)! |\n\n**Combinaciones** — cuando **el orden no importa** (comités, equipos, cartas, subconjuntos):\n\n- **C(n, r) = n! / [r! · (n − r)!]**, el coeficiente binomial \"n en r\".\n- Propiedades: C(n, r) = C(n, n−r); C(n, 0) = C(n, n) = 1; la suma de todos los C(n, r) para r de 0 a n es **2ⁿ** (el tamaño del conjunto potencia).\n\n**Cómo decidir cuál usar.** La pregunta decisiva: *si intercambio dos de los elementos elegidos, ¿obtengo un resultado diferente?*\n\n- **Sí es diferente** → el orden importa → **permutación**. Elegir presidente y secretario: Ana-presidenta con Luis-secretario no es lo mismo que al revés.\n- **No, es lo mismo** → el orden no importa → **combinación**. Elegir dos integrantes de un comité: {Ana, Luis} es el mismo conjunto sin importar cómo se liste.\n\nRelación entre ambas: **P(n, r) = C(n, r) × r!**, porque cada combinación de r elementos puede ordenarse de r! maneras.",
       "ejemplo": "**Problema 1.** De un grupo de 8 estudiantes se elige un comité de 3 personas. ¿Cuántos comités distintos hay?\n\nSi el comité {Ana, Luis, Rosa} se lista como {Rosa, Ana, Luis}, ¿cambia algo? No → el orden **no** importa → **combinación**.\n\nC(8, 3) = 8! / [3! · 5!] = (8 × 7 × 6) / (3 × 2 × 1) = 336 / 6 = **56 comités**\n\n**Problema 2.** Del mismo grupo de 8 se eligen 3 personas para presidente, secretario y tesorero.\n\nAhora Ana presidenta con Luis secretario **sí** es distinto de Luis presidente con Ana secretaria → **permutación**.\n\nP(8, 3) = 8! / 5! = 8 × 7 × 6 = **336 asignaciones**\n\nVerificación de la relación: P(8,3) = C(8,3) × 3! = 56 × 6 = 336. Correcto.\n\n**Problema 3 (multiplicación).** Una contraseña de 2 letras mayúsculas seguidas de 3 dígitos, **con** repetición permitida.\n\nSon etapas sucesivas (\"una letra **y** otra letra **y** tres dígitos\") → multiplicamos. Hay 26 letras y 10 dígitos, y como se puede repetir, cada posición conserva todas sus opciones:\n\n26 × 26 × 10 × 10 × 10 = 676 × 1 000 = **676 000 contraseñas**\n\n**Problema 4 (adición).** En una cafetería hay 4 tipos de café y 3 de té; se pide **una sola** bebida.\n\nAlternativas excluyentes (\"café **o** té\") → sumamos: 4 + 3 = **7 opciones**.\n\nSi en cambio se pidiera un café **y** un té, sería multiplicación: 4 × 3 = 12 combinaciones.\n\n**Problema 5 (permutaciones con objetos repetidos).** ¿Cuántas palabras distintas se forman con las letras de CENEVAL?\n\nSon 7 letras, pero la **E** aparece 2 veces (C, N, V, A, L una vez cada una). Dividimos entre los factoriales de las repeticiones:\n\n7! / 2! = 5040 / 2 = **2520 palabras distintas**",
       "enExamen": "Te plantean una situación en palabras y todo depende de detectar si el orden importa: cargos, códigos y ordenamientos son permutación; comités, equipos y selecciones son combinación. El distractor está diseñado para el error inverso —te ofrecen P(n,r) cuando pedían C(n,r)— y suele ser exactamente r! veces mayor que la respuesta correcta.",
-      "ejercicio": {
-        "enunciado": "De 6 canciones se eligen 3 para armar una lista de reproducción en la que **el orden en que suenan importa**. ¿Cuántas listas distintas se pueden formar?",
-        "opciones": [
-          "120",
-          "20",
-          "720"
-        ],
-        "respuesta": 0,
-        "explicaciones": [
-          "Correcta: el orden importa, así que es una **permutación**: P(6,3) = 6!/(6−3)! = 6 × 5 × 4 = **120**.",
-          "Incorrecta: 20 es C(6,3), la **combinación**, que cuenta los conjuntos de 3 canciones sin importar el orden. Es exactamente 3! = 6 veces menor que la respuesta correcta, justo el factor que aporta ordenar cada trío.",
-          "Incorrecta: 720 es 6!, que ordena **las seis** canciones. El enunciado pide listas de solo 3, así que hay que detener el producto en tres factores: 6 × 5 × 4."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "De 6 canciones se eligen 3 para armar una lista de reproducción en la que **el orden en que suenan importa**. ¿Cuántas listas distintas se pueden formar?",
+          "opciones": [
+            "120",
+            "20",
+            "720"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: el orden importa, así que es una **permutación**: P(6,3) = 6!/(6−3)! = 6 × 5 × 4 = **120**.",
+            "Incorrecta: 20 es C(6,3), la **combinación**, que cuenta los conjuntos de 3 canciones sin importar el orden. Es exactamente 3! = 6 veces menor que la respuesta correcta, justo el factor que aporta ordenar cada trío.",
+            "Incorrecta: 720 es 6!, que ordena **las seis** canciones. El enunciado pide listas de solo 3, así que hay que detener el producto en tres factores: 6 × 5 × 4."
+          ]
+        },
+        {
+          "enunciado": "En una reunión de 10 personas cada quien saluda de mano a todas las demás exactamente una vez. ¿Cuántos saludos ocurren en total?",
+          "opciones": [
+            "45",
+            "90",
+            "100"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: un saludo involucra a **dos** personas y no importa quién extendió primero la mano, así que es una combinación: C(10,2) = (10 × 9)/2 = **45**.",
+            "Incorrecta: 90 = 10 × 9 = P(10,2) cuenta **pares ordenados**, es decir cuenta cada saludo dos veces (Ana con Luis y Luis con Ana). Falta dividir entre 2.",
+            "Incorrecta: 100 = 10² permitiría además que cada persona se salude a sí misma, y sigue contando cada par dos veces. Ni se puede repetir persona ni importa el orden."
+          ]
+        },
+        {
+          "enunciado": "¿Cuántas palabras distintas, con o sin sentido, se pueden formar reacomodando todas las letras de **BANANA**?",
+          "opciones": [
+            "720",
+            "60",
+            "120"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: 720 = 6! contaría las 6 letras como si todas fueran **distintas**. Intercambiar dos letras A entre sí no produce una palabra nueva, así que hay repeticiones que descontar.",
+            "Correcta: son 6 letras con la **A** repetida 3 veces y la **N** 2 veces. La fórmula de permutaciones con objetos repetidos da 6! / (3! · 2!) = 720 / 12 = **60**.",
+            "Incorrecta: 120 = 6!/3! descuenta solo las tres A y olvida que la **N** también aparece dos veces. Hay que dividir entre el factorial de **cada** letra repetida."
+          ]
+        }
+      ]
     },
     {
       "id": "1.3-t4",
@@ -72,20 +162,50 @@
       "teoria": "**En un sistema de numeración posicional el valor de cada dígito depende de su posición, multiplicándose por una potencia de la base b.**\n\n| Sistema | Base | Dígitos |\n|---|---|---|\n| Binario | 2 | 0, 1 |\n| Octal | 8 | 0 a 7 |\n| Decimal | 10 | 0 a 9 |\n| Hexadecimal | 16 | 0 a 9 y A=10, B=11, C=12, D=13, E=14, F=15 |\n\nEl binario es el lenguaje nativo de la máquina; el hexadecimal y el octal son abreviaturas del binario, porque 16 = 2⁴ y 8 = 2³.\n\n**Los tres métodos de conversión:**\n\n| Conversión | Método |\n|---|---|\n| Cualquier base → **decimal** | **Multiplicación posicional**: cada dígito por la base elevada a su posición (contando desde la derecha desde 0) y se suma. 1011₂ = 1·8 + 0·4 + 1·2 + 1·1 = 11 |\n| Decimal → **cualquier base** | **Divisiones sucesivas**: dividir entre la base anotando el **residuo** hasta que el cociente sea 0; los residuos se leen **de abajo hacia arriba** |\n| Binario ↔ octal/hex | **Agrupación de bits** (el atajo que ahorra tiempo, sin pasar por decimal) |\n\n**Agrupación de bits:**\n\n- **Binario → hexadecimal**: agrupar en **nibbles de 4 bits** desde la **derecha**, rellenando con ceros a la izquierda si falta (0000→0, 1010→A, 1111→F).\n- **Binario → octal**: igual pero en grupos de **3 bits**.\n- **Hexadecimal → binario**: cada dígito hex se expande a sus 4 bits.\n- **Octal → binario**: cada dígito octal se expande a sus 3 bits.\n- **Octal ↔ hexadecimal**: lo más seguro es **pasar por binario**.\n\nConviene memorizar las potencias de 2: 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, y la tabla de los 16 nibbles.\n\n**Fracciones.** Para la parte fraccionaria de decimal a binario se **multiplica por 2** repetidamente tomando la parte entera de cada producto, y se leen los acarreos **de arriba hacia abajo**.\n\n**Aritmética binaria.** Reglas de la suma: 0+0=0, 0+1=1, 1+0=1 y **1+1=10** (escribe 0, lleva 1). Los negativos se representan en **complemento a dos**: invertir todos los bits y sumar 1.",
       "ejemplo": "**Conversión 1: decimal 45 a binario** (divisiones sucesivas entre 2).\n\n| División | Cociente | Residuo |\n|---|---|---|\n| 45 ÷ 2 | 22 | **1** |\n| 22 ÷ 2 | 11 | **0** |\n| 11 ÷ 2 | 5 | **1** |\n| 5 ÷ 2 | 2 | **1** |\n| 2 ÷ 2 | 1 | **0** |\n| 1 ÷ 2 | 0 | **1** |\n\nResiduos leídos **de abajo hacia arriba**: 45₁₀ = **101101₂**\n\nComprobación posicional: 1·32 + 0·16 + 1·8 + 1·4 + 0·2 + 1·1 = 32 + 8 + 4 + 1 = 45. Correcto.\n\n**Conversión 2: binario 11010110 a hexadecimal** (nibbles de 4 desde la derecha).\n\n```\n1101 0110\n```\n\n- 1101 = 8 + 4 + 0 + 1 = 13 = **D**\n- 0110 = 0 + 4 + 2 + 0 = 6 = **6**\n\nResultado: 11010110₂ = **D6₁₆**\n\n**Conversión 3: el mismo binario a octal** (tríos desde la derecha).\n\n```\n11 010 110  →  rellenando a la izquierda:  011 010 110\n```\n\n- 011 = 3, 010 = 2, 110 = 6\n\nResultado: 11010110₂ = **326₈**\n\n**Conversión 4: hexadecimal 2F.**\n\n- A decimal: 2F₁₆ = 2·16¹ + 15·16⁰ = 32 + 15 = **47₁₀**\n- A binario, expandiendo cada dígito a 4 bits: 2 → 0010, F → 1111 → **00101111₂**\n\n**Conversión 5: suma binaria** de 1011₂ + 0110₂.\n\n```\n  1 1 1     ← acarreos\n    1 0 1 1\n  + 0 1 1 0\n  ---------\n    1 0 0 0 1\n```\n\nColumna por columna, de derecha a izquierda: 1+0 = 1; 1+1 = 10 (escribo 0, llevo 1); 0+1+1 = 10 (escribo 0, llevo 1); 1+0+1 = 10 (escribo 0, llevo 1); queda el acarreo final 1.\n\nResultado: **10001₂**. Comprobación en decimal: 1011₂ = 11 y 0110₂ = 6; 11 + 6 = 17, y 10001₂ = 16 + 1 = 17. Correcto.",
       "enExamen": "Te dan un número en una base y piden su equivalente en otra: si involucra binario con octal o hexadecimal, agrupa bits en lugar de pasar por decimal —es más rápido y evita errores. El distractor más frecuente es el resultado con los residuos leídos al revés (de arriba hacia abajo) y, en la agrupación, olvidar rellenar con ceros a la izquierda cuando el último grupo queda incompleto.",
-      "ejercicio": {
-        "enunciado": "¿Cuál es el equivalente en **hexadecimal** del número binario 10011110₂?",
-        "opciones": [
-          "9E",
-          "236",
-          "E9"
-        ],
-        "respuesta": 0,
-        "explicaciones": [
-          "Correcta: se agrupa en nibbles de **4 bits desde la derecha**: 1001 y 1110. 1001 = 8+1 = 9, y 1110 = 8+4+2 = 14 = E. Resultado: **9E₁₆**.",
-          "Incorrecta: 236 sale de agrupar en tríos de **3 bits** (010 011 110), que es la regla del **octal**, no del hexadecimal. Para hex son grupos de 4 bits, porque 16 = 2⁴.",
-          "Incorrecta: E9 tiene los dos grupos intercambiados. El nibble de la **izquierda** del binario es el dígito más significativo del hexadecimal, así que 1001 (=9) va primero."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "¿Cuál es el equivalente en **hexadecimal** del número binario 10011110₂?",
+          "opciones": [
+            "9E",
+            "236",
+            "E9"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: se agrupa en nibbles de **4 bits desde la derecha**: 1001 y 1110. 1001 = 8+1 = 9, y 1110 = 8+4+2 = 14 = E. Resultado: **9E₁₆**.",
+            "Incorrecta: 236 sale de agrupar en tríos de **3 bits** (010 011 110), que es la regla del **octal**, no del hexadecimal. Para hex son grupos de 4 bits, porque 16 = 2⁴.",
+            "Incorrecta: E9 tiene los dos grupos intercambiados. El nibble de la **izquierda** del binario es el dígito más significativo del hexadecimal, así que 1001 (=9) va primero."
+          ]
+        },
+        {
+          "enunciado": "¿Cuál es la representación **binaria** del número decimal 38?",
+          "opciones": [
+            "100110",
+            "011001",
+            "101100"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: las divisiones sucesivas entre 2 dan los residuos 0, 1, 1, 0, 0, 1 y se leen **de abajo hacia arriba**: **100110**. Comprobación: 32 + 4 + 2 = 38.",
+            "Incorrecta: 011001 son los mismos residuos leídos en el orden en que fueron **saliendo**, de arriba hacia abajo. Así valen 25, no 38: el último residuo es el bit más significativo.",
+            "Incorrecta: 101100 vale 32 + 8 + 4 = 44. Conviene siempre comprobar el resultado sumando las potencias de 2 correspondientes a los unos."
+          ]
+        },
+        {
+          "enunciado": "¿Cuál es el valor **decimal** del número hexadecimal B7₁₆?",
+          "opciones": [
+            "183",
+            "117",
+            "1 107"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: se aplica el valor posicional con base 16, recordando que B = 11: 11 × 16¹ + 7 × 16⁰ = 176 + 7 = **183**.",
+            "Incorrecta: 117 sale de tratar B y 7 como los dígitos decimales «11» y «7» pegados. Cada dígito hexadecimal debe multiplicarse por la **potencia de 16** de su posición, no concatenarse.",
+            "Incorrecta: 1 107 usa la B como si valiera 11 en la posición de las centenas, mezclando base 16 con base 10. La posición izquierda vale 16¹ = 16, no 100."
+          ]
+        }
+      ]
     },
     {
       "id": "1.3-t5",
@@ -93,20 +213,50 @@
       "teoria": "**Una matriz es un arreglo rectangular de números con m filas y n columnas; su orden es m × n y el elemento de la fila i y columna j se denota a_ij.**\n\nSe usan para representar sistemas de ecuaciones, transformaciones geométricas, grafos (matriz de adyacencia) y datos tabulares.\n\n**Tipos importantes:**\n\n| Tipo | Característica |\n|---|---|\n| **Cuadrada** | Mismo número de filas y columnas (n × n) |\n| **Identidad (I)** | 1 en la diagonal principal, 0 en el resto; es el neutro del producto: A · I = A |\n| **Nula** | Todos sus elementos son 0 |\n| **Diagonal** | Solo la diagonal principal tiene valores distintos de cero |\n| **Triangular superior / inferior** | Ceros por debajo / por encima de la diagonal |\n| **Simétrica** | A = Aᵀ, es decir a_ij = a_ji (así es la matriz de adyacencia de un grafo no dirigido) |\n\n**Operaciones:**\n\n- **Suma y resta**: solo entre matrices **del mismo orden**, **elemento a elemento**: c_ij = a_ij + b_ij. Conmutativa y asociativa.\n- **Producto por un escalar**: se multiplica **cada** elemento por el escalar.\n- **Transpuesta (Aᵀ)**: se intercambian filas por columnas; si A es m × n, Aᵀ es n × m. Se cumple (A·B)ᵀ = Bᵀ·Aᵀ.\n\n**Producto de matrices** — la operación que más se confunde:\n\n1. **Compatibilidad**: las **columnas de A** deben igualar las **filas de B**. Si A es m × p y B es p × n, el resultado es de orden **m × n**.\n2. Cada c_ij es el **producto punto de la fila i de A con la columna j de B**: se multiplican término a término y se suman.\n3. **No es conmutativo**: en general A·B ≠ B·A, e incluso puede existir uno y no el otro. Sí es asociativo y distributivo sobre la suma.\n\n**Determinante** (solo para matrices cuadradas):\n\n- 2 × 2, con [[a, b], [c, d]]: **det = a·d − b·c**\n- 3 × 3: **regla de Sarrus** (suma de las tres diagonales descendentes menos las tres ascendentes) o expansión por cofactores.\n- Si **det = 0**, la matriz es **singular**: no tiene inversa y sus filas son linealmente dependientes.\n\n**Inversa (A⁻¹).** Cumple A · A⁻¹ = I y existe solo si det(A) ≠ 0. Para 2 × 2: **A⁻¹ = (1/det) · [[d, −b], [−c, a]]**.\n\nEn algoritmia, multiplicar dos matrices n × n con el método directo cuesta **O(n³)**; Strassen lo baja a ≈ O(n^2.81) usando divide y vencerás.",
       "ejemplo": "Sean A = [[1, 2], [3, 4]] y B = [[5, 6], [7, 8]], ambas 2 × 2.\n\n**Suma** (elemento a elemento):\n\nA + B = [[1+5, 2+6], [3+7, 4+8]] = **[[6, 8], [10, 12]]**\n\n**Producto A · B.** Las columnas de A (2) coinciden con las filas de B (2), así que existe y será 2 × 2:\n\n| Celda | Producto punto | Valor |\n|---|---|---|\n| c₁₁ | fila 1 de A · columna 1 de B = (1)(5) + (2)(7) | **19** |\n| c₁₂ | fila 1 de A · columna 2 de B = (1)(6) + (2)(8) | **22** |\n| c₂₁ | fila 2 de A · columna 1 de B = (3)(5) + (4)(7) | **43** |\n| c₂₂ | fila 2 de A · columna 2 de B = (3)(6) + (4)(8) | **50** |\n\nA · B = **[[19, 22], [43, 50]]**\n\n**Comprobación de que no es conmutativo.** Calculando B · A:\n\n- c₁₁ = (5)(1) + (6)(3) = 23\n- c₁₂ = (5)(2) + (6)(4) = 34\n- c₂₁ = (7)(1) + (8)(3) = 31\n- c₂₂ = (7)(2) + (8)(4) = 46\n\nB · A = [[23, 34], [31, 46]] ≠ A · B. **El producto de matrices no es conmutativo.**\n\n**Transpuesta.** Aᵀ = [[1, 3], [2, 4]]: la primera fila (1, 2) se volvió la primera columna.\n\n**Determinante.** det(A) = (1)(4) − (2)(3) = 4 − 6 = **−2**. Como es distinto de 0, A es invertible.\n\n**Inversa.** A⁻¹ = (1/−2) · [[4, −2], [−3, 1]] = **[[−2, 1], [1.5, −0.5]]**\n\nVerificación de que A · A⁻¹ = I:\n- c₁₁ = (1)(−2) + (2)(1.5) = −2 + 3 = 1\n- c₁₂ = (1)(1) + (2)(−0.5) = 1 − 1 = 0\n- c₂₁ = (3)(−2) + (4)(1.5) = −6 + 6 = 0\n- c₂₂ = (3)(1) + (4)(−0.5) = 3 − 2 = 1\n\nResultado: [[1, 0], [0, 1]] = **I**. La inversa es correcta.\n\n**Caso incompatible.** Si C es 2 × 3 y D es 2 × 2, el producto C · D **no existe** (C tiene 3 columnas, D tiene 2 filas). En cambio D · C sí existe y da una matriz 2 × 3.",
       "enExamen": "Te dan dos matrices pequeñas y piden el producto, el determinante o el orden del resultado: verifica primero la compatibilidad (columnas de A = filas de B) porque a veces la respuesta correcta es \"no está definido\". El distractor clásico multiplica elemento a elemento como si fuera una suma, en lugar de hacer el producto punto de fila por columna.",
-      "ejercicio": {
-        "enunciado": "Si A es una matriz de orden 3 × 2 y B es de orden 2 × 4, ¿cuál es el orden de la matriz producto A · B?",
-        "opciones": [
-          "3 × 4",
-          "2 × 2",
-          "El producto no está definido"
-        ],
-        "respuesta": 0,
-        "explicaciones": [
-          "Correcta: el producto existe porque las **columnas de A** (2) igualan las **filas de B** (2), y el resultado toma las filas de A y las columnas de B: **3 × 4**.",
-          "Incorrecta: 2 × 2 toma las dimensiones **interiores**, que son justamente las que se cancelan al multiplicar. Las que sobreviven son las exteriores: 3 (filas de A) y 4 (columnas de B).",
-          "Incorrecta: la exigencia de mismo orden es para la **suma**, no para el producto. Para multiplicar basta que las columnas de la primera coincidan con las filas de la segunda, y aquí ambas valen 2."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Si A es una matriz de orden 3 × 2 y B es de orden 2 × 4, ¿cuál es el orden de la matriz producto A · B?",
+          "opciones": [
+            "3 × 4",
+            "2 × 2",
+            "El producto no está definido"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: el producto existe porque las **columnas de A** (2) igualan las **filas de B** (2), y el resultado toma las filas de A y las columnas de B: **3 × 4**.",
+            "Incorrecta: 2 × 2 toma las dimensiones **interiores**, que son justamente las que se cancelan al multiplicar. Las que sobreviven son las exteriores: 3 (filas de A) y 4 (columnas de B).",
+            "Incorrecta: la exigencia de mismo orden es para la **suma**, no para el producto. Para multiplicar basta que las columnas de la primera coincidan con las filas de la segunda, y aquí ambas valen 2."
+          ]
+        },
+        {
+          "enunciado": "¿Cuál es el determinante de la matriz [[4, 3], [2, 5]]?",
+          "opciones": [
+            "14",
+            "26",
+            "20"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: para una matriz 2 × 2 [[a, b], [c, d]], det = a·d − b·c = (4)(5) − (3)(2) = 20 − 6 = **14**. Como es distinto de 0, la matriz es invertible.",
+            "Incorrecta: 26 = 20 + 6 **suma** los dos productos en vez de restarlos. El determinante es el producto de la diagonal principal **menos** el de la secundaria.",
+            "Incorrecta: 20 es solo el producto de la diagonal principal (4 × 5). Falta restarle el de la diagonal secundaria, 3 × 2 = 6."
+          ]
+        },
+        {
+          "enunciado": "Con A = [[2, 0], [1, 3]] y B = [[1, 4], [5, 2]], ¿cuánto vale el elemento c₁₂ del producto A · B?",
+          "opciones": [
+            "8",
+            "0",
+            "4"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: c₁₂ es el producto punto de la **fila 1 de A** por la **columna 2 de B**: (2)(4) + (0)(2) = 8 + 0 = **8**.",
+            "Incorrecta: 0 sale de multiplicar casilla contra casilla las posiciones (1,2) de ambas matrices. El producto matricial no opera elemento a elemento, sino fila contra columna.",
+            "Incorrecta: 4 es únicamente el elemento b₁₂ de B, o el resultado de quedarse con el primer factor. Hay que recorrer **toda** la fila y **toda** la columna sumando los dos productos."
+          ]
+        }
+      ]
     },
     {
       "id": "1.3-t6",
@@ -114,20 +264,50 @@
       "teoria": "**Desde la perspectiva matemática, un grafo G = (V, E) se estudia por sus propiedades estructurales, y las sucesiones que describen procesos discretos se estudian mediante recurrencias.**\n\n**Resultados de teoría de grafos que conviene tener presentes:**\n\n| Resultado | Enunciado |\n|---|---|\n| **Lema del apretón de manos** | La suma de los grados es el **doble** del número de aristas; por tanto el número de vértices de grado impar siempre es **par** |\n| **Árbol** | Grafo conexo y sin ciclos; con n vértices tiene **n − 1 aristas**. Agregar cualquier arista crea un ciclo; quitar cualquiera lo desconecta |\n| **Árbol de expansión** | Subgrafo que incluye **todos los vértices** y es un árbol. El **mínimo** se calcula con Prim o Kruskal. Por el teorema de Cayley, un grafo completo de n vértices tiene n^(n−2) árboles de expansión |\n| **Camino de Euler** | Recorre **cada arista** una vez; existe si el grafo es conexo y tiene 0 o 2 vértices de grado impar (con 0 hay **circuito** de Euler) |\n| **Ciclo de Hamilton** | Visita **cada vértice** una vez; determinar si existe es **NP-completo** |\n\n**Redes de Petri.** Modelo matemático para sistemas **concurrentes** (sincronización, paralelismo, recursos compartidos). Es un grafo **dirigido y bipartito** con dos tipos de nodos:\n\n- **Lugares** (círculos): condiciones o estados; contienen **marcas** (*tokens*).\n- **Transiciones** (barras o rectángulos): eventos.\n\nLos arcos van siempre de un lugar a una transición o al revés, **nunca entre nodos del mismo tipo**.\n\n- Una transición está **habilitada** si todos sus lugares de entrada tienen al menos tantas marcas como indica el peso del arco.\n- Al **dispararse**, consume las marcas de entrada y deposita marcas en los lugares de salida.\n- La distribución de marcas se llama **marcado** y describe el estado del sistema. Se analizan alcanzabilidad, vivacidad, acotamiento y ausencia de interbloqueo.\n\n**Relaciones de recurrencia.** Definen cada término de una sucesión en función de los anteriores, más las **condiciones iniciales**: Fibonacci a_n = a_(n−1) + a_(n−2), o el costo T(n) = 2T(n/2) + n. **Resolverla** es hallar una **fórmula cerrada** (una expresión directa en n). Métodos:\n\n- **Sustitución hacia atrás**: iterar desarrollando el término anterior hasta ver el patrón.\n- **Ecuación característica**: para recurrencias lineales homogéneas con coeficientes constantes.\n- **Teorema maestro**: para las de tipo divide y vencerás T(n) = a·T(n/b) + f(n).\n\n**Funciones generadoras.** Codifican toda una sucesión (a₀, a₁, a₂, …) como los coeficientes de una serie de potencias G(x) = a₀ + a₁x + a₂x² + … Manipular algebraicamente esa función (sumas, productos, desplazamientos) equivale a manipular la sucesión completa de una vez; al final se extrae el coeficiente de xⁿ para obtener la fórmula cerrada.",
       "ejemplo": "**Parte 1: resolver una recurrencia por sustitución hacia atrás.** Resolvamos T(n) = T(n−1) + 3, con T(0) = 2.\n\n- T(n) = T(n−1) + 3\n- T(n) = [T(n−2) + 3] + 3 = T(n−2) + 2·3\n- T(n) = [T(n−3) + 3] + 2·3 = T(n−3) + 3·3\n- Patrón: T(n) = T(n−k) + 3k\n\nDetenemos cuando n − k = 0, es decir k = n:\n\nT(n) = T(0) + 3n = 2 + 3n\n\n**Fórmula cerrada: T(n) = 3n + 2**, que es **O(n)**.\n\nVerificación: T(0) = 2 ✓; T(1) = T(0) + 3 = 5 y la fórmula da 3(1)+2 = 5 ✓; T(2) = 8 y la fórmula da 3(2)+2 = 8 ✓.\n\n**Parte 2: árbol de expansión mínima.** Grafo no dirigido con vértices {P, Q, R, S} y aristas P–Q (3), P–R (1), Q–R (2), Q–S (4), R–S (5).\n\nAplicamos **Kruskal**: ordenamos por peso y aceptamos las que no forman ciclo.\n\n| Arista | Peso | ¿Forma ciclo? | Decisión |\n|---|---|---|---|\n| P–R | 1 | No | **Aceptada** |\n| Q–R | 2 | No | **Aceptada** |\n| P–Q | 3 | Sí (P y Q ya conectados vía R) | Rechazada |\n| Q–S | 4 | No | **Aceptada** |\n| R–S | 5 | — | No se evalúa: ya hay n−1 aristas |\n\nMST: {P–R, Q–R, Q–S}, con **3 aristas = n − 1 = 4 − 1** ✓ y **peso total 1 + 2 + 4 = 7**.\n\n**Parte 3: disparo en una red de Petri.** Red con lugares P1, P2, P3 y una transición T1; arcos P1 → T1, P2 → T1 y T1 → P3, todos de peso 1.\n\nMarcado inicial M₀ = (2, 1, 0): P1 tiene 2 marcas, P2 tiene 1, P3 tiene 0.\n\n| Pregunta | Análisis | Resultado |\n|---|---|---|\n| ¿T1 está habilitada? | Necesita ≥1 marca en P1 y en P2; tiene 2 y 1 | **Sí** |\n| ¿Qué pasa al dispararse? | Consume 1 de P1 y 1 de P2, deposita 1 en P3 | M₁ = **(1, 0, 1)** |\n| ¿Puede volver a dispararse? | P2 quedó en 0 marcas | **No**: bloqueada hasta que otra transición reponga una marca en P2 |\n\nAsí es como una red de Petri modela la sincronización y el interbloqueo entre procesos concurrentes.",
       "enExamen": "Aparecen tres formatos: una recurrencia con condición inicial de la que piden la fórmula cerrada o un término concreto, un grafo del que piden si admite circuito de Euler (cuenta los vértices de grado impar: 0 o 2), o una red de Petri con un marcado del que piden el estado tras un disparo. El distractor de Petri suele habilitar una transición ignorando que uno de sus lugares de entrada está sin marcas.",
-      "ejercicio": {
-        "enunciado": "Un grafo conexo tiene cuatro vértices con grados 2, 3, 3 y 4. ¿Qué se puede afirmar sobre sus recorridos de Euler?",
-        "opciones": [
-          "Tiene circuito de Euler, porque el grafo es conexo",
-          "Tiene camino de Euler pero no circuito, porque hay exactamente dos vértices de grado impar",
-          "No tiene camino ni circuito de Euler, porque existen vértices de grado impar"
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: la conexidad es necesaria pero no suficiente. El **circuito** de Euler exige además que **todos** los vértices tengan grado par, y aquí hay dos de grado 3.",
-          "Correcta: los vértices de grado impar son exactamente dos (los de grado 3). Con 2 vértices impares hay **camino** de Euler —que empieza en uno de ellos y termina en el otro— pero no circuito, que exigiría 0 vértices impares.",
-          "Incorrecta: tener vértices de grado impar no descarta todo. La regla completa es: 0 impares → circuito; **exactamente 2 impares → camino**; más de 2 impares → ninguno de los dos. Aquí hay justo 2."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Un grafo conexo tiene cuatro vértices con grados 2, 3, 3 y 4. ¿Qué se puede afirmar sobre sus recorridos de Euler?",
+          "opciones": [
+            "Tiene circuito de Euler, porque el grafo es conexo",
+            "Tiene camino de Euler pero no circuito, porque hay exactamente dos vértices de grado impar",
+            "No tiene camino ni circuito de Euler, porque existen vértices de grado impar"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: la conexidad es necesaria pero no suficiente. El **circuito** de Euler exige además que **todos** los vértices tengan grado par, y aquí hay dos de grado 3.",
+            "Correcta: los vértices de grado impar son exactamente dos (los de grado 3). Con 2 vértices impares hay **camino** de Euler —que empieza en uno de ellos y termina en el otro— pero no circuito, que exigiría 0 vértices impares.",
+            "Incorrecta: tener vértices de grado impar no descarta todo. La regla completa es: 0 impares → circuito; **exactamente 2 impares → camino**; más de 2 impares → ninguno de los dos. Aquí hay justo 2."
+          ]
+        },
+        {
+          "enunciado": "Una sucesión cumple a_n = 2·a_(n−1) + 1 con a₀ = 1. ¿Cuánto vale a₄?",
+          "opciones": [
+            "31",
+            "16",
+            "9"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: se desarrolla desde la condición inicial: a₁ = 2(1)+1 = 3, a₂ = 2(3)+1 = 7, a₃ = 2(7)+1 = 15, a₄ = 2(15)+1 = **31**. La fórmula cerrada es 2^(n+1) − 1.",
+            "Incorrecta: 16 = 2⁴ aplica solo la parte multiplicativa e ignora el «+1» que se acumula en cada paso. Ese término constante es justamente lo que convierte 2ⁿ en 2^(n+1) − 1.",
+            "Incorrecta: 9 = 2(4) + 1 sustituye **n** directamente en la recurrencia, como si fuera una fórmula cerrada. Una recurrencia se define sobre el término **anterior**, así que hay que iterarla desde a₀."
+          ]
+        },
+        {
+          "enunciado": "Una red de Petri tiene una transición T con dos lugares de entrada, P1 y P2, ambos con arcos de peso 1. El marcado actual da 3 marcas a P1 y 0 a P2. ¿Está habilitada T?",
+          "opciones": [
+            "Sí, porque P1 tiene marcas de sobra",
+            "No, porque P2 no tiene ninguna marca",
+            "Sí, porque en total hay 3 marcas y solo se necesitan 2"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: las marcas **no se comparten** entre lugares. Que sobren en P1 no suple su ausencia en P2; cada lugar de entrada debe cumplir su propio requisito.",
+            "Correcta: una transición está habilitada solo si **todos** sus lugares de entrada tienen al menos tantas marcas como pide el peso del arco. P2 tiene 0 y necesita 1, así que T queda bloqueada hasta que otra transición deposite una marca ahí.",
+            "Incorrecta: el criterio no es un total global de marcas, sino la condición **lugar por lugar**. Esa lectura acumulativa es justo la que impide detectar interbloqueos en un sistema concurrente."
+          ]
+        }
+      ]
     }
   ]
 }

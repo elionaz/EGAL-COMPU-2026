@@ -9,20 +9,50 @@
       "teoria": "**En esta subárea se te presenta un fragmento y debes elegir la versión que corresponde al género social planteado y a su propósito.**\n\n| Género | Propósito | Voz | Registro |\n|---|---|---|---|\n| **Editorial** | Fijar la postura institucional del medio | Primera del plural: *consideramos*, *este diario sostiene* | Formal, argumentativo |\n| **Convocatoria** | Regular una participación pública | Impersonal: *deberán presentar* | Formal, normativo |\n| **Carta de exposición de motivos** | Argumentar por qué el solicitante merece algo | Primera del singular | Formal, respetuoso |\n\n**Editorial de periódico.** No va firmado por un autor individual: habla el diario. Presenta el hecho brevemente, expone una **tesis**, la argumenta con datos y razones, y cierra con una valoración o una exhortación. No es una nota informativa: aquí la opinión es legítima, siempre que esté fundamentada.\n\n**Convocatoria.** Encabezado con el convocante, objeto, destinatarios, requisitos, bases, plazos, premio y cláusula de casos no previstos. Apartados numerados, fechas y montos explícitos. No admite adjetivos valorativos ni ambigüedades: si un requisito puede leerse de dos maneras, está mal redactado.\n\n**Carta de exposición de motivos.** Lugar y fecha, destinatario con su cargo, saludo formal, presentación del remitente, exposición de motivos, relación entre su trayectoria y lo solicitado, agradecimiento, despedida y firma. Tono respetuoso pero no servil, con argumentos concretos en vez de frases genéricas.\n\nCriterio general: pregúntate **quién habla, a quién y para qué**. Un editorial que solo informa no cumple su propósito; una convocatoria con opiniones pierde su carácter normativo; una carta de motivos que no vincula la trayectoria con lo solicitado se queda en lugares comunes.",
       "ejemplo": "Cierre de una **carta de exposición de motivos** para una beca. ¿Cuál opción es adecuada?\n\n- A) «Ojalá me la den, la verdad me hace mucha falta.» → coloquial y sin argumento: se descarta.\n- B) «Exijo que mi solicitud sea considerada de manera prioritaria.» → tono inadecuado: quien solicita no exige.\n- C) «**Agradezco la atención brindada y quedo a su disposición para ampliar la información que se considere necesaria.**» → **correcta**: formal, cortés y propia del cierre del género.",
       "enExamen": "Identifica el género en el enunciado y verifica que la voz de la opción coincida: plural institucional en el editorial, impersonal en la convocatoria, singular en la carta. La opción-trampa es correcta en gramática pero rompe el propósito del género — una convocatoria con adjetivos valorativos, o una carta que exige en vez de solicitar.",
-      "ejercicio": {
-        "enunciado": "Se redacta el párrafo de postura de un **editorial** de periódico sobre un nuevo reglamento de movilidad. ¿Cuál opción corresponde al género?",
-        "opciones": [
-          "Ayer, el cabildo aprobó por catorce votos el nuevo reglamento de movilidad.",
-          "Este diario considera que el reglamento avanza en la dirección correcta, pero deja sin resolver el financiamiento del transporte público.",
-          "Yo pienso que el reglamento está bien hecho, aunque a mí no me convence del todo."
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: informa el hecho con datos atribuidos, que es el propósito de una nota informativa. Un editorial que solo informa no cumple su función: le falta la tesis.",
-          "Correcta: habla la voz institucional del medio (*este diario*), fija una postura y la sostiene con una razón concreta — la estructura propia del editorial.",
-          "Incorrecta: el editorial no se escribe en primera del singular ni desde el gusto personal. Aquí opina un individuo (*yo pienso*, *a mí no me convence*), no el diario, y sin argumento que lo respalde."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Se redacta el párrafo de postura de un **editorial** de periódico sobre un nuevo reglamento de movilidad. ¿Cuál opción corresponde al género?",
+          "opciones": [
+            "Ayer, el cabildo aprobó por catorce votos el nuevo reglamento de movilidad.",
+            "Este diario considera que el reglamento avanza en la dirección correcta, pero deja sin resolver el financiamiento del transporte público.",
+            "Yo pienso que el reglamento está bien hecho, aunque a mí no me convence del todo."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: informa el hecho con datos atribuidos, que es el propósito de una nota informativa. Un editorial que solo informa no cumple su función: le falta la tesis.",
+            "Correcta: habla la voz institucional del medio (*este diario*), fija una postura y la sostiene con una razón concreta — la estructura propia del editorial.",
+            "Incorrecta: el editorial no se escribe en primera del singular ni desde el gusto personal. Aquí opina un individuo (*yo pienso*, *a mí no me convence*), no el diario, y sin argumento que lo respalde."
+          ]
+        },
+        {
+          "enunciado": "Se redacta el apartado de requisitos de una **convocatoria** municipal. ¿Cuál versión corresponde al género?",
+          "opciones": [
+            "Los interesados deberán presentar identificación oficial vigente y comprobante de domicilio del municipio.",
+            "Esperamos que se anime a participar mucha gente valiosa de nuestras hermosas colonias.",
+            "Consideramos que este concurso es una gran oportunidad para los jóvenes talentosos del municipio."
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: voz impersonal, verbo de obligación (*deberán*) y documentos nombrados con precisión. La convocatoria norma, y un requisito debe poder cumplirse sin interpretaciones.",
+            "Incorrecta: es un deseo, no un requisito, y encima con adjetivos valorativos (*valiosa*, *hermosas*). Una convocatoria no expresa expectativas ni califica a sus destinatarios.",
+            "Incorrecta: la voz institucional en primera del plural y el juicio de valor pertenecen al editorial. Aquí el apartado no establece ninguna condición verificable."
+          ]
+        },
+        {
+          "enunciado": "Se redacta el cuerpo de una **carta de exposición de motivos** para una beca de posgrado. ¿Cuál versión cumple el propósito del género?",
+          "opciones": [
+            "Siempre he sido un estudiante dedicado y muy responsable en todo lo que emprendo.",
+            "Coordiné dos años el laboratorio de suelos de mi facultad, experiencia ligada de manera directa con la línea de investigación del posgrado.",
+            "Necesito la beca porque mi situación económica es complicada y no tengo otra opción."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: es un lugar común. *Dedicado* y *responsable* son autoelogios que cualquier solicitante podría escribir, y no se apoyan en ningún hecho comprobable.",
+            "Correcta: presenta un hecho concreto de la trayectoria y lo vincula con lo solicitado, que es justamente lo que la exposición de motivos debe argumentar.",
+            "Incorrecta: apela a la necesidad en vez de al mérito. Puede ser cierta, pero el género pide relacionar la trayectoria con lo que se solicita, no exponer la carencia."
+          ]
+        }
+      ]
     },
     {
       "id": "6.2-t2",
@@ -30,20 +60,50 @@
       "teoria": "**La adecuación es la correspondencia entre el texto y su situación: quién escribe, a quién, para qué y por qué canal.**\n\nUn texto puede ser gramaticalmente impecable y aun así ser incorrecto si no es adecuado.\n\nVariables que hay que leer en el enunciado del reactivo:\n\n| Variable | Qué determina |\n|---|---|\n| **Destinatario** | Público general (léxico común), especialistas (terminología permitida), autoridad (fórmulas de cortesía) |\n| **Relación** | Simétrica (colegas) o asimétrica (ciudadano ante institución): la asimetría exige *usted*, *le solicito*, y prohíbe el imperativo directo |\n| **Canal y formato** | Un cartel exige brevedad; una carta, apertura y cierre; una convocatoria, apartados |\n| **Propósito** | Informar, regular, persuadir o solicitar |\n\nErrores de adecuación que aparecen como distractores:\n\n- **Mezcla de tratamientos** — empezar con *usted* y terminar con *tú*.\n- **Coloquialismos** en documentos formales — *checar*, *un montón de*, *la neta*.\n- **Muletillas de oralidad** por escrito — *o sea*, *pues bien*, *este…*\n- **Rebuscamiento** — cadenas de fórmulas vacías (*por medio de la presente me permito hacer de su apreciable conocimiento que…*). Lo formal no es lo enredado: se busca claridad.\n- **Vaguedad** — *más o menos en septiembre* en una convocatoria que necesita fecha exacta.",
       "ejemplo": "Se redacta una **solicitud dirigida al director de una escuela**. ¿Cuál versión es adecuada?\n\n- A) «Oye, ¿me puedes prestar el auditorio el viernes?» → informal y con tuteo: rompe la relación asimétrica.\n- B) «Por medio del presente ocurso me permito elevar a su digna consideración la petición que infrascrito suscribe…» → rebuscada y nunca dice qué se pide.\n- C) «**Le solicito el préstamo del auditorio el viernes 12 de septiembre, de 10:00 a 13:00 horas, para realizar el coloquio estudiantil.**» → **correcta**: formal, cortés, precisa y completa.",
       "enExamen": "Cuando las cuatro opciones son formales, decide por precisión: la correcta dice fecha, hora y motivo concretos. La trampa más usada ofrece una versión hiperformal y solemne que suena a documento oficial pero no comunica el dato que el destinatario necesita.",
-      "ejercicio": {
-        "enunciado": "Un comité vecinal escribe a una autoridad municipal. ¿Cuál versión es adecuada?",
-        "opciones": [
-          "Le informo que el comité solicitará una reunión; avísanos cuándo puedes recibirnos.",
-          "Le informo que el comité solicita una reunión y le agradeceré indicarnos la fecha en que pueda recibirnos.",
-          "Por medio de la presente me permito hacer de su apreciable conocimiento lo anteriormente expuesto."
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: mezcla tratamientos. Abre con *usted* (*le informo*) y cierra tuteando (*avísanos*, *puedes*), incoherencia que rompe la relación asimétrica con la autoridad.",
-          "Correcta: mantiene el *usted* de principio a fin, es cortés sin ser servil y dice con precisión qué se solicita y qué se espera del destinatario.",
-          "Incorrecta: es rebuscada y vacía. Encadena fórmulas de cortesía pero nunca dice qué se pide; lo formal no es lo enredado, y aquí el destinatario no recibe el dato que necesita."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Un comité vecinal escribe a una autoridad municipal. ¿Cuál versión es adecuada?",
+          "opciones": [
+            "Le informo que el comité solicitará una reunión; avísanos cuándo puedes recibirnos.",
+            "Le informo que el comité solicita una reunión y le agradeceré indicarnos la fecha en que pueda recibirnos.",
+            "Por medio de la presente me permito hacer de su apreciable conocimiento lo anteriormente expuesto."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: mezcla tratamientos. Abre con *usted* (*le informo*) y cierra tuteando (*avísanos*, *puedes*), incoherencia que rompe la relación asimétrica con la autoridad.",
+            "Correcta: mantiene el *usted* de principio a fin, es cortés sin ser servil y dice con precisión qué se solicita y qué se espera del destinatario.",
+            "Incorrecta: es rebuscada y vacía. Encadena fórmulas de cortesía pero nunca dice qué se pide; lo formal no es lo enredado, y aquí el destinatario no recibe el dato que necesita."
+          ]
+        },
+        {
+          "enunciado": "Aviso colocado en la entrada de un edificio, dirigido a los condóminos. ¿Cuál versión es adecuada al canal y al destinatario?",
+          "opciones": [
+            "Pues bien, o sea, les avisamos que el agua se va a cortar, este… más o menos el martes.",
+            "Se comunica a los condóminos que el suministro de agua se suspenderá el martes 14, de 9:00 a 15:00 horas, por mantenimiento de la cisterna.",
+            "Por medio del presente ocurso se hace del conocimiento de los habitantes la eventualidad hidráulica que habrá de verificarse."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: traslada al papel las muletillas de la oralidad (*pues bien*, *o sea*, *este…*) y además es vaga: *más o menos el martes* no sirve para organizarse.",
+            "Correcta: el canal exige brevedad y el destinatario, un dato accionable. Dice qué, cuándo, en qué horario y por qué, en registro formal y sin rodeos.",
+            "Incorrecta: es rebuscada. *Ocurso* y *eventualidad hidráulica* suenan solemnes pero ocultan la información: nunca se dice el día ni el horario del corte."
+          ]
+        },
+        {
+          "enunciado": "Un estudiante escribe por correo a un profesor que no conoce para pedirle una asesoría. ¿Cuál versión es adecuada?",
+          "opciones": [
+            "Hola, ¿te late si nos vemos mañana para que me expliques lo del proyecto?",
+            "Profesor: exijo una asesoría a la brevedad, pues el plazo se me vence el viernes.",
+            "Estimado profesor: le escribo para solicitarle una asesoría sobre mi proyecto de titulación; agradeceré me indique un horario disponible esta semana."
+          ],
+          "respuesta": 2,
+          "explicaciones": [
+            "Incorrecta: tutea y usa expresiones coloquiales (*te late*) con un destinatario desconocido y de mayor jerarquía. La relación asimétrica exige *usted*.",
+            "Incorrecta: mantiene el registro formal pero yerra el tono. Quien pide un favor solicita, no exige; el imperativo directo rompe la cortesía que la situación requiere.",
+            "Correcta: trato de *usted* sostenido, fórmula de saludo adecuada y una petición precisa que dice qué se necesita y qué se espera del destinatario."
+          ]
+        }
+      ]
     },
     {
       "id": "6.2-t3",
@@ -51,20 +111,50 @@
       "teoria": "**La cohesión léxica mantiene unido el texto por el vocabulario: se habla del mismo referente sin repetir siempre la misma palabra.**\n\nEl examen evalúa si la sustitución **conserva el sentido** y si evita la repetición innecesaria.\n\n| Recurso | Qué hace | Ejemplo |\n|---|---|---|\n| **Sinonimia** | Sustituye por una palabra equivalente | *convocatoria → invitación pública* |\n| **Antonimia** | Opone para contrastar | *Los ingresos crecieron; los egresos se redujeron.* |\n| **Hiperónimo** | Término más amplio que engloba a otros | *instrumento* engloba *cuestionario, entrevista, rúbrica* |\n| **Hipónimo** | Término específico dentro del general | *perro* respecto de *animal* |\n\nCuidados:\n\n- Casi no hay **sinónimos perfectos**: el sustituto debe caber en ese contexto y ese registro. *Casa* y *domicilio* son sinónimos, pero *domicilio* es formal y *choza* añade valoración.\n- El hiperónimo sirve para retomar una lista sin repetirla: *…cuestionario, entrevista y rúbrica. **Estos instrumentos** se aplicaron en abril.*\n- **Repetición deliberada:** en textos normativos (convocatoria, reglamento) **sí** se repite el término, porque un sinónimo podría sugerir que se habla de otra cosa. La variación estilística es virtud en un editorial, no en un requisito legal.\n- **Campo semántico:** el conjunto de palabras del mismo ámbito (*aspirante, registro, expediente, dictamen*) que da unidad al texto.\n\nFallas que aparecen como distractores: la **repetición viciosa**, el sinónimo que **cambia el registro** o **añade valoración**, y el hiperónimo **demasiado amplio** (*estas cosas* en lugar de *estos instrumentos*).",
       "ejemplo": "Versión con repetición viciosa: «*La convocatoria establece los requisitos. Los requisitos de la convocatoria deben cumplirse. Quien no cumpla los requisitos de la convocatoria quedará fuera.*»\n\nVersión cohesionada: «La convocatoria establece los **requisitos** de participación. **Estas condiciones** deben cumplirse en su totalidad; quien no las satisfaga quedará excluido del proceso.»\n\nSe usó el hiperónimo *condiciones* y el pronombre *las* para retomar el referente. Se conservó *requisitos* en su primera aparición porque es el término normativo del documento.",
       "enExamen": "Al elegir la sustitución, comprueba que el sinónimo mantenga el mismo registro y no añada juicio de valor. Dos opciones-trampa fijas: la que reemplaza el término por uno vago (*estas cosas*, *dicho asunto*) y la que sustituye un término normativo de una convocatoria, donde repetirlo era lo correcto.",
-      "ejercicio": {
-        "enunciado": "En el informe de un comité: «El comité revisó los expedientes de los aspirantes. ______ se dictaminarán en la sesión del jueves.»\n\n¿Qué expresión retoma mejor el referente?",
-        "opciones": [
-          "Estas cosas",
-          "Dichos documentos",
-          "Los expedientes de los aspirantes"
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: el hiperónimo es demasiado amplio y de registro coloquial. *Cosas* no identifica qué se dictaminará y hace perder precisión a un texto formal.",
-          "Correcta: *documentos* es un hiperónimo justo para *expedientes* —los engloba sin desdibujarlos— y conserva el registro formal del informe.",
-          "Incorrecta: no es un error gramatical, pero repite íntegra la frase anterior. En un informe esa repetición literal es viciosa; la repetición del término solo se justifica en textos normativos, donde variar podría sugerir que se habla de otra cosa."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "En el informe de un comité: «El comité revisó los expedientes de los aspirantes. ______ se dictaminarán en la sesión del jueves.»\n\n¿Qué expresión retoma mejor el referente?",
+          "opciones": [
+            "Estas cosas",
+            "Dichos documentos",
+            "Los expedientes de los aspirantes"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: el hiperónimo es demasiado amplio y de registro coloquial. *Cosas* no identifica qué se dictaminará y hace perder precisión a un texto formal.",
+            "Correcta: *documentos* es un hiperónimo justo para *expedientes* —los engloba sin desdibujarlos— y conserva el registro formal del informe.",
+            "Incorrecta: no es un error gramatical, pero repite íntegra la frase anterior. En un informe esa repetición literal es viciosa; la repetición del término solo se justifica en textos normativos, donde variar podría sugerir que se habla de otra cosa."
+          ]
+        },
+        {
+          "enunciado": "En una nota informativa: «Cerca de doscientas personas se ______ frente al palacio municipal.»\n\n¿Qué verbo conserva el registro objetivo del género?",
+          "opciones": [
+            "apiñaron",
+            "reunieron",
+            "amotinaron"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: *apiñarse* añade una connotación de amontonamiento incómodo. Describe lo mismo, pero cuela una valoración en un texto que debería limitarse a informar.",
+            "Correcta: es el término neutro del campo semántico. Nombra el hecho sin calificarlo, que es justo lo que la nota informativa necesita.",
+            "Incorrecta: *amotinarse* implica revuelta contra una autoridad, así que no solo valora: cambia el hecho que se reporta. Casi no hay sinónimos perfectos."
+          ]
+        },
+        {
+          "enunciado": "En un reglamento, el término *aspirante* se repite en los tres artículos que regulan el registro. ¿Qué valoración es correcta?",
+          "opciones": [
+            "Es un error de estilo: debió alternarse con *joven*, *candidato* y *participante* para evitar la repetición.",
+            "Es correcta: en un texto normativo se repite el término para que no se entienda que se habla de otra cosa.",
+            "Es correcta porque la repetición vuelve más elegante la redacción del reglamento."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: aplica al reglamento un criterio de otro género. Variar el término normativo abre la puerta a que *candidato* y *aspirante* se lean como figuras distintas.",
+            "Correcta: la repetición deliberada es una virtud en textos normativos, donde la precisión importa más que la variación estilística que sí se busca en un editorial.",
+            "Incorrecta: acierta el veredicto por la razón equivocada. La repetición aquí no se justifica por elegancia —de hecho no la hay—, sino por seguridad jurídica."
+          ]
+        }
+      ]
     },
     {
       "id": "6.2-t4",
@@ -72,20 +162,50 @@
       "teoria": "**Los marcadores discursivos guían al lector por la argumentación: señalan si lo que viene se suma, se opone, se deriva o concluye.**\n\nEn el editorial y en la carta de exposición de motivos sostienen la estructura del argumento.\n\n| Función | Marcadores |\n|---|---|\n| Ordenar | en primer lugar, a continuación, por último, finalmente |\n| Añadir | además, asimismo, igualmente, por otra parte |\n| Oponer | sin embargo, no obstante, por el contrario, ahora bien |\n| Causar | porque, debido a que, dado que, puesto que |\n| Concluir de algo | por lo tanto, en consecuencia, de ahí que, así pues |\n| Reformular | es decir, en otras palabras, dicho de otro modo |\n| Ejemplificar | por ejemplo, tal es el caso de, en particular |\n| Cerrar | en suma, en conclusión, para concluir |\n\nReglas de uso que el examen evalúa:\n\n- El marcador debe corresponder a la **relación real** entre las ideas. *Sin embargo* donde no hay contraste es error, aunque suene fluido.\n- **No se acumulan** marcadores de la misma función: *pero sin embargo*, *aunque no obstante*.\n- Van **entre comas**, o precedidos de punto y coma cuando enlazan oraciones completas.\n- **Progresión temática:** cada párrafo retoma algo del anterior y avanza. En un editorial la secuencia típica es hecho → postura → argumentos → conclusión o llamado a la acción.\n\n**Cómo elegir:** lee las dos ideas sin el marcador, di qué relación hay entre ellas y elige el de esa fila.",
       "ejemplo": "Editorial: «El ayuntamiento anunció una ampliación del presupuesto de transporte. ______, no ha publicado el calendario de obras ni el desglose del gasto.»\n\nRelación: la segunda idea **contrasta** con la primera → marcador de oposición: **sin embargo** (o *no obstante*).\n\n- *por lo tanto* → falso: la falta de calendario no se deriva del anuncio.\n- *es decir* → falso: no se está reformulando la misma idea.\n\nPuntuado: «…de transporte. **Sin embargo,** no ha publicado…»",
       "enExamen": "El reactivo da dos oraciones y un hueco: nombra la relación en voz baja antes de leer las opciones. Las trampas son un marcador de otra función que igual suena natural (*es decir* donde hay oposición) y la acumulación redundante del tipo *pero sin embargo*.",
-      "ejercicio": {
-        "enunciado": "¿Qué marcador completa correctamente el enunciado?\n\n«La convocatoria cerró con 1 200 solicitudes y solo 90 lugares disponibles. ______, trece de cada catorce aspirantes quedarán fuera.»",
-        "opciones": [
-          "Sin embargo",
-          "Es decir",
-          "Pero no obstante"
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: marca oposición, y aquí la segunda oración no se opone a la primera. Es el distractor más común porque *sin embargo* suena natural en casi cualquier hueco.",
-          "Correcta: la segunda oración dice en otras palabras lo que ya expresaban las cifras; esa relación de reformulación es la que señalan *es decir* o *en otras palabras*.",
-          "Incorrecta: además de marcar una oposición que no existe, acumula dos marcadores de la misma función (*pero* y *no obstante*), redundancia que la norma rechaza."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "¿Qué marcador completa correctamente el enunciado?\n\n«La convocatoria cerró con 1 200 solicitudes y solo 90 lugares disponibles. ______, trece de cada catorce aspirantes quedarán fuera.»",
+          "opciones": [
+            "Sin embargo",
+            "Es decir",
+            "Pero no obstante"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: marca oposición, y aquí la segunda oración no se opone a la primera. Es el distractor más común porque *sin embargo* suena natural en casi cualquier hueco.",
+            "Correcta: la segunda oración dice en otras palabras lo que ya expresaban las cifras; esa relación de reformulación es la que señalan *es decir* o *en otras palabras*.",
+            "Incorrecta: además de marcar una oposición que no existe, acumula dos marcadores de la misma función (*pero* y *no obstante*), redundancia que la norma rechaza."
+          ]
+        },
+        {
+          "enunciado": "¿Qué marcador completa correctamente el enunciado?\n\n«El comité amplió el plazo dos semanas. ______, el número de solicitudes se mantuvo igual.»",
+          "opciones": [
+            "Por lo tanto",
+            "No obstante",
+            "Por ejemplo"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: marca consecuencia, y aquí ocurre lo contrario de lo esperable. Si la ampliación hubiera producido ese resultado, la segunda oración diría que las solicitudes crecieron.",
+            "Correcta: la segunda idea contradice lo que se esperaría de la primera, y esa relación de oposición la expresan *no obstante* o *sin embargo*.",
+            "Incorrecta: la segunda oración no ilustra a la primera con un caso particular; la contradice. *Por ejemplo* pediría una muestra concreta de la ampliación."
+          ]
+        },
+        {
+          "enunciado": "¿Qué marcador completa correctamente el enunciado?\n\n«El reglamento no define quién dictamina, ni en qué plazo, ni bajo qué criterios. ______, resulta inaplicable tal como está redactado.»",
+          "opciones": [
+            "En consecuencia",
+            "Por otra parte",
+            "Es decir"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: la segunda oración es lo que se deriva de las tres omisiones enumeradas. Esa relación de consecuencia la marcan *en consecuencia*, *por lo tanto* o *de ahí que*.",
+            "Incorrecta: *por otra parte* introduce un asunto adicional, y aquí no se cambia de tema: se extrae una conclusión de lo ya dicho.",
+            "Incorrecta: *es decir* reformula con otras palabras la misma idea. La inaplicabilidad no repite las omisiones: es lo que se sigue de ellas."
+          ]
+        }
+      ]
     },
     {
       "id": "6.2-t5",
@@ -93,20 +213,50 @@
       "teoria": "**En estos géneros la puntuación tiene consecuencias prácticas: una coma mal puesta en una convocatoria cambia quién es elegible.**\n\n**Coma (,)**\n\n- **Enumeraciones:** *podrán participar estudiantes, egresados y docentes*. Sin coma antes de la *y* final.\n- **Incisos entre dos comas:** *el comité, integrado por cinco especialistas, dictaminará los casos.*\n- **Marcadores discursivos:** *No obstante, el plazo se mantiene.*\n- **Vocativo:** entre comas. *Estimado director, le comunico que…*\n- **Complemento antepuesto:** *En caso de empate, se aplicará un segundo criterio.*\n- **Nunca** una sola coma entre sujeto y verbo, ni entre verbo y complemento directo.\n\n**Explicativa frente a especificativa** — la diferencia decide el requisito:\n\n| Versión | Significa |\n|---|---|\n| *Los aspirantes, que entregaron su expediente, pasarán a entrevista.* | **Todos** entregaron y **todos** pasan |\n| *Los aspirantes que entregaron su expediente pasarán a entrevista.* | **Solo** los que entregaron pasan |\n\n**Punto y coma (;)** separa elementos de una enumeración que ya tienen comas dentro, y une oraciones muy ligadas: *Se recibieron 300 solicitudes; solo 45 cumplieron los requisitos.*\n\n**Dos puntos (:)** anuncian una enumeración (*Se requieren tres documentos: identificación, comprobante y carta*), introducen una cita textual y siguen al saludo de una carta formal (*Estimada directora:* — en español **no** se usa coma ahí).\n\n**Puntos suspensivos (…)** dejan un enunciado abierto o marcan una enumeración incompleta; equivalen a *etcétera*, así que no se combinan con él. Son exactamente tres.\n\n**Interrogación y exclamación** se abren y se cierran (*¿…?* *¡…!*). Frecuentes en el editorial como recurso retórico; ausentes en la convocatoria.",
       "ejemplo": "Una convocatoria dice: «Serán aceptados los proyectos, que cuenten con aval institucional.»\n\nLa coma vuelve **explicativa** la subordinada: da a entender que **todos** los proyectos tienen aval y que se aceptarán sin excepción. No es lo que se quiere normar.\n\nCorrección: «Serán aceptados los proyectos **que cuenten con aval institucional**.» Sin coma la subordinada es **especificativa** y restringe la aceptación a los proyectos avalados, que es el requisito real.",
       "enExamen": "En reactivos sobre convocatorias, lee la coma como si fuera parte del requisito: quitarla o ponerla cambia a quién incluye la regla. La opción-trampa añade comas «de respiración» alrededor de una subordinada especificativa, y con eso convierte un requisito restrictivo en una aclaración que no excluye a nadie.",
-      "ejercicio": {
-        "enunciado": "¿Cuál versión está correctamente puntuada?",
-        "opciones": [
-          "Estimada directora, le solicito el uso del auditorio el 12 de septiembre.",
-          "Estimada directora: le solicito el uso del auditorio el 12 de septiembre.",
-          "Estimada directora: le solicito, el uso del auditorio el 12 de septiembre."
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: en español el saludo de una carta formal se cierra con dos puntos, no con coma. La coma en ese lugar es un calco del inglés.",
-          "Correcta: dos puntos tras el saludo, como pide el género, y ningún signo que interrumpa la relación entre el verbo y su complemento.",
-          "Incorrecta: el saludo está bien puntuado, pero la coma queda entre el verbo *solicito* y su complemento directo, separación que la norma no admite."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "¿Cuál versión está correctamente puntuada?",
+          "opciones": [
+            "Estimada directora, le solicito el uso del auditorio el 12 de septiembre.",
+            "Estimada directora: le solicito el uso del auditorio el 12 de septiembre.",
+            "Estimada directora: le solicito, el uso del auditorio el 12 de septiembre."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: en español el saludo de una carta formal se cierra con dos puntos, no con coma. La coma en ese lugar es un calco del inglés.",
+            "Correcta: dos puntos tras el saludo, como pide el género, y ningún signo que interrumpa la relación entre el verbo y su complemento.",
+            "Incorrecta: el saludo está bien puntuado, pero la coma queda entre el verbo *solicito* y su complemento directo, separación que la norma no admite."
+          ]
+        },
+        {
+          "enunciado": "Un reglamento quiere establecer que **únicamente** los socios al corriente de su pago pueden votar. ¿Cuál versión lo expresa correctamente?",
+          "opciones": [
+            "Podrán votar los socios, que estén al corriente de su pago.",
+            "Podrán votar los socios que estén al corriente de su pago.",
+            "Podrán votar, los socios que estén al corriente de su pago."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: la coma vuelve explicativa la subordinada y da a entender que **todos** los socios están al corriente, con lo que nadie quedaría excluido del voto.",
+            "Correcta: sin coma la subordinada es especificativa y restringe el derecho a un subconjunto — los socios al corriente—, que es exactamente lo que el reglamento quiere normar.",
+            "Incorrecta: la coma queda entre el verbo *podrán votar* y su sujeto, separación que la norma no admite y que además no aclara nada del requisito."
+          ]
+        },
+        {
+          "enunciado": "Se enumeran los integrantes de un jurado con su profesión. ¿Cuál versión está correctamente puntuada?",
+          "opciones": [
+            "Integran el jurado: Ana Ríos, arquitecta, Luis Paz, historiador, Sara Cruz, museógrafa.",
+            "Integran el jurado: Ana Ríos, arquitecta; Luis Paz, historiador; Sara Cruz, museógrafa.",
+            "Integran el jurado; Ana Ríos, arquitecta; Luis Paz, historiador; Sara Cruz, museógrafa."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: usa comas en los dos niveles, así que no se distingue dónde termina un integrante y empieza el siguiente: parecen seis personas en vez de tres.",
+            "Correcta: los dos puntos anuncian la enumeración y el punto y coma separa elementos que ya llevan coma interna, de modo que cada nombre queda unido a su profesión.",
+            "Incorrecta: el punto y coma no anuncia enumeraciones. Tras *integran el jurado* corresponden dos puntos; el resto de la puntuación sí es correcta."
+          ]
+        }
+      ]
     },
     {
       "id": "6.2-t6",
@@ -114,20 +264,50 @@
       "teoria": "**La grafofonética evalúa los grafemas que suenan igual en el español de México y por eso se confunden al escribir.**\n\nNo hay que memorizar listas: bastan las reglas productivas y los pares que cambian de significado.\n\n**b / v**\n\n| Se escribe con **b** | Se escribe con **v** |\n|---|---|\n| Terminación *-bir* (*escribir, recibir*; excepto *hervir, servir, vivir*) | Después de *n* (*envío, invitar*) |\n| Terminación *-buir* (*contribuir*) | Tras los prefijos *ad-* (*advertir*) y *ob-* (*obvio*) |\n| Copretérito en *-aba* (*estudiaba, íbamos*) | Terminaciones *-ívoro, -ivo, -iva* (*carnívoro, activo, positiva*) |\n| Después de *m* (*cambio, hombre*) | |\n| Prefijos *bi-, bien-, biblio-, sub-* | |\n\n**c / s / z**\n\n- **c** — terminación *-ción* si el derivado tiene *-to* o *-do* (*atención–atento*, *dedicación–dedicado*); diminutivos *-cito, -cillo*.\n- **s** — terminación *-sión* si el derivado tiene *-so, -sor, -sivo* (*expresión–expresivo*, *televisión–televisor*); adjetivos en *-oso, -osa*; superlativos en *-ísimo*.\n- **z** — terminaciones *-anza* y *-azgo* (*confianza, liderazgo*); abstractos en *-eza* (*belleza*). Ante *e, i* la *z* se vuelve *c*: *lápiz → lápices*, *voz → voces*.\n\n**h** — muda pero obligatoria en *haber* y sus formas (*ha, he, hubo*), en palabras con los diptongos *hue-, hie-* (*hueso, hierro*) y con los prefijos *hidro-, hiper-, hipo-, hemi-, hetero-, homo-*.\n\n**g / j** — con **g** los verbos en *-ger, -gir* (*proteger, dirigir*; excepto *tejer, crujir*) y *geo-, -logía, -gente, -gencia*. Con **j** las terminaciones *-aje, -jero, -jería* (*lenguaje, extranjero*) y los pretéritos de *decir, traer, conducir*: *dije, trajo, condujeron*.\n\n**ll / y** — con **ll** las terminaciones *-illo, -illa* (*cuchillo, semilla*). Con **y** la conjunción *y*, las formas de *haber, ir, caer, oír* sin *ll* en el infinitivo (*haya, vaya, cayó, oyeron*) y las palabras con *yer-, yu-* (*yerno, yugo*).\n\n**Homófonos frecuentes** — se resuelven por **significado en contexto**, no por sonido: *haber / a ver*, *hecho / echo*, *halla / haya / aya*, *bello / vello*, *cocer / coser*, *tubo / tuvo*, *sino / si no*, *porque / porqué / por que / por qué*, *también / tan bien*.",
       "ejemplo": "Oración con cuatro errores: «*Voy haber si ya publicaron el desglose, por que no lo e visto; ojalá lo ayan subido.*»\n\n- *haber* → **a ver**: preposición *a* + verbo *ver* (*voy a mirar*), no el verbo *haber*.\n- *por que* → **porque**: introduce la causa; una sola palabra, sin tilde.\n- *e* → **he**: forma de *haber*, auxiliar de *visto*; siempre con *h*.\n- *ayan* → **hayan**: también de *haber*; *aya* es quien cuida niños y *halla* es de *hallar*.\n\nCorrecta: «Voy **a ver** si ya publicaron el desglose, **porque** no lo **he** visto; ojalá lo **hayan** subido.»",
       "enExamen": "Ante versiones de una oración que solo cambian una letra, traduce el homófono a su significado (*a ver* = *a mirar*, *he* = auxiliar de *haber*) en vez de fiarte del sonido. El distractor típico escribe correctamente tres palabras y falla en una sola, casi siempre en *porque/por qué* o en alguna forma de *haber*.",
-      "ejercicio": {
-        "enunciado": "¿Cuál versión está escrita correctamente?",
-        "opciones": [
-          "No sé porqué no tubo tiempo de escribir la carta.",
-          "No sé por qué no tuvo tiempo de escribir la carta.",
-          "No sé porque no tuvo tiempo de escrivir la carta."
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: *porqué* junto y con tilde es el sustantivo (*el porqué de su ausencia*), no el interrogativo. Y *tubo* es el objeto cilíndrico; la forma de *tener* es *tuvo*, con *v*.",
-          "Correcta: *por qué* separado y con tilde por encabezar una interrogativa indirecta tras *no sé*; *tuvo* con *v* como pretérito de *tener*; y *escribir* con *b* por la terminación *-bir*.",
-          "Incorrecta: *porque* junto y sin tilde introduce una causa, no una pregunta indirecta. Además *escrivir* rompe la regla de *-bir*, que se escribe con *b* salvo en *hervir*, *servir* y *vivir*."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "¿Cuál versión está escrita correctamente?",
+          "opciones": [
+            "No sé porqué no tubo tiempo de escribir la carta.",
+            "No sé por qué no tuvo tiempo de escribir la carta.",
+            "No sé porque no tuvo tiempo de escrivir la carta."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: *porqué* junto y con tilde es el sustantivo (*el porqué de su ausencia*), no el interrogativo. Y *tubo* es el objeto cilíndrico; la forma de *tener* es *tuvo*, con *v*.",
+            "Correcta: *por qué* separado y con tilde por encabezar una interrogativa indirecta tras *no sé*; *tuvo* con *v* como pretérito de *tener*; y *escribir* con *b* por la terminación *-bir*.",
+            "Incorrecta: *porque* junto y sin tilde introduce una causa, no una pregunta indirecta. Además *escrivir* rompe la regla de *-bir*, que se escribe con *b* salvo en *hervir*, *servir* y *vivir*."
+          ]
+        },
+        {
+          "enunciado": "¿Cuál versión emplea correctamente los homófonos?",
+          "opciones": [
+            "Hecho de menos las reuniones; a ver si el mes que entra volvemos a vernos.",
+            "Echo de menos las reuniones; a ver si el mes que entra volvemos a vernos.",
+            "Echo de menos las reuniones; haber si el mes que entra volvemos a vernos."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: *hecho* con *h* es el participio de *hacer* o el sustantivo (*un hecho comprobable*). Aquí se conjuga *echar de menos*, que no lleva *h*.",
+            "Correcta: *echo* es del verbo *echar*, sin *h*; y *a ver* es preposición más verbo *ver* — se comprueba porque puede sustituirse por *a mirar*.",
+            "Incorrecta: acierta *echo*, pero *haber* es el verbo auxiliar o el infinitivo. En esta frase la sustitución por *a mirar* funciona, y eso obliga a escribir *a ver*."
+          ]
+        },
+        {
+          "enunciado": "¿Cuál serie está escrita correctamente?",
+          "opciones": [
+            "expresión, atención, confianza",
+            "expreción, atención, confianza",
+            "expresión, atensión, confianzza"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: *expresión* con *s* porque su derivado es *expresivo*; *atención* con *c* porque viene de *atento*; y *confianza* con *z* por la terminación *-anza*.",
+            "Incorrecta: *expreción* rompe la regla de *-sión*. Se escribe con *s* cuando existe un derivado en *-so*, *-sor* o *-sivo*, y aquí ese derivado es *expresivo*.",
+            "Incorrecta: *atensión* debería ir con *c* porque su derivado *atento* termina en *-to*, y *confianzza* duplica una letra que en español nunca se dobla."
+          ]
+        }
+      ]
     }
   ]
 }

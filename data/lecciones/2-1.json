@@ -9,20 +9,50 @@
       "teoria": "**La arquitectura Von Neumann guarda las instrucciones y los datos en la misma memoria principal y los mueve por el mismo bus: eso es el principio de programa almacenado.**\n\nSe opone a la **arquitectura Harvard**, que usa memorias y buses **separados** para instrucciones y datos (microcontroladores, y la caché L1 de los procesadores modernos).\n\n| Componente | Qué hace |\n|---|---|\n| **ALU** (unidad aritmético-lógica) | Calcula: suma, resta, AND, OR, comparaciones. No decide nada |\n| **UC** (unidad de control) | Interpreta cada instrucción y emite las señales que ordenan al resto |\n| **Memoria principal** | Guarda instrucciones y datos en celdas numeradas por una **dirección** |\n| **Unidades de E/S** | Comunican con el exterior: teclado, disco, red |\n| **Buses** | Caminos por los que circula la información |\n\nALU + UC + registros = **CPU** o procesador.\n\n**Registros** (memoria diminuta y velocísima dentro de la CPU):\n\n- **PC** (contador de programa) — dirección de la **siguiente** instrucción\n- **IR** (registro de instrucción) — la instrucción que se ejecuta **ahora**\n- **MAR** (registro de dirección de memoria) — la dirección que se va a leer o escribir\n- **MBR/MDR** (registro de datos de memoria) — el dato que viaja desde o hacia la memoria\n- **Acumulador** y registros de propósito general — operandos y resultados de la ALU\n\n**Los tres buses** (confundirlos es el error clásico del tema):\n\n| Bus | Transporta | Flujo |\n|---|---|---|\n| **Datos** | Los valores: instrucciones y datos | Bidireccional |\n| **Direcciones** | La dirección de la celda a la que se accede | Unidireccional (CPU → memoria) |\n| **Control** | Señales de mando: lectura, escritura, interrupción, reloj | Bidireccional |\n\n- Ancho del bus de **direcciones** = cuánta memoria se puede direccionar: con *n* líneas, 2^n celdas.\n- Ancho del bus de **datos** = cuántos bits se transfieren por acceso.\n\n**El ciclo de instrucción** se repite sin parar mientras la máquina está encendida:\n\n| Etapa | Qué ocurre |\n|---|---|\n| **1. Fetch** (búsqueda) | `MAR ← PC`, se lee la memoria, la instrucción llega al `IR`, y el **PC se incrementa** |\n| **2. Decode** (decodificación) | La UC interpreta el código de operación y localiza los operandos |\n| **3. Execute** (ejecución) | La ALU realiza la operación y se escribe el resultado |\n\nMuchos textos añaden dos etapas más: **búsqueda de operandos** (entre decode y execute) y **almacenamiento del resultado / atención de interrupciones** al final.\n\n**Cuello de botella de Von Neumann**: como instrucciones y datos comparten un solo bus, el procesador calcula más rápido de lo que la memoria le entrega y pasa tiempo esperando. Las cachés, la segmentación (*pipelining*) y los buses más anchos son las respuestas a este problema.",
       "ejemplo": "Sigamos registro por registro la ejecución de una instrucción. La memoria contiene:\n\n| Dirección | Contenido |\n|---|---|\n| 100 | `LOAD 250` (cargar en el acumulador el dato de la dirección 250) |\n| 101 | `ADD 251` |\n| 250 | 40 |\n| 251 | 7 |\n\nEstado inicial: `PC = 100`, `AC (acumulador) = 0`.\n\n**Ciclo de la instrucción en 100:**\n\n| Etapa | Operación |\n|---|---|\n| Fetch | `MAR ← PC` = 100; se lee memoria; `MBR = LOAD 250` → `IR`; luego `PC ← 101` |\n| Decode | La UC reconoce el código `LOAD`, cuyo operando es la **dirección** 250 |\n| Busca operando | `MAR ← 250`, lectura de memoria, `MBR = 40` |\n| Execute | `AC ← MBR`, así que `AC = 40`. No hay resultado que escribir |\n\nEstado al terminar: `PC = 101`, `IR = LOAD 250`, `AC = 40`.\n\n**Ciclo de la instrucción en 101:** el fetch trae `ADD 251` al `IR` y deja `PC = 102`; el decode identifica una suma; se busca el operando de la dirección 251 (`MBR = 7`); la ALU calcula `40 + 7` y execute deja **`AC = 47`**.\n\nPara `LOAD 250` la memoria se consultó **dos veces** por el mismo bus (una por la instrucción y otra por el dato): esa doble visita es exactamente el cuello de botella de Von Neumann.",
       "enExamen": "Suelen darte una instrucción y un estado de registros y pedirte el valor de PC, IR, MAR o el acumulador después de una etapa concreta: recuerda que el **PC se incrementa durante el fetch**, no al final del ciclo, y que un salto lo sobrescribe en la ejecución. El otro patrón es identificar qué bus o qué registro interviene en una acción descrita; el distractor típico intercambia el bus de direcciones con el de datos, o atribuye a la ALU la función de decidir que corresponde a la UC.",
-      "ejercicio": {
-        "enunciado": "La memoria de una máquina Von Neumann tiene la instrucción `LOAD 700` en la dirección 500, y el dato 25 en la dirección 700. El estado inicial es `PC = 500`, `AC = 0`. **Justo al terminar la etapa de fetch** (antes de decodificar), ¿cuál es el valor del PC?",
-        "opciones": [
-          "PC = 500; seguirá igual hasta que termine la ejecución de la instrucción",
-          "PC = 501",
-          "PC = 700, la dirección del operando que la instrucción va a leer"
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: el incremento del PC **forma parte del fetch**, no del final del ciclo. Una vez que la instrucción viaja de la memoria al IR, el PC ya apunta a la siguiente instrucción; solo un salto lo sobrescribe después, durante la ejecución.",
-          "Correcta: el fetch hace `MAR ← PC` (500), lee la memoria, deja `LOAD 700` en el IR y **acto seguido incrementa el PC a 501**. Por eso al terminar el fetch el PC ya señala la siguiente instrucción, aunque la actual todavía no se haya decodificado ni ejecutado.",
-          "Incorrecta: 700 es la dirección del **operando**, y esa dirección se coloca en el **MAR** durante la búsqueda del operando, no en el PC. El PC solo guarda direcciones de instrucciones; confundir ambos registros es el error clásico del tema."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "La memoria de una máquina Von Neumann tiene la instrucción `LOAD 700` en la dirección 500, y el dato 25 en la dirección 700. El estado inicial es `PC = 500`, `AC = 0`. **Justo al terminar la etapa de fetch** (antes de decodificar), ¿cuál es el valor del PC?",
+          "opciones": [
+            "PC = 500; seguirá igual hasta que termine la ejecución de la instrucción",
+            "PC = 501",
+            "PC = 700, la dirección del operando que la instrucción va a leer"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: el incremento del PC **forma parte del fetch**, no del final del ciclo. Una vez que la instrucción viaja de la memoria al IR, el PC ya apunta a la siguiente instrucción; solo un salto lo sobrescribe después, durante la ejecución.",
+            "Correcta: el fetch hace `MAR ← PC` (500), lee la memoria, deja `LOAD 700` en el IR y **acto seguido incrementa el PC a 501**. Por eso al terminar el fetch el PC ya señala la siguiente instrucción, aunque la actual todavía no se haya decodificado ni ejecutado.",
+            "Incorrecta: 700 es la dirección del **operando**, y esa dirección se coloca en el **MAR** durante la búsqueda del operando, no en el PC. El PC solo guarda direcciones de instrucciones; confundir ambos registros es el error clásico del tema."
+          ]
+        },
+        {
+          "enunciado": "La CPU va a leer el contenido de la celda de memoria **2048**. ¿Por cuál bus viaja el número 2048, en qué sentido, y por cuál viaja el dato leído?",
+          "opciones": [
+            "El 2048 viaja por el bus de **direcciones**, solo de la CPU hacia la memoria; el dato regresa por el bus de **datos**, que es bidireccional",
+            "Tanto el 2048 como el dato viajan por el bus de **datos**, que es bidireccional; el bus de direcciones solo se usa al escribir",
+            "El 2048 viaja por el bus de **control**, porque es una orden de lectura; el dato regresa por el bus de direcciones"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: el bus de **direcciones** transporta la dirección de la celda a la que se accede y es **unidireccional** (CPU → memoria), porque la memoria nunca le indica direcciones a la CPU. El valor leído sube por el bus de **datos**, que sí es **bidireccional** porque también lleva los datos que se escriben. En paralelo, el bus de **control** lleva la señal de \"lectura\".",
+            "Incorrecta: intercambia las funciones de los dos buses. El bus de datos transporta **valores** (instrucciones y datos), nunca direcciones, y el de direcciones se usa en **toda** operación de memoria, lectura o escritura, porque siempre hay que decir a qué celda se accede. Confundir ambos buses es el error clásico del tema.",
+            "Incorrecta: el bus de control lleva **señales de mando** —lectura, escritura, interrupción, reloj—, no valores numéricos como una dirección o un dato. Y el bus de direcciones es unidireccional hacia la memoria: por él nunca regresa nada hacia la CPU."
+          ]
+        },
+        {
+          "enunciado": "Una máquina tiene un bus de **direcciones de 20 líneas** y un bus de **datos de 16 bits**. ¿Cuántas celdas de memoria distintas puede direccionar como máximo?",
+          "opciones": [
+            "65 536 celdas",
+            "1 048 576 celdas",
+            "68 719 476 736 celdas"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: 65 536 es `2¹⁶`, calculado con el ancho del bus de **datos**. Ese bus determina **cuántos bits se transfieren por acceso**, no cuántas celdas existen. Quien direcciona es el otro bus.",
+            "Correcta: con *n* líneas de dirección se pueden formar `2ⁿ` combinaciones distintas, una por celda. Con 20 líneas son `2²⁰` = **1 048 576** celdas (1 MiB si cada celda es un byte). El bus de datos, de 16 bits, es un dato aparte: dice que en cada acceso viajan 2 bytes.",
+            "Incorrecta: `2³⁶` sale de sumar las 20 líneas de dirección con los 16 bits de datos como si ambos buses aportaran capacidad de direccionamiento. Son buses **independientes** con funciones distintas: solo el de direcciones determina el espacio direccionable."
+          ]
+        }
+      ]
     },
     {
       "id": "2.1-t2",
@@ -30,20 +60,50 @@
       "teoria": "**La jerarquía de memoria apila varios tipos de memoria: mientras más abajo, más lenta y más grande, pero más barata por bit.**\n\n| Nivel | Acceso típico | Tamaño típico | Volátil |\n|---|---|---|---|\n| Registros de la CPU | menos de 1 ns | decenas de bytes | Sí |\n| Caché L1 | 1–2 ns | 32–64 KB por núcleo | Sí |\n| Caché L2 | 3–10 ns | 256 KB – 1 MB por núcleo | Sí |\n| Caché L3 | 10–30 ns | 8–64 MB compartida | Sí |\n| Memoria principal (RAM) | 50–100 ns | 8–64 GB | Sí |\n| Almacenamiento (SSD/disco) | microsegundos a milisegundos | cientos de GB o TB | No |\n\n**El principio de localidad** es lo que hace funcionar la jerarquía:\n\n- **Localidad temporal** — si se accedió a un dato, se volverá a acceder pronto (una variable dentro de un ciclo).\n- **Localidad espacial** — si se accedió a una dirección, se accederá pronto a las vecinas (recorrer un arreglo).\n\nPor eso la caché no trae bytes sueltos sino **líneas de caché** (típicamente 64 bytes).\n\n**Los tres niveles de caché:**\n\n| Nivel | Ubicación | Rasgo |\n|---|---|---|\n| **L1** | Dentro de cada núcleo | La más pequeña y rápida; suele dividirse en L1 de instrucciones y L1 de datos |\n| **L2** | Generalmente por núcleo | Intermedia en tamaño y velocidad |\n| **L3** | **Compartida entre todos los núcleos** | La más grande y lenta de las tres |\n\nLa búsqueda es en cascada: L1 → L2 → L3 → RAM. Si el dato no está en un nivel se produce un **fallo de caché** (*miss*).\n\n```\nT_promedio = tasa_aciertos x T_cache + (1 - tasa_aciertos) x T_memoria\n```\n\n**Tipos de memoria por tecnología:**\n\n| Tipo | Volátil | Uso | Detalle |\n|---|---|---|---|\n| **DRAM** | Sí | Memoria principal | Un capacitor por bit; densa y barata, necesita **refresco** |\n| **SRAM** | Sí | **Cachés** | Biestables; mucho más rápida y cara, sin refresco |\n| **ROM** | **No** | Firmware de arranque (BIOS/UEFI) | Contenido fijo o difícil de modificar |\n| **Flash / EEPROM** | No | SSD, memorias USB | Se borra eléctricamente |\n\nVariantes de ROM: **PROM** (se graba una vez), **EPROM** (se borra con luz ultravioleta), **EEPROM** y **flash** (se borran eléctricamente).\n\nLa **memoria virtual** no es una tecnología física sino un mecanismo del sistema operativo que usa el disco como extensión de la RAM.\n\nRegla mnemotécnica: **RAM = volátil, lectura y escritura, memoria de trabajo. ROM = no volátil, contenido fijo, arranque del sistema.**",
       "ejemplo": "Calculemos el **tiempo promedio de acceso a memoria** con dos niveles y luego con tres.\n\nDatos: caché L1 = 2 ns, RAM = 100 ns, tasa de aciertos de L1 = 90 %.\n\n**Sistema con solo L1 y RAM:**\n\n```\nT = 0.90 x 2 ns + 0.10 x 100 ns\nT = 1.8 ns + 10 ns = 11.8 ns\n```\n\nNueve de cada diez accesos aciertan, pero el 10 % de fallos aporta 10 de los 11.8 ns: **los fallos dominan el promedio**.\n\n**Agregamos una caché L2** de 10 ns que atrapa el 80 % de lo que L1 falla:\n\n```\nAciertos en L1: 90 %                  -> 0.90 x 2 ns   = 1.8 ns\nFallo en L1, acierto en L2:\n   0.10 x 0.80 = 8 % de los accesos   -> 0.08 x 10 ns  = 0.8 ns\nFallo en ambas:\n   0.10 x 0.20 = 2 % de los accesos   -> 0.02 x 100 ns = 2.0 ns\n                                         --------------------\n                                    T promedio = 4.6 ns\n```\n\nDe 11.8 ns a 4.6 ns: **2.6 veces más rápido sin cambiar la velocidad de la RAM**.\n\n**Comprobación de localidad.** Con línea de caché de 64 bytes y enteros de 4 bytes:\n\n```\nsuma = 0\npara i de 0 a 999:\n    suma = suma + arreglo[i]\n```\n\n- `suma` se lee y escribe en las 1000 iteraciones y permanece en caché → **localidad temporal**.\n- Cada fallo al tocar `arreglo[i]` trae 64 / 4 = **16 enteros de golpe**, así que solo 1 de cada 16 accesos falla → **localidad espacial**, con tasa de aciertos 15/16 = **93.75 %**.",
       "enExamen": "El cálculo más frecuente te da tiempos de acceso y una tasa de aciertos y pide el tiempo promedio: aplica `T = h x T_caché + (1 − h) x T_memoria` y, con tres niveles, multiplica las probabilidades condicionales de cada fallo. El otro patrón es clasificar una memoria descrita (volátil o no, con o sin refresco, dónde se usa); el distractor recurrente afirma que la caché es DRAM, que la ROM es volátil o que L3 es privada de cada núcleo.",
-      "ejercicio": {
-        "enunciado": "Un sistema tiene una caché con tiempo de acceso de **5 ns** y memoria principal de **80 ns**. La tasa de aciertos de la caché es del **95 %**. ¿Cuál es el tiempo promedio de acceso a memoria?",
-        "opciones": [
-          "8.75 ns",
-          "9 ns",
-          "42.5 ns"
-        ],
-        "respuesta": 0,
-        "explicaciones": [
-          "Correcta: se aplica `T = h × T_caché + (1 − h) × T_memoria` = `0.95 × 5 + 0.05 × 80` = `4.75 + 4` = **8.75 ns**. Aunque solo el 5 % de los accesos falla, ese 5 % aporta 4 de los 8.75 ns: los fallos pesan mucho más de lo que sugiere su porcentaje.",
-          "Incorrecta: 9 ns sale de sumar el acceso completo a caché más la penalización del fallo (`5 + 0.05 × 80`), como si en cada fallo primero se pagara la caché entera y luego la memoria. La fórmula pondera los **dos casos como alternativas**, no los encadena: el término de la caché también va multiplicado por su probabilidad.",
-          "Incorrecta: 42.5 ns es el promedio simple `(5 + 80) / 2`, que ignora por completo la tasa de aciertos y trata ambos niveles como igualmente probables. El sentido de la jerarquía de memoria es justamente que el nivel rápido se usa la enorme mayoría de las veces."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Un sistema tiene una caché con tiempo de acceso de **5 ns** y memoria principal de **80 ns**. La tasa de aciertos de la caché es del **95 %**. ¿Cuál es el tiempo promedio de acceso a memoria?",
+          "opciones": [
+            "8.75 ns",
+            "9 ns",
+            "42.5 ns"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: se aplica `T = h × T_caché + (1 − h) × T_memoria` = `0.95 × 5 + 0.05 × 80` = `4.75 + 4` = **8.75 ns**. Aunque solo el 5 % de los accesos falla, ese 5 % aporta 4 de los 8.75 ns: los fallos pesan mucho más de lo que sugiere su porcentaje.",
+            "Incorrecta: 9 ns sale de sumar el acceso completo a caché más la penalización del fallo (`5 + 0.05 × 80`), como si en cada fallo primero se pagara la caché entera y luego la memoria. La fórmula pondera los **dos casos como alternativas**, no los encadena: el término de la caché también va multiplicado por su probabilidad.",
+            "Incorrecta: 42.5 ns es el promedio simple `(5 + 80) / 2`, que ignora por completo la tasa de aciertos y trata ambos niveles como igualmente probables. El sentido de la jerarquía de memoria es justamente que el nivel rápido se usa la enorme mayoría de las veces."
+          ]
+        },
+        {
+          "enunciado": "Una memoria almacena cada bit en un **capacitor**, por lo que necesita un **refresco** periódico para no perder su contenido, y es la que se usa como memoria principal del equipo. ¿De qué memoria se trata?",
+          "opciones": [
+            "SRAM, la misma tecnología con la que se construyen las cachés L1, L2 y L3",
+            "DRAM, densa y barata por bit, y por eso la elegida para la memoria principal",
+            "EEPROM, que se borra eléctricamente y conserva su contenido sin energía"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: la **SRAM** guarda cada bit en un biestable, **no necesita refresco** y es mucho más rápida y cara; justo por eso se reserva para las cachés y no para la memoria principal. Decir que la caché es DRAM —o que la RAM principal es SRAM— es el distractor recurrente del tema.",
+            "Correcta: un capacitor por bit hace a la **DRAM** muy densa y barata, pero el capacitor se descarga y hay que reescribir el contenido periódicamente: ese es el **refresco**. Esa combinación de gran capacidad y costo bajo es la que la vuelve adecuada como memoria principal, aunque sea más lenta que la SRAM.",
+            "Incorrecta: la **EEPROM** es **no volátil** —conserva los datos sin alimentación— y por eso se usa en firmware y memorias flash, no como memoria de trabajo. Una memoria que necesita refresco es, por definición, volátil: pierde todo al apagarse."
+          ]
+        },
+        {
+          "enunciado": "Un programa recorre secuencialmente un arreglo de enteros de **8 bytes** cada uno. La caché trae la memoria en **líneas de 64 bytes**. Si al empezar la caché está vacía y solo se cuentan los accesos al arreglo, ¿cuál es la tasa de aciertos?",
+          "opciones": [
+            "87.5 %",
+            "12.5 %",
+            "50 %"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: cada línea de 64 bytes trae `64 / 8 = 8` enteros de golpe. El primer acceso a la línea **falla** y trae los ocho; los **siete** siguientes ya están en caché y aciertan. Por lo tanto 7 de cada 8 accesos aciertan: `7 / 8` = **87.5 %**. Esto es la **localidad espacial** en acción, y es lo que justifica que la caché no traiga bytes sueltos sino líneas completas.",
+            "Incorrecta: 12.5 % es `1 / 8`, la tasa de **fallos**, no la de aciertos. Es exactamente el complemento: de cada 8 accesos falla **uno** (el que trae la línea) y aciertan siete. Invertir aciertos y fallos hace parecer pésima a una caché que en realidad funciona muy bien.",
+            "Incorrecta: 50 % supone que acierto y fallo son igualmente probables, lo que ignora por completo el tamaño de la línea. Cuántos accesos aciertan depende de **cuántos elementos caben en una línea**: con enteros más pequeños o líneas más grandes la tasa sube, y ese cálculo es el que pide el reactivo."
+          ]
+        }
+      ]
     },
     {
       "id": "2.1-t3",
@@ -51,20 +111,50 @@
       "teoria": "**Un proceso es un programa en ejecución: su código más su estado actual — registros, contador de programa, pila, datos y recursos abiertos.**\n\nEl programa en disco es estático; el proceso es la entidad dinámica que el sistema operativo administra.\n\n**Los cinco estados:**\n\n| Estado | Situación |\n|---|---|\n| **Nuevo** | Se está creando; el sistema le reserva estructuras |\n| **Listo** (*ready*) | Tiene todo lo necesario y solo espera que le asignen la CPU |\n| **En ejecución** (*running*) | Se ejecuta en la CPU. Con un solo núcleo, **solo un proceso a la vez** |\n| **Bloqueado** (*waiting*) | Espera un evento externo, típicamente el fin de una E/S. Aunque la CPU quedara libre, no podría usarla |\n| **Terminado** | Concluyó; el sistema libera sus recursos |\n\n**Las cuatro transiciones que se preguntan:**\n\n| Transición | Causa |\n|---|---|\n| Listo → Ejecución | **Despacho**: lo decide el planificador |\n| Ejecución → Listo | **Expropiación**: fin de quantum o llegó uno más prioritario |\n| Ejecución → Bloqueado | El proceso **solicita E/S** o espera un evento |\n| Bloqueado → Listo | **Terminó la E/S** |\n\nNo existe la transición directa bloqueado → ejecución: quien se desbloquea pasa **siempre por listo**.\n\n**PCB** (bloque de control de proceso): la estructura donde el sistema guarda todo lo del proceso — PID, estado, contador de programa y registros, prioridad, información de memoria, archivos abiertos y contabilidad. El **cambio de contexto** salva el estado del proceso saliente en su PCB y restaura el del entrante; es puro **sobrecosto** (*overhead*).\n\n**Métricas de planificación:**\n\n```\nTiempo de retorno   = instante de finalización - instante de llegada\nTiempo de espera    = tiempo de retorno - tiempo de ráfaga\nTiempo de respuesta = primera vez que se ejecuta - instante de llegada\n```\n\n**Algoritmos de planificación:**\n\n| Algoritmo | ¿Expropiativo? | Criterio | Riesgo o defecto |\n|---|---|---|---|\n| **FIFO / FCFS** | No | Orden de llegada | **Efecto convoy**: un proceso largo al frente hace esperar a muchos cortos |\n| **SJF** | No | Ráfaga de CPU más corta | **Óptimo** en espera promedio, pero exige estimar la ráfaga y provoca **inanición** de los largos |\n| **SRTF** | **Sí** | Tiempo restante más corto | Versión expropiativa de SJF |\n| **Round Robin** | **Sí**, por tiempo | **Quantum** fijo, luego al final de la cola | Quantum grande → degenera en FIFO; quantum pequeño → demasiados cambios de contexto |\n| **Por prioridades** | Ambas versiones | Mayor prioridad primero (normalmente el **número menor**) | Inanición de los de baja prioridad; se remedia con **envejecimiento** (*aging*) |\n| **Colas multinivel realimentadas** | Sí | Varias colas con distinta prioridad y quantum | Los procesos migran entre colas según su comportamiento |\n\n**Round Robin** es el algoritmo de los sistemas de **tiempo compartido**: sacrifica la espera promedio para garantizar buen **tiempo de respuesta**.",
       "ejemplo": "Resolvamos el mismo conjunto de procesos con **FIFO**, **SJF** y **Round Robin**. Todos llegan en el instante 0, en el orden P1, P2, P3, P4.\n\n| Proceso | Ráfaga (ms) |\n|---|---|\n| P1 | 8 |\n| P2 | 4 |\n| P3 | 9 |\n| P4 | 5 |\n\n**FIFO (orden de llegada)**\n\n```\n| P1  | P2 | P3   | P4 |\n0     8   12     21   26\n```\n\nComo todos llegaron en 0, la espera de cada uno es el instante en que **empieza**:\n\n```\nP1: 0     P2: 8     P3: 12     P4: 21\nEspera promedio = (0 + 8 + 12 + 21) / 4 = 41 / 4 = 10.25 ms\n```\n\n**SJF (ordenado por ráfaga: P2=4, P4=5, P1=8, P3=9)**\n\n```\n| P2 | P4 | P1  | P3   |\n0    4    9    17     26\n```\n\n```\nP2: 0     P4: 4     P1: 9     P3: 17\nEspera promedio = (0 + 4 + 9 + 17) / 4 = 30 / 4 = 7.5 ms\n```\n\nSJF bajó la espera de 10.25 a 7.5 ms y **ningún otro orden puede dar menos**: por eso se dice que es óptimo. El precio: P3, el más largo, pasó de esperar 12 ms a esperar 17.\n\n**Round Robin con quantum = 4 ms**\n\nRestantes tras la primera vuelta: P1=4, P2=0 (termina), P3=5, P4=1.\n\n```\n| P1 | P2 | P3 | P4 | P1 | P3 | P4 | P3 |\n0    4    8   12   16   20   24   25   26\n```\n\nAquí conviene usar **espera = retorno − ráfaga**:\n\n| Proceso | Termina en | Retorno | Ráfaga | Espera |\n|---|---|---|---|---|\n| P1 | 20 | 20 | 8 | 12 |\n| P2 | 8 | 8 | 4 | 4 |\n| P3 | 26 | 26 | 9 | 17 |\n| P4 | 25 | 25 | 5 | 20 |\n\n```\nEspera promedio = (12 + 4 + 17 + 20) / 4 = 53 / 4 = 13.25 ms\n```\n\n**Comparación:** RR da la **peor espera promedio** (13.25 ms) pero el mejor **tiempo de respuesta** — ningún proceso esperó más de 12 ms para ejecutarse por primera vez, mientras que con FIFO P4 no vio la CPU hasta el milisegundo 21. Además RR produjo **7 cambios de contexto** frente a 3 de FIFO y SJF.",
       "enExamen": "El reactivo estándar te da una tabla de procesos con tiempo de llegada y ráfaga y pide la espera o el retorno **promedio** bajo un algoritmo: dibuja el diagrama de Gantt antes de calcular y usa `espera = retorno − ráfaga`, que funciona incluso cuando el proceso se ejecuta en varios tramos. Los distractores más frecuentes ofrecen el resultado de FIFO cuando se pidió SJF, confunden tiempo de espera con tiempo de respuesta, u olvidan restar el tiempo de llegada cuando los procesos no llegan todos en el instante 0.",
-      "ejercicio": {
-        "enunciado": "Cuatro procesos llegan todos en el instante 0, en el orden P1, P2, P3, P4:\n\n| Proceso | Ráfaga (ms) |\n|---|---|\n| P1 | 6 |\n| P2 | 2 |\n| P3 | 8 |\n| P4 | 4 |\n\n¿Cuál es el **tiempo de espera promedio** con planificación **SJF** (el más corto primero, no expropiativo)?",
-        "opciones": [
-          "5 ms",
-          "7.5 ms",
-          "10 ms"
-        ],
-        "respuesta": 0,
-        "explicaciones": [
-          "Correcta: SJF ordena por ráfaga → P2 (2), P4 (4), P1 (6), P3 (8). Como todos llegaron en 0, la espera de cada uno es el instante en que empieza: 0, 2, 6 y 12. Promedio = `(0 + 2 + 6 + 12) / 4` = `20 / 4` = **5 ms**.",
-          "Incorrecta: 7.5 ms es el resultado de **FIFO**, atendiendo en el orden de llegada P1, P2, P3, P4 → esperas 0, 6, 8, 16, promedio `30 / 4`. Es el distractor que aparece siempre que el reactivo cambia de algoritmo: hay que reordenar la cola antes de calcular.",
-          "Incorrecta: 10 ms es el tiempo de **retorno** promedio de SJF (finalizaciones en 2, 6, 12 y 20 → `40 / 4`), no el de espera. Recuerda que `espera = retorno − ráfaga`; confundir ambas métricas es el error más frecuente en este tema."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Cuatro procesos llegan todos en el instante 0, en el orden P1, P2, P3, P4:\n\n| Proceso | Ráfaga (ms) |\n|---|---|\n| P1 | 6 |\n| P2 | 2 |\n| P3 | 8 |\n| P4 | 4 |\n\n¿Cuál es el **tiempo de espera promedio** con planificación **SJF** (el más corto primero, no expropiativo)?",
+          "opciones": [
+            "5 ms",
+            "7.5 ms",
+            "10 ms"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: SJF ordena por ráfaga → P2 (2), P4 (4), P1 (6), P3 (8). Como todos llegaron en 0, la espera de cada uno es el instante en que empieza: 0, 2, 6 y 12. Promedio = `(0 + 2 + 6 + 12) / 4` = `20 / 4` = **5 ms**.",
+            "Incorrecta: 7.5 ms es el resultado de **FIFO**, atendiendo en el orden de llegada P1, P2, P3, P4 → esperas 0, 6, 8, 16, promedio `30 / 4`. Es el distractor que aparece siempre que el reactivo cambia de algoritmo: hay que reordenar la cola antes de calcular.",
+            "Incorrecta: 10 ms es el tiempo de **retorno** promedio de SJF (finalizaciones en 2, 6, 12 y 20 → `40 / 4`), no el de espera. Recuerda que `espera = retorno − ráfaga`; confundir ambas métricas es el error más frecuente en este tema."
+          ]
+        },
+        {
+          "enunciado": "Un proceso que está **en ejecución** solicita la lectura de un archivo en disco. ¿A qué estado pasa, y a cuál pasará cuando la lectura termine?",
+          "opciones": [
+            "Pasa a **listo** mientras se atiende la E/S, y al terminar vuelve directamente a **ejecución**",
+            "Pasa a **bloqueado**, y al terminar la E/S pasa a **listo**, no directamente a ejecución",
+            "Permanece **en ejecución** ocupando la CPU hasta que el disco responda, y luego continúa"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: el estado **listo** significa que el proceso tiene **todo lo que necesita** y solo le falta la CPU. Un proceso que espera que el disco responda no está en esa situación: aunque la CPU quedara libre, no podría avanzar. Además, el regreso a ejecución nunca es automático: lo decide el planificador.",
+            "Correcta: solicitar una E/S provoca la transición **ejecución → bloqueado**, porque el proceso espera un evento externo. Cuando la E/S concluye ocurre **bloqueado → listo**: el proceso ya puede avanzar, pero debe **esperar turno** en la cola de listos. La transición directa bloqueado → ejecución **no existe**; siempre se pasa por listo.",
+            "Incorrecta: eso sería **espera ocupada**, y desperdiciaría la CPU durante milisegundos enteros mientras el disco responde. El sentido de la multiprogramación es exactamente el contrario: liberar la CPU para que otro proceso la use mientras el primero espera su E/S."
+          ]
+        },
+        {
+          "enunciado": "En un sistema con planificación **Round Robin**, el administrador aumenta el quantum de 10 ms a 5 segundos, un valor mucho mayor que la ráfaga de cualquier proceso. ¿Cómo se comporta ahora el planificador?",
+          "opciones": [
+            "Se comporta como **FCFS (FIFO)**: ningún proceso agota su quantum, así que cada uno corre hasta terminar en su orden de llegada",
+            "Se comporta como **SJF**: al no haber expropiación, el planificador elige primero el proceso con la ráfaga más corta",
+            "Mejora el tiempo de respuesta, porque cada proceso recibe más CPU antes de ser expropiado"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: si el quantum supera a toda ráfaga, ningún proceso llega a ser expropiado por tiempo: cada uno se ejecuta **hasta terminar** y se atiende en orden de llegada, que es precisamente FCFS. Es uno de los dos extremos del quantum; en el otro, un quantum diminuto multiplica los **cambios de contexto** y su sobrecosto.",
+            "Incorrecta: Round Robin **nunca ordena la cola por duración de ráfaga**, con quantum grande o pequeño; toma los procesos en el orden en que llegaron a la cola de listos. Ordenar por ráfaga es lo que hace SJF, un algoritmo distinto que además exige **estimar** cuánto durará cada proceso.",
+            "Incorrecta: es justo al revés. El buen tiempo de respuesta de Round Robin viene de que **todos** los procesos tocan la CPU pronto gracias a un quantum pequeño. Con un quantum enorme, el último de la cola espera a que todos los anteriores terminen por completo — exactamente el problema que RR pretendía evitar."
+          ]
+        }
+      ]
     },
     {
       "id": "2.1-t4",
@@ -72,20 +162,50 @@
       "teoria": "**La paginación y la segmentación reparten la memoria física entre los procesos y traducen las direcciones lógicas que ve el proceso en las direcciones físicas reales de la RAM.**\n\nEl proceso trabaja con **direcciones lógicas o virtuales** (empiezan en 0 y son relativas a él); la **MMU** (unidad de gestión de memoria) las traduce a **direcciones físicas** en cada acceso. Eso permite reubicar procesos y aislarlos entre sí.\n\n**Paginación.** La memoria física se parte en **marcos** (*frames*) de tamaño fijo y el espacio lógico del proceso en **páginas** del mismo tamaño. Cualquier página puede ir en cualquier marco libre, así que **el proceso no necesita memoria contigua**. La **tabla de páginas** (una por proceso) dice en qué marco está cada página.\n\n```\ndirección lógica = ( número de página , desplazamiento dentro de la página )\n```\n\nCon páginas de 2^d bytes, los **d bits menos significativos** son el desplazamiento y el resto es el número de página.\n\n**Segmentación.** Divide el espacio lógico según la **estructura lógica del programa**: un segmento para el código, otro para la pila, otro para los datos. La **tabla de segmentos** guarda una **base** y un **límite** por segmento, y la traducción es `física = base + desplazamiento`, siempre que `desplazamiento < límite`.\n\n| | **Paginación** | **Segmentación** |\n|---|---|---|\n| Tamaño de las unidades | **Fijo** (página) | **Variable** (segmento) |\n| Criterio de división | Físico, transparente al programador | Lógico, visible al programador |\n| Fragmentación **interna** | **Sí** (la última página no se llena) | No |\n| Fragmentación **externa** | No | **Sí** (huecos dispersos) |\n| Dirección | (página, desplazamiento) | (segmento, desplazamiento) |\n\nMuchos sistemas reales combinan ambos esquemas: **segmentación paginada**.\n\n**Memoria virtual y paginación por demanda.** El proceso se ejecuta aunque solo parte de sus páginas esté en RAM; el resto vive en el **área de intercambio** del disco. Cada entrada de la tabla lleva un **bit de validez**. Si el proceso referencia una página inválida ocurre un **fallo de página** (*page fault*): se interrumpe, se trae la página del disco, se actualiza la tabla y se reanuda la instrucción. Sin marcos libres hay que **expulsar** una página.\n\n**Algoritmos de reemplazo de páginas:**\n\n| Algoritmo | Expulsa | Nota |\n|---|---|---|\n| **FIFO** | La que lleva más tiempo cargada | El más simple y el peor; padece la **anomalía de Belady** (más marcos → más fallos) |\n| **Óptimo (OPT)** | La que tardará más en volver a usarse | **Mínimo teórico de fallos**, pero **irrealizable**: exige conocer el futuro |\n| **LRU** | La que lleva **más tiempo sin ser referenciada** | Se acerca al óptimo por localidad temporal; **no sufre la anomalía de Belady**; costoso, se aproxima con el **algoritmo del reloj** o **segunda oportunidad** |\n\n**Hiperpaginación** (*thrashing*): el sistema pasa más tiempo intercambiando páginas que ejecutando. Se combate bajando el grado de multiprogramación o asignando marcos según el **conjunto de trabajo** (*working set*).",
       "ejemplo": "**Parte 1: traducir una dirección lógica con paginación.**\n\nPáginas de 1 KB (1024 bytes) y esta tabla de páginas:\n\n| Página | Marco |\n|---|---|\n| 0 | 5 |\n| 1 | 2 |\n| 2 | 7 |\n| 3 | 1 |\n\nTraduzcamos la dirección lógica **2100**:\n\n```\nNúmero de página   = 2100 div 1024 = 2\nDesplazamiento     = 2100 mod 1024 = 2100 - 2048 = 52\nLa página 2 está en el marco 7.\nDirección física   = 7 x 1024 + 52 = 7168 + 52 = 7220\n```\n\nLa dirección lógica 2100 es la dirección física **7220**.\n\n**Parte 2: contar fallos de página con FIFO, LRU y Óptimo.**\n\nCadena de referencias `7, 0, 1, 2, 0, 3, 0, 4, 2, 3` con **3 marcos** vacíos. Los tres primeros accesos son fallos obligatorios en cualquier algoritmo.\n\n**FIFO** (sale la que entró primero):\n\n| Ref | Marcos después | ¿Fallo? |\n|---|---|---|\n| 7 | [7] | Fallo |\n| 0 | [7,0] | Fallo |\n| 1 | [7,0,1] | Fallo |\n| 2 | [0,1,2] sale 7 | Fallo |\n| 0 | [0,1,2] | Acierto |\n| 3 | [1,2,3] sale 0 | Fallo |\n| 0 | [2,3,0] sale 1 | Fallo |\n| 4 | [3,0,4] sale 2 | Fallo |\n| 2 | [0,4,2] sale 3 | Fallo |\n| 3 | [4,2,3] sale 0 | Fallo |\n\n**FIFO: 9 fallos, 1 acierto.**\n\n**LRU** (sale la que lleva más tiempo sin usarse):\n\n| Ref | Marcos después | ¿Fallo? |\n|---|---|---|\n| 7 | [7] | Fallo |\n| 0 | [7,0] | Fallo |\n| 1 | [7,0,1] | Fallo |\n| 2 | [0,1,2] sale 7 | Fallo |\n| 0 | [1,2,0] | Acierto |\n| 3 | [2,0,3] sale 1 | Fallo |\n| 0 | [2,3,0] | Acierto |\n| 4 | [3,0,4] sale 2 | Fallo |\n| 2 | [0,4,2] sale 3 | Fallo |\n| 3 | [4,2,3] sale 0 | Fallo |\n\n**LRU: 8 fallos, 2 aciertos.**\n\n**Óptimo** (sale la que tardará más en volver a usarse; se mira hacia adelante):\n\n| Ref | Razonamiento | Marcos después | ¿Fallo? |\n|---|---|---|---|\n| 7 | — | [7] | Fallo |\n| 0 | — | [7,0] | Fallo |\n| 1 | — | [7,0,1] | Fallo |\n| 2 | 7 no vuelve a aparecer: se va | [0,1,2] | Fallo |\n| 0 | ya está | [0,1,2] | Acierto |\n| 3 | 1 no vuelve a aparecer: se va | [0,2,3] | Fallo |\n| 0 | ya está | [0,2,3] | Acierto |\n| 4 | 0 no vuelve a aparecer: se va | [2,3,4] | Fallo |\n| 2 | ya está | [2,3,4] | Acierto |\n| 3 | ya está | [2,3,4] | Acierto |\n\n**Óptimo: 6 fallos, 4 aciertos.**\n\n**Comparación:** Óptimo 6 < LRU 8 < FIFO 9. Ese orden es siempre el esperado: el Óptimo es la cota inferior, LRU se le acerca porque explota la localidad temporal, y FIFO es el más pobre porque ignora el patrón de uso — expulsó la página 0 justo antes de volver a necesitarla.",
       "enExamen": "Dos patrones dominan. Uno: traducir una dirección lógica dados el tamaño de página y la tabla de páginas — divide entre el tamaño de página para el número de página, el residuo es el desplazamiento, y la física es `marco x tamaño + desplazamiento`. Dos: contar fallos de página en una cadena de referencias con FIFO, LRU u Óptimo. Los distractores más comunes olvidan los fallos obligatorios de los marcos vacíos iniciales, o intercambian fragmentación interna (paginación) con externa (segmentación).",
-      "ejercicio": {
-        "enunciado": "Un sistema usa paginación con páginas de **4 KB (4096 bytes)** y esta tabla de páginas:\n\n| Página | Marco |\n|---|---|\n| 0 | 3 |\n| 1 | 6 |\n| 2 | 5 |\n| 3 | 1 |\n\n¿A qué dirección física corresponde la dirección lógica **9000**?",
-        "opciones": [
-          "21 288",
-          "9 000",
-          "813"
-        ],
-        "respuesta": 0,
-        "explicaciones": [
-          "Correcta: `9000 div 4096 = 2` (página 2) y `9000 mod 4096 = 9000 − 8192 = 808` (desplazamiento). La página 2 está en el **marco 5**, así que la dirección física es `5 × 4096 + 808 = 20 480 + 808` = **21 288**.",
-          "Incorrecta: 9000 resulta de multiplicar por el tamaño de página el **número de página** (2) en vez del **marco** (5): `2 × 4096 + 808`, que devuelve la misma dirección lógica de partida. Si el resultado coincide con la dirección original, la tabla de páginas no se consultó.",
-          "Incorrecta: 813 sale de sumar el número de marco directamente al desplazamiento (`5 + 808`), sin multiplicarlo por el tamaño de página. El marco es un **índice de bloque**, no una dirección: hay que escalarlo por 4096 para obtener dónde empieza ese marco en la memoria física."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Un sistema usa paginación con páginas de **4 KB (4096 bytes)** y esta tabla de páginas:\n\n| Página | Marco |\n|---|---|\n| 0 | 3 |\n| 1 | 6 |\n| 2 | 5 |\n| 3 | 1 |\n\n¿A qué dirección física corresponde la dirección lógica **9000**?",
+          "opciones": [
+            "21 288",
+            "9 000",
+            "813"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: `9000 div 4096 = 2` (página 2) y `9000 mod 4096 = 9000 − 8192 = 808` (desplazamiento). La página 2 está en el **marco 5**, así que la dirección física es `5 × 4096 + 808 = 20 480 + 808` = **21 288**.",
+            "Incorrecta: 9000 resulta de multiplicar por el tamaño de página el **número de página** (2) en vez del **marco** (5): `2 × 4096 + 808`, que devuelve la misma dirección lógica de partida. Si el resultado coincide con la dirección original, la tabla de páginas no se consultó.",
+            "Incorrecta: 813 sale de sumar el número de marco directamente al desplazamiento (`5 + 808`), sin multiplicarlo por el tamaño de página. El marco es un **índice de bloque**, no una dirección: hay que escalarlo por 4096 para obtener dónde empieza ese marco en la memoria física."
+          ]
+        },
+        {
+          "enunciado": "Con **3 marcos** inicialmente vacíos y el algoritmo **LRU**, ¿cuántos fallos de página produce la cadena de referencias `1, 2, 3, 4, 1, 2, 5, 1, 2`?",
+          "opciones": [
+            "4 fallos",
+            "7 fallos",
+            "9 fallos"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: 4 es el número de **expulsiones**, no de fallos. Los tres primeros accesos (1, 2 y 3) también son fallos —los llamados **fallos obligatorios**— aunque no expulsen nada, porque los marcos están vacíos. Olvidarlos es el descuido más frecuente al contar.",
+            "Correcta: la traza es 1(F) 2(F) 3(F) 4(F, sale 1) 1(F, sale 2) 2(F, sale 3) 5(F, sale 4) 1(acierto) 2(acierto). Se cuentan **3 fallos obligatorios + 4 expulsiones = 7 fallos** y 2 aciertos. Al final los marcos contienen 1, 2 y 5.",
+            "Incorrecta: 9 es el total de referencias de la cadena, es decir, suponer que **todas** fallan. Los dos últimos accesos (1 y 2) aciertan, porque ambas páginas acababan de cargarse y por eso LRU no las eligió para expulsar: ese es justamente el efecto de la localidad temporal que LRU aprovecha."
+          ]
+        },
+        {
+          "enunciado": "Un proceso ocupa 10 000 bytes y el sistema usa páginas de **4 KB (4096 bytes)**. Necesita 3 páginas (12 288 bytes), de las cuales la última queda ocupada solo en parte. ¿Qué tipo de fragmentación se produce y cuánto se desperdicia?",
+          "opciones": [
+            "Fragmentación **externa** de 2288 bytes: quedan huecos dispersos que ningún proceso puede aprovechar",
+            "Fragmentación **interna** de 2288 bytes: sobra espacio **dentro** de la última página asignada",
+            "No hay fragmentación: la paginación asigna exactamente los bytes que el proceso solicita"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: la fragmentación **externa** son huecos **entre** bloques asignados, y aparece cuando las unidades son de **tamaño variable** — es decir, en la **segmentación** y en la asignación contigua. En paginación todos los marcos miden lo mismo, así que cualquier marco libre sirve para cualquier página y no quedan huecos inutilizables.",
+            "Correcta: `12 288 − 10 000 = 2288` bytes sobran **dentro** de la última página, que se asigna completa aunque se use a medias. Eso es la fragmentación **interna**, y es el precio característico de la paginación: unidades de tamaño **fijo** que casi nunca coinciden con el tamaño exacto del proceso.",
+            "Incorrecta: la memoria no se reparte byte por byte sino en **marcos completos**. Si el proceso necesita aunque sea un byte de una tercera página, se le asigna el marco entero; ese redondeo hacia arriba es exactamente lo que genera el desperdicio."
+          ]
+        }
+      ]
     },
     {
       "id": "2.1-t5",
@@ -93,20 +213,50 @@
       "teoria": "**Una condición de carrera ocurre cuando el resultado de un programa concurrente depende del orden en que el planificador intercale las instrucciones que tocan un dato compartido.**\n\nEl mismo programa, con las mismas entradas, produce resultados distintos según el entrelazado. La porción de código donde un proceso accede al recurso compartido es su **sección crítica**.\n\n**Toda solución correcta al problema de la sección crítica cumple tres condiciones:**\n\n- **Exclusión mutua** — a lo sumo un proceso dentro de la sección crítica a la vez.\n- **Progreso** — si nadie está dentro, la decisión de quién entra no se pospone indefinidamente.\n- **Espera acotada** — hay un límite a cuántas veces otros pueden entrar antes que quien ya solicitó (evita la **inanición**).\n\n**Mecanismos de sincronización:**\n\n| Mecanismo | Qué es | Rasgo distintivo |\n|---|---|---|\n| **Mutex** | Candado con dos estados y las operaciones `lock` / `unlock` | **Tiene propietario**: solo quien lo bloqueó debe liberarlo. Sirve únicamente para excluir |\n| **Semáforo** | Contador entero con `wait` (P, *down*) y `signal` (V, *up*), ambas atómicas | **No tiene propietario**: lo puede señalizar otro proceso, así que también **sincroniza el orden** |\n| **Monitor** | Construcción del lenguaje (p. ej. Java) que encapsula datos y procedimientos | El compilador **garantiza** la exclusión; usa **variables de condición** con `wait` y `signal` |\n| **Espera ocupada** (*spinlock*) | Un ciclo que pregunta si puede entrar | Correcto pero **desperdicia CPU**; solo conviene si la espera es brevísima |\n\n`wait` decrementa el contador y **bloquea si el valor quedaría negativo**; `signal` lo incrementa y despierta a un proceso en espera. Un **semáforo binario** (0 y 1) hace exclusión mutua; un **semáforo contador** administra *n* instancias de un recurso.\n\n**Interbloqueo (*deadlock*)**: un conjunto de procesos queda bloqueado permanentemente porque cada uno espera un recurso que otro del conjunto retiene. Ocurre solo si se cumplen **las cuatro condiciones de Coffman a la vez**:\n\n1. **Exclusión mutua** — al menos un recurso no es compartible.\n2. **Retención y espera** (*hold and wait*) — un proceso retiene recursos mientras espera otros.\n3. **No expropiación** — el recurso solo se libera voluntariamente.\n4. **Espera circular** — cadena cerrada P1 → P2 → … → Pn → P1.\n\nQue las cuatro sean necesarias es la clave de las estrategias:\n\n| Estrategia | En qué consiste |\n|---|---|\n| **Prevención** | Negar por diseño una de las cuatro: un **orden total** en la solicitud rompe la espera circular; pedir todo de una vez rompe la retención y espera |\n| **Evitación** | Conceder solo si el sistema queda en **estado seguro**. Es el **algoritmo del banquero** de Dijkstra, que exige conocer la demanda máxima |\n| **Detección y recuperación** | Permitirlo, buscar ciclos en el **grafo de asignación de recursos** y romperlo abortando o expropiando |\n| **Ignorarlo** (*algoritmo del avestruz*) | Lo que hacen los sistemas de propósito general: prevenir cuesta más que el interbloqueo ocasional |\n\nNo confundir con la **inanición** (el proceso podría avanzar pero el sistema nunca lo elige) ni con el **livelock** (los procesos cambian de estado activamente pero ninguno progresa).",
       "ejemplo": "**Parte 1: una condición de carrera, instrucción por instrucción.**\n\nDos hilos ejecutan `saldo = saldo + 10` sobre un contador compartido que vale 100. En lenguaje máquina esa línea son tres pasos:\n\n```\n1. LOAD  R1, saldo     (leer)\n2. ADD   R1, 10        (calcular)\n3. STORE saldo, R1     (escribir)\n```\n\nCon este intercalado:\n\n| Instante | Hilo A | Hilo B | saldo en memoria |\n|---|---|---|---|\n| t1 | LOAD R1 = 100 | | 100 |\n| t2 | | LOAD R1 = 100 | 100 |\n| t3 | ADD R1 = 110 | | 100 |\n| t4 | | ADD R1 = 110 | 100 |\n| t5 | STORE saldo = 110 | | 110 |\n| t6 | | STORE saldo = 110 | **110** |\n\nEl resultado correcto era 120 y quedó **110**: una actualización se perdió porque B leyó antes de que A escribiera.\n\n**Solución con semáforo binario.** Se declara `mutex = 1`:\n\n```\nwait(mutex)          // si mutex = 1 lo baja a 0 y entra;\n                     // si ya vale 0, el proceso se bloquea\n   LOAD  R1, saldo\n   ADD   R1, 10\n   STORE saldo, R1\nsignal(mutex)        // devuelve mutex a 1 y despierta a quien espere\n```\n\nSi A ejecuta `wait(mutex)` en t1, el semáforo queda en 0 y B se **bloquea** en t2 sin leer nada. El intercalado peligroso deja de ser posible y el resultado es siempre 120.\n\n**Parte 2: un interbloqueo y cómo romperlo.**\n\n```\nProceso P1:                Proceso P2:\n  solicita I  (la obtiene)   solicita E  (lo obtiene)\n  solicita E  (espera)       solicita I  (espera)\n```\n\nVerifiquemos las cuatro condiciones de Coffman:\n\n| Condición | ¿Se cumple? |\n|---|---|\n| Exclusión mutua | Sí: ni la impresora ni el escáner se comparten |\n| Retención y espera | Sí: P1 retiene I mientras espera E |\n| No expropiación | Sí: nadie le quita la impresora a P1 |\n| Espera circular | Sí: P1 espera E que tiene P2, y P2 espera I que tiene P1 |\n\nLas cuatro se cumplen: hay **interbloqueo**.\n\n**Prevención por orden total.** Numeramos `I = 1`, `E = 2` y exigimos solicitar en orden numérico creciente:\n\n```\nProceso P1:            Proceso P2:\n  solicita I           solicita I  (espera, porque P1 la tiene)\n  solicita E           solicita E\n  ...usa y libera...   ...usa y libera...\n```\n\nP2 espera la impresora **sin retener el escáner**, así que P1 obtiene E, termina, libera ambos y P2 avanza. Se destruyó la **espera circular**, y con negar una sola condición basta.",
       "enExamen": "Se pregunta de dos maneras: dado un escenario, elegir el mecanismo correcto (mutex si solo hay que excluir, semáforo contador si hay *n* instancias de un recurso, monitor si el lenguaje impone la exclusión), o revisar las cuatro condiciones de Coffman para decidir si hay interbloqueo y cuál estrategia lo rompe. Los distractores clásicos llaman interbloqueo a lo que es **inanición**, describen el semáforo como si tuviera dueño (eso es el mutex), o dicen que basta con que se cumpla **una** condición de Coffman cuando hacen falta las cuatro simultáneamente.",
-      "ejercicio": {
-        "enunciado": "Un proceso de baja prioridad lleva horas en la **cola de listos**. No espera ninguna E/S ni ningún recurso retenido por otro proceso: simplemente, cada vez que la CPU se libera llegan procesos más prioritarios y el planificador los elige a ellos. ¿Qué situación describe el caso y cómo se corrige?",
-        "opciones": [
-          "Interbloqueo: el proceso está detenido de forma permanente, y para romperlo hay que abortarlo o expropiar recursos",
-          "Inanición: el proceso podría ejecutarse en cuanto se le asignara la CPU, y se corrige con envejecimiento (*aging*)",
-          "Condición de carrera: varios procesos compiten por la CPU y el resultado depende del orden en que el planificador los intercale"
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: para que haya interbloqueo deben cumplirse **las cuatro condiciones de Coffman a la vez**, y aquí falla la espera circular (y también la retención y espera): el proceso no retiene ningún recurso ni espera uno ocupado por otro. Llamar interbloqueo a todo proceso que no avanza es el error más común del tema.",
-          "Correcta: el proceso está **listo**, no bloqueado — tiene todo lo que necesita y bastaría con que el planificador lo eligiera. Que la política de prioridades lo posponga indefinidamente es **inanición**, y el remedio estándar es el **envejecimiento**: subirle la prioridad conforme acumula tiempo de espera.",
-          "Incorrecta: una condición de carrera es un problema de **corrección del resultado** cuando varios hilos tocan un dato compartido sin sincronizar, no un problema de reparto de CPU. Aquí no hay dato compartido ni resultado incorrecto: el proceso simplemente no se ejecuta."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Un proceso de baja prioridad lleva horas en la **cola de listos**. No espera ninguna E/S ni ningún recurso retenido por otro proceso: simplemente, cada vez que la CPU se libera llegan procesos más prioritarios y el planificador los elige a ellos. ¿Qué situación describe el caso y cómo se corrige?",
+          "opciones": [
+            "Interbloqueo: el proceso está detenido de forma permanente, y para romperlo hay que abortarlo o expropiar recursos",
+            "Inanición: el proceso podría ejecutarse en cuanto se le asignara la CPU, y se corrige con envejecimiento (*aging*)",
+            "Condición de carrera: varios procesos compiten por la CPU y el resultado depende del orden en que el planificador los intercale"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: para que haya interbloqueo deben cumplirse **las cuatro condiciones de Coffman a la vez**, y aquí falla la espera circular (y también la retención y espera): el proceso no retiene ningún recurso ni espera uno ocupado por otro. Llamar interbloqueo a todo proceso que no avanza es el error más común del tema.",
+            "Correcta: el proceso está **listo**, no bloqueado — tiene todo lo que necesita y bastaría con que el planificador lo eligiera. Que la política de prioridades lo posponga indefinidamente es **inanición**, y el remedio estándar es el **envejecimiento**: subirle la prioridad conforme acumula tiempo de espera.",
+            "Incorrecta: una condición de carrera es un problema de **corrección del resultado** cuando varios hilos tocan un dato compartido sin sincronizar, no un problema de reparto de CPU. Aquí no hay dato compartido ni resultado incorrecto: el proceso simplemente no se ejecuta."
+          ]
+        },
+        {
+          "enunciado": "Un servidor tiene **3 impresoras idénticas** y muchos procesos que las solicitan. Se necesita que a lo sumo tres procesos las usen a la vez y que el resto espere. ¿Qué mecanismo corresponde?",
+          "opciones": [
+            "Un **mutex**, bloqueado por cada proceso antes de imprimir y liberado al terminar",
+            "Un **semáforo contador** inicializado en 3, con `wait` antes de imprimir y `signal` al terminar",
+            "Un **semáforo binario** inicializado en 1, porque la impresión es una sección crítica"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: un mutex solo tiene **dos estados**, así que dejaría pasar a **un** proceso a la vez y las otras dos impresoras quedarían ociosas. El mutex es el mecanismo correcto cuando el recurso es **uno solo**; aquí hay que llevar la cuenta de cuántas instancias quedan libres.",
+            "Correcta: el **semáforo contador** es precisamente el mecanismo para administrar *n* instancias de un recurso. Inicializado en 3, cada `wait` lo decrementa (y bloquea al proceso si el valor quedaría negativo, o sea cuando las tres están ocupadas) y cada `signal` lo incrementa liberando a uno de los que esperan.",
+            "Incorrecta: un semáforo binario alterna entre 0 y 1 y equivale a una exclusión mutua estricta: serializaría las impresiones una por una, igual que el mutex. Se usa cuando el recurso **no es compartible en absoluto**, no cuando hay varias copias disponibles."
+          ]
+        },
+        {
+          "enunciado": "Un sistema numera todos sus recursos y **obliga a solicitarlos en orden numérico creciente**. ¿Qué estrategia frente al interbloqueo es esa, y qué condición de Coffman elimina?",
+          "opciones": [
+            "**Prevención**: elimina la **espera circular**, porque ninguna cadena de espera puede cerrarse sobre sí misma",
+            "**Evitación**: es el algoritmo del banquero, que concede el recurso solo si el estado resultante es seguro",
+            "**Detección y recuperación**: se buscan ciclos en el grafo de asignación y se aborta uno de los procesos implicados"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: es **prevención**, porque niega **por diseño** una de las cuatro condiciones y el interbloqueo se vuelve imposible. Con un orden total, un proceso que retiene el recurso 3 solo puede pedir recursos con número mayor, así que la cadena de esperas siempre avanza hacia arriba y **nunca se cierra**: no hay espera circular.",
+            "Incorrecta: la **evitación** no impone reglas fijas sobre el orden de las solicitudes; analiza **cada petición** y la concede solo si el sistema queda en estado seguro, para lo cual necesita conocer de antemano la **demanda máxima** de cada proceso. Aquí no se evalúa nada en tiempo de ejecución: la regla es estática.",
+            "Incorrecta: la **detección** permite que el interbloqueo ocurra y actúa después, buscando ciclos en el grafo de asignación de recursos y rompiéndolos. El orden numérico obligatorio actúa **antes**, impidiendo que el ciclo llegue a formarse, de modo que nunca hay nada que detectar ni proceso que abortar."
+          ]
+        }
+      ]
     },
     {
       "id": "2.1-t6",
@@ -114,20 +264,50 @@
       "teoria": "**El sistema de archivos organiza el almacenamiento persistente: cómo se nombran los archivos, cómo se distribuyen sus bloques en el disco, qué metadatos se guardan y qué permisos existen.**\n\nUn archivo tiene **contenido** y **metadatos** (nombre, tamaño, fechas, propietario, permisos, ubicación de sus bloques).\n\n| Sistema | Origen | Rasgos que se evalúan |\n|---|---|---|\n| **FAT** (FAT16, FAT32) | MS-DOS / Windows | **Tabla de asignación** con lista enlazada de clústeres. Simple y **muy portable**; sin permisos ni *journaling*; FAT32 limita cada archivo a **4 GB** |\n| **NTFS** | Windows NT en adelante | **MFT** (*Master File Table*), **journaling**, **ACL** de permisos, cifrado, compresión, cuotas |\n| **ext4** | Linux | **Inodos** y **extents** (rangos contiguos de bloques), journaling, menos fragmentación |\n| **exFAT** | Windows/macOS/Linux/TV | Resuelve el límite de 4 GB de FAT32 sin la complejidad de NTFS |\n\n**Journaling**: antes de modificar la estructura del sistema de archivos se anota la intención en un registro; si hay un corte de energía, al arrancar se consulta ese registro y se completa o deshace la operación, en vez de recorrer todo el disco.\n\n**Inodo** (Linux): guarda todos los metadatos y los apuntadores a los bloques **pero no el nombre** — el nombre vive en la entrada de directorio, que asocia nombre → número de inodo. Por eso un archivo puede tener varios nombres (**enlaces duros**).\n\n**Estructuras de directorios:**\n\n- **Un nivel** — todos los archivos juntos, sin nombres repetidos.\n- **Dos niveles** — un directorio por usuario.\n- **En árbol** — raíz y subdirectorios anidados; **ruta absoluta** desde la raíz, **relativa** desde el directorio de trabajo.\n- **Grafo acíclico** — permite compartir un archivo desde dos rutas mediante enlaces.\n\n**Métodos de asignación de espacio:**\n\n| Método | Ventaja | Desventaja | Lo usa |\n|---|---|---|---|\n| **Contigua** | Acceso directo, rápida | Fragmentación externa, difícil crecer | — |\n| **Enlazada** | Sin fragmentación externa | Acceso **forzosamente secuencial** | FAT |\n| **Indexada** | Acceso directo sin fragmentación externa | Sobrecoste del bloque índice | Inodos |\n\n**Tipos de sistemas operativos:**\n\n| Tipo | Qué lo define | Métrica que optimiza |\n|---|---|---|\n| **Monoprogramado** | Un solo programa en memoria | — |\n| **Multiprogramado** | Varios en memoria; si uno se bloquea por E/S, la CPU pasa a otro | **Uso de la CPU** (*throughput*) |\n| **Tiempo compartido** | Conmutación tan frecuente que cada usuario cree tener su máquina | **Tiempo de respuesta** |\n| **Tiempo real** | Cumplir **plazos**: **duro** (incumplir = falla: frenos ABS) o **blando** (solo degrada: video) | Cumplimiento del plazo |\n| **Distribuido** | Varias computadoras en red que se ven como un solo sistema | **Transparencia** |\n| **Por lotes** (*batch*) | Trabajos agrupados, sin interacción | — |\n| **Embebido / móvil** | Recursos limitados, gestión de energía | — |\n\n**Procesamiento paralelo.** Con varios núcleos las instrucciones se ejecutan **realmente al mismo tiempo** (paralelismo), a diferencia de la **concurrencia** de un núcleo, que solo intercala.\n\n- **SMP** (multiprocesamiento simétrico): todos los procesadores son idénticos, comparten memoria y **una sola copia del SO** puede correr en cualquiera; no hay maestro.\n- **Asimétrico**: un procesador maestro asigna tareas a los esclavos.\n- **Taxonomía de Flynn**: SISD, SIMD, MISD, MIMD según los flujos de instrucciones y de datos. SMP es **MIMD**; una GPU o una instrucción vectorial es **SIMD**.\n- **Ley de Amdahl**: la fracción estrictamente secuencial limita la aceleración por más procesadores que se agreguen.\n\n**Interfaces humano-computadora (IHC).** La evolución fue **CLI** (precisa pero de alta memorización) → **GUI** con el paradigma **WIMP** (ventanas, íconos, menús, apuntador) y manipulación directa → interfaces **naturales** (táctil, voz, gestos). Los criterios de evaluación son la **usabilidad** (aprendizaje, eficiencia, memorabilidad, pocos errores, satisfacción) y la **accesibilidad**, y los principios de Norman: **visibilidad**, **retroalimentación**, **mapeo natural**, **restricciones** y **consistencia**.",
       "ejemplo": "**Caso 1: elegir el sistema de archivos.**\n\nHay que formatear una USB de 64 GB para pasar archivos entre Windows, Mac y una televisión; el archivo más grande es un video de 6 GB.\n\n| Opción | Compatibilidad | Límite por archivo | ¿Sirve? |\n|---|---|---|---|\n| FAT32 | La mayor de todas | **4 GB** | No: el video de 6 GB no cabe |\n| NTFS | Windows sí; macOS solo lectura; muchas TV no lo leen | 16 TB | No: falla la portabilidad |\n| exFAT | Windows, macOS, Linux, la mayoría de TV | Prácticamente ilimitado | **Sí** |\n\nRespuesta: **exFAT**. El razonamiento a retener: **FAT prioriza portabilidad y simplicidad; NTFS y ext4 priorizan robustez (journaling) y control de acceso**.\n\n**Caso 2: rutas en un árbol de directorios.**\n\n```\n/\n|-- home\n|   |-- ana\n|   |   |-- tareas\n|   |   |   |-- ceneval.txt\n|-- etc\n```\n\n- Ruta **absoluta**: `/home/ana/tareas/ceneval.txt` — parte de `/` y no depende de dónde esté el usuario.\n- Desde `/home/ana`, la ruta **relativa** es `tareas/ceneval.txt`.\n- Desde `/etc`, la relativa es `../home/ana/tareas/ceneval.txt`, donde `..` sube al directorio padre.\n\n**Caso 3: clasificar sistemas operativos por el requisito descrito.**\n\n| Requisito del enunciado | Tipo de SO | Por qué |\n|---|---|---|\n| \"El frenado debe reaccionar en menos de 5 ms **siempre**\" | Tiempo real **duro** | El criterio es un plazo garantizado, no el promedio |\n| \"Treinta terminales, cada usuario debe sentir que la máquina es suya\" | Tiempo compartido | Se optimiza el tiempo de respuesta con quantum pequeño |\n| \"Se procesan las nóminas cada quincena, sin nadie presente\" | Por lotes | No hay interacción durante la ejecución |\n| \"El video puede saltar un cuadro ocasionalmente\" | Tiempo real **blando** | Incumplir el plazo degrada, no rompe |\n\n**Caso 4: la ley de Amdahl.**\n\nUn programa tarda 100 s; el 20 % es estrictamente secuencial y el 80 % paralelizable.\n\n```\nCon 4 procesadores:\n   parte secuencial  = 20 s (no cambia)\n   parte paralela    = 80 s / 4 = 20 s\n   tiempo total      = 40 s\n   aceleración       = 100 / 40 = 2.5 veces  (no 4)\n\nCon infinitos procesadores:\n   parte paralela -> 0 s\n   tiempo total   -> 20 s\n   aceleración máxima = 100 / 20 = 5 veces\n```\n\nAun con infinitos procesadores la aceleración **jamás pasa de 5**, porque el 20 % secuencial no desaparece.",
       "enExamen": "Te describen un requisito —portabilidad, archivos mayores de 4 GB, tolerancia a cortes de energía, un plazo garantizado, treinta usuarios interactivos— y piden elegir el sistema de archivos o el tipo de sistema operativo: localiza primero la palabra clave del requisito y descarta por ahí. En procesamiento paralelo el cálculo típico es la ley de Amdahl, y el distractor casi siempre es la aceleración ideal (igual al número de procesadores), que ignora la fracción secuencial.",
-      "ejercicio": {
-        "enunciado": "Un programa tarda **200 segundos**. El **25 %** de ese tiempo es estrictamente secuencial y el resto es paralelizable. Según la ley de Amdahl, ¿cuál es la aceleración **máxima** alcanzable por muchos procesadores que se agreguen?",
-        "opciones": [
-          "4 veces",
-          "1.33 veces",
-          "No hay máximo: la aceleración sigue creciendo con el número de procesadores"
-        ],
-        "respuesta": 0,
-        "explicaciones": [
-          "Correcta: con infinitos procesadores la parte paralelizable tiende a 0 s, pero los 50 s secuenciales (el 25 % de 200) no desaparecen. La aceleración máxima es `200 / 50` = **4 veces**, es decir `1 / fracción secuencial` = `1 / 0.25`.",
-          "Incorrecta: 1.33 es `1 / 0.75`, o sea invertir las fracciones y usar la **paralelizable** como si fuera la que limita. Quien manda es la porción que **no** se puede repartir: mientras mayor sea la fracción secuencial, menor es el techo.",
-          "Incorrecta: esa es justo la intuición que la ley de Amdahl desmiente. Agregar procesadores solo acorta la parte paralelizable; el tiempo total nunca baja de los 50 s secuenciales, así que la aceleración se estanca en 4 por muchos procesadores que se sumen."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Un programa tarda **200 segundos**. El **25 %** de ese tiempo es estrictamente secuencial y el resto es paralelizable. Según la ley de Amdahl, ¿cuál es la aceleración **máxima** alcanzable por muchos procesadores que se agreguen?",
+          "opciones": [
+            "4 veces",
+            "1.33 veces",
+            "No hay máximo: la aceleración sigue creciendo con el número de procesadores"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: con infinitos procesadores la parte paralelizable tiende a 0 s, pero los 50 s secuenciales (el 25 % de 200) no desaparecen. La aceleración máxima es `200 / 50` = **4 veces**, es decir `1 / fracción secuencial` = `1 / 0.25`.",
+            "Incorrecta: 1.33 es `1 / 0.75`, o sea invertir las fracciones y usar la **paralelizable** como si fuera la que limita. Quien manda es la porción que **no** se puede repartir: mientras mayor sea la fracción secuencial, menor es el techo.",
+            "Incorrecta: esa es justo la intuición que la ley de Amdahl desmiente. Agregar procesadores solo acorta la parte paralelizable; el tiempo total nunca baja de los 50 s secuenciales, así que la aceleración se estanca en 4 por muchos procesadores que se sumen."
+          ]
+        },
+        {
+          "enunciado": "Tras un corte de energía, un servidor arranca y su sistema de archivos queda **consistente en segundos**, sin recorrer todo el disco en busca de daños. ¿Qué característica lo hace posible?",
+          "opciones": [
+            "El **journaling**: antes de modificar la estructura se anota la intención en un registro, y al arrancar se consulta ese registro para completar o deshacer la operación",
+            "La **asignación contigua**: al estar los bloques de cada archivo uno tras otro, basta leer el primero para verificar el archivo completo",
+            "La **tabla de asignación FAT**: la lista enlazada de clústeres permite recuperar cualquier archivo tras un corte"
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: el **journaling** —presente en NTFS y ext4— registra la intención **antes** de tocar la estructura del sistema de archivos. Al reiniciar basta leer ese registro y terminar o revertir lo que quedó a medias, en vez de recorrer todo el volumen verificando cada estructura, que es lo que tardaba horas en los sistemas sin journal.",
+            "Incorrecta: la asignación contigua es un **método de asignación de espacio**, y su ventaja es el acceso directo rápido; nada tiene que ver con recuperarse de un corte. De hecho apenas se usa, por su fragmentación externa y por la dificultad de hacer crecer un archivo.",
+            "Incorrecta: **FAT no tiene journaling** — es justamente lo que le falta, junto con los permisos. Su prioridad es la simplicidad y la portabilidad entre sistemas; tras un corte de energía requiere una verificación completa del volumen, que es el escenario que el enunciado descarta."
+          ]
+        },
+        {
+          "enunciado": "El controlador de un marcapasos debe entregar el impulso dentro de una ventana de **2 ms**; rebasarla pone en riesgo al paciente. ¿Qué tipo de sistema operativo se requiere?",
+          "opciones": [
+            "De **tiempo compartido**, que conmuta con un quantum muy pequeño para dar buen tiempo de respuesta",
+            "De **tiempo real duro**, que garantiza el cumplimiento del plazo porque incumplirlo constituye una falla",
+            "De **tiempo real blando**, donde rebasar ocasionalmente el plazo solo degrada la calidad del servicio"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: el tiempo compartido optimiza el **promedio** del tiempo de respuesta para que varios usuarios se sientan atendidos, pero no **garantiza** nada en el peor caso: un pico de carga puede retrasar cualquier proceso. La palabra clave del enunciado es un plazo que debe cumplirse **siempre**, no en promedio.",
+            "Correcta: la clave está en la consecuencia de incumplir. Cuando rebasar el plazo constituye una **falla del sistema** —frenos ABS, control de vuelo, un marcapasos— se necesita **tiempo real duro**, que garantiza el plazo en el peor caso aunque sacrifique rendimiento promedio.",
+            "Incorrecta: el tiempo real **blando** aplica cuando incumplir el plazo solo **degrada** la experiencia, como un cuadro perdido en un video o un audio con un salto. Aquí el enunciado dice explícitamente que rebasar la ventana pone en riesgo al paciente: la degradación no es tolerable."
+          ]
+        }
+      ]
     }
   ]
 }

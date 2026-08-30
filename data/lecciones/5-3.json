@@ -9,20 +9,50 @@
       "teoria": "**La nota informativa reporta un hecho de interés público de la manera más directa posible: informa, no persuade ni entretiene.**\n\nSu lenguaje es claro, impersonal y verificable. Se organiza en **pirámide invertida**: lo más importante primero, los detalles al final, de modo que quien abandona a la mitad ya se enteró de lo esencial.\n\n| Parte | Contiene |\n|---|---|\n| Titular | El hecho en una línea |\n| **Entrada** (*lead*) | Primer párrafo: lo fundamental |\n| Cuerpo | Antecedentes, declaraciones, contexto |\n| Remate | Información complementaria, la menos relevante |\n\nUna entrada bien escrita responde las **seis preguntas**:\n\n- **Qué** ocurrió\n- **Quién** lo protagonizó\n- **Cuándo**\n- **Dónde**\n- **Cómo**\n- **Por qué**\n\nLocalizar información en una nota es casi siempre ubicar cuál de esas seis pide el reactivo y volver a la entrada.\n\nLas declaraciones aparecen **atribuidas** (*según el titular de la dependencia*, *de acuerdo con el reporte*). Lo que afirma un entrevistado no es lo mismo que lo que afirma el medio.",
       "ejemplo": "Entrada: «Autoridades municipales cerraron ayer el puente Morelos, en la colonia Centro, tras detectar una fisura en el soporte poniente; la reapertura está prevista para el lunes.»\n\n| Pregunta | Respuesta |\n|---|---|\n| Qué | Cierre del puente |\n| Quién | Autoridades municipales |\n| Cuándo | Ayer |\n| Dónde | Puente Morelos, colonia Centro |\n| Por qué | Una fisura en el soporte |\n\nSi el reactivo pide la causa, es la fisura; la fecha de reapertura es un dato posterior, no la causa.",
       "enExamen": "Identifica cuál de las seis preguntas te piden y ve directo a la entrada: ahí está el 80 % de las respuestas. La opción-trampa suele ofrecer otro dato correcto de la misma nota (la fecha de reapertura cuando piden la causa) o atribuir al medio lo que dijo una fuente citada.",
-      "ejercicio": {
-        "enunciado": "Entrada de una nota: «La Secretaría de Salud estatal informó ayer que suspendió la venta de un lote de jarabe para la tos en 40 farmacias de la capital, luego de detectar una irregularidad en el sellado de los frascos; el retiro concluirá el viernes.»\n\n¿Cuál fue la **causa** de la suspensión?",
-        "opciones": [
-          "La suspensión de ventas en 40 farmacias de la capital.",
-          "La irregularidad detectada en el sellado de los frascos.",
-          "El plazo del viernes para concluir el retiro."
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: eso es el *qué* y el *dónde* — la medida misma y su alcance—, no el motivo. Se está tomando la consecuencia por la causa.",
-          "Correcta: la expresión *luego de detectar* introduce el *por qué*. Es el hecho que motivó la decisión de la autoridad.",
-          "Incorrecta: es el *cuándo*. Es otro dato verdadero de la misma entrada, y por eso resulta tentador, pero responde a una de las seis preguntas distinta de la que se pide."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Entrada de una nota: «La Secretaría de Salud estatal informó ayer que suspendió la venta de un lote de jarabe para la tos en 40 farmacias de la capital, luego de detectar una irregularidad en el sellado de los frascos; el retiro concluirá el viernes.»\n\n¿Cuál fue la **causa** de la suspensión?",
+          "opciones": [
+            "La suspensión de ventas en 40 farmacias de la capital.",
+            "La irregularidad detectada en el sellado de los frascos.",
+            "El plazo del viernes para concluir el retiro."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: eso es el *qué* y el *dónde* — la medida misma y su alcance—, no el motivo. Se está tomando la consecuencia por la causa.",
+            "Correcta: la expresión *luego de detectar* introduce el *por qué*. Es el hecho que motivó la decisión de la autoridad.",
+            "Incorrecta: es el *cuándo*. Es otro dato verdadero de la misma entrada, y por eso resulta tentador, pero responde a una de las seis preguntas distinta de la que se pide."
+          ]
+        },
+        {
+          "enunciado": "Fragmento de una nota: «De acuerdo con el titular de Obras Públicas, la reparación del colector quedará lista en tres semanas.»\n\n¿Qué se afirma en el fragmento?",
+          "opciones": [
+            "El medio confirma que la reparación estará lista en tres semanas.",
+            "El titular de Obras Públicas declaró que la reparación tomará tres semanas.",
+            "La reparación se retrasará más de tres semanas."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: confunde la fuente con el medio. *De acuerdo con* marca una atribución: el diario reporta la declaración, no garantiza que se cumpla.",
+            "Correcta: el plazo es lo que dijo el funcionario, y así lo señala la fórmula de atribución. Lo que afirma un entrevistado no es lo que afirma el medio.",
+            "Incorrecta: agrega información que no está. La nota reporta un plazo anunciado; nada en el fragmento habla de un retraso."
+          ]
+        },
+        {
+          "enunciado": "Una nota informa sobre el incendio de una bodega.\n\nSegún la pirámide invertida, ¿qué información corresponde a la **entrada**?",
+          "opciones": [
+            "La historia de la empresa dueña de la bodega, fundada en 1978.",
+            "El nombre de la calle donde está el estacionamiento más cercano al lugar.",
+            "Qué ocurrió, dónde, cuándo y quiénes atendieron la emergencia."
+          ],
+          "respuesta": 2,
+          "explicaciones": [
+            "Incorrecta: es contexto de fondo. En la pirámide invertida los antecedentes van en el cuerpo o el remate, después de que el lector ya sabe lo esencial.",
+            "Incorrecta: es un dato complementario y marginal, del tipo que ocupa el remate. Quien abandona la nota a la mitad no debería perderse lo importante por leer esto primero.",
+            "Correcta: la entrada concentra las seis preguntas — qué, quién, cuándo, dónde, cómo y por qué—, de modo que el primer párrafo baste para enterarse del hecho."
+          ]
+        }
+      ]
     },
     {
       "id": "5.3-t2",
@@ -30,20 +60,50 @@
       "teoria": "**La convocatoria invita públicamente a participar en algo y establece las condiciones para hacerlo: norma y regula, no informa ni opina.**\n\nSe lee como un instructivo — nada de lo que dice es decorativo.\n\n| Parte | Contiene |\n|---|---|\n| Convocante | La institución que emite |\n| Objeto | Para qué se convoca (beca, concurso, licitación) |\n| Destinatarios | A quién va dirigida y quién queda excluido |\n| Requisitos | Edad, promedio, documentos, nacionalidad |\n| Bases | Cómo, dónde y en qué formato se entrega |\n| **Plazos** | Apertura, cierre, resultados — el dato más preguntado |\n| Premio y casos no previstos | Estímulo y cláusula final |\n\nEstrategia: no la leas como texto continuo, **léela como una tabla**. Ubica primero el apartado (Requisitos, Bases, Calendario) y solo después busca dentro.\n\nPalabras que marcan condiciones **excluyentes** y donde se esconden los distractores:\n\n- *deberán*, *únicamente*, *sin excepción*\n- *excepto*, *salvo*, *siempre que*\n- *no podrán participar*, *quedará descalificado*",
       "ejemplo": "Base 3: «Podrán participar egresados de licenciatura con un máximo de tres años de haber concluido estudios, **excepto** quienes hayan sido beneficiarios del programa en emisiones anteriores.»\n\n¿Puede participar alguien que egresó hace dos años y ya tuvo la beca en 2024?\n\n**No.** Cumple el requisito de antigüedad, pero la cláusula introducida por *excepto* lo excluye. Leer solo la primera mitad de la base lleva al error.",
       "enExamen": "Los reactivos de convocatoria casi siempre preguntan quién es elegible o cuál es la fecha límite, y la respuesta se decide en la cláusula que viene después de *excepto*, *salvo* o *siempre que*. La opción-trampa cumple el requisito principal pero ignora esa excepción, o cambia una fecha del calendario por otra.",
-      "ejercicio": {
-        "enunciado": "Base de una convocatoria: «Podrán inscribirse docentes con al menos dos años de antigüedad, **siempre que** cuenten con nombramiento definitivo.»\n\n¿Puede inscribirse un docente con seis años de antigüedad cuyo nombramiento es provisional?",
-        "opciones": [
-          "Sí, porque supera con holgura los dos años de antigüedad exigidos.",
-          "No, porque la base exige además contar con nombramiento definitivo.",
-          "Sí, siempre que su nombramiento provisional lleve más de dos años vigente."
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: se detiene en el requisito principal y no lee la cláusula que sigue. *Siempre que* introduce una condición que debe cumplirse **además** de la antigüedad, no en lugar de ella.",
-          "Correcta: la condición de *siempre que* es acumulativa. El docente cumple la antigüedad, pero no el nombramiento definitivo, y ambas se exigen a la vez.",
-          "Incorrecta: inventa una equivalencia que la convocatoria nunca establece. Ningún número de años convierte un nombramiento provisional en definitivo: son dos requisitos distintos."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Base de una convocatoria: «Podrán inscribirse docentes con al menos dos años de antigüedad, **siempre que** cuenten con nombramiento definitivo.»\n\n¿Puede inscribirse un docente con seis años de antigüedad cuyo nombramiento es provisional?",
+          "opciones": [
+            "Sí, porque supera con holgura los dos años de antigüedad exigidos.",
+            "No, porque la base exige además contar con nombramiento definitivo.",
+            "Sí, siempre que su nombramiento provisional lleve más de dos años vigente."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: se detiene en el requisito principal y no lee la cláusula que sigue. *Siempre que* introduce una condición que debe cumplirse **además** de la antigüedad, no en lugar de ella.",
+            "Correcta: la condición de *siempre que* es acumulativa. El docente cumple la antigüedad, pero no el nombramiento definitivo, y ambas se exigen a la vez.",
+            "Incorrecta: inventa una equivalencia que la convocatoria nunca establece. Ningún número de años convierte un nombramiento provisional en definitivo: son dos requisitos distintos."
+          ]
+        },
+        {
+          "enunciado": "Base de una convocatoria: «No podrán participar quienes mantengan relación laboral con la institución convocante ni sus familiares en primer grado.»\n\n¿Quién queda excluido?",
+          "opciones": [
+            "Un aspirante cuyo padre trabaja actualmente en la institución convocante.",
+            "Un aspirante que estudió su licenciatura en la institución convocante.",
+            "Un aspirante que trabajó ahí hace diez años y hoy labora en otro lugar."
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: la cláusula excluye a los trabajadores **y** a sus familiares en primer grado, y el padre lo es. La exclusión no depende de que el aspirante trabaje ahí.",
+            "Incorrecta: haber estudiado ahí no es una relación laboral. La base excluye por vínculo de trabajo o de parentesco, no por trayectoria académica.",
+            "Incorrecta: la base usa el presente (*mantengan relación laboral*), no el pasado. Quien ya no labora en la institución no está dentro de la exclusión."
+          ]
+        },
+        {
+          "enunciado": "Un aspirante necesita saber en qué formato y por qué vía debe entregar su proyecto.\n\n¿En qué apartado de la convocatoria lo busca?",
+          "opciones": [
+            "En el objeto",
+            "En las bases",
+            "En el premio"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: el objeto dice para qué se convoca (una beca, un concurso, una licitación), no cómo se entrega lo que se pide.",
+            "Correcta: las bases son el apartado que fija cómo, dónde y en qué formato se entrega. Leer la convocatoria como tabla ahorra recorrer todo el texto.",
+            "Incorrecta: el premio describe el estímulo que recibirá quien resulte seleccionado; es información posterior al trámite, no parte del procedimiento de entrega."
+          ]
+        }
+      ]
     },
     {
       "id": "5.3-t3",
@@ -51,20 +111,50 @@
       "teoria": "**Un hecho es verificable con evidencia; una opinión expresa una valoración, una creencia o una predicción y solo se comparte o se discute.**\n\n| | Hecho | Opinión |\n|---|---|---|\n| Ejemplo | *El puente se cerró el martes.* | *El cierre fue una medida acertada.* |\n| | *Se recibieron 1 240 solicitudes.* | *La respuesta ciudadana fue decepcionante.* |\n| Prueba | Se comprueba o se desmiente | No se comprueba |\n\nMarcas lingüísticas de opinión:\n\n- Adjetivos valorativos — *acertado, lamentable, insuficiente*\n- Adverbios de actitud — *afortunadamente, lamentablemente*\n- Verbos de creencia — *considero, parece, creo*\n- Condicionales y conjeturas — *sería conveniente, habría que*\n- Expresiones de deber — *debe, es necesario que*\n\nEsto se conecta con el **propósito comunicativo** de cada género:\n\n| Género | Propósito | Predominan |\n|---|---|---|\n| Nota informativa | Informar un hecho | Hechos atribuidos |\n| Convocatoria | Regular la participación | Condiciones y plazos |\n| Editorial / carta abierta | Persuadir, fijar postura | Opiniones argumentadas |\n\nTambién puede pedirse detectar **sesgo**: una nota que solo cita a una de las partes, o que usa adjetivos valorativos, está mezclando opinión en un género que debería limitarse a informar.",
       "ejemplo": "Dos enunciados de la misma nota:\n\n1. «La dependencia recibió 1 240 solicitudes durante el periodo.» → **Hecho**: la cifra es verificable en el registro.\n2. «La cifra refleja el escaso interés de los jóvenes por estos programas.» → **Opinión**: *escaso interés* es una valoración; otra persona leería los mismos 1 240 registros como participación alta.\n\nSi piden el enunciado verificable, la respuesta es el 1.",
       "enExamen": "Cuando pidan cuál enunciado es un hecho, busca la cifra, la fecha o el nombre propio y descarta todo lo que lleve adjetivo valorativo. La opción-trampa mete una cifra dentro de una oración que en realidad la interpreta («los 1 240 registros muestran poco interés»), y pasa por hecho porque trae un número.",
-      "ejercicio": {
-        "enunciado": "¿Cuál de estos enunciados de una nota es un **hecho** verificable?",
-        "opciones": [
-          "El programa de becas benefició a 3 480 estudiantes durante 2024.",
-          "Los 3 480 becarios son una cifra insuficiente para la demanda del estado.",
-          "Sería conveniente ampliar el programa de becas el próximo año."
-        ],
-        "respuesta": 0,
-        "explicaciones": [
-          "Correcta: enuncia una cifra, un sujeto y un periodo, y puede comprobarse o desmentirse consultando el registro del programa. No lleva ningún adjetivo valorativo.",
-          "Incorrecta: trae un número y por eso parece un dato, pero *insuficiente* es una valoración. Otra persona podría leer los mismos 3 480 registros como una cobertura amplia.",
-          "Incorrecta: es una propuesta en condicional (*sería conveniente*), una de las marcas típicas de opinión. No hay nada que comprobar: solo se comparte o se discute."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "¿Cuál de estos enunciados de una nota es un **hecho** verificable?",
+          "opciones": [
+            "El programa de becas benefició a 3 480 estudiantes durante 2024.",
+            "Los 3 480 becarios son una cifra insuficiente para la demanda del estado.",
+            "Sería conveniente ampliar el programa de becas el próximo año."
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: enuncia una cifra, un sujeto y un periodo, y puede comprobarse o desmentirse consultando el registro del programa. No lleva ningún adjetivo valorativo.",
+            "Incorrecta: trae un número y por eso parece un dato, pero *insuficiente* es una valoración. Otra persona podría leer los mismos 3 480 registros como una cobertura amplia.",
+            "Incorrecta: es una propuesta en condicional (*sería conveniente*), una de las marcas típicas de opinión. No hay nada que comprobar: solo se comparte o se discute."
+          ]
+        },
+        {
+          "enunciado": "¿Cuál de estos enunciados de una nota expresa una **opinión**?",
+          "opciones": [
+            "El ayuntamiento destinó 12 millones de pesos a la remodelación del mercado.",
+            "La obra concluyó el 30 de marzo, cuatro meses después de la fecha prevista.",
+            "Lamentablemente, el retraso de la obra revela la falta de planeación del ayuntamiento."
+          ],
+          "respuesta": 2,
+          "explicaciones": [
+            "Incorrecta: es un hecho. La cifra y el destino del gasto pueden comprobarse en el presupuesto municipal, y no hay ningún adjetivo valorativo.",
+            "Incorrecta: también es un hecho, aunque incómodo. La fecha y el desfase son verificables con el calendario original de la obra; señalar un retraso no es valorarlo.",
+            "Correcta: acumula dos marcas de opinión — el adverbio de actitud *lamentablemente* y la interpretación *falta de planeación*—. Otra persona podría explicar el mismo retraso por causas ajenas al ayuntamiento."
+          ]
+        },
+        {
+          "enunciado": "Una nota informativa sobre un conflicto entre vecinos y una constructora cita únicamente al director de la empresa y llama «inconformes irresponsables» a los vecinos.\n\n¿Qué falla tiene la nota?",
+          "opciones": [
+            "Mezcla adjetivos valorativos y omite a una de las partes, lo que rompe su propósito de informar.",
+            "Ninguna: el director de la constructora es la fuente más autorizada del caso.",
+            "Le falta un llamado a la acción que cierre el texto."
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: son las dos señales de sesgo — citar a un solo lado y calificar al otro con adjetivos—. La nota informativa debe limitarse a hechos atribuidos.",
+            "Incorrecta: en un conflicto ninguna parte interesada es fuente suficiente por sí sola. Citar solo a una es precisamente el desequilibrio que produce el sesgo.",
+            "Incorrecta: el llamado a la acción pertenece al editorial, que sí persuade. Exigírselo a una nota informativa confunde los propósitos de los dos géneros."
+          ]
+        }
+      ]
     },
     {
       "id": "5.3-t4",
@@ -72,20 +162,50 @@
       "teoria": "**En estos textos, cortos y muy estructurados, la dificultad no está en comprender sino en no equivocarse de dato.**\n\n**Información explícita** — está escrita, aunque el reactivo la parafrasee. El texto dice *el registro concluye el 30 de agosto*; la pregunta dice *¿cuál es la fecha límite?*\n\nTécnica: identifica la palabra clave de la pregunta, busca su equivalente en el texto (sinónimo, misma cifra, mismo nombre propio) y lee la oración completa.\n\n**Información implícita** — no está escrita, pero se deduce con un paso lógico corto. Si la convocatoria pide «acta de nacimiento» y «comprobante de estudios de licenciatura», se deduce que va dirigida a quienes ya concluyeron una carrera.\n\nLa deducción válida usa **solo** datos del texto. Si necesitas suponer algo que el texto no da, ya no es deducción sino invención — y esa opción es un distractor.\n\nCuatro confusiones que producen la mayoría de los errores:\n\n| Se confunde | Con |\n|---|---|\n| Cierre de registro | Publicación de resultados o entrega del estímulo |\n| Solicitudes recibidas | Aceptadas o lugares disponibles |\n| Quién convoca | Quién evalúa o quién participa |\n| La regla general | La excepción tras *salvo*, *excepto*, *siempre que*, *únicamente* |",
       "ejemplo": "Convocatoria: «Recepción de documentos del 1 al 15 de septiembre. Resultados: 30 de septiembre. Los seleccionados firmarán carta compromiso en octubre.»\n\n- **Explícito:** la fecha límite para entregar es el **15 de septiembre**.\n- **Implícito:** hay quince días de evaluación entre la entrega y los resultados, y solo firma carta compromiso quien fue seleccionado, no cualquiera que se registró.\n\nElegir el 30 de septiembre como fecha límite es el error clásico de confundir dos fechas del mismo calendario.",
       "enExamen": "Cuando el texto tiene varias fechas o cifras, verifica a qué evento pertenece la que eliges antes de contestar. La opción-trampa toma otro dato real del mismo texto (la fecha de resultados en vez de la de cierre) o exige una suposición que el texto nunca da.",
-      "ejercicio": {
-        "enunciado": "Calendario de una convocatoria:\n\n| Etapa | Fecha |\n|---|---|\n| Publicación | 5 de mayo |\n| Registro en línea | Del 10 al 28 de mayo |\n| Entrega de documentos impresos | 2 de junio |\n| Resultados | 20 de junio |\n\n¿Cuál es la fecha límite para registrarse en línea?",
-        "opciones": [
-          "2 de junio",
-          "28 de mayo",
-          "20 de junio"
-        ],
-        "respuesta": 1,
-        "explicaciones": [
-          "Incorrecta: el 2 de junio corresponde a la entrega de documentos impresos, un trámite posterior y distinto. Es un dato real del mismo calendario, pero de otra etapa.",
-          "Correcta: el registro en línea corre *del 10 al 28 de mayo*; el segundo extremo del rango es el cierre. Basta verificar a qué etapa pertenece la fecha antes de elegirla.",
-          "Incorrecta: el 20 de junio es la publicación de resultados. Confundir el cierre del registro con los resultados es el error más común cuando el texto ofrece varias fechas."
-        ]
-      }
+      "ejercicios": [
+        {
+          "enunciado": "Calendario de una convocatoria:\n\n| Etapa | Fecha |\n|---|---|\n| Publicación | 5 de mayo |\n| Registro en línea | Del 10 al 28 de mayo |\n| Entrega de documentos impresos | 2 de junio |\n| Resultados | 20 de junio |\n\n¿Cuál es la fecha límite para registrarse en línea?",
+          "opciones": [
+            "2 de junio",
+            "28 de mayo",
+            "20 de junio"
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: el 2 de junio corresponde a la entrega de documentos impresos, un trámite posterior y distinto. Es un dato real del mismo calendario, pero de otra etapa.",
+            "Correcta: el registro en línea corre *del 10 al 28 de mayo*; el segundo extremo del rango es el cierre. Basta verificar a qué etapa pertenece la fecha antes de elegirla.",
+            "Incorrecta: el 20 de junio es la publicación de resultados. Confundir el cierre del registro con los resultados es el error más común cuando el texto ofrece varias fechas."
+          ]
+        },
+        {
+          "enunciado": "Convocatoria, apartado de requisitos: «Acta de nacimiento, título de licenciatura y carta de postulación firmada por un investigador del área.»\n\n¿Qué se deduce del texto?",
+          "opciones": [
+            "La convocatoria se dirige a quienes ya concluyeron una licenciatura.",
+            "La convocatoria se dirige a estudiantes de bachillerato.",
+            "La convocatoria otorga una beca de manutención mensual."
+          ],
+          "respuesta": 0,
+          "explicaciones": [
+            "Correcta: pedir el **título** de licenciatura, y no una constancia de estudios, solo tiene sentido si el destinatario ya terminó la carrera. Es una deducción de un paso, con datos del texto.",
+            "Incorrecta: contradice el requisito. Un estudiante de bachillerato no puede presentar título de licenciatura, así que queda fuera del perfil que el propio apartado define.",
+            "Incorrecta: es invención, no deducción. Los requisitos dicen qué hay que entregar; nada en ellos informa sobre el tipo o el monto del estímulo."
+          ]
+        },
+        {
+          "enunciado": "Nota: «La dependencia recibió 850 solicitudes para las 120 plazas del programa; el dictamen se publicará en octubre.»\n\n¿Qué afirma el texto?",
+          "opciones": [
+            "850 personas obtuvieron una plaza en el programa.",
+            "Se presentaron 850 solicitudes y existen 120 plazas disponibles.",
+            "120 personas ya fueron aceptadas durante el mes de octubre."
+          ],
+          "respuesta": 1,
+          "explicaciones": [
+            "Incorrecta: confunde solicitudes recibidas con aceptadas. Las 850 son quienes pidieron entrar; el texto ni siquiera dice todavía quién quedó.",
+            "Correcta: separa los dos números y les asigna su función — 850 solicitudes frente a 120 lugares—, sin adelantar un resultado que aún no se publica.",
+            "Incorrecta: da por hecho un dictamen que el texto ubica en el futuro (*se publicará*). Confundir la fecha de resultados con una aceptación ya ocurrida es el error clásico."
+          ]
+        }
+      ]
     }
   ]
 }
