@@ -345,6 +345,10 @@ function vistaEstudioDetalle(subareaId) {
         <span class="etiqueta">Ejemplo resuelto</span>
         ${md(t.ejemplo)}
       </div>
+      ${t.enExamen ? `<div class="leccion-examen">
+        <span class="etiqueta examen">🎯 En el examen</span>
+        ${md(t.enExamen)}
+      </div>` : ''}
     </div>
 
     <div class="acciones" style="margin-top:18px">

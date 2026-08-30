@@ -55,11 +55,18 @@ def revisar(nombre, datos):
             errores.append(f"{tid}: falta 'tema'")
         teoria = t.get("teoria", "").strip()
         ejemplo = t.get("ejemplo", "").strip()
+        en_examen = t.get("enExamen", "").strip()
         if len(teoria) < 200:
             errores.append(f"{tid}: 'teoria' muy corta ({len(teoria)} caracteres) — no enseña, solo menciona")
         if len(ejemplo) < 60:
             errores.append(f"{tid}: 'ejemplo' muy corto o ausente ({len(ejemplo)} caracteres)")
-        texto = teoria + ejemplo
+        if len(en_examen) < 30:
+            errores.append(f"{tid}: falta 'enExamen' o es muy corto ({len(en_examen)} caracteres)")
+        if not re.search(r"^\s*[-*]\s|\|.*\|", teoria, re.M):
+            avisos.append(f"{tid}: 'teoria' no tiene ninguna lista ni tabla — revisa que no sea puro párrafo narrativo")
+        if not teoria.startswith("**"):
+            avisos.append(f"{tid}: 'teoria' no abre con una definición en negritas")
+        texto = teoria + ejemplo + en_examen
         if re.search(r"queda como ejercicio|se deja al lector|placeholder", texto, re.I) or re.search(r"\bTODO\b", texto):
             errores.append(f"{tid}: contiene un placeholder o ejercicio sin resolver")
 

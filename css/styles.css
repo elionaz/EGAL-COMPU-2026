@@ -201,6 +201,14 @@ h3 { font-size: 15px; margin: 0 0 8px; }
 }
 .leccion-ejemplo .etiqueta { margin-bottom: 8px; }
 
+.leccion-examen {
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: var(--aviso-suave);
+  border-radius: var(--radio-s);
+}
+.leccion-examen .etiqueta { margin-bottom: 8px; }
+
 /* ---------- Botones ---------- */
 
 .btn {
@@ -283,6 +291,7 @@ select, input[type='number'] {
 }
 .etiqueta.sobresaliente { color: var(--acento); border-color: var(--acento); }
 .etiqueta.param { color: var(--ok); border-color: var(--ok); }
+.etiqueta.examen { color: var(--aviso); border-color: var(--aviso); }
 
 .lectura {
   background: var(--bg-2);
