@@ -30,7 +30,17 @@ Cada archivo del banco de lecciones vive en `data/lecciones/` y se declara en
   "tema": "Notación asintótica",
   "teoria": "**La notación asintótica mide cómo crece el trabajo de un algoritmo según crece n, no el tiempo en segundos.**\n\n| Notación | Acota | Significa |\n|---|---|---|\n| O(n) | Por arriba | Peor caso |\n| Ω(n) | Por abajo | Mejor caso |\n| Θ(n) | Ambos lados | Cota exacta |\n\n- O(1) — constante: acceder a `arreglo[i]`\n- O(log n) — búsqueda binaria",
   "ejemplo": "Calculemos la complejidad de este fragmento:\n\n```\nfor i in range(n):\n    print(i)\n```\n\nEl bucle recorre `n` elementos una vez, así que es **O(n)**.",
-  "enExamen": "Casi siempre dan un fragmento de código y piden la O(n) del peor caso: cuenta bucles anidados primero. Un distractor típico da el conteo exacto de operaciones en vez de la clase asintótica simplificada."
+  "enExamen": "Casi siempre dan un fragmento de código y piden la O(n) del peor caso: cuenta bucles anidados primero. Un distractor típico da el conteo exacto de operaciones en vez de la clase asintótica simplificada.",
+  "ejercicio": {
+    "enunciado": "¿Cuál es la complejidad en el peor caso de este fragmento?\n\n```\nfor i in range(n):\n    for j in range(n):\n        print(i, j)\n```",
+    "opciones": ["O(n)", "O(n²)", "O(n log n)"],
+    "respuesta": 1,
+    "explicaciones": [
+      "Incorrecta: O(n) sería un solo bucle. Aquí hay dos bucles anidados que dependen de n, no uno.",
+      "Correcta: los dos bucles están anidados (el segundo vive dentro del primero) y ambos recorren n, así que el trabajo total es n·n = O(n²).",
+      "Incorrecta: O(n log n) aparece cuando el problema se divide a la mitad en cada paso (como en mergesort), no cuando hay dos bucles anidados simples."
+    ]
+  }
 }
 ```
 
@@ -41,6 +51,32 @@ Cada archivo del banco de lecciones vive en `data/lecciones/` y se declara en
 | `teoria` | string | El concepto completo. Ver "Cómo escribir `teoria`" abajo. |
 | `ejemplo` | string | Un caso resuelto paso a paso (cálculo, código, tabla de verdad, consulta SQL, etc.). |
 | `enExamen` | string | 1–3 oraciones: cómo se ve esto en un reactivo — el patrón de pregunta, la palabra clave que lo delata, o el distractor típico. Ver abajo. |
+| `ejercicio` | object | Un reactivo de opción múltiple para practicar el tema al momento. Ver abajo. |
+
+## El campo `ejercicio`
+
+Un reactivo real, interactivo, que el estudiante responde ahí mismo (no un enlace a otra
+pantalla). Se renderiza con el mismo componente de opción múltiple del examen: el estudiante
+elige, se revela correcto/incorrecto, y se explica **cada opción individualmente** — no un solo
+párrafo genérico.
+
+| Campo | Tipo | Reglas |
+|---|---|---|
+| `enunciado` | string | La pregunta. Markdown ligero (código, tablas, etc. si aplica). |
+| `opciones` | string[] | **Exactamente 3.** Mismas reglas que el banco de reactivos: longitud/estructura similar entre opciones, sin "todas las anteriores". |
+| `respuesta` | number | Índice 0-based de la opción correcta. |
+| `explicaciones` | string[] | **Una por cada opción, mismo orden y misma longitud que `opciones`.** Cada una dice por qué ESA opción específica es correcta o incorrecta — no "la B es correcta, ve arriba por qué". La del índice `respuesta` explica por qué es la correcta; las demás explican el error de razonamiento que lleva a elegirlas (no solo "está mal"). |
+
+Reglas específicas de `ejercicio`:
+
+1. **No es el mismo problema que `ejemplo`.** `ejemplo` ya mostró el método resuelto paso a
+   paso; `ejercicio` prueba si el estudiante puede aplicarlo solo, con un caso distinto (mismo
+   concepto, otro enunciado/valores).
+2. **Los distractores deben ser errores reales y predecibles**, no absurdos — el error que
+   comete alguien que confundió una regla, no una opción random. Esto es lo que hace útil la
+   explicación: cada distractor enseña qué mal razonamiento lleva a esa respuesta.
+3. Para las áreas 5 y 6, el `ejercicio` aplica el criterio de la lección (concordancia,
+   acentuación, idea central…) a un caso corto — igual que el `ejemplo`, pero uno nuevo.
 
 ## Cómo escribir `teoria` (esto es lo que cambió — lee esto con cuidado)
 
@@ -99,15 +135,17 @@ Markdown (`#`) — el layout ya envuelve cada tema en su propia jerarquía de t�
    subárea** (no un tema por bullet).
 2. **Enseña desde cero.** No asumas que quien lee ya conoce el concepto.
 3. **`ejemplo` siempre resuelto.** No dejes un ejercicio sin resolver.
-4. **Terminología de la bibliografía oficial** citada en `docs/temario.md` por área (Cormen,
+4. **`ejercicio` es obligatorio en cada tema**, con sus 3 `explicaciones` completas — ver la
+   sección dedicada arriba.
+5. **Terminología de la bibliografía oficial** citada en `docs/temario.md` por área (Cormen,
    Tanenbaum, Pressman, Date, Russell & Norvig, Kurose & Ross, RAE…), en español de México.
-5. **Cobertura del temario.** Cada bullet de la subárea en `docs/temario.md` debe quedar cubierto
+6. **Cobertura del temario.** Cada bullet de la subárea en `docs/temario.md` debe quedar cubierto
    por al menos un tema de la lección.
-6. **Para las áreas 5 y 6** (Comprensión lectora, Redacción indirecta): la lección enseña
+7. **Para las áreas 5 y 6** (Comprensión lectora, Redacción indirecta): la lección enseña
    **estrategias y criterios de evaluación**, no "datos" — el `ejemplo` es un caso corto aplicando
    el criterio (una oración con un error corregido), no una lectura completa. El `enExamen` aquí
    es igual de importante: qué tipo de opción-trampa usan (p. ej. una opción que agrega
    información que el texto no dice).
-7. Reutiliza como semilla, cuando aplique, las pistas de `METODOS` en `js/tutor.js` y las
+8. Reutiliza como semilla, cuando aplique, las pistas de `METODOS` en `js/tutor.js` y las
    `explicacion` del reactivo correspondiente en `data/banco/` — pero exprésalo con el formato
    escaneable de arriba, no como prosa.

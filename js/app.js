@@ -361,6 +361,7 @@ function vistaEstudioDetalle(subareaId) {
         <span class="etiqueta examen">🎯 En el examen</span>
         ${md(t.enExamen)}
       </div>` : ''}
+      ${t.ejercicio ? bloqueEjercicio(t.ejercicio, vista.datos.ejercicioResp) : ''}
     </div>
 
     <div class="acciones" style="margin-top:18px">
@@ -372,6 +373,41 @@ function vistaEstudioDetalle(subareaId) {
     <div class="acciones" style="margin-top:10px">
       <button class="btn fantasma" data-accion="estudio">← Estudio</button>
     </div>`;
+}
+
+function bloqueEjercicio(ej, resp) {
+  const contestado = resp !== undefined && resp !== null;
+  return `<div class="leccion-ejercicio">
+    <span class="etiqueta ejercicio">✏️ Pon a prueba lo que aprendiste</span>
+    <div class="enunciado" style="font-size:15px">${md(ej.enunciado)}</div>
+    <div class="opciones">
+      ${ej.opciones
+        .map((o, i) => {
+          let cls = 'opcion';
+          if (contestado) {
+            if (i === ej.respuesta) cls += ' correcta';
+            else if (i === resp) cls += ' incorrecta';
+          }
+          return `<button class="${cls}" data-accion="estudio-responder" data-i="${i}" ${contestado ? 'disabled' : ''}>
+            <span class="letra">${LETRAS[i]}</span><span>${md(o).replace(/^<p>|<\/p>$/g, '')}</span>
+          </button>`;
+        })
+        .join('')}
+    </div>
+    ${
+      contestado
+        ? `<div class="retro ${resp === ej.respuesta ? 'ok' : 'mal'}">
+            <h4>${resp === ej.respuesta ? '✓ Correcto' : '✕ Incorrecto'}</h4>
+            <p>${md(ej.explicaciones[resp]).replace(/^<p>|<\/p>$/g, '')}</p>
+            ${
+              resp !== ej.respuesta
+                ? `<p class="mini" style="margin-top:8px">Respuesta correcta (${LETRAS[ej.respuesta]}): ${md(ej.explicaciones[ej.respuesta]).replace(/^<p>|<\/p>$/g, '')}</p>`
+                : ''
+            }
+          </div>`
+        : ''
+    }
+  </div>`;
 }
 
 // -------------------------------------------------------------------- examen
@@ -955,6 +991,9 @@ function ejecutar(accion, el) {
       return ir('estudio', { subarea: el.dataset.subarea });
     case 'estudio-tema':
       return ir('estudio', { subarea: el.dataset.subarea, tema: Number(el.dataset.i) });
+    case 'estudio-responder':
+      vista.datos.ejercicioResp = Number(el.dataset.i);
+      return render();
     case 'resultados':
       return ir('resultados');
     case 'revision':

@@ -66,7 +66,39 @@ def revisar(nombre, datos):
             avisos.append(f"{tid}: 'teoria' no tiene ninguna lista ni tabla — revisa que no sea puro párrafo narrativo")
         if not teoria.startswith("**"):
             avisos.append(f"{tid}: 'teoria' no abre con una definición en negritas")
-        texto = teoria + ejemplo + en_examen
+
+        ej = t.get("ejercicio")
+        if not isinstance(ej, dict):
+            errores.append(f"{tid}: falta 'ejercicio' (objeto con enunciado/opciones/respuesta/explicaciones)")
+        else:
+            enunciado = ej.get("enunciado", "").strip()
+            opciones = ej.get("opciones")
+            respuesta = ej.get("respuesta")
+            explicaciones = ej.get("explicaciones")
+
+            if len(enunciado) < 15:
+                errores.append(f"{tid}: 'ejercicio.enunciado' vacío o muy corto")
+            if not isinstance(opciones, list) or len(opciones) != 3:
+                errores.append(f"{tid}: 'ejercicio.opciones' debe tener exactamente 3 elementos")
+            else:
+                textos = [str(o).strip().lower() for o in opciones]
+                if len(set(textos)) != len(textos):
+                    errores.append(f"{tid}: 'ejercicio.opciones' tiene opciones con texto idéntico")
+                for texto_op in ("todas las anteriores", "ninguna de las anteriores"):
+                    if any(texto_op in t2 for t2 in textos):
+                        avisos.append(f"{tid}: 'ejercicio' usa una opción del tipo «{texto_op}»")
+
+            if not isinstance(respuesta, int) or isinstance(opciones, list) and not (0 <= respuesta < len(opciones)):
+                errores.append(f"{tid}: 'ejercicio.respuesta' debe ser un índice válido de 'opciones'")
+
+            if not isinstance(explicaciones, list) or (isinstance(opciones, list) and len(explicaciones) != len(opciones)):
+                errores.append(f"{tid}: 'ejercicio.explicaciones' debe tener la misma cantidad de elementos que 'opciones'")
+            else:
+                for i, exp in enumerate(explicaciones):
+                    if len(str(exp).strip()) < 20:
+                        errores.append(f"{tid}: 'ejercicio.explicaciones[{i}]' vacía o muy corta")
+
+        texto = teoria + ejemplo + en_examen + (json.dumps(ej) if isinstance(ej, dict) else "")
         if re.search(r"queda como ejercicio|se deja al lector|placeholder", texto, re.I) or re.search(r"\bTODO\b", texto):
             errores.append(f"{tid}: contiene un placeholder o ejercicio sin resolver")
 

@@ -8,35 +8,105 @@
       "tema": "Qué se evalúa: los tres procesos de lectura",
       "teoria": "**La comprensión lectora del EGAL mide qué tan bien trabajas con el texto que tienes enfrente, no cuánto sabes del tema del que habla.**\n\nCada reactivo se resuelve **regresando al texto**, nunca desde la memoria, la experiencia personal o la opinión.\n\n| Proceso | Qué pide | Cómo se ve la pregunta |\n|---|---|---|\n| **Identificación** | Localizar un dato del texto | ¿Cuántos participantes…? ¿En qué año…? |\n| **Interpretación** | Reconstruir el sentido | ¿Cuál es la idea central? ¿Qué significa la frase…? |\n| **Evaluación** | Juzgar forma y contenido | ¿Con qué propósito el autor incluye…? |\n\nLa información que se localiza puede ser:\n\n- **Explícita** — aparece casi con las mismas palabras: una fecha, un autor, una cifra.\n- **Implícita** — no está escrita, pero se deduce de una o dos oraciones vecinas.\n\nGéneros de esta subárea: **reseña académica** y **artículo de investigación**. Ambos son expositivo-argumentativos, de registro formal y especializado, dirigidos a una comunidad académica.\n\nProcedimiento, en cuatro pasos:\n\n1. Lee el texto completo una vez para ubicar de qué trata.\n2. Lee la pregunta e identifica **cuál de los tres procesos** pide.\n3. Vuelve al párrafo pertinente.\n4. Contrasta cada opción contra lo que el texto dice.\n\nTres opciones que siempre se descartan: la que **agrega** información ausente, la que **contradice** el texto y la que es **verdadera en el mundo pero ajena al texto**.",
       "ejemplo": "Fragmento: «El estudio se aplicó a 240 estudiantes de nivel superior; sin embargo, solo 198 completaron las tres sesiones.»\n\nPregunta de **identificación**: ¿cuántos participantes concluyeron el estudio?\n\n- Respuesta: **198**, dicho explícitamente.\n- Distractor: **240**, que es la muestra inicial, no quienes terminaron.\n\nLa señal que separa un dato del otro es el conector *sin embargo*.",
-      "enExamen": "Antes de mirar las opciones, decide si te piden localizar, interpretar o evaluar: cada proceso se resuelve en un lugar distinto del texto. La opción-trampa más frecuente es una afirmación cierta en el mundo real que el texto nunca hace — si no puedes señalarla con el dedo en el párrafo, se descarta."
+      "enExamen": "Antes de mirar las opciones, decide si te piden localizar, interpretar o evaluar: cada proceso se resuelve en un lugar distinto del texto. La opción-trampa más frecuente es una afirmación cierta en el mundo real que el texto nunca hace — si no puedes señalarla con el dedo en el párrafo, se descarta.",
+      "ejercicio": {
+        "enunciado": "Fragmento: «La encuesta se envió a 500 docentes de bachillerato; sin embargo, únicamente 312 respondieron el cuestionario completo.»\n\n¿Cuántos docentes respondieron el cuestionario completo?",
+        "opciones": [
+          "500 docentes",
+          "312 docentes",
+          "188 docentes"
+        ],
+        "respuesta": 1,
+        "explicaciones": [
+          "Incorrecta: 500 es a cuántos se les envió la encuesta, no cuántos respondieron. El conector *sin embargo* es justamente la señal de que el segundo dato corrige al primero.",
+          "Correcta: el texto lo dice explícitamente — *únicamente 312 respondieron el cuestionario completo*. Es identificación de información explícita: se señala con el dedo en el texto.",
+          "Incorrecta: 188 es la resta (500 − 312), es decir, quienes **no** respondieron. La pregunta no pide un cálculo y esa cifra no aparece en el fragmento."
+        ]
+      }
     },
     {
       "id": "5.1-t2",
       "tema": "La reseña académica: estructura y propósito",
       "teoria": "**La reseña académica presenta y valora críticamente una obra para orientar a un lector especializado sobre si vale la pena consultarla.**\n\nNo es un resumen: al resumen le basta reproducir el contenido; la reseña siempre incluye un **juicio del reseñista**.\n\n| Parte | Contiene |\n|---|---|\n| Ficha o encabezado | Autor, título, editorial, año de la obra |\n| Presentación | De qué trata, a qué campo pertenece, quién la escribió |\n| Síntesis | Los ejes o capítulos principales |\n| **Valoración crítica** | Aportes, aciertos, limitaciones, comparaciones — el corazón |\n| Recomendación | A qué público le sirve |\n\nLa clave del examen es **separar dos voces**:\n\n- **Voz del reseñista** (valoración): *el autor logra…*, *resulta insuficiente…*, *el mayor acierto del libro…*, *habría sido deseable…*, *pese a su rigor…*\n- **Voz de la obra** (síntesis): *el libro sostiene que…*, *en el capítulo tres el autor describe…*, *según la obra…*\n\nMuchos distractores atribuyen al reseñista una idea que es del autor reseñado, o al revés.",
       "ejemplo": "Fragmento de reseña: «Ramírez documenta con rigor la migración interna del bajío. **Su mayor limitación es** que apenas dedica cinco páginas a las causas económicas.»\n\n¿Quién afirma que el tratamiento económico es breve? El **reseñista**. La expresión *su mayor limitación es* marca la valoración crítica.\n\nDistractor: «Ramírez reconoce que su análisis económico es breve» — cambia de voz y se descarta.",
-      "enExamen": "Cuando el reactivo pregunta «según el texto, ¿qué se afirma sobre la obra?», revisa primero de quién es la voz. La trampa clásica pone en boca del autor reseñado la crítica que hizo el reseñista, o presenta el resumen del contenido como si fuera el juicio de valor."
+      "enExamen": "Cuando el reactivo pregunta «según el texto, ¿qué se afirma sobre la obra?», revisa primero de quién es la voz. La trampa clásica pone en boca del autor reseñado la crítica que hizo el reseñista, o presenta el resumen del contenido como si fuera el juicio de valor.",
+      "ejercicio": {
+        "enunciado": "Fragmento de una reseña: «Del Valle reconstruye con detalle la vida cotidiana del porfiriato. **Sorprende, sin embargo, que** deje fuera por completo el trabajo infantil.»\n\n¿Qué se afirma en el fragmento?",
+        "opciones": [
+          "Del Valle admite que su libro omite el trabajo infantil.",
+          "El reseñista señala como carencia que el libro omita el trabajo infantil.",
+          "El libro sostiene que el trabajo infantil no existió en el porfiriato."
+        ],
+        "respuesta": 1,
+        "explicaciones": [
+          "Incorrecta: cambia de voz. La expresión *sorprende que* pertenece a quien evalúa la obra, no al autor reseñado; nada indica que Del Valle reconozca esa omisión.",
+          "Correcta: *sorprende, sin embargo, que* marca la valoración crítica del reseñista, que es el corazón de la reseña. Él es quien juzga la omisión como una falta.",
+          "Incorrecta: confunde omitir con negar. El texto dice que el tema queda fuera del libro, no que el libro afirme algo sobre él; es información añadida que la reseña nunca da."
+        ]
+      }
     },
     {
       "id": "5.1-t3",
       "tema": "El artículo de investigación: estructura IMRyD",
       "teoria": "**El artículo de investigación comunica los resultados originales de un estudio siguiendo una estructura fija llamada IMRyD, que te dice en qué apartado buscar cada tipo de dato.**\n\n| Apartado | Qué contiene | Preguntas que responde |\n|---|---|---|\n| Resumen | El artículo condensado | Sentido global |\n| Introducción | Problema, antecedentes, vacío, **objetivo o hipótesis** | ¿Qué se propone el autor? |\n| Método | Muestra, instrumentos, procedimiento | ¿A quiénes se estudió? ¿Con qué? |\n| Resultados | Cifras, tablas, figuras, **sin interpretar** | ¿Qué se encontró? |\n| Discusión | Significado, comparación, limitaciones, recomendaciones | ¿Qué implica? |\n\nDistinción crítica: **resultado ≠ conclusión**.\n\n- **Resultado** — el dato observado (8.4 frente a 6.9).\n- **Conclusión** — la interpretación de ese dato (la retroalimentación favorece el aprendizaje).\n\nOtro rasgo del género es la **cautela**: los autores escriben *los datos sugieren*, *podría explicarse por*, *se observó una asociación*. Cualquier opción que convierta esa cautela en certeza absoluta —*queda demostrado que*, *es la causa de*— casi siempre es incorrecta.",
       "ejemplo": "En **Resultados**: «El grupo experimental obtuvo 8.4 de promedio frente a 6.9 del grupo control.»\n\nEn **Discusión**: «Esta diferencia *sugiere* que la retroalimentación inmediata favorece el aprendizaje.»\n\n- Si preguntan el **resultado** → la diferencia de promedios (8.4 vs. 6.9).\n- Si preguntan la **conclusión** → el efecto de la retroalimentación.\n- Opción descartada: «se demostró que la retroalimentación causa mejores calificaciones» — exagera el *sugiere*.",
-      "enExamen": "Ubica primero en qué apartado del IMRyD cae la pregunta y ve directo ahí en vez de releer todo. Dos opciones-trampa recurrentes: presentar una conclusión de la Discusión como si fuera un hallazgo medido en Resultados, y endurecer el lenguaje cauteloso del autor (*sugiere* → *demuestra*)."
+      "enExamen": "Ubica primero en qué apartado del IMRyD cae la pregunta y ve directo ahí en vez de releer todo. Dos opciones-trampa recurrentes: presentar una conclusión de la Discusión como si fuera un hallazgo medido en Resultados, y endurecer el lenguaje cauteloso del autor (*sugiere* → *demuestra*).",
+      "ejercicio": {
+        "enunciado": "De un artículo de investigación:\n\n- **Resultados:** «El 62 % de los grupos que usaron bitácora entregó su proyecto a tiempo, frente al 41 % de los que no la usaron.»\n- **Discusión:** «Este contraste *podría explicarse* por el efecto de la bitácora en la organización del tiempo.»\n\n¿Cuál opción enuncia un **resultado** del estudio?",
+        "opciones": [
+          "La bitácora mejora la organización del tiempo de los estudiantes.",
+          "El 62 % de los grupos con bitácora entregó a tiempo, frente al 41 % sin ella.",
+          "Queda demostrado que la bitácora es la causa de la entrega puntual."
+        ],
+        "respuesta": 1,
+        "explicaciones": [
+          "Incorrecta: esa es la interpretación que aparece en la Discusión, no el dato medido. Confundir conclusión con resultado es el error más frecuente en reactivos de IMRyD.",
+          "Correcta: es el dato observado y reportado en Resultados, sin interpretar. Un resultado son las cifras; lo que significan se discute después.",
+          "Incorrecta: endurece el lenguaje cauteloso del autor (*podría explicarse* → *queda demostrado*) y además convierte una asociación en causa, algo que el artículo no afirma."
+        ]
+      }
     },
     {
       "id": "5.1-t4",
       "tema": "Idea central frente a ideas secundarias",
       "teoria": "**La idea central es la afirmación que sostiene a todas las demás: si la quitas, el texto se derrumba.**\n\nLas **ideas secundarias** la apoyan con ejemplos, datos, citas, comparaciones o precisiones; si quitas una, el texto sigue de pie.\n\nCómo identificarla:\n\n1. **Tema** — ¿de qué trata? Una o dos palabras: «la migración interna».\n2. **Idea central** — ¿qué afirma sobre ese tema? Una oración completa, con sujeto y predicado: «la migración interna del bajío responde principalmente a causas laborales». Si una opción es solo un sustantivo, es el tema, no la idea.\n3. **Prueba de cobertura** — debe abarcar el texto entero. Si solo describe un párrafo, es secundaria.\n4. **Prueba de sostén** — ¿las demás oraciones explican, ejemplifican o prueban esto? Si sí, es la central.\n\nDónde suele aparecer en textos académicos: al final de la introducción (como tesis u objetivo), al inicio de un párrafo (oración temática) o en el cierre de la discusión.\n\n| Distractor | Falla |\n|---|---|\n| Demasiado amplio | Habla del campo entero, no de este texto |\n| Demasiado estrecho | Es un detalle o un ejemplo |\n| Ajeno | Cierto, pero el texto no lo dice |\n| Contrario | Invierte lo que el texto afirma |",
       "ejemplo": "Párrafo: «La evaluación formativa cambia el papel del error. En lugar de castigarlo, lo usa como información. Por eso los profesores que la aplican devuelven comentarios y no solo calificaciones.»\n\n- **Tema:** la evaluación formativa.\n- **Idea central:** convierte el error en información en vez de sanción (primera oración).\n- **Idea secundaria:** los profesores devuelven comentarios — consecuencia práctica, introducida por *por eso*.\n\nElegir la secundaria sería quedarse con el detalle en lugar de la afirmación que lo sostiene.",
-      "enExamen": "El reactivo suele pedir «la idea central del texto» y ofrecer tres opciones ciertas: la trampa no es que sean falsas, es que son *demasiado estrechas* (describen un solo párrafo) o *demasiado amplias* (hablan del campo, no del texto). Aplica la prueba de cobertura antes de elegir."
+      "enExamen": "El reactivo suele pedir «la idea central del texto» y ofrecer tres opciones ciertas: la trampa no es que sean falsas, es que son *demasiado estrechas* (describen un solo párrafo) o *demasiado amplias* (hablan del campo, no del texto). Aplica la prueba de cobertura antes de elegir.",
+      "ejercicio": {
+        "enunciado": "Párrafo: «El trabajo remoto reorganizó la jornada de las oficinas. Al desaparecer el traslado, muchas empresas dejaron de medir horas de presencia y empezaron a medir entregas. Por ejemplo, una consultora de Guadalajara sustituyó el reloj checador por metas quincenales.»\n\n¿Cuál es la idea central del párrafo?",
+        "opciones": [
+          "Una consultora de Guadalajara sustituyó el reloj checador por metas quincenales.",
+          "El trabajo remoto cambió la forma de medir el trabajo: de horas de presencia a entregas.",
+          "La tecnología ha transformado el mundo laboral en las últimas décadas."
+        ],
+        "respuesta": 1,
+        "explicaciones": [
+          "Incorrecta: es demasiado estrecha. Va introducida por *por ejemplo*, la marca de una idea secundaria: ilustra la afirmación central, no la sostiene. Si la quitas, el párrafo sigue de pie.",
+          "Correcta: pasa la prueba de cobertura (abarca las tres oraciones) y la de sostén (las demás la explican y la ejemplifican). Además está enunciada como oración completa, no como un simple tema.",
+          "Incorrecta: es demasiado amplia. Habla del campo entero y podría encabezar cualquier texto sobre trabajo y tecnología; no dice lo que **este** párrafo afirma."
+        ]
+      }
     },
     {
       "id": "5.1-t5",
       "tema": "Regresar al texto y descartar distractores",
       "teoria": "**La respuesta correcta siempre se puede señalar con el dedo en el texto: o está escrita, o se deduce de dos enunciados concretos.**\n\nEl error más caro es **responder de memoria**: como los textos del ámbito de estudio tratan temas plausibles, el sustentante cree reconocerlos y elige la opción que «suena verdadera».\n\nProcedimiento de verificación:\n\n1. **Lee la pregunta antes de releer el texto** y ubica su palabra clave (nombre, cifra, concepto).\n2. **Localiza el párrafo** de esa palabra clave o su sinónimo — los reactivos parafrasean: el texto dice *disminuyó*, la pregunta dice *se redujo*.\n3. **Lee la oración completa más la anterior y la posterior.** Muchos errores vienen de cortar justo antes de un *sin embargo* o un *salvo*.\n4. **Prueba cada opción como si fuera falsa** y busca la evidencia que la tumba.\n\nSeñales de distractor:\n\n- **Absolutos** — *siempre, nunca, ninguno, únicamente, exclusivamente*. Los textos académicos matizan; los distractores absolutizan.\n- **Información añadida** — dato correcto en el mundo real, ausente del texto.\n- **Confusión de partes** — atribuir a Resultados lo que está en Discusión, o al reseñista lo del autor reseñado.\n- **Inversión** — el texto dice que A explica B; la opción dice que B explica A.\n\nManejo del tiempo: en lecturas largas, lee primero de corrido sin subrayar para captar el sentido global; después ataca los reactivos volviendo a puntos concretos.",
       "ejemplo": "Texto: «Aunque el uso de plataformas digitales creció en todas las regiones, **en el sureste el aumento fue marginal**.»\n\n- A) «El uso creció en todas las regiones por igual.» → se descarta: el *aunque* introduce la excepción y *marginal* la confirma.\n- B) «El crecimiento fue general, pero desigual entre regiones.» → **correcta**, sostenida por la oración completa.\n\nLa trampa de A fue leer solo la primera mitad de la oración.",
-      "enExamen": "Sospecha de toda opción con un absoluto (*siempre*, *nunca*, *únicamente*): el texto académico casi nunca afirma sin matiz. La otra trampa habitual corta la oración a la mitad y omite lo que viene después de *aunque*, *sin embargo* o *salvo*."
+      "enExamen": "Sospecha de toda opción con un absoluto (*siempre*, *nunca*, *únicamente*): el texto académico casi nunca afirma sin matiz. La otra trampa habitual corta la oración a la mitad y omite lo que viene después de *aunque*, *sin embargo* o *salvo*.",
+      "ejercicio": {
+        "enunciado": "Texto: «Todos los municipios reportaron avances en la cobertura de agua potable, salvo los tres de la sierra, donde el servicio sigue siendo intermitente.»\n\n¿Qué se puede afirmar con base en el texto?",
+        "opciones": [
+          "Todos los municipios lograron avances en la cobertura de agua potable.",
+          "El avance fue generalizado, con excepción de tres municipios de la sierra.",
+          "En los municipios de la sierra no existe servicio de agua potable."
+        ],
+        "respuesta": 1,
+        "explicaciones": [
+          "Incorrecta: se queda con el absoluto *todos* y corta la oración antes de *salvo*, que es precisamente donde el texto introduce la excepción. Leer la oración completa la desmiente.",
+          "Correcta: recoge las dos mitades de la oración — el avance general y la excepción que introduce *salvo* —, así que se sostiene con el texto entero, no con la mitad.",
+          "Incorrecta: endurece el dato. El texto dice que el servicio es *intermitente*, es decir, que existe pero falla; afirmar que no existe agrega información que el texto no da."
+        ]
+      }
     }
   ]
 }

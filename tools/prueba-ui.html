@@ -121,6 +121,10 @@
     const primerTema = texto();
     await clic('[data-accion="estudio-tema"]:not(.actual)');
     afirmar(texto() !== primerTema, 'cambia de tema al navegar');
+    afirmar(document.querySelectorAll('[data-accion="estudio-responder"]').length === 3, 'el ejercicio de práctica tiene 3 opciones');
+    await clic('[data-accion="estudio-responder"]');
+    afirmar(document.querySelector('.retro') !== null, 'responder el ejercicio muestra retroalimentación');
+    afirmar(document.querySelector('[data-accion="estudio-responder"]:disabled') !== null, 'las opciones quedan deshabilitadas tras responder');
     await clic('[data-accion="estudio-practicar"]');
     afirmar(document.querySelector('.tarjeta-pregunta') !== null, 'lanza una práctica desde la lección');
     afirmar(texto().includes('1.1'), 'la práctica es de la subárea de la lección');
