@@ -26,7 +26,13 @@ más:
 1. En Railway: **New Project → Deploy from GitHub repo** → elige `elionaz/EGAL-COMPU-2026`.
 2. (Opcional) En **Variables**, agrega `ANTHROPIC_API_KEY` para activar el tutor con IA en
    producción — sin ella, el tutor cae automáticamente al modo local (sigue funcionando).
-3. Railway asigna un dominio público (`Settings → Networking → Generate Domain`) y listo: la
+3. **Si activas `ANTHROPIC_API_KEY`, agrega también `TUTOR_ACCESS_CODE`** con un código que
+   solo tú conozcas. El resto del sitio (simulacros, práctica, estudio) es estático y gratis
+   de servir, así que queda abierto — pero sin este código, cualquiera que encuentre la URL
+   pública podría drenar tu API key usando el chat con IA. Con el código puesto, el navegador
+   lo pide una sola vez (al pedir la primera pista con IA) y el servidor lo exige en cada
+   llamada a `/api/tutor`, más un límite de peticiones por IP como respaldo.
+4. Railway asigna un dominio público (`Settings → Networking → Generate Domain`) y listo: la
    app y el proxy `/api/tutor` quedan en la misma URL.
 
 `server.py` escucha en `0.0.0.0` y toma el puerto de la variable `PORT` que Railway inyecta
@@ -63,6 +69,13 @@ en pantalla — cómo resolverlo, no la respuesta. Funciona en dos niveles:
 > **La API key vive solo en el servidor local** (`.env`, ignorado por git). Nunca se envía al
 > navegador: el widget habla con `/api/tutor` y el servidor añade la key del lado del servidor.
 > Sin key, el tutor cae automáticamente al modo local.
+
+**Código de acceso (`TUTOR_ACCESS_CODE`, opcional pero recomendado si el sitio es público):**
+si lo defines, `/api/tutor` exige un código (`X-Tutor-Code`) en cada petición — el widget lo
+pide una vez con un `prompt()` y lo guarda en `localStorage` del navegador. Sin el código
+correcto, el servidor responde 401 y el widget cae a las pistas locales. También hay un
+límite de 30 peticiones/hora y 8 códigos inválidos/hora por IP, así que aunque alguien
+adivine mal el código repetidamente no puede tumbar ni drenar la cuenta.
 
 ## Modos
 

@@ -9,8 +9,17 @@ import { md, escapeHtml } from './util.js';
 let pregunta = null;       // reactivo actualmente visible (o null)
 let abierto = false;
 let iaDisponible = null;   // null = sin comprobar, true/false = resultado de /api/health
+let codigoRequerido = false; // true si el servidor exige X-Tutor-Code (TUTOR_ACCESS_CODE)
+let codigoRechazado = false; // el usuario dejó el prompt en blanco: no reinsistir en esta sesión
 let chats = new Map();     // qid -> [{role, content}]
 let cargando = false;
+
+// ---- Código de acceso del tutor con IA (evita drenar la API key si el sitio
+// queda expuesto públicamente: ver TUTOR_ACCESS_CODE en server.py) -----------
+const CLAVE_CODIGO = 'ceneval.tutor.codigo';
+const codigoGuardado = () => { try { return localStorage.getItem(CLAVE_CODIGO) || ''; } catch { return ''; } };
+const guardarCodigo = (c) => { try { localStorage.setItem(CLAVE_CODIGO, c); } catch {} };
+const borrarCodigo = () => { try { localStorage.removeItem(CLAVE_CODIGO); } catch {} };
 
 // ---- Pistas locales por método (answer-free) --------------------------------
 // Cada regla: si alguna palabra clave aparece en el tema o el enunciado, se
@@ -121,9 +130,12 @@ export function initTutor() {
 async function comprobarIA() {
   try {
     const r = await fetch('/api/health');
-    iaDisponible = r.ok ? (await r.json()).ai === true : false;
+    const datos = r.ok ? await r.json() : {};
+    iaDisponible = datos.ai === true;
+    codigoRequerido = datos.codigo_requerido === true;
   } catch {
     iaDisponible = false;
+    codigoRequerido = false;
   }
   if (abierto) render();
 }
@@ -147,8 +159,10 @@ function render() {
 
   const hist = historial();
   const hayReactivo = !!pregunta;
+  const iaBloqueada = iaDisponible && codigoRequerido && !codigoGuardado();
   const estadoIA =
     iaDisponible === null ? '' :
+    iaBloqueada ? '<span class="tutor-chip" title="Pide una pista para introducir el código de acceso">Con IA 🔒</span>' :
     iaDisponible ? '<span class="tutor-chip ia">Con IA</span>' :
     '<span class="tutor-chip">Modo local</span>';
 
@@ -157,7 +171,7 @@ function render() {
     : hist.length === 0
       ? `<div class="tutor-vacio">
            <p class="mini">Reactivo ${escapeHtml(pregunta.subarea || '')} · ${escapeHtml(pregunta.tema || '')}</p>
-           <p>Pídeme una pista de método. ${iaDisponible ? 'Puedo conversar sobre este reactivo.' : 'Te doy una pista local; para chat con IA agrega tu API key al <code>.env</code>.'}</p>
+           <p>Pídeme una pista de método. ${iaBloqueada ? 'El chat con IA pide un código de acceso — te lo preguntaré al pedir la primera pista.' : iaDisponible ? 'Puedo conversar sobre este reactivo.' : 'Te doy una pista local; para chat con IA agrega tu API key al <code>.env</code>.'}</p>
          </div>`
       : hist.map((m) => `<div class="tutor-msg ${m.role}">${m.role === 'user' ? escapeHtml(m.content) : md(m.content)}</div>`).join('');
 
@@ -223,12 +237,22 @@ async function pedir(texto, revelar) {
   cargando = true;
   render();
   try {
+    if (codigoRequerido && !codigoGuardado()) {
+      if (codigoRechazado) throw new Error('sin código de acceso');
+      const c = prompt('Este sitio pide un código de acceso para usar el tutor con IA (pídeselo a quien administra el sitio). Déjalo en blanco para usar solo pistas locales.');
+      if (c && c.trim()) guardarCodigo(c.trim());
+      else {
+        codigoRechazado = true;
+        throw new Error('sin código de acceso');
+      }
+    }
     const r = await fetch('/api/tutor', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'X-Tutor-Code': codigoGuardado() },
       body: JSON.stringify({ pregunta, mensajes: hist, revelar }),
     });
     const datos = await r.json().catch(() => ({}));
+    if (r.status === 401) borrarCodigo(); // código guardado inválido: se pedirá de nuevo la próxima vez
     if (!r.ok) throw new Error(datos.mensaje || datos.error || `Error ${r.status}`);
     hist.push({ role: 'assistant', content: datos.texto || '(respuesta vacía)' });
   } catch (err) {

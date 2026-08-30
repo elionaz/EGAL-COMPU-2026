@@ -10,10 +10,13 @@ y, si no, cae a urllib de la biblioteca estándar.
 
 Uso:  python3 server.py [puerto]     (por defecto 8000)
 """
+import hmac
 import json
 import os
 import sys
 import threading
+import time
+from collections import defaultdict, deque
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.error import HTTPError, URLError
@@ -25,6 +28,31 @@ MODELO = "claude-opus-4-8"
 VERSION_API = "2023-06-01"
 MAX_TOKENS = 1024
 TIMEOUT = 60
+
+# ---- Protección de /api/tutor: código de acceso + límite de tasa por IP -----
+# Si el sitio queda expuesto públicamente, esto evita que alguien sin el código
+# drene la API key haciendo peticiones al tutor con IA. El resto del sitio
+# (simulacros, práctica, estudio) no cuesta nada y sigue abierto.
+VENTANA_SEG = 3600  # 1 hora
+LIMITE_PETICIONES_IP = 30  # peticiones a /api/tutor por IP por hora (con o sin código válido)
+LIMITE_FALLOS_IP = 8       # códigos inválidos por IP por hora antes de bloquear esa IP
+_peticiones_por_ip = defaultdict(deque)
+_fallos_por_ip = defaultdict(deque)
+_limite_lock = threading.Lock()
+
+
+def _excede_limite(mapa, ip, limite, ventana=VENTANA_SEG):
+    """Sliding window en memoria: True si `ip` ya alcanzó `limite` eventos en `ventana`.
+    Si no lo alcanzó, registra este evento y devuelve False."""
+    ahora = time.time()
+    with _limite_lock:
+        dq = mapa[ip]
+        while dq and ahora - dq[0] > ventana:
+            dq.popleft()
+        if len(dq) >= limite:
+            return True
+        dq.append(ahora)
+        return False
 
 TIPOS_MIME = {
     ".html": "text/html; charset=utf-8",
@@ -75,6 +103,10 @@ def cargar_env():
 
 def api_key():
     return os.environ.get("ANTHROPIC_API_KEY", "").strip()
+
+
+def codigo_esperado():
+    return os.environ.get("TUTOR_ACCESS_CODE", "").strip()
 
 
 def llamar_claude(system, messages):
@@ -184,18 +216,40 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         ruta = self.path.split("?", 1)[0]
         if ruta == "/api/health":
-            return self._json(200, {"ai": bool(api_key())})
+            return self._json(200, {"ai": bool(api_key()), "codigo_requerido": bool(codigo_esperado())})
         return self._servir_estatico(ruta)
 
     def do_POST(self):
         if self.path.split("?", 1)[0] != "/api/tutor":
             return self._json(404, {"error": "Ruta no encontrada"})
-        if not api_key():
-            return self._json(503, {"error": "sin_api_key", "mensaje": "No hay ANTHROPIC_API_KEY configurada en .env."})
+
+        # Siempre se drena el body antes de responder lo que sea: si se corta antes,
+        # los bytes que sobran corrompen la siguiente petición en la misma conexión
+        # keep-alive (HTTP/1.1).
         try:
             largo = int(self.headers.get("Content-Length", 0))
-            datos = json.loads(self.rfile.read(largo) or b"{}")
-        except (ValueError, json.JSONDecodeError):
+        except ValueError:
+            largo = 0
+        cuerpo_crudo = self.rfile.read(largo) if largo else b"{}"
+
+        if not api_key():
+            return self._json(503, {"error": "sin_api_key", "mensaje": "No hay ANTHROPIC_API_KEY configurada."})
+
+        ip = self.client_address[0]
+        if _excede_limite(_peticiones_por_ip, ip, LIMITE_PETICIONES_IP):
+            return self._json(429, {"error": "limite", "mensaje": "Demasiadas peticiones al tutor desde esta conexión. Espera un momento e inténtalo de nuevo."})
+
+        esperado = codigo_esperado()
+        if esperado:
+            recibido = self.headers.get("X-Tutor-Code", "").strip()
+            if not recibido or not hmac.compare_digest(recibido, esperado):
+                if _excede_limite(_fallos_por_ip, ip, LIMITE_FALLOS_IP):
+                    return self._json(429, {"error": "bloqueado", "mensaje": "Demasiados códigos inválidos desde esta conexión. Intenta más tarde."})
+                return self._json(401, {"error": "codigo_invalido", "mensaje": "Código de acceso inválido o faltante."})
+
+        try:
+            datos = json.loads(cuerpo_crudo or b"{}")
+        except json.JSONDecodeError:
             return self._json(400, {"error": "JSON inválido"})
 
         pregunta = datos.get("pregunta") or {}
@@ -231,7 +285,10 @@ def main():
     puerto = int(sys.argv[1]) if len(sys.argv) > 1 else int(os.environ.get("PORT", 8000))
     host = os.environ.get("HOST", "0.0.0.0")
     servidor = ThreadingHTTPServer((host, puerto), Handler)
-    ia = "con tutor IA (Claude)" if api_key() else "sin tutor IA (agrega ANTHROPIC_API_KEY a .env o a las variables de entorno para activarlo)"
+    if api_key():
+        ia = "con tutor IA (Claude), con código de acceso" if codigo_esperado() else "con tutor IA (Claude), SIN código de acceso — cualquiera con la URL puede usarlo"
+    else:
+        ia = "sin tutor IA (agrega ANTHROPIC_API_KEY a .env o a las variables de entorno para activarlo)"
     print(f"Simulador EGAL COMPU → http://{host}:{puerto}  [{ia}]")
     print("Ctrl+C para detener.")
     try:

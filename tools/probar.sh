@@ -48,6 +48,18 @@ assert capt['url'].endswith('/v1/messages')
 assert capt['h']['x-api-key']=='sk-ant-test' and capt['h']['anthropic-version']=='2023-06-01'
 assert capt['b']['model']=='claude-opus-4-8' and t=='hola'
 print('  OK  contrato del tutor (construcción de mensajes + request a Claude)')
+
+# Código de acceso: sin TUTOR_ACCESS_CODE no se exige nada; con él, se lee tal cual.
+assert server.codigo_esperado() == ''
+os.environ['TUTOR_ACCESS_CODE'] = 'sesamo'
+assert server.codigo_esperado() == 'sesamo'
+
+# Límite de tasa en memoria (sliding window por IP).
+ip = '203.0.113.9'
+for _ in range(server.LIMITE_PETICIONES_IP):
+    assert server._excede_limite(server._peticiones_por_ip, ip, server.LIMITE_PETICIONES_IP) is False
+assert server._excede_limite(server._peticiones_por_ip, ip, server.LIMITE_PETICIONES_IP) is True
+print('  OK  código de acceso (TUTOR_ACCESS_CODE) y límite de tasa por IP')
 PY
 
 echo; echo "── Interfaz (Chrome headless) ──"
